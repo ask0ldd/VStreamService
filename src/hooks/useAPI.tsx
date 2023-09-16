@@ -1,26 +1,40 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from "react"
+import OmdbKey from '../../env'
 
 function useAPI(requestDefinition : IRequestDefinition){
 
-    const [fetchedData, setFetchedData] = useState()
+    const [fetchedDatas, setFetchedDatas] = useState<IMovie>()
     const [isLoading, setLoading] = useState(true)
     const [isError, setError] = useState(false)
 
     useEffect(() => {
         if (!requestDefinition == null) return
-        const request = composeRequestURL(requestDefinition)
 
         async function fetchDatas (){
+
+            setError(false)
+            setLoading(true)
+
             try{
-
+                const request = composeRequestURL(requestDefinition)
+                console.log(request)
+                const response = await fetch(request)
+                const datas = await response.json()
+                setFetchedDatas(datas)
             }catch(error){
-
+                console.log(error)
+                setError(true)
+            }finally{
+                setLoading(false)
             }
         }
 
         fetchDatas()
 
     }, [requestDefinition])
+
+    return [isLoading, fetchedDatas, isError]
 }
 
 interface IRequestDefinition {
@@ -59,6 +73,8 @@ interface IMovie {
 }
 
 const composeRequestURL = (requestDefinition : IRequestDefinition) : string => {
-    if(requestDefinition.searchBy === 'id') return `http://www.omdbapi.com/?i=${requestDefinition.id}&apikey=${process.env.OmdbKey}`
-    return `http://www.omdbapi.com/?t=${requestDefinition.title}&apikey=${process.env.OmdbKey}`
+    if(requestDefinition.searchBy === 'id') return `http://www.omdbapi.com/?i=${requestDefinition.id}&apikey=${OmdbKey}`
+    return `http://www.omdbapi.com/?t=${requestDefinition.title}&apikey=${OmdbKey}`
 }
+
+export default useAPI
