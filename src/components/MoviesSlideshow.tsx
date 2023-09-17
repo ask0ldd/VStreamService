@@ -8,8 +8,10 @@ function MoviesSlideshow({moviesList}: {moviesList : IMovie[]}) {
             <h2>Currently Trending</h2>
             <div className="moviesContainer">
                 {moviesList.map(movie => (
-                    <article className="movieCard">
-                        <img className="posterImg" key={movie.imdbID} src={movie.Poster}/>
+                    <article key={movie.imdbID} className="movieCard">
+                        <h3>{movie.Title}</h3>
+                        <img className="posterImg" src={movie.Poster}/>
+                        <img className="movieBgImg" src='mandalorian.jpg'/>
                     </article>
                 ))}
             </div>
