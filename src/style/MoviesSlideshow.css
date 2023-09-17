@@ -10,6 +10,14 @@ section {
   /*overflow: hidden;*/
   overflow-x: scroll;
   scrollbar-width: 0;
+  position: relative;
+}
+
+.moviesContainer .arrow {
+  position: absolute;
+  right: 0;
+  top: 100px;
+  z-index: 3;
 }
 
 .moviesContainer::-webkit-scrollbar {
