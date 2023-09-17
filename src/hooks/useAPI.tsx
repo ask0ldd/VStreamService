@@ -6,7 +6,7 @@ import { IMovie, IRequestDefinition } from "../types/types"
 
 function useAPI(requestDefinition : IRequestDefinition){
 
-    const [fetchedDatas, setFetchedDatas] = useState<IMovie>()
+    const [fetchedDatas, setFetchedDatas] = useState<IMovie | IMovie[]>()
     const [isLoading, setLoading] = useState<boolean>(true)
     const [isError, setError] = useState<boolean>(false)
 
@@ -22,6 +22,7 @@ function useAPI(requestDefinition : IRequestDefinition){
             try{
                 if(requestDefinition.title != null) datas =  await APIRequestsManager.getMovieByTitle(requestDefinition.title, requestDefinition.longPlot) 
                 if(requestDefinition.id != null) datas = await APIRequestsManager.getMovieById(requestDefinition.id, requestDefinition.longPlot)
+                if(requestDefinition.idList != null) datas = await APIRequestsManager.getMoviesById(requestDefinition.idList, requestDefinition.longPlot)
                 setFetchedDatas(datas)
             }catch(error){
                 console.log(error)
