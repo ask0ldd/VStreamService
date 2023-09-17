@@ -71,6 +71,7 @@ section {
   left: 0;
   transition: opacity 0.3s linear;
   z-index: -1;
+  filter: brightness(0.8);
 }
 
 .movieCard:hover .movieBgImg {
