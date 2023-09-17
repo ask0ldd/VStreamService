@@ -1,12 +1,15 @@
 import { IMovie } from "../types/types"
-import { IMoviesBg } from "./MoviesSlideshow"
+import '../style/VerticalMovieCard.css'
 
-function VerticalMovieCard({movie, moviesBg} : {movie : IMovie, moviesBg : IMoviesBg}){
+function VerticalMovieCard({movie, moviesBg} : {movie : IMovie, moviesBg : string}){
     return(
         <article key={movie.imdbID} className="movieCard">
-            <h3>{movie.Title}</h3>
+            <div className="movieInfoContainer">
+                <h3>{movie.Title}</h3>
+                <p>{movie.Plot}</p>
+            </div>
             <img className="posterImg" src={movie.Poster}/>
-            <img className="movieBgImg" src={moviesBg[movie.imdbID]}/>
+            <img className="movieBgImg" src={moviesBg}/>
         </article>
     )
 }

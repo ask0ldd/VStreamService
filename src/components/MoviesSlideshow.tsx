@@ -1,5 +1,6 @@
 import { IMovie } from "../types/types"
 import '../style/MoviesSlideshow.css'
+import VerticalMovieCard from "./VerticalMovieCard"
 
 function MoviesSlideshow({moviesList}: {moviesList : IMovie[]}) {
 
@@ -40,36 +41,20 @@ function MoviesSlideshow({moviesList}: {moviesList : IMovie[]}) {
         <section>
             <h2>Currently Trending</h2>
             <div className="moviesArrowsContainer">
-                <img onClick={scrollRight} className="rightArrow" src="arrow-right.svg"/>
-                <img onClick={scrollLeft} className="leftArrow" src="arrow-right.svg"/>
+                <img onClick={scrollRight} className="rightArrow" role="button" alt="next movies" src="arrow-right.svg"/>
+                <img onClick={scrollLeft} className="leftArrow" alt="previous movies" src="arrow-right.svg"/>
                 <div className="moviesContainer">
                     {moviesList.map(movie => (
-                        <article key={movie.imdbID} className="movieCard">
-                            <h3>{movie.Title}</h3>
-                            <img className="posterImg" src={movie.Poster}/>
-                            <img className="movieBgImg" src={moviesBg[movie.imdbID]}/>
-                        </article>
+                        <VerticalMovieCard movie={movie} moviesBg={moviesBg[movie.imdbID]}/>
                     ))}
                     {moviesList.map(movie => (
-                        <article key={movie.imdbID} className="movieCard">
-                            <h3>{movie.Title}</h3>
-                            <img className="posterImg" src={movie.Poster}/>
-                            <img className="movieBgImg" src={moviesBg[movie.imdbID]}/>
-                        </article>
+                        <VerticalMovieCard movie={movie} moviesBg={moviesBg[movie.imdbID]}/>
                     ))}
                     {moviesList.map(movie => (
-                        <article key={movie.imdbID} className="movieCard">
-                            <h3>{movie.Title}</h3>
-                            <img className="posterImg" src={movie.Poster}/>
-                            <img className="movieBgImg" src={moviesBg[movie.imdbID]}/>
-                        </article>
+                        <VerticalMovieCard movie={movie} moviesBg={moviesBg[movie.imdbID]}/>
                     ))}
                     {moviesList.map(movie => (
-                        <article key={movie.imdbID} className="movieCard">
-                            <h3>{movie.Title}</h3>
-                            <img className="posterImg" src={movie.Poster}/>
-                            <img className="movieBgImg" src={moviesBg[movie.imdbID]}/>
-                        </article>
+                        <VerticalMovieCard movie={movie} moviesBg={moviesBg[movie.imdbID]}/>
                     ))}
                 </div>
             </div>
@@ -79,6 +64,6 @@ function MoviesSlideshow({moviesList}: {moviesList : IMovie[]}) {
 
 export default MoviesSlideshow
 
-interface IMoviesBg {
+export interface IMoviesBg {
     [key: string]: string;
   }
