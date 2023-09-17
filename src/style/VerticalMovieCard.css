@@ -64,3 +64,18 @@
 .movieCard:hover .movieBgImg {
   opacity: 1;
 }
+
+.genreTagsContainer {
+  display: flex;
+  flex-direction: row;
+  column-gap: 0.75rem;
+}
+
+.genreTag {
+  padding: 0.25rem 0.7rem 0.3rem 0.7rem;
+  background-color: #ffffffcc;
+  color: rgb(0, 5, 13);
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: 600;
+}
