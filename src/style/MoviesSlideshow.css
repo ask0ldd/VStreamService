@@ -4,6 +4,25 @@ section {
   row-gap: 1rem;
 }
 
+.moviesArrowsContainer {
+  position: relative;
+}
+
+.moviesArrowsContainer .rightArrow {
+  position: absolute;
+  right: 2rem;
+  top: 100px;
+  z-index: 3;
+}
+
+.moviesArrowsContainer .leftArrow {
+  position: absolute;
+  left: 2rem;
+  top: 100px;
+  z-index: 3;
+  transform: rotate(180deg);
+}
+
 .moviesContainer {
   display: flex;
   column-gap: 2rem;
@@ -11,13 +30,6 @@ section {
   overflow-x: scroll;
   scrollbar-width: 0;
   position: relative;
-}
-
-.moviesContainer .arrow {
-  position: absolute;
-  right: 0;
-  top: 100px;
-  z-index: 3;
 }
 
 .moviesContainer::-webkit-scrollbar {
