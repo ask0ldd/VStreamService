@@ -1,5 +1,5 @@
 export interface IRequestDefinition {
-    id? : string, 
+    id ?: string, 
     title ?: string, 
     longPlot : boolean
 }

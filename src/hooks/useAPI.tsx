@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from "react"
 import { APIRequestsManager } from "../services/APIRequestsManager"
-import { IMovie } from "../types/types"
+import { IMovie, IRequestDefinition } from "../types/types"
 
 function useAPI(requestDefinition : IRequestDefinition){
 
@@ -36,13 +36,6 @@ function useAPI(requestDefinition : IRequestDefinition){
     }, [requestDefinition.id, requestDefinition.title])
 
     return {isLoading, fetchedDatas, isError}
-}
-
-interface IRequestDefinition {
-    /*searchBy : string, */
-    id? : string, 
-    title ?: string, 
-    longPlot : boolean
 }
 
 export default useAPI

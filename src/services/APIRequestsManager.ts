@@ -1,23 +1,34 @@
 import OmdbKey from "../../env"
+import { IMovie } from "../types/types"
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 export class APIRequestsManager {
-    static async getMovieByTitle(title : string, longPlot : boolean){
+    static async getMovieByTitle(title : string, longPlot : boolean) : Promise<IMovie>{
         const longPlotExtension = longPlot === true ? '&plot=full' : ''
         const requestUrl = `http://www.omdbapi.com/?t=${title}&apikey=${OmdbKey}${longPlotExtension}`
-        console.log(requestUrl)
         const response = await fetch(requestUrl)
         const datas = await response.json()
         return datas
     }
 
-    static async getMovieById(id : string, longPlot : boolean){
+    static async getMovieById(id : string, longPlot : boolean) : Promise<IMovie>{
         const longPlotExtension = longPlot === true ? '&plot=full' : ''
         const requestUrl = `http://www.omdbapi.com/?i=${id}&apikey=${OmdbKey}${longPlotExtension}`
-        console.log(requestUrl)
         const response = await fetch(requestUrl)
         const datas = await response.json()
         return datas
+    }
+
+    static async getMoviesById(idList : string[], longPlot : boolean) : Promise<IMovie[]>{
+        const longPlotExtension = longPlot === true ? '&plot=full' : ''
+        const moviesList : IMovie[] = []
+        for(const movieId of idList) {
+            const requestUrl = `http://www.omdbapi.com/?i=${movieId}&apikey=${OmdbKey}${longPlotExtension}`
+            const response = await fetch(requestUrl)
+            const datas = await response.json()
+            moviesList.push(datas)
+        }
+        return moviesList
     }
 
 }
@@ -28,36 +39,3 @@ export class APIRequestsManager {
     return `http://www.omdbapi.com/?t=${requestDefinition.title}&apikey=${OmdbKey}${longPlot}`
 }*/
 
-interface IRequestDefinition {
-    id? : string, 
-    title ?: string, 
-    longPlot : boolean
-}
-
-export interface IMovie {
-    Title: string,
-    Year: string,
-    Rated: string,
-    Released: string,
-    Runtime: string,
-    Genre: string,
-    Director: string,
-    Writer: string,
-    Actors: string,
-    Plot: string,
-    Language: string,
-    Country: string,
-    Awards: string,
-    Poster: string,
-    Ratings:{Source:string,Value:string},
-    Metascore: string,
-    imdbRating: string,
-    imdbVotes: string,
-    imdbID: string,
-    Type: string,
-    DVD: string,
-    BoxOffice: string,
-    Production: string,
-    Website: string,
-    Response: string,
-}
