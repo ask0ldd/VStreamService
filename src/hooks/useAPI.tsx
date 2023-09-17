@@ -1,6 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from "react"
-import { APIRequestsManager, IMovie } from "../services/APIRequestsManager"
+import { APIRequestsManager } from "../services/APIRequestsManager"
+import { IMovie } from "../types/types"
 
 function useAPI(requestDefinition : IRequestDefinition){
 
@@ -31,7 +33,7 @@ function useAPI(requestDefinition : IRequestDefinition){
 
         fetchDatas()
 
-    }, [JSON.stringify(requestDefinition)])
+    }, [requestDefinition.id, requestDefinition.title])
 
     return {isLoading, fetchedDatas, isError}
 }

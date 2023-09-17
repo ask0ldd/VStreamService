@@ -1,4 +1,4 @@
-import { IMovie } from "../services/APIRequestsManager"
+import { IMovie } from "../types/types"
 
 function MoviesSlideshow({moviesList}: {moviesList : IMovie[]}) {
     return (

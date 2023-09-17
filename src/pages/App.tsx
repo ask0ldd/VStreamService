@@ -2,7 +2,7 @@
 // import { useState } from 'react'
 import MoviesSlideshow from '../components/MoviesSlideshow'
 import useAPI from '../hooks/useAPI'
-import { IMovie } from '../services/APIRequestsManager'
+import { IMovie } from '../types/types'
 import './App.css'
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
   if(fetchedDatas != null ) moviesList.push(fetchedDatas)
 
   return (
-    <>
+    !isError && <>
       <MoviesSlideshow moviesList={moviesList}/>
     </>
   )
