@@ -22,6 +22,9 @@ function VerticalMovieCard({movie, moviesBg} : {movie : IMovie, moviesBg : strin
             </div>
             <img className="posterImg" src={movie.Poster}/>
             <img className="movieBgImg" src={moviesBg}/>
+            <div className="playContainerBorder">
+                <img src="playbutton.png"/>
+            </div>
         </article>
     )
 }
