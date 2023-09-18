@@ -20,8 +20,18 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: rgb(0, 5, 13);
-
+  /*background-color: rgb(0, 5, 13);*/
+  background: radial-gradient(
+      68.71% 51.43% at 77.63% 2.85%,
+      rgba(114, 191, 255, 0.25) 0%,
+      rgba(95, 182, 255, 0) 100%
+    ),
+    radial-gradient(
+      75.78% 66.28% at 21.51% 4.67%,
+      rgba(48, 48, 48, 0.6) 0%,
+      rgba(48, 48, 48, 0) 100%
+    ),
+    #00050d;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
