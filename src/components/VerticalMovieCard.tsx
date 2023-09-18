@@ -23,7 +23,7 @@ function VerticalMovieCard({movie, moviesBg} : {movie : IMovie, moviesBg : strin
             <img className="posterImg" src={movie.Poster}/>
             <img className="movieBgImg" src={moviesBg}/>
             <div className="playContainerBorder">
-                <img src="playbutton.png"/>
+                <a href="#" style={{height:'64px', borderRadius:'300px'}}><img style={{boxShadow:'0px 4px 8px #00000066', borderRadius:'300px'}} src="playbutton.png"/></a>
             </div>
         </article>
     )
