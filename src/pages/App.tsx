@@ -18,6 +18,8 @@ function App() {
     <>
       <Header/>
       {!isError && <MoviesSlideshow moviesList={moviesList}/>}
+      <div style={{height:'4rem'}}></div>
+      {!isError && <MoviesSlideshow moviesList={moviesList}/>}
     </>
   )
 }

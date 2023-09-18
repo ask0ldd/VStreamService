@@ -12,7 +12,7 @@ function VerticalMovieCard({movie, moviesBg} : {movie : IMovie, moviesBg : strin
                 <div style={{marginTop:'6px'}} className="genreTagsContainer">
                     {movieGenres.map(genre => { return(<div className="genreTag">{genre}</div>) })}
                 </div>
-                <p style={{marginTop:'9px'}}>{movie.Plot}</p>
+                <p className="plotContainer">{movie.Plot}</p>
             </div>
             <img className="posterImg" src={movie.Poster}/>
             <img className="movieBgImg" src={moviesBg}/>

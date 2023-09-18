@@ -11,6 +11,8 @@
 
 .movieCard:hover {
   width: 475px;
+  border: 2px solid #168ef5cc;
+  /*box-shadow: 0 8px 16px #168ef599;*/
 }
 
 .movieCard .movieInfoContainer {
@@ -32,6 +34,7 @@
   font-size: 2rem;
   /*letter-spacing: 0.05rem;*/
   font-weight: 600;
+  color: #ffffffcc;
 }
 
 .posterImg {
@@ -68,22 +71,30 @@
   opacity: 1;
 }
 
+.plotContainer {
+  margin-top: 9px;
+  font-family: "Lexend", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  width: 65%;
+}
+
 .genreTagsContainer {
   display: flex;
   flex-direction: row;
-  column-gap: 12px;
+  column-gap: 10px;
 }
 
 .genreTag {
-  height: 36px;
-  padding: 0 16px;
+  height: 32px;
+  padding: 0px 12px 0 12px;
   display: flex;
   justify-content: center;
   align-items: center;
   /*background-color: #ffffffcc;*/
   background: linear-gradient(180deg, #1a98ff 0%, #0f7ee3 100%);
   /*color: rgb(0, 5, 13);*/
-  color: #fff;
+  color: #ffffffdd;
   border-radius: 3px;
   font-size: 12px;
   font-weight: 400;

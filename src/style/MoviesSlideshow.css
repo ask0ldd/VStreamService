@@ -1,7 +1,12 @@
 section {
   display: flex;
   flex-direction: column;
-  row-gap: 1rem;
+  row-gap: 1.5rem;
+}
+
+h2 {
+  color: #ffffffdd;
+  font-family: "Lexend", sans-serif;
 }
 
 .moviesArrowsContainer {
