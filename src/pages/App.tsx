@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 // import { useState } from 'react'
+import Header from '../components/Header'
 import MoviesSlideshow from '../components/MoviesSlideshow'
 import useAPI from '../hooks/useAPI'
 import { IMovie } from '../types/types'
@@ -14,8 +15,9 @@ function App() {
   if(fetchedDatas != null && Array.isArray(fetchedDatas)) moviesList = [...fetchedDatas]
 
   return (
-    !isError && <>
-      <MoviesSlideshow moviesList={moviesList}/>
+    <>
+      <Header/>
+      {!isError && <MoviesSlideshow moviesList={moviesList}/>}
     </>
   )
 }

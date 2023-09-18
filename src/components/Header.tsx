@@ -1,3 +1,5 @@
+import '../style/Header.css'
+
 function Header (){
     return(
         <header>
@@ -16,3 +18,5 @@ function Header (){
         </header>
     )
 }
+
+export default Header

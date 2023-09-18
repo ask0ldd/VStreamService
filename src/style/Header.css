@@ -1,0 +1,12 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 6rem;
+}
+
+header ul {
+  display: flex;
+  column-gap: 1rem;
+  flex-direction: row;
+}
