@@ -27,10 +27,11 @@
 }
 
 .movieCard h3 {
+  font-family: "Oswald", sans-serif;
   margin: 0;
   font-size: 2rem;
   /*letter-spacing: 0.05rem;*/
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .posterImg {
@@ -70,18 +71,23 @@
 .genreTagsContainer {
   display: flex;
   flex-direction: row;
-  column-gap: 0.6rem;
+  column-gap: 12px;
 }
 
 .genreTag {
-  padding: 0.25rem 0.7rem 0.3rem 0.7rem;
+  height: 36px;
+  padding: 0 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /*background-color: #ffffffcc;*/
   background: linear-gradient(180deg, #1a98ff 0%, #0f7ee3 100%);
   /*color: rgb(0, 5, 13);*/
   color: #fff;
   border-radius: 3px;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 400;
+  font-family: "Lexend", sans-serif;
   /*border: 1px solid #ffffffdd;*/
   /*box-shadow: 0px 3px 6px #00000022;*/
 }

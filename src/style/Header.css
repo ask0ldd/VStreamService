@@ -4,6 +4,11 @@ header {
   flex-direction: row;
   height: 5rem;
   align-items: center;
+  margin-bottom: 2rem;
+}
+
+figure {
+  transform: translateY(2px) translateX(-14px);
 }
 
 header ul {
