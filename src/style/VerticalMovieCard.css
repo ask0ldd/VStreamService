@@ -75,11 +75,13 @@
 
 .genreTag {
   padding: 0.25rem 0.7rem 0.3rem 0.7rem;
-  background-color: #ffffffcc;
-  color: rgb(0, 5, 13);
+  /*background-color: #ffffffcc;*/
+  background: linear-gradient(180deg, #1a98ff 0%, #0f7ee3 100%);
+  /*color: rgb(0, 5, 13);*/
+  color: #fff;
   border-radius: 3px;
   font-size: 12px;
-  font-weight: 700;
-  border: 1px solid #ffffffdd;
+  font-weight: 500;
+  /*border: 1px solid #ffffffdd;*/
   /*box-shadow: 0px 3px 6px #00000022;*/
 }

@@ -4,7 +4,7 @@ function Header (){
     return(
         <header>
             <figure>
-                WatchFusion
+                <img src="mainlogo.png"/>
             </figure>
             <nav>
                 <ul>

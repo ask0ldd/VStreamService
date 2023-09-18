@@ -2,11 +2,19 @@ header {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  height: 6rem;
+  height: 5rem;
+  align-items: center;
 }
 
 header ul {
   display: flex;
-  column-gap: 1rem;
+  column-gap: 3rem;
   flex-direction: row;
+}
+
+li {
+  color: #84afda;
+  font-weight: 400;
+  font-size: 20px;
+  font-family: "Oswald", sans-serif;
 }
