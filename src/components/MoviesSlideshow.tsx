@@ -42,8 +42,12 @@ function MoviesSlideshow({moviesList}: {moviesList : IMovie[]}) {
             <h2>Currently Trending</h2>
             <div className="moviesArrowsContainer">
                 <div className="arrowsContainer">
-                    <img onClick={scrollLeft} className="leftArrow" alt="previous movies" src="arrow-right.svg"/>
-                    <img onClick={scrollRight} className="rightArrow" role="button" alt="next movies" src="arrow-right.svg"/>
+                    <div onClick={scrollLeft} className="leftArrowContainer">
+                        <img className="leftArrow" alt="previous movies" src="arrow-right.svg"/>
+                    </div>
+                    <div onClick={scrollRight} className="rightArrowContainer">
+                        <img className="rightArrow" role="button" alt="next movies" src="arrow-right.svg"/>
+                    </div>
                 </div>
                 <div className="moviesContainer">
                     {moviesList.map(movie => (

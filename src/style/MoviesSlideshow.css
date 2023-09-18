@@ -19,24 +19,40 @@ section {
   justify-content: space-between;
   align-items: center;
   pointer-events: none;
-  padding: 1rem;
 }
 
-.arrowsContainer .rightArrow {
-  z-index: 4;
+.leftArrowContainer,
+.rightArrowContainer {
+  display: flex;
+  align-items: center;
+  height: 80%;
+  /*width: 3.5rem;*/
+  background-color: #00000077;
+  justify-content: center;
+  display: none;
   cursor: pointer;
   pointer-events: all;
-  width: 2rem;
-  /*display: none;*/
 }
 
-.arrowsContainer .leftArrow {
+.leftArrowContainer {
+  border-radius: 0 12px 12px 0;
+  padding: 0 1rem 0 0.75rem;
+}
+
+.rightArrowContainer {
+  border-radius: 12px 0 0 12px;
+  padding: 0 0.75rem 0 1rem;
+}
+
+.rightArrow {
+  z-index: 4;
+  width: 1.5rem;
+}
+
+.leftArrow {
   z-index: 4;
   transform: rotate(180deg);
-  cursor: pointer;
-  pointer-events: all;
-  width: 2rem;
-  /*display: none;*/
+  width: 1.5rem;
 }
 
 .moviesContainer {
@@ -50,4 +66,9 @@ section {
 
 .moviesContainer::-webkit-scrollbar {
   display: none;
+}
+
+.moviesArrowsContainer:hover .leftArrowContainer,
+.moviesArrowsContainer:hover .rightArrowContainer {
+  display: flex;
 }
