@@ -16,7 +16,7 @@ function MoviesSlideshow({moviesList}: {moviesList : IMovie[]}) {
     function scrollRight(e : React.MouseEvent<HTMLElement>){
         e.preventDefault()
         const arrow = e.currentTarget as HTMLImageElement
-        const moviesContainer = arrow.parentElement?.querySelector('.moviesContainer')
+        const moviesContainer = arrow.parentElement?.parentElement?.querySelector('.moviesContainer')
         moviesContainer?.scrollBy({
             left: 225*4+32*4,
             top: 0,
@@ -27,7 +27,7 @@ function MoviesSlideshow({moviesList}: {moviesList : IMovie[]}) {
     function scrollLeft(e : React.MouseEvent<HTMLElement>){
         e.preventDefault()
         const arrow = e.currentTarget as HTMLImageElement
-        const moviesContainer = arrow.parentElement?.querySelector('.moviesContainer')
+        const moviesContainer = arrow.parentElement?.parentElement?.querySelector('.moviesContainer')
         moviesContainer?.scrollBy({
             left: -(225*4+32*4),
             top: 0,
@@ -41,8 +41,10 @@ function MoviesSlideshow({moviesList}: {moviesList : IMovie[]}) {
         <section>
             <h2>Currently Trending</h2>
             <div className="moviesArrowsContainer">
-                <img onClick={scrollRight} className="rightArrow" role="button" alt="next movies" src="arrow-right.svg"/>
-                <img onClick={scrollLeft} className="leftArrow" alt="previous movies" src="arrow-right.svg"/>
+                <div className="arrowsContainer">
+                    <img onClick={scrollLeft} className="leftArrow" alt="previous movies" src="arrow-right.svg"/>
+                    <img onClick={scrollRight} className="rightArrow" role="button" alt="next movies" src="arrow-right.svg"/>
+                </div>
                 <div className="moviesContainer">
                     {moviesList.map(movie => (
                         <VerticalMovieCard movie={movie} moviesBg={moviesBg[movie.imdbID]}/>
