@@ -7,32 +7,39 @@
   overflow: hidden;
   border-radius: 12px;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ffffff20;
 }
 
 .movieCard:hover {
   width: 475px;
   /*border: 2px solid #168ef5cc;*/
-  border: 2px solid #ffffff15;
   /*box-shadow: 0 8px 16px #168ef599;*/
 }
 
 .ratingTag {
   background-color: #00050ddd;
   border: 1px solid #1a98ff;
-  width: 72px;
-  height: 32px;
+  width: 68px;
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 32px;
   font-family: "Lexend", sans-serif;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
   color: #fff;
   transition: all 0.3s linear;
   transform: translateY(-300px);
   opacity: 0;
-  column-gap: 8px;
+  column-gap: 9px;
+}
+
+.movieCard:hover .ratingTag {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .movieCard .movieInfoContainer {
@@ -41,16 +48,11 @@
   transform: translateY(300px);
   transition: all 0.3s linear;
   opacity: 0;
-  margin-top: 3rem;
-}
-
-.movieCard:hover .ratingTag {
-  transform: translateY(0);
-  opacity: 1;
+  margin-top: auto;
 }
 
 .movieCard:hover .movieInfoContainer {
-  margin-top: 3rem;
+  margin-top: auto;
   transform: translateY(0);
   opacity: 1;
 }
