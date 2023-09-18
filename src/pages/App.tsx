@@ -17,9 +17,9 @@ function App() {
   return (
     <>
       <Header/>
-      {!isError && <MoviesSlideshow moviesList={moviesList}/>}
+      {!isLoading && !isError && <MoviesSlideshow moviesList={moviesList}/>}
       <div style={{height:'4rem'}}></div>
-      {!isError && <MoviesSlideshow moviesList={moviesList}/>}
+      {!isLoading && !isError && <MoviesSlideshow moviesList={moviesList}/>}
     </>
   )
 }
