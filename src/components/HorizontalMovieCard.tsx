@@ -5,7 +5,15 @@ import '../style/HorizontalMovieCard.css'
 function HorizontalMovieCard ({movie, moviesBg} : {movie : IMovie, moviesBg : string}){
     return (
         <article className="horizontalMovieCard">
-            aaa
+            <div className="mainPicContainer">
+                <img className="mainPic" src={movie.Poster}/>
+            </div>
+            <h3>{movie.Title}</h3>
+            <div>{movie.Released} {movie.Runtime} {movie.Rated}</div>
+            <span className="plot">
+                {movie.Plot}
+            </span>
+
         </article>
     )
 }

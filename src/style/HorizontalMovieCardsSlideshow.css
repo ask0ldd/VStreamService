@@ -2,4 +2,81 @@
   display: flex;
   flex-direction: column;
   row-gap: 1.5rem;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.horizontalCardsSlideshow h2 {
+  color: #ffffffdd;
+  font-family: "Lexend", sans-serif;
+}
+
+.horizontalCardsSlideshow .moviesArrowsContainer {
+  position: relative;
+  height: 200px;
+}
+
+.horizontalCardsSlideshow .arrowsContainer {
+  z-index: 3;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+.horizontalCardsSlideshow .leftArrowContainer,
+.horizontalCardsSlideshow .rightArrowContainer {
+  display: flex;
+  align-items: center;
+  height: 80%;
+  /*width: 3.5rem;*/
+  background-color: #00000077;
+  justify-content: center;
+  display: none;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.horizontalCardsSlideshow .leftArrowContainer {
+  border-radius: 0 12px 12px 0;
+  padding: 0 1rem 0 0.75rem;
+}
+
+.horizontalCardsSlideshow .rightArrowContainer {
+  border-radius: 12px 0 0 12px;
+  padding: 0 0.75rem 0 1rem;
+}
+
+.horizontalCardsSlideshow .rightArrow {
+  z-index: 4;
+  width: 1.5rem;
+}
+
+.horizontalCardsSlideshow .leftArrow {
+  z-index: 4;
+  transform: rotate(180deg);
+  width: 1.5rem;
+}
+
+.horizontalCardsSlideshow .moviesContainer {
+  display: flex;
+  column-gap: 2rem;
+  /*overflow: hidden;*/
+  overflow-x: scroll;
+  scrollbar-width: 0;
+  position: relative;
+}
+
+.horizontalCardsSlideshow .moviesContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.horizontalCardsSlideshow .moviesArrowsContainer:hover .leftArrowContainer,
+.horizontalCardsSlideshow .moviesArrowsContainer:hover .rightArrowContainer {
+  display: flex;
 }

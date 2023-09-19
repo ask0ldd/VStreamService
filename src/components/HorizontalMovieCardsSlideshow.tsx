@@ -4,7 +4,7 @@ import '../style/HorizontalMovieCardsSlideshow.css'
 
 function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
 
-    const cardWidthPlusGap = 450+32
+    const cardWidthPlusGap = 320+32
 
     const moviesBg : IMoviesBg = {
         'tt3230854' : 'theexpanse2.jpg', 

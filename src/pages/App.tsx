@@ -23,6 +23,8 @@ function App() {
       {!isLoading && !isError && <VerticalMovieCardsSlideshow moviesList={moviesList}/>}
       <div style={{height:'4rem'}}></div>
       {!isLoading && !isError && <HorizontalMovieCardsSlideshow moviesList={moviesList}/>}
+      <div style={{height:'4rem'}}></div>
+      {!isLoading && !isError && <HorizontalMovieCardsSlideshow moviesList={moviesList}/>}
     </>
   )
 }

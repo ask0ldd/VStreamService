@@ -9,11 +9,11 @@
   font-family: "Lexend", sans-serif;
 }
 
-.moviesArrowsContainer {
+.verticalCardsSlideshow .moviesArrowsContainer {
   position: relative;
 }
 
-.arrowsContainer {
+.verticalCardsSlideshow .arrowsContainer {
   z-index: 3;
   position: absolute;
   left: 0;
@@ -26,8 +26,8 @@
   pointer-events: none;
 }
 
-.leftArrowContainer,
-.rightArrowContainer {
+.verticalCardsSlideshow .leftArrowContainer,
+.verticalCardsSlideshow .rightArrowContainer {
   display: flex;
   align-items: center;
   height: 80%;
@@ -39,28 +39,28 @@
   pointer-events: all;
 }
 
-.leftArrowContainer {
+.verticalCardsSlideshow .leftArrowContainer {
   border-radius: 0 12px 12px 0;
   padding: 0 1rem 0 0.75rem;
 }
 
-.rightArrowContainer {
+.verticalCardsSlideshow .rightArrowContainer {
   border-radius: 12px 0 0 12px;
   padding: 0 0.75rem 0 1rem;
 }
 
-.rightArrow {
+.verticalCardsSlideshow .rightArrow {
   z-index: 4;
   width: 1.5rem;
 }
 
-.leftArrow {
+.verticalCardsSlideshow .leftArrow {
   z-index: 4;
   transform: rotate(180deg);
   width: 1.5rem;
 }
 
-.moviesContainer {
+.verticalCardsSlideshow .moviesContainer {
   display: flex;
   column-gap: 2rem;
   /*overflow: hidden;*/
@@ -69,11 +69,11 @@
   position: relative;
 }
 
-.moviesContainer::-webkit-scrollbar {
+.verticalCardsSlideshow .moviesContainer::-webkit-scrollbar {
   display: none;
 }
 
-.moviesArrowsContainer:hover .leftArrowContainer,
-.moviesArrowsContainer:hover .rightArrowContainer {
+.verticalCardsSlideshow .moviesArrowsContainer:hover .leftArrowContainer,
+.verticalCardsSlideshow .moviesArrowsContainer:hover .rightArrowContainer {
   display: flex;
 }
