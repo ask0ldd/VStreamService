@@ -10,7 +10,7 @@
   flex-direction: column;
   border: 1px solid #ffffff20;
   overflow: hidden;
-  background-color: black;
+  background: linear-gradient(0deg, #000, #242c35);
   font-family: "Lexend", sans-serif;
 }
 
@@ -21,19 +21,51 @@
   flex-shrink: 0;
   border-radius: 12px 12px 0 0;
   overflow: hidden;
+  position: relative;
+}
+
+.horizontalMovieCard .moviePositionContainer {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 5%;
+  width: 90%;
+  background-color: #ffffff44;
+  border-radius: 100px;
+  height: 6px;
+  display: flex;
+}
+
+.horizontalMovieCard .moviePositionContainer .moviePositionBar {
+  width: 60%;
+  background-color: #1a98ff;
+  border-radius: 100px;
+  height: 6px;
 }
 
 .horizontalMovieCard .mainPic {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
   border-radius: 12px 12px 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .horizontalMovieCard:hover {
   height: 518px;
   z-index: 4;
   /*transform: scale(1.15);*/
+}
+
+.movieInfosContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  row-gap: 0.5rem;
 }
 
 .horizontalMovieCard h3 {

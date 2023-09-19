@@ -7,12 +7,17 @@ function HorizontalMovieCard ({movie, moviesBg} : {movie : IMovie, moviesBg : st
         <article className="horizontalMovieCard">
             <div className="mainPicContainer">
                 <img className="mainPic" src={movie.Poster}/>
+                <div className="moviePositionContainer">
+                    <div className="moviePositionBar"></div>
+                </div>
             </div>
-            <h3>{movie.Title}</h3>
-            <div>{movie.Released} {movie.Runtime} {movie.Rated}</div>
-            <span className="plot">
-                {movie.Plot}
-            </span>
+            <div className="movieInfosContainer">
+                <h3>{movie.Title}</h3>
+                <div>{movie.Released} {movie.Runtime} {movie.Rated}</div>
+                <span className="plot">
+                    {movie.Plot}
+                </span>
+            </div>
 
         </article>
     )

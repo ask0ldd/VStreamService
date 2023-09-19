@@ -45,20 +45,22 @@
 .horizontalCardsSlideshow .leftArrowContainer {
   border-radius: 0 12px 12px 0;
   padding: 0 1rem 0 0.75rem;
+  z-index: 5;
 }
 
 .horizontalCardsSlideshow .rightArrowContainer {
   border-radius: 12px 0 0 12px;
   padding: 0 0.75rem 0 1rem;
+  z-index: 5;
 }
 
 .horizontalCardsSlideshow .rightArrow {
-  z-index: 4;
+  z-index: 5;
   width: 1.5rem;
 }
 
 .horizontalCardsSlideshow .leftArrow {
-  z-index: 4;
+  z-index: 5;
   transform: rotate(180deg);
   width: 1.5rem;
 }
