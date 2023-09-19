@@ -32,3 +32,7 @@ export interface IMovie {
     Website: string,
     Response: string,
 }
+
+export interface IMoviesBg {
+    [key: string]: string;
+  }

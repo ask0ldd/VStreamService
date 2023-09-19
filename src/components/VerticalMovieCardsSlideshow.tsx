@@ -1,8 +1,10 @@
-import { IMovie } from "../types/types"
-import '../style/MoviesSlideshow.css'
+import { IMovie, IMoviesBg } from "../types/types"
+import '../style/VerticalMovieCardsSlideshow.css'
 import VerticalMovieCard from "./VerticalMovieCard"
 
-function MoviesSlideshow({moviesList}: {moviesList : IMovie[]}) {
+function VerticalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}) {
+
+    const cardWidthPlusGap = 225+32
 
     const moviesBg : IMoviesBg = {
         'tt3230854' : 'theexpanse2.jpg', 
@@ -18,7 +20,7 @@ function MoviesSlideshow({moviesList}: {moviesList : IMovie[]}) {
         const arrow = e.currentTarget as HTMLImageElement
         const moviesContainer = arrow.parentElement?.parentElement?.querySelector('.moviesContainer')
         moviesContainer?.scrollBy({
-            left: 225*4+32*4,
+            left: cardWidthPlusGap*4,
             top: 0,
             behavior: 'smooth'
         })
@@ -29,7 +31,7 @@ function MoviesSlideshow({moviesList}: {moviesList : IMovie[]}) {
         const arrow = e.currentTarget as HTMLImageElement
         const moviesContainer = arrow.parentElement?.parentElement?.querySelector('.moviesContainer')
         moviesContainer?.scrollBy({
-            left: -(225*4+32*4),
+            left: -(cardWidthPlusGap*4),
             top: 0,
             behavior: 'smooth'
         })
@@ -38,7 +40,7 @@ function MoviesSlideshow({moviesList}: {moviesList : IMovie[]}) {
 
     return (
         
-        <section>
+        <section className="verticalCardsSlideshow">
             <h2>Currently Trending</h2>
             <div className="moviesArrowsContainer">
                 <div className="arrowsContainer">
@@ -68,8 +70,4 @@ function MoviesSlideshow({moviesList}: {moviesList : IMovie[]}) {
     )
 }
 
-export default MoviesSlideshow
-
-export interface IMoviesBg {
-    [key: string]: string;
-  }
+export default VerticalMovieCardsSlideshow

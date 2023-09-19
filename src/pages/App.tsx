@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 // import { useState } from 'react'
 import Header from '../components/Header'
-import MoviesSlideshow from '../components/MoviesSlideshow'
+import VerticalMovieCardsSlideshow from '../components/VerticalMovieCardsSlideshow'
 import useAPI from '../hooks/useAPI'
 import { IMovie } from '../types/types'
 import './App.css'
+import HorizontalMovieCardsSlideshow from '../components/HorizontalMovieCardsSlideshow'
 
 function App() {
 
@@ -17,9 +18,11 @@ function App() {
   return (
     <>
       <Header/>
-      {!isLoading && !isError && <MoviesSlideshow moviesList={moviesList}/>}
+      {!isLoading && !isError && <VerticalMovieCardsSlideshow moviesList={moviesList}/>}
       <div style={{height:'4rem'}}></div>
-      {!isLoading && !isError && <MoviesSlideshow moviesList={moviesList}/>}
+      {!isLoading && !isError && <VerticalMovieCardsSlideshow moviesList={moviesList}/>}
+      <div style={{height:'4rem'}}></div>
+      {!isLoading && !isError && <HorizontalMovieCardsSlideshow moviesList={moviesList}/>}
     </>
   )
 }
