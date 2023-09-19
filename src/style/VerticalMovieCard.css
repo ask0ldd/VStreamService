@@ -37,8 +37,9 @@
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transition: all 0.3s ease-in-out 0.15s;
+  transition: all 0.3s ease-in-out;
   transform: translateX(300px);
+  backdrop-filter: blur(4px);
 }
 
 .movieCard:hover .playContainerBorder {

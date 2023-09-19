@@ -12,6 +12,8 @@ function Header (){
                     <li>Watchlist</li>
                     <li>Categories</li>
                     <li>Settings</li>
+                    <li>Search</li>
+                    <li>Firstname Lastname</li>
                     <li>Logout</li>
                 </ul>
             </nav>
