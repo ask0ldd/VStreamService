@@ -14,9 +14,6 @@
 .horizontalCardsSlideshow .moviesArrowsContainer {
   position: relative;
   height: 200px;
-  flex-grow: 0;
-  flex-shrink: 0;
-  overflow: visible;
 }
 
 .horizontalCardsSlideshow .arrowsContainer {
@@ -71,15 +68,10 @@
 .horizontalCardsSlideshow .moviesContainer {
   display: flex;
   column-gap: 2rem;
-  /*overflow: hidden;*/
   overflow-x: scroll;
   scrollbar-width: 0;
   position: relative;
-  /*height: 200px;*/
   overflow-y: hidden;
-  /*flex-grow: 0;
-  flex-shrink: 0;
-  height: 200px;*/
 }
 
 .horizontalCardsSlideshow .moviesContainer::-webkit-scrollbar {
