@@ -49,7 +49,7 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
                         <img className="rightArrow" role="button" alt="next movies" src="arrow-right.svg"/>
                     </div>
                 </div>
-                <div className="moviesContainer">
+                <div className="moviesContainer" onScroll={(e) => {e.preventDefault()}} onWheel={(e) => {e.preventDefault()}}>
                     {moviesList.map(movie => (
                         <HorizontalMovieCard movie={movie} moviesBg={moviesBg[movie.imdbID]}/>
                     ))}

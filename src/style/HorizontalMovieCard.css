@@ -1,9 +1,9 @@
 .horizontalMovieCard {
   width: 320px;
   height: 200px;
-  position: relative;
+  /*position: relative;*/
   flex-shrink: 0;
-  transition: height 0.3s linear;
+  transition: all 0.2s linear;
   border-radius: 12px;
   padding: 0;
   display: flex;
@@ -19,8 +19,8 @@
   height: 200px;
   flex-grow: 0;
   flex-shrink: 0;
-  border-radius: 12px 12px 0 0;
-  overflow: hidden;
+  /*border-radius: 12px 12px 0 0;*/
+  /*overflow: hidden;*/
   position: relative;
 }
 
@@ -47,7 +47,7 @@
   height: 100%;
   object-fit: cover;
   object-position: top;
-  border-radius: 12px 12px 0 0;
+  /*border-radius: 12px 12px 0 0;*/
   position: absolute;
   top: 0;
   left: 0;
@@ -56,7 +56,8 @@
 .horizontalMovieCard:hover {
   height: 518px;
   z-index: 4;
-  /*transform: scale(1.15);*/
+  /*transform: scale(1.1) translateY(23px);
+  transform-origin: center;*/
 }
 
 .movieInfosContainer {
@@ -66,6 +67,12 @@
   flex-direction: column;
   padding: 1rem;
   row-gap: 0.5rem;
+  transition: all 0.15s linear 0.2s;
+  transform: translateX(-400px);
+}
+
+.horizontalMovieCard:hover .movieInfosContainer {
+  transform: translateX(0);
 }
 
 .horizontalMovieCard h3 {
