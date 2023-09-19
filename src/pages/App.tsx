@@ -6,6 +6,7 @@ import useAPI from '../hooks/useAPI'
 import { IMovie } from '../types/types'
 import './App.css'
 import HorizontalMovieCardsSlideshow from '../components/HorizontalMovieCardsSlideshow'
+import Footer from '../components/Footer'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
       {!isLoading && !isError && <HorizontalMovieCardsSlideshow moviesList={moviesList}/>}
       <div style={{height:'4rem'}}></div>
       {!isLoading && !isError && <HorizontalMovieCardsSlideshow moviesList={moviesList}/>}
+      <Footer/>
     </>
   )
 }
