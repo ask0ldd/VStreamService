@@ -1,31 +1,40 @@
 import { IMovie } from "../types/types"
 import '../style/VerticalMovieCard.css'
+import { useRef } from "react"
 
 function VerticalMovieCard({movie, moviesBg, xPosition} : {movie : IMovie, moviesBg : string, xPosition:number}){
 
     const movieGenres = movie.Genre.split(', ')
     //const cardWidthPlusGap = 225+32
     const cardWidthOpenPlusGap = 475+32
+    const hoverStatus = useRef(false)
+    const timeoutID = useRef<ReturnType<typeof setTimeout>>()
 
     function centerCard(event : React.MouseEvent<HTMLElement>) {
         if(event.currentTarget.parentElement == null) return
         const slideShow = event.currentTarget.parentElement
         const scrollingPosition = slideShow.scrollLeft
-        if(xPosition < scrollingPosition) slideShow.scrollBy({
-            left: xPosition - scrollingPosition,
-            top: 0,
-            behavior: 'smooth'
-        })
+        hoverStatus.current = true
 
-        if(xPosition + cardWidthOpenPlusGap > scrollingPosition + slideShow.clientWidth) slideShow.scrollBy({
-            left: xPosition + cardWidthOpenPlusGap - (scrollingPosition + slideShow.clientWidth),
-            top: 0,
-            behavior: 'smooth'
-        })
+        timeoutID.current = setTimeout(() => {
+            if(hoverStatus.current === false) return
+            if(xPosition < scrollingPosition) slideShow.scrollBy({
+                left: xPosition - scrollingPosition,
+                top: 0,
+                behavior: 'smooth'
+            })
+
+            if(xPosition + cardWidthOpenPlusGap > scrollingPosition + slideShow.clientWidth) slideShow.scrollBy({
+                left: xPosition + cardWidthOpenPlusGap - (scrollingPosition + slideShow.clientWidth),
+                top: 0,
+                behavior: 'smooth'
+            })
+            hoverStatus.current = false
+        }, 500)
     }
 
     return(
-        <article key={movie.imdbID} className="movieCard" onMouseEnter={(e) => centerCard(e)}>
+        <article key={movie.imdbID} className="movieCard" onMouseEnter={(e) => centerCard(e)} onMouseLeave={() => {hoverStatus.current = false; clearTimeout(timeoutID.current)}}>
             <div className="ratingWatchlistAddContainer">
                 <div className="ratingTag">
                     {movie.imdbRating}
