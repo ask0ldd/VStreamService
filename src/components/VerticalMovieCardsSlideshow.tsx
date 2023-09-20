@@ -52,17 +52,17 @@ function VerticalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}) {
                     </div>
                 </div>
                 <div className="moviesContainer">
-                    {moviesList.map(movie => (
-                        <VerticalMovieCard movie={movie} moviesBg={moviesBg[movie.imdbID]}/>
+                    {moviesList.map((movie, index) => (
+                        <VerticalMovieCard movie={movie} moviesBg={moviesBg[movie.imdbID]} xPosition={index*cardWidthPlusGap}/>
                     ))}
-                    {moviesList.map(movie => (
-                        <VerticalMovieCard movie={movie} moviesBg={moviesBg[movie.imdbID]}/>
+                    {moviesList.map((movie, index) => (
+                        <VerticalMovieCard movie={movie} moviesBg={moviesBg[movie.imdbID]} xPosition={(index+6)*cardWidthPlusGap}/>
                     ))}
-                    {moviesList.map(movie => (
-                        <VerticalMovieCard movie={movie} moviesBg={moviesBg[movie.imdbID]}/>
+                    {moviesList.map((movie, index) => (
+                        <VerticalMovieCard movie={movie} moviesBg={moviesBg[movie.imdbID]} xPosition={(index+12)*cardWidthPlusGap}/>
                     ))}
-                    {moviesList.map(movie => (
-                        <VerticalMovieCard movie={movie} moviesBg={moviesBg[movie.imdbID]}/>
+                    {moviesList.map((movie, index) => (
+                        <VerticalMovieCard movie={movie} moviesBg={moviesBg[movie.imdbID]} xPosition={(index+18)*cardWidthPlusGap}/>
                     ))}
                 </div>
             </div>

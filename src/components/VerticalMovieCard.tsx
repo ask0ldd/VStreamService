@@ -1,12 +1,25 @@
 import { IMovie } from "../types/types"
 import '../style/VerticalMovieCard.css'
 
-function VerticalMovieCard({movie, moviesBg} : {movie : IMovie, moviesBg : string}){
+function VerticalMovieCard({movie, moviesBg, xPosition} : {movie : IMovie, moviesBg : string, xPosition:number}){
 
     const movieGenres = movie.Genre.split(', ')
 
+
+    function centerCard(event : React.MouseEvent<HTMLElement>) {
+        console.log(event.currentTarget.parentElement?.scrollLeft)
+        if(event.currentTarget.parentElement == null) return
+        const slideShow = event.currentTarget.parentElement
+        const scrollingPosition = slideShow.scrollLeft
+        if(xPosition < scrollingPosition) slideShow.scrollBy({
+            left: xPosition,
+            top: 0,
+            behavior: 'smooth'
+        })
+    }
+
     return(
-        <article key={movie.imdbID} className="movieCard">
+        <article key={movie.imdbID} className="movieCard" onMouseEnter={(e) => centerCard(e)}>
             <div className="ratingWatchlistAddContainer">
                 <div className="ratingTag">
                     {movie.imdbRating}
