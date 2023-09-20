@@ -16,7 +16,7 @@ function HorizontalMovieCard ({movie, moviesBg} : {movie : IMovie, moviesBg : st
                     <a href="#" style={{height:'48px', borderRadius:'300px'}}><img style={{height:'48px', boxShadow:'0px 4px 8px #00000066', borderRadius:'300px'}} src="playbutton.png"/></a>
                 </div>
                 <div className="addMoreContainer">
-                    <a style={{height:'36px', width:'36px'}} href="#"><img src="addbutton.png"/></a>
+                    <img className="addButton" role="button" src="addbutton.png"/>
                     <a style={{height:'36px', width:'36px'}} href="#"><img src="morebutton.png"/></a>
                 </div>
             </div>
