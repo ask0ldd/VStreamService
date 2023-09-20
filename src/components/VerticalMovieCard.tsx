@@ -4,7 +4,8 @@ import '../style/VerticalMovieCard.css'
 function VerticalMovieCard({movie, moviesBg, xPosition} : {movie : IMovie, moviesBg : string, xPosition:number}){
 
     const movieGenres = movie.Genre.split(', ')
-
+    //const cardWidthPlusGap = 225+32
+    const cardWidthOpenPlusGap = 475+32
 
     function centerCard(event : React.MouseEvent<HTMLElement>) {
         console.log(event.currentTarget.parentElement?.scrollLeft)
@@ -12,7 +13,13 @@ function VerticalMovieCard({movie, moviesBg, xPosition} : {movie : IMovie, movie
         const slideShow = event.currentTarget.parentElement
         const scrollingPosition = slideShow.scrollLeft
         if(xPosition < scrollingPosition) slideShow.scrollBy({
-            left: xPosition,
+            left: xPosition - scrollingPosition,
+            top: 0,
+            behavior: 'smooth'
+        })
+
+        if(xPosition + cardWidthOpenPlusGap > scrollingPosition + 1440) slideShow.scrollBy({
+            left: xPosition + cardWidthOpenPlusGap - (scrollingPosition + 1440),
             top: 0,
             behavior: 'smooth'
         })

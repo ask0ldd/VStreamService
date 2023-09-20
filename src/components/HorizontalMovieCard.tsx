@@ -2,7 +2,7 @@
 import { IMovie } from "../types/types"
 import '../style/HorizontalMovieCard.css'
 
-function HorizontalMovieCard ({movie, moviesBg} : {movie : IMovie, moviesBg : string}){
+function HorizontalMovieCard ({movie/*, moviesBg*/} : {movie : IMovie, moviesBg : string}){
     return (
         <article className="horizontalMovieCard">
             <div className="mainPicContainer">
