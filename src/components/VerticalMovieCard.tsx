@@ -2,7 +2,7 @@ import { IMovie } from "../types/types"
 import '../style/VerticalMovieCard.css'
 import { useRef } from "react"
 
-function VerticalMovieCard({movie, moviesBg, xPosition} : {movie : IMovie, moviesBg : string, xPosition:number}){
+function VerticalMovieCard({movie, movieMedias, /*moviesBg, */ xPosition} : {movie : IMovie, movieMedias : {poster: string, horizontalPic : string, video : string}, xPosition:number}){
 
     const movieGenres = movie.Genre.split(', ')
     const cardWidthOpenPlusGap = 475+32
@@ -72,9 +72,9 @@ function VerticalMovieCard({movie, moviesBg, xPosition} : {movie : IMovie, movie
                 </div>
                 <p className="plotContainer">{movie.Plot}</p>
             </div>
-            <img className="posterImg" src={movie.Poster}/>
+            <img className="posterImg" src={'verticalCardPic/' + movieMedias.poster}/>
             <video muted loop>
-                <source src="videos/jackreacher.mp4" type="video/mp4"/>
+                <source src={"videos/" + movieMedias.video} type="video/mp4"/>
             </video>
             {/*<img className="movieBgImg" src={moviesBg}/>*/}
             <div className="playContainerBorder">

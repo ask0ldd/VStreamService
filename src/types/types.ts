@@ -33,6 +33,6 @@ export interface IMovie {
     Response: string,
 }
 
-export interface IMoviesBg {
-    [key: string]: string;
+export interface IMoviesMedias {
+    [key: string]: {poster : string, horizontalPic : string, video : string};
   }

@@ -1,4 +1,4 @@
-import { IMovie, IMoviesBg } from "../types/types"
+import { IMovie, IMoviesMedias } from "../types/types"
 import '../style/VerticalMovieCardsSlideshow.css'
 import VerticalMovieCard from "./VerticalMovieCard"
 
@@ -6,13 +6,13 @@ function VerticalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}) {
 
     const cardWidthPlusGap = 225+32
 
-    const moviesBg : IMoviesBg = {
-        'tt3230854' : 'theexpanse2.jpg', 
-        'tt0804484' : 'foundation.png', 
-        'tt14688458' : 'silo.jpg', 
-        'tt11280740' : 'severance.jpg', 
-        'tt3581920' : 'thelastofus.jpg', 
-        'tt8111088' : 'mandalorian.jpg',
+    const moviesMedias : IMoviesMedias = {
+        'tt1869454' : {poster : 'goodomens2.jpg', horizontalPic : 'thelastofus.jpg', video : 'goodomens2.mp4'}, 
+        'tt6718170' : {poster : 'supermariobros.jpg', horizontalPic : 'thelastofus.jpg', video : 'supermariobros.mp4'},
+        'tt2906216' : {poster : 'dnd.jpg', horizontalPic : 'thelastofus.jpg', video : 'dnd.mp4'}, 
+        'tt7631058' : {poster : 'ringsofpower.jpg', horizontalPic : 'thelastofus.jpg', video : 'ringsofpower.mp4'},  
+        'tt5433140' : {poster : 'fastx.jpg', horizontalPic : 'thelastofus.jpg', video : 'fastx.mp4'},  
+        'tt8111088' : {poster : 'goodomens2.jpg', horizontalPic : 'thelastofus.jpg', video : 'goodomens2.mp4'}, 
     }
 
     function scrollRight(e : React.MouseEvent<HTMLElement>){
@@ -59,16 +59,16 @@ function VerticalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}) {
                 </div>
                 <div className="moviesContainer">
                     {moviesList.map((movie, index) => (
-                        <VerticalMovieCard movie={movie} moviesBg={moviesBg[movie.imdbID]} xPosition={index*cardWidthPlusGap}/>
+                        <VerticalMovieCard key={'mc'+ new Date(Date.now()).toLocaleString + index} movieMedias={moviesMedias[movie.imdbID]} movie={movie} xPosition={index*cardWidthPlusGap}/>
                     ))}
                     {moviesList.map((movie, index) => (
-                        <VerticalMovieCard movie={movie} moviesBg={moviesBg[movie.imdbID]} xPosition={(index+6)*cardWidthPlusGap}/>
+                        <VerticalMovieCard key={'mc'+ new Date(Date.now()).toLocaleString + index + 6} movieMedias={moviesMedias[movie.imdbID]} movie={movie} xPosition={(index+6)*cardWidthPlusGap}/>
                     ))}
                     {moviesList.map((movie, index) => (
-                        <VerticalMovieCard movie={movie} moviesBg={moviesBg[movie.imdbID]} xPosition={(index+12)*cardWidthPlusGap}/>
+                        <VerticalMovieCard key={'mc'+ new Date(Date.now()).toLocaleString + index + 12} movieMedias={moviesMedias[movie.imdbID]} movie={movie} xPosition={(index+12)*cardWidthPlusGap}/>
                     ))}
                     {moviesList.map((movie, index) => (
-                        <VerticalMovieCard movie={movie} moviesBg={moviesBg[movie.imdbID]} xPosition={(index+18)*cardWidthPlusGap}/>
+                        <VerticalMovieCard key={'mc'+ new Date(Date.now()).toLocaleString + index + 18} movieMedias={moviesMedias[movie.imdbID]} movie={movie} xPosition={(index+18)*cardWidthPlusGap}/>
                     ))}
                 </div>
             </div>

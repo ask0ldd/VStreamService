@@ -11,7 +11,7 @@ import Footer from '../components/Footer'
 function App() {
 
   // const {isLoading, fetchedDatas, isError} = useAPI({id:'tt3230854', longPlot:false})
-  const {isLoading, fetchedDatas, isError} = useAPI({idList:['tt3230854', 'tt0804484', 'tt14688458', 'tt11280740', 'tt3581920', 'tt8111088'], longPlot:false})
+  const {isLoading, fetchedDatas, isError} = useAPI({idList:['tt1869454', 'tt6718170', 'tt2906216', 'tt7631058', 'tt5433140', 'tt8111088'], longPlot:false})
   let moviesList : IMovie[] = []
   if(fetchedDatas != null && !Array.isArray(fetchedDatas)) moviesList.push({...fetchedDatas})
   if(fetchedDatas != null && Array.isArray(fetchedDatas)) moviesList = [...fetchedDatas]

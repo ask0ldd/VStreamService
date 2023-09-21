@@ -133,6 +133,7 @@
   object-position: center;
   transition: opacity 0.3s linear;
   z-index: -1;
+  overflow-clip-margin: unset;
 }
 
 .movieCard:hover .posterImg {
