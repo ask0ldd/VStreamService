@@ -16,11 +16,11 @@ function VerticalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}) {
     }
 
     function scrollRight(e : React.MouseEvent<HTMLElement>){
-        console.log('scroll')
+        //console.log('scroll')
         e.preventDefault()
-        const arrow = e.currentTarget as HTMLImageElement
-        const moviesContainer = arrow.parentElement?.parentElement?.parentElement?.querySelector('.moviesContainer')
-        console.log(moviesContainer)
+        // const arrow = e.currentTarget as HTMLImageElement
+        const moviesContainer = document.querySelector('.moviesContainer')
+        //console.log(moviesContainer)
         moviesContainer?.scrollBy({
             left: cardWidthPlusGap*4,
             top: 0,
@@ -30,8 +30,8 @@ function VerticalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}) {
 
     function scrollLeft(e : React.MouseEvent<HTMLElement>){
         e.preventDefault()
-        const arrow = e.currentTarget as HTMLImageElement
-        const moviesContainer = arrow.parentElement?.parentElement?.parentElement?.querySelector('.moviesContainer')
+        // const arrow = e.currentTarget as HTMLImageElement
+        const moviesContainer = document.querySelector('.moviesContainer')
         moviesContainer?.scrollBy({
             left: -(cardWidthPlusGap*4),
             top: 0,
