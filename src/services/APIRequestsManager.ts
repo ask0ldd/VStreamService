@@ -5,7 +5,7 @@ import { IMovie } from "../types/types"
 export class APIRequestsManager {
     static async getMovieByTitle(title : string, longPlot : boolean) : Promise<IMovie>{
         const longPlotExtension = longPlot === true ? '&plot=full' : ''
-        const requestUrl = `http://www.omdbapi.com/?t=${title}&apikey=${OmdbKey}${longPlotExtension}`
+        const requestUrl = `https://www.omdbapi.com/?t=${title}&apikey=${OmdbKey}${longPlotExtension}`
         const response = await fetch(requestUrl)
         const datas = await response.json()
         return datas
@@ -13,7 +13,7 @@ export class APIRequestsManager {
 
     static async getMovieById(id : string, longPlot : boolean) : Promise<IMovie>{
         const longPlotExtension = longPlot === true ? '&plot=full' : ''
-        const requestUrl = `http://www.omdbapi.com/?i=${id}&apikey=${OmdbKey}${longPlotExtension}`
+        const requestUrl = `https://www.omdbapi.com/?i=${id}&apikey=${OmdbKey}${longPlotExtension}`
         const response = await fetch(requestUrl)
         const datas = await response.json()
         return datas
@@ -23,7 +23,7 @@ export class APIRequestsManager {
         const longPlotExtension = longPlot === true ? '&plot=full' : ''
         const moviesList : IMovie[] = []
         for(const movieId of idList) {
-            const requestUrl = `http://www.omdbapi.com/?i=${movieId}&apikey=${OmdbKey}${longPlotExtension}`
+            const requestUrl = `https://www.omdbapi.com/?i=${movieId}&apikey=${OmdbKey}${longPlotExtension}`
             const response = await fetch(requestUrl)
             const datas = await response.json()
             moviesList.push(datas)
