@@ -39,8 +39,21 @@ function VerticalMovieCard({movie, moviesBg, xPosition} : {movie : IMovie, movie
         }, 500)
     }
 
+    function startVideo(event : React.MouseEvent<HTMLElement>){
+        const video = event.currentTarget.querySelector('video') as HTMLVideoElement
+        if(video.readyState === 4 && video.currentTime === 0) video.play()
+    }
+
+    function stopVideo(event : React.MouseEvent<HTMLElement>){
+        const video = event.currentTarget.querySelector('video') as HTMLVideoElement
+        if(video.currentTime !== 0) {
+            video.pause()
+            video.currentTime = 0
+        }
+    }
+
     return(
-        <article key={movie.imdbID} className="movieCard" onMouseEnter={(e) => centerCard(e)} onMouseLeave={() => {hoverStatus.current = false; clearTimeout(timeoutID.current)}}>
+        <article onMouseOver={(e) => startVideo(e)} key={movie.imdbID} className="movieCard" onMouseEnter={(e) => centerCard(e)} onMouseLeave={(e) => {hoverStatus.current = false; clearTimeout(timeoutID.current); stopVideo(e)}}>
             <div className="ratingWatchlistAddContainer">
                 <div className="ratingTag">
                     {movie.imdbRating}
@@ -60,7 +73,10 @@ function VerticalMovieCard({movie, moviesBg, xPosition} : {movie : IMovie, movie
                 <p className="plotContainer">{movie.Plot}</p>
             </div>
             <img className="posterImg" src={movie.Poster}/>
-            <img className="movieBgImg" src={moviesBg}/>
+            <video muted loop>
+                <source src="videos/jackreacher.mp4" type="video/mp4"/>
+            </video>
+            {/*<img className="movieBgImg" src={moviesBg}/>*/}
             <div className="playContainerBorder">
                 <a href="#" style={{height:'64px', borderRadius:'300px'}}><img style={{boxShadow:'0px 4px 8px #00000066', borderRadius:'300px'}} src="playbutton.png"/></a>
             </div>
