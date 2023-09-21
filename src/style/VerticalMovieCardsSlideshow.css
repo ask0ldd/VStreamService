@@ -26,8 +26,19 @@
   pointer-events: none;
 }
 
+.verticalCardsSlideshow .arrowContainerWrapper {
+  z-index: 4;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*pointer-events: none;*/
+  pointer-events: visible;
+}
+
 .verticalCardsSlideshow .leftArrowContainer,
 .verticalCardsSlideshow .rightArrowContainer {
+  z-index: 4;
   display: flex;
   align-items: center;
   height: 80%;

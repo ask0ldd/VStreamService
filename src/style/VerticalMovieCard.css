@@ -10,12 +10,11 @@
   display: flex;
   flex-direction: column;
   border: 1px solid #ffffff20;
+  cursor: pointer;
 }
 
 .movieCard:hover {
   width: 475px;
-  /*border: 2px solid #168ef5cc;*/
-  /*box-shadow: 0 8px 16px #168ef599;*/
 }
 
 .playContainerBorder {

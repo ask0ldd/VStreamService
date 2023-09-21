@@ -5,7 +5,6 @@ import { useRef } from "react"
 function VerticalMovieCard({movie, moviesBg, xPosition} : {movie : IMovie, moviesBg : string, xPosition:number}){
 
     const movieGenres = movie.Genre.split(', ')
-    //const cardWidthPlusGap = 225+32
     const cardWidthOpenPlusGap = 475+32
     const hoverStatus = useRef(false)
     const timeoutID = useRef<ReturnType<typeof setTimeout>>()
@@ -17,18 +16,25 @@ function VerticalMovieCard({movie, moviesBg, xPosition} : {movie : IMovie, movie
         hoverStatus.current = true
 
         timeoutID.current = setTimeout(() => {
+            // if the cursor is out of the card
             if(hoverStatus.current === false) return
-            if(xPosition < scrollingPosition) slideShow.scrollBy({
+
+            // if the left hovered card isn't fully visible
+            if(xPosition < scrollingPosition) 
+            slideShow.scrollBy({
                 left: xPosition - scrollingPosition,
                 top: 0,
                 behavior: 'smooth'
             })
 
-            if(xPosition + cardWidthOpenPlusGap > scrollingPosition + slideShow.clientWidth) slideShow.scrollBy({
+            // if the right hovered card isn't fully visible
+            if(xPosition + cardWidthOpenPlusGap > scrollingPosition + slideShow.clientWidth) 
+            slideShow.scrollBy({
                 left: xPosition + cardWidthOpenPlusGap - (scrollingPosition + slideShow.clientWidth),
                 top: 0,
                 behavior: 'smooth'
             })
+
             hoverStatus.current = false
         }, 500)
     }

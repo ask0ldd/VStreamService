@@ -16,9 +16,11 @@ function VerticalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}) {
     }
 
     function scrollRight(e : React.MouseEvent<HTMLElement>){
+        console.log('scroll')
         e.preventDefault()
         const arrow = e.currentTarget as HTMLImageElement
-        const moviesContainer = arrow.parentElement?.parentElement?.querySelector('.moviesContainer')
+        const moviesContainer = arrow.parentElement?.parentElement?.parentElement?.querySelector('.moviesContainer')
+        console.log(moviesContainer)
         moviesContainer?.scrollBy({
             left: cardWidthPlusGap*4,
             top: 0,
@@ -29,7 +31,7 @@ function VerticalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}) {
     function scrollLeft(e : React.MouseEvent<HTMLElement>){
         e.preventDefault()
         const arrow = e.currentTarget as HTMLImageElement
-        const moviesContainer = arrow.parentElement?.parentElement?.querySelector('.moviesContainer')
+        const moviesContainer = arrow.parentElement?.parentElement?.parentElement?.querySelector('.moviesContainer')
         moviesContainer?.scrollBy({
             left: -(cardWidthPlusGap*4),
             top: 0,
@@ -44,11 +46,15 @@ function VerticalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}) {
             <h2>Currently Trending</h2>
             <div className="moviesArrowsContainer">
                 <div className="arrowsContainer">
-                    <div onClick={scrollLeft} className="leftArrowContainer">
-                        <img className="leftArrow" alt="previous movies" src="arrow-right.svg"/>
+                    <div className="arrowContainerWrapper">
+                        <div onClick={scrollLeft} className="leftArrowContainer">
+                            <img className="leftArrow" alt="previous movies" src="arrow-right.svg"/>
+                        </div>
                     </div>
-                    <div onClick={scrollRight} className="rightArrowContainer">
-                        <img className="rightArrow" role="button" alt="next movies" src="arrow-right.svg"/>
+                    <div className="arrowContainerWrapper">
+                        <div onClick={scrollRight} className="rightArrowContainer">
+                            <img className="rightArrow" role="button" alt="next movies" src="arrow-right.svg"/>
+                        </div>
                     </div>
                 </div>
                 <div className="moviesContainer">
