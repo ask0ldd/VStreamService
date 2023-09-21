@@ -2,11 +2,11 @@
 import { IMovie } from "../types/types"
 import '../style/HorizontalMovieCard.css'
 
-function HorizontalMovieCard ({movie/*, moviesBg*/} : {movie : IMovie, moviesBg : string}){
+function HorizontalMovieCard ({movie, movieMedias/*, moviesBg*/} : {movie : IMovie, movieMedias : {poster: string, horizontalPic : string, video : string}}){
     return (
         <article className="horizontalMovieCard">
             <div className="mainPicContainer">
-                <img className="mainPic" src={movie.Poster}/>
+                <img className="mainPic" src={'horizontalCardPic/' + movieMedias.horizontalPic}/>
                 <div className="moviePositionContainer">
                     <div className="moviePositionBar"></div>
                 </div>

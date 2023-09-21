@@ -16,6 +16,12 @@ function App() {
   if(fetchedDatas != null && !Array.isArray(fetchedDatas)) moviesList.push({...fetchedDatas})
   if(fetchedDatas != null && Array.isArray(fetchedDatas)) moviesList = [...fetchedDatas]
 
+  // interstellar / shinmaskedrider / revenant / tunetueraspoint / thenightofthehunter / sheershivraaj
+  const {isLoading : isL, fetchedDatas : fd, isError : isE} = useAPI({idList:['tt0816692', 'tt14379088', 'tt1663202', 'tt2119532', 'tt0048424', 'tt17274522'], longPlot:false})
+  let moviesList2 : IMovie[] = []
+  if(fd != null && !Array.isArray(fd)) moviesList2.push({...fd})
+  if(fd != null && Array.isArray(fd)) moviesList2 = [...fd]
+
   return (
     <>
       <Header/>
@@ -23,9 +29,9 @@ function App() {
       <div style={{height:'4rem'}}></div>
       {!isLoading && !isError && <VerticalMovieCardsSlideshow moviesList={moviesList}/>}
       <div style={{height:'4rem'}}></div>
-      {!isLoading && !isError && <HorizontalMovieCardsSlideshow moviesList={moviesList}/>}
+      {!isL && !isE && <HorizontalMovieCardsSlideshow moviesList={moviesList2}/>}
       <div style={{height:'4rem'}}></div>
-      {!isLoading && !isError && <HorizontalMovieCardsSlideshow moviesList={moviesList}/>}
+      {!isL && !isE && <HorizontalMovieCardsSlideshow moviesList={moviesList2}/>}
       <Footer/>
     </>
   )

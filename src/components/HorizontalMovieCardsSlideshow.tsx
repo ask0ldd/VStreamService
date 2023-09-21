@@ -6,13 +6,14 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
 
     const cardWidthPlusGap = 320+32
 
+    // interstellar / shinmaskedrider / revenant / tunetueraspoint / thenightofthehunter / sheershivraaj
     const moviesMedias : IMoviesMedias = {
-        'tt1869454' : {poster : 'goodomens2.jpg', horizontalPic : 'thelastofus.jpg', video : 'goodomens2.mp4'}, 
-        'tt6718170' : {poster : 'supermariobros.jpg', horizontalPic : 'thelastofus.jpg', video : 'supermariobros.mp4'},
-        'tt2906216' : {poster : 'dnd.jpg', horizontalPic : 'thelastofus.jpg', video : 'dnd.mp4'}, 
-        'tt7631058' : {poster : 'ringsofpower.jpg', horizontalPic : 'thelastofus.jpg', video : 'ringsofpower.mp4'},  
-        'tt5433140' : {poster : 'fastx.jpg', horizontalPic : 'thelastofus.jpg', video : 'fastx.mp4'},  
-        'tt8111088' : {poster : 'goodomens2.jpg', horizontalPic : 'thelastofus.jpg', video : 'goodomens2.mp4'}, 
+        'tt0816692' : {poster : 'interstellar.jpg', horizontalPic : 'interstellar.jpg', video : 'goodomens2.mp4'}, 
+        'tt14379088' : {poster : 'shinmaskedrider.jpg', horizontalPic : 'shinmaskedrider.jpg', video : 'goodomens2.mp4'}, 
+        'tt1663202' : {poster : 'revenant.jpg', horizontalPic : 'revenant.jpg', video : 'goodomens2.mp4'}, 
+        'tt2119532' : {poster : 'tunetueraspoint.jpg', horizontalPic : 'tunetueraspoint.jpg', video : 'goodomens2.mp4'}, 
+        'tt0048424' : {poster : 'thenightofthehunter.jpg', horizontalPic : 'thenightofthehunter.jpg', video : 'goodomens2.mp4'}, 
+        'tt17274522' : {poster : 'sheershivraaj.jpg', horizontalPic : 'sheershivraaj.jpg', video : 'goodomens2.mp4'}, 
     }
 
     function scrollRight(e : React.MouseEvent<HTMLElement>){
@@ -51,16 +52,16 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
                 </div>
                 <div className="moviesContainer" onScroll={(e) => {e.preventDefault()}} onWheel={(e) => {e.preventDefault()}}>
                     {moviesList.map(movie => (
-                        <HorizontalMovieCard movie={movie} moviesBg={moviesMedias[movie.imdbID].horizontalPic}/>
+                        <HorizontalMovieCard movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
                     ))}
                     {moviesList.map(movie => (
-                        <HorizontalMovieCard movie={movie} moviesBg={moviesMedias[movie.imdbID].horizontalPic}/>
+                        <HorizontalMovieCard movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
                     ))}
                     {moviesList.map(movie => (
-                        <HorizontalMovieCard movie={movie} moviesBg={moviesMedias[movie.imdbID].horizontalPic}/>
+                        <HorizontalMovieCard movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
                     ))}
                     {moviesList.map(movie => (
-                        <HorizontalMovieCard movie={movie} moviesBg={moviesMedias[movie.imdbID].horizontalPic}/>
+                        <HorizontalMovieCard movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
                     ))}
                 </div>
             </div>
