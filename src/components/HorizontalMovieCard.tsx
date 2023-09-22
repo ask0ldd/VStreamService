@@ -22,7 +22,7 @@ function HorizontalMovieCard ({movie, movieMedias/*, moviesBg*/} : {movie : IMov
             </div>
             <div className="movieInfosContainer">
                 <h3>{movie.Title}</h3>
-                <div>{movie.Released} {movie.Runtime} {movie.Rated}</div>
+                <div>{movie.Released.split(' ')[2]}&nbsp;&nbsp;{movie.Runtime}&nbsp;&nbsp;{movie.Rated}</div>
                 <span className="plot">
                     {movie.Plot}
                 </span>

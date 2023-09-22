@@ -9,6 +9,9 @@ function VerticalMovieCard({movie, movieMedias, /*moviesBg, */ xPosition} : {mov
     const hoverStatus = useRef(false)
     const timeoutID = useRef<ReturnType<typeof setTimeout>>()
 
+    // ---
+    // if a hovered card is partially non visible, the slideshow is scrolled to display the missing area
+    // ---
     function centerCard(event : React.MouseEvent<HTMLElement>) {
         if(event.currentTarget.parentElement == null) return
         const slideShow = event.currentTarget.parentElement
@@ -41,7 +44,13 @@ function VerticalMovieCard({movie, movieMedias, /*moviesBg, */ xPosition} : {mov
 
     function startVideo(event : React.MouseEvent<HTMLElement>){
         const video = event.currentTarget.querySelector('video') as HTMLVideoElement
-        if(video.readyState === 4 && video.currentTime === 0) video.play()
+        // sets video source src only when hovering the card => video lazy loading
+        const source = video.querySelector('source')
+        if(source && source.getAttribute('src') == null) {
+            source.setAttribute('src', source.getAttribute('data-src') as string)
+            video.load()
+        }
+        if(video.currentTime === 0) video.play()
     }
 
     function stopVideo(event : React.MouseEvent<HTMLElement>){
@@ -74,7 +83,7 @@ function VerticalMovieCard({movie, movieMedias, /*moviesBg, */ xPosition} : {mov
             </div>
             <img className="posterImg" src={movieMedias.poster === '' ? movie.Poster : 'verticalCardPic/' + movieMedias.poster}/>
             <video muted loop>
-                <source src={"videos/" + movieMedias.video} type="video/mp4"/>
+                <source data-src={"videos/" + movieMedias.video} type="video/mp4"/>
             </video>
             {/*<img className="movieBgImg" src={moviesBg}/>*/}
             <div className="playContainerBorder">

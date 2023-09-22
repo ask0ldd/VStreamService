@@ -33,6 +33,7 @@
       rgba(48, 48, 48, 0) 100%
     ),
     #00050d;
+  background-repeat: no-repeat;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
