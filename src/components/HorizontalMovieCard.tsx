@@ -1,8 +1,18 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { IMovie } from "../types/types"
 import '../style/HorizontalMovieCard.css'
+import { useTypedDispatch, useTypedSelector } from "../hooks/redux"
+import { updateWatchList } from "../redux/moviesSlice"
 
 function HorizontalMovieCard ({movie, movieMedias/*, moviesBg*/} : {movie : IMovie, movieMedias : {poster: string, horizontalPic : string, video : string}}){
+    
+    const dispatch = useTypedDispatch()
+    const watchList  = useTypedSelector((state) => state.movies.watchList)
+
+    function setInOutWatchlist(imdbID : string){
+        dispatch(updateWatchList({id : imdbID}))
+    }
+
     return (
         <article className="horizontalMovieCard">
             <div className="mainPicContainer">
@@ -13,11 +23,11 @@ function HorizontalMovieCard ({movie, movieMedias/*, moviesBg*/} : {movie : IMov
             </div>
             <div className="playAddMoreContainer">
                 <div className="playContainer">
-                    <a href="#" style={{height:'48px', borderRadius:'300px'}}><img style={{height:'48px', boxShadow:'0px 4px 8px #00000066', borderRadius:'300px'}} src="playbutton.png"/></a>
+                    <a href="#" style={{height:'48px', borderRadius:'300px'}}><img style={{height:'48px', boxShadow:'0px 4px 8px #00000066', borderRadius:'300px'}} src="buttons/playbutton.png"/></a>
                 </div>
                 <div className="addMoreContainer">
-                    <img className="addButton" role="button" src="addbutton.png"/>
-                    <a style={{height:'36px', width:'36px'}} href="#"><img src="morebutton.png"/></a>
+                    <img className="addButton" role="button" src={watchList.includes(movie.imdbID) ? "buttons/okbutton.png" : "buttons/addbutton.png"} onClick={() => setInOutWatchlist(movie.imdbID)}/>
+                    <a style={{height:'36px', width:'36px'}} href="#"><img src="buttons/morebutton.png"/></a>
                 </div>
             </div>
             <div className="movieInfosContainer">

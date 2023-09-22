@@ -1,26 +1,34 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 export const initialState : moviesState = {
-    idList : []
+    watchList : []
 }
 
-export const userSlice = createSlice({
+export const moviesSlice = createSlice({
     name : 'movies',
     initialState,
     reducers : {
-        addId(state, action){
+        updateWatchList(state, action){
             if(action.payload?.id == null) return state
-            const newIdList = [...state.idList]
-            newIdList.push(action.payload.id)
-            return {...state, idList : newIdList}
+            const newWatchList = [...state.watchList]
+            if(state.watchList.includes(action.payload.id)){
+                newWatchList.splice([...state.watchList].indexOf(action.payload.id), 1)
+            }else{
+                newWatchList.push(action.payload.id)
+            }         
+            return {...state, watchList : newWatchList}
         }
     }
 
 })
 
-export default userSlice.reducer
+export const {
+    updateWatchList,
+} = moviesSlice.actions
+
+export default moviesSlice.reducer
 
 interface moviesState {
-    idList : string[],
+    watchList : string[],
 
 }

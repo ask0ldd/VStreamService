@@ -87,7 +87,7 @@ function VerticalMovieCard({movie, movieMedias, /*moviesBg, */ xPosition} : {mov
             </video>
             {/*<img className="movieBgImg" src={moviesBg}/>*/}
             <div className="playContainerBorder">
-                <a href="#" style={{height:'64px', borderRadius:'300px'}}><img style={{boxShadow:'0px 4px 8px #00000066', borderRadius:'300px'}} src="playbutton.png"/></a>
+                <a href="#" style={{height:'64px', borderRadius:'300px'}}><img style={{boxShadow:'0px 4px 8px #00000066', borderRadius:'300px'}} src="buttons/playbutton.png"/></a>
             </div>
         </article>
     )

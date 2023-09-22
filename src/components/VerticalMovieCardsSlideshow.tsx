@@ -45,6 +45,12 @@ function VerticalMovieCardsSlideshow({categoryTitle, moviesList}: {categoryTitle
                 <img src="icons/fire.png"/>
                 <h2>{categoryTitle}</h2>
                 <span>See more</span>
+                <div className="paginationContainer">
+                    <div className="dot active"></div>
+                    <div className="dot"></div>
+                    <div className="dot"></div>
+                    <div className="dot"></div>
+                </div>
             </div>
             <div className="moviesArrowsContainer">
                 <div className="arrowsContainer">
