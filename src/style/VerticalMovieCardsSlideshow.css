@@ -4,6 +4,25 @@
   row-gap: 1.5rem;
 }
 
+.verticalCardsSlideshow .titleContainer {
+  display: flex;
+  flex-direction: row;
+  column-gap: 1rem;
+  align-items: baseline;
+}
+
+.verticalCardsSlideshow .titleContainer img {
+  height: 28px;
+  transform: translateY(2px);
+}
+
+.verticalCardsSlideshow .titleContainer span {
+  font-weight: 500;
+  color: #84afda;
+  font-family: "Lexend", sans-serif;
+  cursor: pointer;
+}
+
 .verticalCardsSlideshow h2 {
   color: #ffffffdd;
   font-family: "Lexend", sans-serif;

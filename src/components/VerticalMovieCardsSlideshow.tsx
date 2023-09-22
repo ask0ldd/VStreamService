@@ -2,7 +2,7 @@ import { IMovie, IMoviesMedias } from "../types/types"
 import '../style/VerticalMovieCardsSlideshow.css'
 import VerticalMovieCard from "./VerticalMovieCard"
 
-function VerticalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}) {
+function VerticalMovieCardsSlideshow({categoryTitle, moviesList}: {categoryTitle :string, moviesList : IMovie[]}) {
 
     const cardWidthPlusGap = 225+32
 
@@ -43,7 +43,11 @@ function VerticalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}) {
     return (
         
         <section className="verticalCardsSlideshow">
-            <h2>Currently Trending</h2>
+            <div className="titleContainer">
+                <img src="icons/fire.png"/>
+                <h2>{categoryTitle}</h2>
+                <span>See more</span>
+            </div>
             <div className="moviesArrowsContainer">
                 <div className="arrowsContainer">
                     <div className="arrowContainerWrapper">

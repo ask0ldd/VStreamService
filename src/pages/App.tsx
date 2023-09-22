@@ -25,9 +25,9 @@ function App() {
   return (
     <>
       <Header/>
-      {!isLoading && !isError && <VerticalMovieCardsSlideshow moviesList={moviesList}/>}
+      {!isLoading && !isError && <VerticalMovieCardsSlideshow categoryTitle="Currently Trending" moviesList={moviesList}/>}
       <div style={{height:'4rem'}}></div>
-      {!isLoading && !isError && <VerticalMovieCardsSlideshow moviesList={moviesList}/>}
+      {!isLoading && !isError && <VerticalMovieCardsSlideshow categoryTitle="Most Nominated Movies" moviesList={moviesList}/>}
       <div style={{height:'4rem'}}></div>
       {!isL && !isE && <HorizontalMovieCardsSlideshow moviesList={moviesList2}/>}
       <div style={{height:'4rem'}}></div>
