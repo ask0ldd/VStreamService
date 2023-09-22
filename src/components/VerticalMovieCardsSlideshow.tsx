@@ -16,11 +16,9 @@ function VerticalMovieCardsSlideshow({categoryTitle, moviesList}: {categoryTitle
     }
 
     function scrollRight(e : React.MouseEvent<HTMLElement>){
-        //console.log('scroll')
         e.preventDefault()
         // const arrow = e.currentTarget as HTMLImageElement
         const moviesContainer = e.currentTarget.parentElement?.parentElement?.parentElement?.querySelector('.moviesContainer')
-        //console.log(moviesContainer)
         moviesContainer?.scrollBy({
             left: cardWidthPlusGap*4,
             top: 0,

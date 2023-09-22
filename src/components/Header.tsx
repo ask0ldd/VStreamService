@@ -1,6 +1,10 @@
+import { useTypedSelector } from '../hooks/redux'
 import '../style/Header.css'
 
 function Header (){
+
+    const user = useTypedSelector((state) => state.user)
+
     return(
         <header>
             <figure>
@@ -13,7 +17,7 @@ function Header (){
                     <li>Categories</li>
                     <li>Settings</li>
                     <li>Search</li>
-                    <li>Firstname Lastname</li>
+                    <li>{user.firstname} {user.lastname}</li>
                     <li>Logout</li>
                 </ul>
             </nav>
