@@ -1,18 +1,55 @@
-.moviePage {
+main.moviePage {
   display: flex;
   flex-direction: column;
-  width: 100%;
 }
 
-.moviePage .moviePicContainer {
+.moviePage .moviePContainer {
   display: flex;
+  flex-direction: column;
   position: relative;
   width: 100%;
-  overflow: hidden;
+  background: linear-gradient(90deg, #000000cc 0%, #00000000 75%),
+    url("/theboys.jpg") no-repeat center center;
+  aspect-ratio: 1440/756;
+  background-size: cover;
+  border-radius: 12px;
+  border: 2px solid #ffffff20;
+  padding: 4rem;
 }
 
-.moviePage .mainMoviePic {
+/*.moviePage .mainMoviePic {
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}*/
+
+.moviePage h2 {
+  font-size: 48px;
+  font-family: "Oswald", sans-serif;
+}
+
+.moviePage .plot {
+  width: 50%;
+  font-family: "Lexend", sans-serif;
+}
+
+.moviePage .tagsList {
+  display: flex;
+  column-gap: 12px;
+  margin-top: 1rem;
+}
+
+.moviePage .tagsList li {
+  padding: 2px 16px;
+  border-radius: 32px;
+  font-weight: 600;
+  background-color: #000000bb;
+  border: 1px solid #4f4f4f;
+}
+
+.moviePage .tagsList li:first-child {
+  border: 1px solid #1a98ff;
 }
