@@ -4,7 +4,7 @@ function Footer (){
 
     return(
     <footer>
-        <img src="mainlogo.png"/>
+        <img src="/mainlogo.png"/>
         <ul>
             <li>Terms and Privacy Notice</li>
             <li>Send us feedback</li>

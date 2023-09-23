@@ -8,7 +8,7 @@ function Header (){
     return(
         <header>
             <figure>
-                <img src="mainlogo.png"/>
+                <img src="/mainlogo.png"/>
             </figure>
             <nav>
                 <ul>

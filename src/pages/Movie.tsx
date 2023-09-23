@@ -5,6 +5,11 @@ function Movie(){
     return(
         <>
             <Header/>
+            <main className="moviePage">
+                <section className="moviePicContainer">
+                    <img className="mainMoviePic" src="/theboys.jpg"/>
+                </section>
+            </main>
             <Footer/>
         </>
     )

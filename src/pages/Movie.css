@@ -1,0 +1,18 @@
+.moviePage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.moviePage .moviePicContainer {
+  display: flex;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.moviePage .mainMoviePic {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
