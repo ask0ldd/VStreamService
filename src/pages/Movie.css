@@ -13,7 +13,7 @@ main.moviePage {
   aspect-ratio: 1440/756;
   background-size: cover;
   border-radius: 12px;
-  border: 2px solid #ffffff20;
+  border: 1px solid #ffffff20;
   padding: 4rem;
 }
 
@@ -36,6 +36,20 @@ main.moviePage {
 .moviePage h2 {
   font-size: 64px;
   font-family: "Oswald", sans-serif;
+  transform: translateX(-2px);
+}
+
+.moviePage .genresContainer {
+  display: flex;
+  flex-direction: row;
+  column-gap: 8px;
+  font-size: 12px;
+  margin-bottom: 11px;
+}
+
+.moviePage .genresContainer li {
+  font-family: "Lexend", sans-serif;
+  font-weight: 300;
 }
 
 .moviePage .plot {
@@ -45,25 +59,29 @@ main.moviePage {
 .moviePage .tagsList {
   display: flex;
   column-gap: 12px;
-  margin-top: 1rem;
+  margin-top: 18px;
 }
 
 .moviePage .tagsList li {
-  padding: 2px 16px;
+  padding: 1px 12px 2px 14px;
   border-radius: 32px;
   font-weight: 600;
-  background-color: #000000bb;
+  background-color: #00000099;
   border: 1px solid #4f4f4f;
 }
 
 .moviePage .tagsList li:first-child {
   border: 1px solid #1a98ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 6px;
 }
 
 .moviePage .bigPlayContainer {
   position: absolute;
   right: 0;
-  bottom: 20%;
+  bottom: 10%;
   height: 192px;
   width: 214px;
   /*background: rgba(255, 255, 255, 0.25);*/

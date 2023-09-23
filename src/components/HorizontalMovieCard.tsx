@@ -11,7 +11,7 @@ function HorizontalMovieCard ({movie, movieMedias/*, moviesBg*/} : {movie : IMov
     const watchList  = useTypedSelector((state) => state.movies.watchList)
 
     return (
-        <Link role="button" to={"/movie/"+movie.imdbID}>
+        <Link className="horizontalCardLink" role="button" to={"/movie/"+movie.imdbID}>
             <article className="horizontalMovieCard">
                 <div className="mainPicContainer">
                     <img className="mainPic" src={'horizontalCardPic/' + movieMedias.horizontalPic}/>
