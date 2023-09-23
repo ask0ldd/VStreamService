@@ -17,6 +17,13 @@ main.moviePage {
   padding: 4rem;
 }
 
+.moviePage .movieInfosGroup {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-top: auto;
+}
+
 /*.moviePage .mainMoviePic {
   position: absolute;
   top: 0;
@@ -27,12 +34,11 @@ main.moviePage {
 }*/
 
 .moviePage h2 {
-  font-size: 48px;
+  font-size: 64px;
   font-family: "Oswald", sans-serif;
 }
 
 .moviePage .plot {
-  width: 50%;
   font-family: "Lexend", sans-serif;
 }
 
@@ -52,4 +58,32 @@ main.moviePage {
 
 .moviePage .tagsList li:first-child {
   border: 1px solid #1a98ff;
+}
+
+.moviePage .bigPlayContainer {
+  position: absolute;
+  right: 0;
+  bottom: 20%;
+  height: 192px;
+  width: 214px;
+  /*background: rgba(255, 255, 255, 0.25);*/
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.15)
+  );
+  outline: 2px solid rgba(255, 255, 255, 0.35);
+  z-index: 3;
+  border-radius: 300px 0 0 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: all 0.3s linear;
+  backdrop-filter: blur(4px);
+}
+
+.moviePage .bigPlayContainer .bigPlayButton {
+  border-radius: 600px;
+  box-shadow: 0 8px 16px #00000033;
 }
