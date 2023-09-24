@@ -13,7 +13,7 @@ function Header (){
             </figure>
             <nav>
                 <ul>
-                    <li>Home</li>
+                    <li><Link role="button" to={"/"}>Home</Link></li>
                     <li>Watchlist</li>
                     <li>Categories</li>
                     <li>Settings</li>

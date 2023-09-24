@@ -46,6 +46,9 @@ function Movie(){
                             <li>UHD</li>
                         </ul>
                     </div>
+                    <video muted loop>
+                            <source data-src={"/videos/theboyss3.mp4"} type="video/mp4"/>
+                    </video>
                 </section>
             </main>
             <Footer/>
