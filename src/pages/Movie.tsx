@@ -67,6 +67,23 @@ function Movie(){
                         <source data-src="/videos/theboyss3.mp4" type="video/mp4"/>
                     </video>
                 </section>
+                <section className="episodesList">
+                    <article>
+                        <figure>
+                            <img src="/theboysepisodeplaceholder.png"/>
+                        </figure>
+                        <div className="episodeInfosContainer">
+                            <h3>S1.E1 ∙ The Name of the Game</h3>
+                            <p>
+                                You and a guest are invited to the premiere of DAWN OF THE SEVEN this Tuesday at 7PM in Vought Tower’s 
+                                Lamplighter Memorial Theater! Screening will be followed by a Q&A with director Adam Bourke and an after-party 
+                                with Supe DJ Malchemical on the turntables! Join us for the greatest true origin story ever told about America’s 
+                                number one Superhero team and see how the legend began!
+                            </p>
+                        </div>
+                    </article>
+
+                </section>
             </main>
             <Footer/>
         </>

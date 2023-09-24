@@ -57,7 +57,9 @@ main.moviePage {
 }
 
 .moviePage .plot {
+  font-size: 18px;
   font-family: "Lexend", sans-serif;
+  line-height: 160%;
 }
 
 .moviePage .tagsList {
@@ -121,4 +123,56 @@ main.moviePage {
   object-fit: cover;
   filter: brightness(0.7) saturate(0.8);
   /*border: 1px solid #ffffff;*/
+}
+
+.moviePage .episodesList {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 2rem;
+  font-family: "Lexend", sans-serif;
+}
+
+.moviePage .episodesList article {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  column-gap: 2rem;
+}
+
+.moviePage .episodesList figure {
+  position: relative;
+  width: 516px;
+  height: 324px;
+  display: flex;
+  flex-shrink: 0;
+}
+
+.moviePage .episodesList figure img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  outline: 1px solid #ffffff25;
+}
+
+.moviePage .episodesList .episodeInfosContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(
+      143.25% 127.27% at 81.62% 0%,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
+  backdrop-filter: blur(8px);
+  outline: 1px solid #ffffff25;
+  border-radius: 12px;
+  padding: 1.5rem;
 }
