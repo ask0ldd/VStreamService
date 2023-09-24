@@ -1,8 +1,27 @@
+import { useEffect } from "react"
 import Footer from "../components/Footer"
 import Header from "../components/Header"
 import './Movie.css'
 
 function Movie(){
+
+    function videoStart(){
+        const video = document.querySelector('video') as HTMLVideoElement
+        // sets video source src only when hovering the card => video lazy loading
+        const source = video.querySelector('source')
+        if(source && source.getAttribute('src') == null) {
+            source.setAttribute('src', source.getAttribute('data-src') as string)
+            video.load()
+        }
+        if(video.currentTime === 0) video.play()
+    }
+
+    // delayed video start
+    useEffect(() => {
+        setTimeout(() => {
+            videoStart()
+        } , 3000)
+    },[])
 
     return(
         <>
@@ -45,7 +64,7 @@ function Movie(){
                         </ul>
                     </div>
                     <video muted loop autoPlay>
-                            <source src="/videos/theboyss3.mp4" type="video/mp4"/>
+                        <source data-src="/videos/theboyss3.mp4" type="video/mp4"/>
                     </video>
                 </section>
             </main>
