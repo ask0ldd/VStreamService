@@ -1,10 +1,11 @@
 import '../style/Footer.css'
+import mainLogo from '../../public/mainlogo.png'
 
 function Footer (){
 
     return(
     <footer>
-        <img src="/mainlogo.png"/>
+        <img src={mainLogo}/>
         <ul>
             <li>Terms and Privacy Notice</li>
             <li>Send us feedback</li>

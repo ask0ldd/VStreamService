@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useTypedSelector } from '../hooks/redux'
 import '../style/Header.css'
+import mainLogo from '../../public/mainlogo.png'
 
 function Header (){
 
@@ -9,7 +10,7 @@ function Header (){
     return(
         <header>
             <figure>
-                <Link role="button" to={"/"}><img src="/mainlogo.png"/></Link>
+                <Link role="button" to={"/"}><img src={mainLogo}/></Link>
             </figure>
             <nav>
                 <ul>

@@ -29,7 +29,7 @@ function Movie(){
             <main className="moviePage">
                 <section className="moviePContainer">
                     <div className="bigPlayContainer">
-                        <img role="button" src="/buttons/bigPlayButton.png" className="bigPlayButton"/>
+                        <img role="button" src="../buttons/bigPlayButton.png" className="bigPlayButton"/>
                     </div>
                     <div className="movieInfosGroup">
                         <h2>THE BOYS</h2>
@@ -64,13 +64,13 @@ function Movie(){
                         </ul>
                     </div>
                     <video muted loop autoPlay>
-                        <source data-src="/videos/theboyss3.mp4" type="video/mp4"/>
+                        <source data-src="../videos/theboyss3.mp4" type="video/mp4"/>
                     </video>
                 </section>
                 <section className="episodesList">
                     <article>
                         <figure>
-                            <img src="/theboys-1x1.png"/>
+                            <img src="../theboys-1x1.png"/>
                             <div className="timePositionContainer">
                                 <div className="timePositionBlueBar"></div>
                             </div>
@@ -99,7 +99,7 @@ function Movie(){
 
                     <article>
                         <figure>
-                            <img style={{filter:'saturate(0.9) contrast(0.9) brightness(1.1)'}} src="/theboys-1x2.png"/>
+                            <img style={{filter:'saturate(0.9) contrast(0.9) brightness(1.1)'}} src="../theboys-1x2.png"/>
                             <div className="timePositionContainer">
                                 <div className="timePositionBlueBar"></div>
                             </div>
@@ -128,7 +128,7 @@ function Movie(){
 
                     <article>
                         <figure>
-                            <img style={{filter:'saturate(0.8) contrast(0.82) brightness(1.2)'}} src="/theboys-1x3.png"/>
+                            <img style={{filter:'saturate(0.8) contrast(0.82) brightness(1.2)'}} src="../theboys-1x3.png"/>
                             <div className="timePositionContainer">
                                 <div className="timePositionBlueBar"></div>
                             </div>
@@ -157,7 +157,7 @@ function Movie(){
 
                     <article>
                         <figure>
-                            <img src="/theboysepisodeplaceholder.png"/>
+                            <img src="../theboys-1x1.png"/>
                         </figure>
                         <div className="episodeInfosContainer">
                             <h3>S1.E4 ∙ The Female of the Species</h3>
