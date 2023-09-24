@@ -13,8 +13,11 @@ main.moviePage {
   aspect-ratio: 1440/756;
   background-size: cover;
   border-radius: 12px;
-  border: 1px solid #ffffff20;
+  outline: 1px solid #ffffff20;
   padding: 4rem;
+  overflow: hidden;
+  overflow-clip-margin: unset;
+  margin: 0;
 }
 
 .moviePage .movieInfosGroup {
@@ -22,6 +25,7 @@ main.moviePage {
   flex-direction: column;
   width: 50%;
   margin-top: auto;
+  z-index: 2;
 }
 
 /*.moviePage .mainMoviePic {
@@ -91,7 +95,7 @@ main.moviePage {
     rgba(255, 255, 255, 0.15)
   );
   outline: 2px solid rgba(255, 255, 255, 0.35);
-  z-index: 3;
+  z-index: 2;
   border-radius: 300px 0 0 300px;
   display: flex;
   justify-content: center;
@@ -104,6 +108,7 @@ main.moviePage {
 .moviePage .bigPlayContainer .bigPlayButton {
   border-radius: 600px;
   box-shadow: 0 8px 16px #00000033;
+  cursor: pointer;
 }
 
 .moviePage video {
@@ -112,5 +117,8 @@ main.moviePage {
   height: 100%;
   top: 0;
   left: 0;
-  z-index: 5;
+  z-index: 1;
+  object-fit: cover;
+  filter: brightness(0.7) saturate(0.8);
+  /*border: 1px solid #ffffff;*/
 }

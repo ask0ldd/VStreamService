@@ -4,8 +4,6 @@ import './Movie.css'
 
 function Movie(){
 
-
-
     return(
         <>
             <Header/>
@@ -46,8 +44,8 @@ function Movie(){
                             <li>UHD</li>
                         </ul>
                     </div>
-                    <video muted loop>
-                            <source data-src={"/videos/theboyss3.mp4"} type="video/mp4"/>
+                    <video muted loop autoPlay>
+                            <source src="/videos/theboyss3.mp4" type="video/mp4"/>
                     </video>
                 </section>
             </main>
