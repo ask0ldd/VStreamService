@@ -10,6 +10,12 @@ function HorizontalMovieCard ({movie, movieMedias/*, moviesBg*/} : {movie : IMov
     const dispatch = useTypedDispatch()
     const watchList  = useTypedSelector((state) => state.movies.watchList)
 
+    function addtoWatchList(e : React.MouseEvent<HTMLElement>){
+        e.preventDefault()
+        e.stopPropagation()
+        dispatch(updateWatchList({id : movie.imdbID}))
+    }
+
     return (
         <Link className="horizontalCardLink" role="button" to={"/movie/"+movie.imdbID}>
             <article className="horizontalMovieCard">
@@ -24,7 +30,7 @@ function HorizontalMovieCard ({movie, movieMedias/*, moviesBg*/} : {movie : IMov
                         <a href="#" style={{height:'48px', borderRadius:'300px'}}><img style={{height:'48px', boxShadow:'0px 4px 8px #00000066', borderRadius:'300px'}} src="buttons/playbutton.png"/></a>
                     </div>
                     <div className="addMoreContainer">
-                        <img className="addButton" role="button" src={watchList.includes(movie.imdbID) ? "buttons/okbutton.png" : "buttons/addbutton.png"} onClick={() => dispatch(updateWatchList({id : movie.imdbID}))}/>
+                        <img className="addButton" role="button" src={watchList.includes(movie.imdbID) ? "buttons/okbutton.png" : "buttons/addbutton.png"} onClick={(e) => addtoWatchList(e)}/>
                         <a style={{height:'36px', width:'36px'}} href="#"><img src="buttons/morebutton.png"/></a>
                     </div>
                 </div>
