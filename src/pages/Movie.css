@@ -175,4 +175,37 @@ main.moviePage {
   outline: 1px solid #ffffff25;
   border-radius: 12px;
   padding: 1.5rem;
+  row-gap: 0.75rem;
+}
+
+.moviePage .episodesList .episodeInfosContainer h3 {
+  font-size: 20px;
+  line-height: 130%;
+  font-weight: 500;
+}
+
+.moviePage .episodesList .episodeInfosContainer ul {
+  display: flex;
+  flex-direction: row;
+  column-gap: 12px;
+}
+
+.moviePage .episodesList .episodeInfosContainer ul li {
+  padding: 2px 12px 2px 12px;
+  border-radius: 32px;
+  font-weight: 500;
+  background-color: #00000099;
+  border: 1px solid #4f4f4f;
+  font-size: 12px;
+  display: flex;
+  column-gap: 6px;
+}
+
+.moviePage .episodesList .episodeInfosContainer ul svg {
+  transform: translateY(3px);
+}
+
+.moviePage .episodesList .episodeInfosContainer p {
+  line-height: 160%;
+  max-width: 640px;
 }
