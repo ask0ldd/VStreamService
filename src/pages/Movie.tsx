@@ -70,11 +70,13 @@ function Movie(){
                     </video>
                 </section>
                 <section className="episodesList">
+
                     <ul className="seasonsContainer">
                         <li onClick={() => setActiveSeason(1)} className={activeSeason === 1 ? "seasonTag active" : "seasonTag inactive"}>Season 1</li>
                         <li onClick={() => setActiveSeason(2)} className={activeSeason === 2 ? "seasonTag active" : "seasonTag inactive"}>Season 2</li>
                         <li onClick={() => setActiveSeason(3)} className={activeSeason === 3 ? "seasonTag active" : "seasonTag inactive"}>Season 3</li>
                     </ul>
+
                     <article>
                         <figure>
                             <img src="../theboys-1x1.png"/>
@@ -101,6 +103,13 @@ function Movie(){
                                 with Supe DJ Malchemical on the turntables! Join us for the greatest true origin story ever told about America’s 
                                 number one Superhero team and see how the legend began!
                             </p>
+                            <div className="episodesButtonsContainer">
+                                <img src="/buttons/likebutton.png"/>
+                                <img src="/buttons/dislikebutton.png"/>
+                                <img src="/buttons/addbutton.png"/>
+                                <img src="/buttons/morebutton.png"/>
+                                <img src="/buttons/play.png"/>
+                            </div>
                         </div>
                     </article>
 
@@ -130,6 +139,13 @@ function Movie(){
                                 with Supe DJ Malchemical on the turntables! Join us for the greatest true origin story ever told about America’s 
                                 number one Superhero team and see how the legend began!
                             </p>
+                            <div className="episodesButtonsContainer">
+                                <img src="/buttons/likebutton.png"/>
+                                <img src="/buttons/dislikebutton.png"/>
+                                <img src="/buttons/addbutton.png"/>
+                                <img src="/buttons/morebutton.png"/>
+                                <img src="/buttons/play.png"/>
+                            </div>
                         </div>
                     </article>
 
@@ -159,6 +175,13 @@ function Movie(){
                                 with Supe DJ Malchemical on the turntables! Join us for the greatest true origin story ever told about America’s 
                                 number one Superhero team and see how the legend began!
                             </p>
+                            <div className="episodesButtonsContainer">
+                                <img src="/buttons/likebutton.png"/>
+                                <img src="/buttons/dislikebutton.png"/>
+                                <img src="/buttons/addbutton.png"/>
+                                <img src="/buttons/morebutton.png"/>
+                                <img src="/buttons/play.png"/>
+                            </div>
                         </div>
                     </article>
 
@@ -185,6 +208,13 @@ function Movie(){
                                 with Supe DJ Malchemical on the turntables! Join us for the greatest true origin story ever told about America’s 
                                 number one Superhero team and see how the legend began!
                             </p>
+                            <div className="episodesButtonsContainer">
+                                <img src="/buttons/likebutton.png"/>
+                                <img src="/buttons/dislikebutton.png"/>
+                                <img src="/buttons/addbutton.png"/>
+                                <img src="/buttons/morebutton.png"/>
+                                <img src="/buttons/play.png"/>
+                            </div>
                         </div>
                     </article>
 

@@ -4,6 +4,8 @@ import VerticalMovieCard from "./VerticalMovieCard"
 
 function VerticalMovieCardsSlideshow({categoryTitle, moviesList}: {categoryTitle :string, moviesList : IMovie[]}) {
 
+    // use an observable to track the scroll position and update the pagination
+
     const cardWidthPlusGap = 225+32
 
     const moviesMedias : IMoviesMedias = {
@@ -37,9 +39,7 @@ function VerticalMovieCardsSlideshow({categoryTitle, moviesList}: {categoryTitle
         })
     }
 
-
     return (
-        
         <section className="verticalCardsSlideshow">
             <div className="titleContainer">
                 <img src="icons/fire.png"/>
