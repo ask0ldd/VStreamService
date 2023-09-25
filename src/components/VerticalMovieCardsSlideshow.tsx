@@ -1,12 +1,18 @@
 import { IMovie, IMoviesMedias } from "../types/types"
 import '../style/VerticalMovieCardsSlideshow.css'
 import VerticalMovieCard from "./VerticalMovieCard"
+import { useRef, useState } from "react"
 
 function VerticalMovieCardsSlideshow({categoryTitle, moviesList}: {categoryTitle :string, moviesList : IMovie[]}) {
 
     // use an observable to track the scroll position and update the pagination
 
     const cardWidthPlusGap = 225+32
+
+    const [currentSlideshowPage, setCurrentSlideshowPage] = useState<number>(1)
+    const moviesContainerRef = useRef<HTMLDivElement>(null)
+    // useref used cause no refresh wanted
+    const slideshowLeftScrolled = useRef<number>(0)
 
     const moviesMedias : IMoviesMedias = {
         'tt1869454' : {poster : 'goodomens2.jpg', horizontalPic : 'thelastofus.jpg', video : 'goodomens2.mp4'}, 
@@ -26,6 +32,12 @@ function VerticalMovieCardsSlideshow({categoryTitle, moviesList}: {categoryTitle
             top: 0,
             behavior: 'smooth'
         })
+        if(moviesContainer?.scrollLeft !== undefined) {
+            slideshowLeftScrolled.current = moviesContainer.scrollLeft
+            const activeSlideshowPage = Math.floor((moviesContainer.scrollLeft +  cardWidthPlusGap*4) / (cardWidthPlusGap * 4 ))+1
+            console.log(moviesContainer.scrollLeft, activeSlideshowPage)
+            setCurrentSlideshowPage(activeSlideshowPage)
+        }
     }
 
     function scrollLeft(e : React.MouseEvent<HTMLElement>){
@@ -37,6 +49,12 @@ function VerticalMovieCardsSlideshow({categoryTitle, moviesList}: {categoryTitle
             top: 0,
             behavior: 'smooth'
         })
+        if(moviesContainer?.scrollLeft !== undefined) {
+            slideshowLeftScrolled.current = moviesContainer.scrollLeft
+            const activeSlideshowPage = Math.floor((moviesContainer.scrollLeft -  cardWidthPlusGap*4) / (cardWidthPlusGap * 4 ))+1
+            console.log(moviesContainer.scrollLeft, activeSlideshowPage)
+            setCurrentSlideshowPage(activeSlideshowPage)
+        }
     }
 
     return (
@@ -46,10 +64,11 @@ function VerticalMovieCardsSlideshow({categoryTitle, moviesList}: {categoryTitle
                 <h2>{categoryTitle}</h2>
                 <span>See more</span>
                 <div className="paginationContainer">
-                    <div className="dot active"></div>
-                    <div className="dot"></div>
-                    <div className="dot"></div>
-                    <div className="dot"></div>
+                    <div className={currentSlideshowPage === 1 ? "dot active" : "dot"}></div>
+                    <div className={currentSlideshowPage === 2 ? "dot active" : "dot"}></div>
+                    <div className={currentSlideshowPage === 3 ? "dot active" : "dot"}></div>
+                    <div className={currentSlideshowPage === 4 ? "dot active" : "dot"}></div>
+                    <div className={currentSlideshowPage === 5 ? "dot active" : "dot"}></div>
                 </div>
             </div>
             <div className="moviesArrowsContainer">
@@ -65,7 +84,7 @@ function VerticalMovieCardsSlideshow({categoryTitle, moviesList}: {categoryTitle
                         </div>
                     </div>
                 </div>
-                <div className="moviesContainer">
+                <div ref={moviesContainerRef} className="moviesContainer">
                     {moviesList.map((movie, index) => (
                         <VerticalMovieCard key={'mc'+ new Date(Date.now()).toLocaleString + index} movieMedias={moviesMedias[movie.imdbID]} movie={movie} xPosition={index*cardWidthPlusGap}/>
                     ))}
