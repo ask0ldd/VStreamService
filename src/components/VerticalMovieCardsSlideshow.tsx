@@ -5,7 +5,7 @@ import { useRef, useState } from "react"
 
 function VerticalMovieCardsSlideshow({categoryTitle, moviesList}: {categoryTitle :string, moviesList : IMovie[]}) {
 
-    // use an observable to track the scroll position and update the pagination
+    // use an observable to track the scroll position and update the pagination ?
 
     const cardWidthPlusGap = 225+32
 
@@ -36,7 +36,7 @@ function VerticalMovieCardsSlideshow({categoryTitle, moviesList}: {categoryTitle
             slideshowLeftScrolled.current = moviesContainer.scrollLeft
             const activeSlideshowPage = Math.floor((moviesContainer.scrollLeft +  cardWidthPlusGap*4) / (cardWidthPlusGap * 4 ))+1
             console.log(moviesContainer.scrollLeft, activeSlideshowPage)
-            setCurrentSlideshowPage(activeSlideshowPage)
+            if(activeSlideshowPage !== currentSlideshowPage) setCurrentSlideshowPage(activeSlideshowPage)
         }
     }
 
@@ -53,9 +53,11 @@ function VerticalMovieCardsSlideshow({categoryTitle, moviesList}: {categoryTitle
             slideshowLeftScrolled.current = moviesContainer.scrollLeft
             const activeSlideshowPage = Math.floor((moviesContainer.scrollLeft -  cardWidthPlusGap*4) / (cardWidthPlusGap * 4 ))+1
             console.log(moviesContainer.scrollLeft, activeSlideshowPage)
-            setCurrentSlideshowPage(activeSlideshowPage)
+            if(activeSlideshowPage !== currentSlideshowPage) setCurrentSlideshowPage(activeSlideshowPage)
         }
     }
+
+    // pagination should reply to onscroll to take into account the center method of the card component ?
 
     return (
         <section className="verticalCardsSlideshow">
