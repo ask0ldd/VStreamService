@@ -129,9 +129,38 @@ main.moviePage {
   display: flex;
   width: 100%;
   flex-direction: column;
-  margin-top: 2rem;
+  margin-top: 3rem;
   font-family: "Lexend", sans-serif;
   row-gap: 2rem;
+}
+
+.moviePage .episodesList .seasonsContainer {
+  display: flex;
+  flex-direction: row;
+  height: 34px;
+  column-gap: 1.25rem;
+}
+
+.moviePage .episodesList .seasonsContainer li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 24px;
+  border-radius: 34px;
+  font-family: "Lexend", sans-serif;
+  font-weight: 400;
+}
+
+.moviePage .episodesList .seasonsContainer li.active {
+  color: #fff;
+  border: 2px solid #fff;
+  background: linear-gradient(180deg, #1a98ff 0%, #0f7ee3 100%);
+}
+
+.moviePage .episodesList .seasonsContainer li.inactive {
+  border: 1px solid #4f4f4f;
+  background-color: #00000066;
+  cursor: pointer;
 }
 
 .moviePage .episodesList article {
@@ -217,11 +246,12 @@ main.moviePage {
   padding: 2px 12px 2px 12px;
   border-radius: 32px;
   font-weight: 500;
-  background-color: #00000099;
+  background-color: #00000066;
   border: 1px solid #4f4f4f;
   font-size: 12px;
   display: flex;
   column-gap: 6px;
+  /*box-shadow: 0 2px 4px #00000055;*/
 }
 
 .moviePage .episodesList .episodeInfosContainer ul svg {
@@ -231,5 +261,5 @@ main.moviePage {
 .moviePage .episodesList .episodeInfosContainer p {
   line-height: 160%;
   max-width: 640px;
-  font-weight: 400;
+  font-weight: 300;
 }

@@ -1,9 +1,11 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Footer from "../components/Footer"
 import Header from "../components/Header"
 import './Movie.css'
 
 function Movie(){
+
+    const [activeSeason, setActiveSeason] = useState<number>(1)
 
     function videoStart(){
         const video = document.querySelector('video') as HTMLVideoElement
@@ -68,6 +70,11 @@ function Movie(){
                     </video>
                 </section>
                 <section className="episodesList">
+                    <ul className="seasonsContainer">
+                        <li onClick={() => setActiveSeason(1)} className={activeSeason === 1 ? "seasonTag active" : "seasonTag inactive"}>Season 1</li>
+                        <li onClick={() => setActiveSeason(2)} className={activeSeason === 2 ? "seasonTag active" : "seasonTag inactive"}>Season 2</li>
+                        <li onClick={() => setActiveSeason(3)} className={activeSeason === 3 ? "seasonTag active" : "seasonTag inactive"}>Season 3</li>
+                    </ul>
                     <article>
                         <figure>
                             <img src="../theboys-1x1.png"/>
