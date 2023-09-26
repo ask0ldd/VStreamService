@@ -1,0 +1,112 @@
+.moviePage .episodesList article {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  column-gap: 2rem;
+}
+
+.moviePage .episodesList figure {
+  position: relative;
+  width: 516px;
+  height: 324px;
+  display: flex;
+  flex-shrink: 0;
+}
+
+.moviePage .episodesList figure img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  outline: 1px solid #ffffff25;
+}
+
+.moviePage .episodesList .timePositionContainer {
+  position: absolute;
+  width: 90%;
+  height: 8px;
+  background-color: #ffffff45;
+  border-radius: 12px;
+  bottom: 1rem;
+  left: 5%;
+  overflow: hidden;
+}
+
+.moviePage .episodesList .timePositionContainer .timePositionBlueBar {
+  display: block;
+  left: 0;
+  top: 0;
+  width: 80%;
+  height: 100%;
+  background-color: #1a98ff;
+  border-radius: 12px;
+}
+
+.moviePage .episodesList .episodeInfosContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(
+      143.25% 127.27% at 81.62% 0%,
+      rgba(255, 255, 255, 0.06) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.06) 0%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
+  backdrop-filter: blur(8px);
+  outline: 1px solid #ffffff25;
+  border-radius: 12px;
+  padding: 1.5rem;
+  row-gap: 0.75rem;
+  /*box-shadow: 0 4px 8px #00000066;*/
+}
+
+.moviePage .episodesList .episodeInfosContainer h3 {
+  font-size: 20px;
+  line-height: 130%;
+  font-weight: 500;
+}
+
+.moviePage .episodesList .episodeInfosContainer ul {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+}
+
+.moviePage .episodesList .episodeInfosContainer ul li {
+  padding: 2px 12px 2px 12px;
+  border-radius: 32px;
+  font-weight: 500;
+  background-color: #00000066;
+  border: 1px solid #4f4f4f;
+  font-size: 12px;
+  display: flex;
+  column-gap: 6px;
+  /*box-shadow: 0 2px 4px #00000055;*/
+}
+
+.moviePage .episodesList .episodeInfosContainer ul svg {
+  transform: translateY(3px);
+}
+
+.moviePage .episodesList .episodeInfosContainer p {
+  line-height: 160%;
+  max-width: 640px;
+  font-weight: 300;
+}
+
+.moviePage .episodesList .episodeInfosContainer .episodesButtonsContainer {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1rem;
+  padding: 8px;
+  display: flex;
+  border-radius: 50px;
+  outline: 1px solid #ffffff25;
+  background: linear-gradient(180deg, #ffffff20, #ffffff10);
+  column-gap: 12px;
+}

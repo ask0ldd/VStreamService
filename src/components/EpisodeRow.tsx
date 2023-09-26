@@ -1,4 +1,5 @@
 import { IEpisode } from "../types/types"
+import '../style/EpisodeRow.css'
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 function EpisodeRow({episode} : {episode : IEpisode}){
@@ -8,7 +9,7 @@ function EpisodeRow({episode} : {episode : IEpisode}){
                 <img src={"../"+episode.picture}/>
             </figure>
             <div className="episodeInfosContainer">
-                <h3>{`S${episode.episode}.E${episode.season} ∙ ${episode.title}`}</h3>
+                <h3>{`S${episode.season}.E${episode.episode} ∙ ${episode.title}`}</h3>
                 <ul>
                     <li>
                         {episode.imdbRating}

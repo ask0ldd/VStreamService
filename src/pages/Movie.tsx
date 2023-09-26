@@ -54,7 +54,7 @@ function Movie(){
         if(episodeCard != null) {
             observer.observe(episodeCard)
         } else { 
-            console.log("error")
+            console.log("no more episodes")
         }
 
         // cleanup
@@ -75,11 +75,11 @@ function Movie(){
                         <h2>THE BOYS</h2>
                         <ul className="genresContainer">
                             <li>Action</li>
-                            <li>-</li>
+                            <li>∙</li>
                             <li>Comedy</li>
-                            <li>-</li>
+                            <li>∙</li>
                             <li>Crime</li>
-                            <li>-</li>
+                            <li>∙</li>
                             <li>Sci-Fi</li>
                         </ul>
                         <span className="plot">
@@ -189,7 +189,7 @@ const episodes : IEpisode[] = [
         season : 1,
         episode : 4,
         title : 'Female of the Species',
-        picture : 'theboys-1x1.png',
+        picture : 'theboys-1x4.jpg',
         imdbRating : 8.7,
         releaseYear : 2019,
         plot : `The Boys is set in a universe where super-powered individuals are recognized 
@@ -205,7 +205,7 @@ const episodes : IEpisode[] = [
         season : 1,
         episode : 5,
         title : 'The Name of the Game',
-        picture : 'theboys-1x1.png',
+        picture : 'theboys-1x5.jpg',
         imdbRating : 8.7,
         releaseYear : 2019,
         plot : `The Boys is set in a universe where super-powered individuals are recognized 
@@ -221,7 +221,7 @@ const episodes : IEpisode[] = [
         season : 1,
         episode : 6,
         title : 'Cherry',
-        picture : 'theboys-1x2.png',
+        picture : 'theboys-1x6.jpg',
         imdbRating : 8.7,
         releaseYear : 2019,
         plot : `The Boys is set in a universe where super-powered individuals are recognized 
