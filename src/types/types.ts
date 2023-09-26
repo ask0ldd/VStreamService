@@ -36,3 +36,14 @@ export interface IMovie {
 export interface IMoviesMedias {
     [key: string]: {poster : string, horizontalPic : string, video : string};
   }
+
+  export interface IEpisode {
+    season : number,
+    episode : number,
+    title : string,
+    imdbRating : number,
+    releaseYear : number,
+    plot : string,
+    rating : string,
+    runningTime : number,
+  }

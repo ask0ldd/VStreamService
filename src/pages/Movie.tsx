@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import Footer from "../components/Footer"
 import Header from "../components/Header"
 import './Movie.css'
+import { IEpisode } from "../types/types"
 
 function Movie(){
 
@@ -341,7 +342,7 @@ export default Movie
 
 // <img className="mainMoviePic" src="/theboys.jpg"/>
 
-const episodes = [
+const episodes : IEpisode[] = [
     {
         season : 1,
         episode : 1,
