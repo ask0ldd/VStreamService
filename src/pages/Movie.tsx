@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import Footer from "../components/Footer"
 import Header from "../components/Header"
 import './Movie.css'
-import { seteuid } from "process"
 
 function Movie(){
 
@@ -341,3 +340,66 @@ function Movie(){
 export default Movie
 
 // <img className="mainMoviePic" src="/theboys.jpg"/>
+
+const episodes = [
+    {
+        season : 1,
+        episode : 1,
+        title : 'The Name of the Game',
+        imdbRating : 8.7,
+        releaseYear : 2019,
+        plot : `The Boys is set in a universe where super-powered individuals are recognized 
+        as heroes by the general public and work for a powerful corporation known as 
+        Vought International, which markets and monetizes them. Outside of their heroic 
+        personas, most are arrogant, selfish, and corrupt. The series primarily focuses 
+        on two groups: the Seven, Vought's premier superhero team, and the Boys, 
+        vigilantes looking to bring down Vought and its fake superheroes.`,
+        rating : 'PG-13',
+        runningTime : 45,
+     },
+     {
+        season : 1,
+        episode : 2,
+        title : 'Cherry',
+        imdbRating : 8.7,
+        releaseYear : 2019,
+        plot : `The Boys is set in a universe where super-powered individuals are recognized 
+        as heroes by the general public and work for a powerful corporation known as 
+        Vought International, which markets and monetizes them. Outside of their heroic 
+        personas, most are arrogant, selfish, and corrupt. The series primarily focuses 
+        on two groups: the Seven, Vought's premier superhero team, and the Boys, 
+        vigilantes looking to bring down Vought and its fake superheroes.`,
+        rating : 'PG-13',
+        runningTime : 45,
+     },
+     {
+        season : 1,
+        episode : 3,
+        title : 'Get Some',
+        imdbRating : 8.7,
+        releaseYear : 2019,
+        plot : `The Boys is set in a universe where super-powered individuals are recognized 
+        as heroes by the general public and work for a powerful corporation known as 
+        Vought International, which markets and monetizes them. Outside of their heroic 
+        personas, most are arrogant, selfish, and corrupt. The series primarily focuses 
+        on two groups: the Seven, Vought's premier superhero team, and the Boys, 
+        vigilantes looking to bring down Vought and its fake superheroes.`,
+        rating : 'PG-13',
+        runningTime : 45,
+     },
+     {
+        season : 1,
+        episode : 3,
+        title : 'Female of the Species',
+        imdbRating : 8.7,
+        releaseYear : 2019,
+        plot : `The Boys is set in a universe where super-powered individuals are recognized 
+        as heroes by the general public and work for a powerful corporation known as 
+        Vought International, which markets and monetizes them. Outside of their heroic 
+        personas, most are arrogant, selfish, and corrupt. The series primarily focuses 
+        on two groups: the Seven, Vought's premier superhero team, and the Boys, 
+        vigilantes looking to bring down Vought and its fake superheroes.`,
+        rating : 'PG-13',
+        runningTime : 45,
+     },
+]
