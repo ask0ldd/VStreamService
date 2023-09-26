@@ -29,7 +29,7 @@ function Movie(){
         } , 3000)
     },[])
 
-    // sets Intersection Observer displaying more episodes when at the bottom of the page
+    // displaying two more episodes each time user is at the bottom of the page
     useEffect(() => {
         const episodeCard = document.getElementById("episodeCard"+episodesShown)
 
@@ -43,19 +43,25 @@ function Movie(){
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     console.log('ohohohho')
-                    setEpisodesShown(4)
                     observer.disconnect()
+                    setEpisodesShown(episodesShown + 2)
+                    /*episodeCard = document.getElementById("episodeCard"+episodesShown)
+                    if(episodeCard != null) observer.observe(episodeCard)*/
                 }
             })
         }, options)
 
-        if(episodeCard != null) observer.observe(episodeCard)
+        if(episodeCard != null) {
+            observer.observe(episodeCard)
+        } else { 
+            console.log("error")
+        }
 
         // cleanup
         /*return () => {
 
         }*/
-    }, [])
+    }, [episodesShown])
 
     return(
         <>
@@ -114,6 +120,10 @@ function Movie(){
                     {episodesShown > 1 && <EpisodeRow episode={episodes[1]}/>}
                     {episodesShown > 2 && <EpisodeRow episode={episodes[2]}/>}
                     {episodesShown > 3 && <EpisodeRow episode={episodes[3]}/>}
+                    {episodesShown > 4 && <EpisodeRow episode={episodes[4]}/>}
+                    {episodesShown > 5 && <EpisodeRow episode={episodes[5]}/>}
+                    {episodesShown > 6 && <EpisodeRow episode={episodes[6]}/>}
+                    {episodesShown > 7 && <EpisodeRow episode={episodes[7]}/>}
 
                 </section>
             </main>
@@ -177,7 +187,71 @@ const episodes : IEpisode[] = [
      },
      {
         season : 1,
-        episode : 3,
+        episode : 4,
+        title : 'Female of the Species',
+        picture : 'theboys-1x1.png',
+        imdbRating : 8.7,
+        releaseYear : 2019,
+        plot : `The Boys is set in a universe where super-powered individuals are recognized 
+        as heroes by the general public and work for a powerful corporation known as 
+        Vought International, which markets and monetizes them. Outside of their heroic 
+        personas, most are arrogant, selfish, and corrupt. The series primarily focuses 
+        on two groups: the Seven, Vought's premier superhero team, and the Boys, 
+        vigilantes looking to bring down Vought and its fake superheroes.`,
+        rating : 'PG-13',
+        runningTime : 45,
+     },
+     {
+        season : 1,
+        episode : 5,
+        title : 'The Name of the Game',
+        picture : 'theboys-1x1.png',
+        imdbRating : 8.7,
+        releaseYear : 2019,
+        plot : `The Boys is set in a universe where super-powered individuals are recognized 
+        as heroes by the general public and work for a powerful corporation known as 
+        Vought International, which markets and monetizes them. Outside of their heroic 
+        personas, most are arrogant, selfish, and corrupt. The series primarily focuses 
+        on two groups: the Seven, Vought's premier superhero team, and the Boys, 
+        vigilantes looking to bring down Vought and its fake superheroes.`,
+        rating : 'PG-13',
+        runningTime : 45,
+     },
+     {
+        season : 1,
+        episode : 6,
+        title : 'Cherry',
+        picture : 'theboys-1x2.png',
+        imdbRating : 8.7,
+        releaseYear : 2019,
+        plot : `The Boys is set in a universe where super-powered individuals are recognized 
+        as heroes by the general public and work for a powerful corporation known as 
+        Vought International, which markets and monetizes them. Outside of their heroic 
+        personas, most are arrogant, selfish, and corrupt. The series primarily focuses 
+        on two groups: the Seven, Vought's premier superhero team, and the Boys, 
+        vigilantes looking to bring down Vought and its fake superheroes.`,
+        rating : 'PG-13',
+        runningTime : 45,
+     },
+     {
+        season : 1,
+        episode : 7,
+        title : 'Get Some',
+        picture : 'theboys-1x3.png',
+        imdbRating : 8.7,
+        releaseYear : 2019,
+        plot : `The Boys is set in a universe where super-powered individuals are recognized 
+        as heroes by the general public and work for a powerful corporation known as 
+        Vought International, which markets and monetizes them. Outside of their heroic 
+        personas, most are arrogant, selfish, and corrupt. The series primarily focuses 
+        on two groups: the Seven, Vought's premier superhero team, and the Boys, 
+        vigilantes looking to bring down Vought and its fake superheroes.`,
+        rating : 'PG-13',
+        runningTime : 45,
+     },
+     {
+        season : 1,
+        episode : 8,
         title : 'Female of the Species',
         picture : 'theboys-1x1.png',
         imdbRating : 8.7,

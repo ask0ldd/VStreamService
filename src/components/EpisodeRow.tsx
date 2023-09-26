@@ -3,7 +3,7 @@ import { IEpisode } from "../types/types"
 /* eslint-disable @typescript-eslint/no-unused-vars */
 function EpisodeRow({episode} : {episode : IEpisode}){
     return(
-        <article id="episodeCard6">
+        <article id={"episodeCard"+episode.episode}>
             <figure>
                 <img src={"../"+episode.picture}/>
             </figure>
