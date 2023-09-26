@@ -347,6 +347,7 @@ const episodes : IEpisode[] = [
         season : 1,
         episode : 1,
         title : 'The Name of the Game',
+        picture : 'theboys-1x1.png',
         imdbRating : 8.7,
         releaseYear : 2019,
         plot : `The Boys is set in a universe where super-powered individuals are recognized 
@@ -362,6 +363,7 @@ const episodes : IEpisode[] = [
         season : 1,
         episode : 2,
         title : 'Cherry',
+        picture : 'theboys-1x2.png',
         imdbRating : 8.7,
         releaseYear : 2019,
         plot : `The Boys is set in a universe where super-powered individuals are recognized 
@@ -377,6 +379,7 @@ const episodes : IEpisode[] = [
         season : 1,
         episode : 3,
         title : 'Get Some',
+        picture : 'theboys-1x3.png',
         imdbRating : 8.7,
         releaseYear : 2019,
         plot : `The Boys is set in a universe where super-powered individuals are recognized 
@@ -392,6 +395,7 @@ const episodes : IEpisode[] = [
         season : 1,
         episode : 3,
         title : 'Female of the Species',
+        picture : 'theboys-1x1.png',
         imdbRating : 8.7,
         releaseYear : 2019,
         plot : `The Boys is set in a universe where super-powered individuals are recognized 

@@ -40,6 +40,7 @@ export interface IMoviesMedias {
   export interface IEpisode {
     season : number,
     episode : number,
+    picture : string,
     title : string,
     imdbRating : number,
     releaseYear : number,
