@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useTypedSelector } from '../hooks/redux'
 import '../style/Header.css'
-import mainLogo from '../../public/mainlogo.png'
+import mainLogo from '../assets/mainlogo.png'
 
 function Header (){
 
