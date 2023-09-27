@@ -14,6 +14,10 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
         'tt2119532' : {poster : 'tunetueraspoint.jpg', horizontalPic : 'tunetueraspoint.jpg', video : 'goodomens2.mp4'}, 
         'tt0048424' : {poster : 'thenightofthehunter.jpg', horizontalPic : 'thenightofthehunter.jpg', video : 'goodomens2.mp4'}, 
         'tt17274522' : {poster : 'sheershivraaj.jpg', horizontalPic : 'sheershivraaj.jpg', video : 'goodomens2.mp4'}, 
+        'tt14689620' : {poster : 'vampireacademy.jpg', horizontalPic : 'vampireacademy.jpg', video : 'goodomens2.mp4'}, 
+        'tt9777666' : {poster : 'thetomorrowwar.jpg', horizontalPic : 'thetomorrowwar.jpg', video : 'goodomens2.mp4'}, 
+        'tt3973768' : {poster : 'handofgod.jpg', horizontalPic : 'handofgod.jpg', video : 'goodomens2.mp4'}, 
+        'tt7631058' : {poster : 'ringsofpower.jpg', horizontalPic : 'ringsofpower.jpg', video : 'goodomens2.mp4'}, 
     }
 
     function scrollRight(e : React.MouseEvent<HTMLElement>){
@@ -52,16 +56,16 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
                 </div>
                 <div className="moviesContainer" onScroll={(e) => {e.preventDefault()}} onWheel={(e) => {e.preventDefault()}}>
                     {moviesList.map(movie => (
-                        <HorizontalMovieCard movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
+                        <HorizontalMovieCard key={movie.imdbID+'1'} movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
                     ))}
                     {moviesList.map(movie => (
-                        <HorizontalMovieCard movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
+                        <HorizontalMovieCard key={movie.imdbID+'2'} movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
                     ))}
                     {moviesList.map(movie => (
-                        <HorizontalMovieCard movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
+                        <HorizontalMovieCard key={movie.imdbID+'3'} movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
                     ))}
                     {moviesList.map(movie => (
-                        <HorizontalMovieCard movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
+                        <HorizontalMovieCard key={movie.imdbID+'4'} movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
                     ))}
                 </div>
             </div>

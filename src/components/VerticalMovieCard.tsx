@@ -90,7 +90,7 @@ function VerticalMovieCard({movie, movieMedias, /*moviesBg, */ xPosition} : {mov
                 <div className="movieInfoContainer">
                     <h3>{movie.Title.includes(':') ? movie.Title.split(':')[0] : movie.Title}</h3>
                     <div style={{marginTop:'4px'}} className="genreTagsContainer">
-                        {movieGenres.map(genre => { return(<div className="genreTag">{genre}</div>) })}
+                        {movieGenres.map((genre, index) => { return(<div key={'tag'+index} className="genreTag">{genre}</div>) })}
                     </div>
                     <p className="plotContainer">{movie.Plot.length < 200 ? movie.Plot : movie.Plot.slice(0, 200) + '...'}</p>
                 </div>

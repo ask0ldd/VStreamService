@@ -138,6 +138,7 @@
   transition: opacity 0.3s linear;
   z-index: -1;
   overflow-clip-margin: unset;
+  filter: saturate(0.85) contrast(0.9) brightness(0.95);
 }
 
 .movieCard:hover .posterImg {

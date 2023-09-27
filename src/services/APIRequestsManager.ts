@@ -22,6 +22,7 @@ export class APIRequestsManager {
     static async getMoviesById(idList : string[], longPlot : boolean) : Promise<IMovie[]>{
         const longPlotExtension = longPlot === true ? '&plot=full' : ''
         const moviesList : IMovie[] = []
+        // use promiseall instead ?
         for(const movieId of idList) {
             const requestUrl = `https://www.omdbapi.com/?i=${movieId}&apikey=${OmdbKey}${longPlotExtension}`
             const response = await fetch(requestUrl)

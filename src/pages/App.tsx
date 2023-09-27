@@ -17,7 +17,7 @@ function App() {
   if(fetchedDatas != null && Array.isArray(fetchedDatas)) moviesList = [...fetchedDatas]
 
   // interstellar / shinmaskedrider / revenant / tunetueraspoint / thenightofthehunter / sheershivraaj
-  const {isLoading : isL, fetchedDatas : fd, isError : isE} = useAPI({idList:['tt0816692', 'tt14379088', 'tt1663202', 'tt2119532', 'tt0048424', 'tt17274522'], longPlot:false})
+  const {isLoading : isL, fetchedDatas : fd, isError : isE} = useAPI({idList:['tt7631058', 'tt14689620', 'tt9777666', 'tt3973768', 'tt0816692', 'tt14379088', 'tt1663202', 'tt2119532', 'tt0048424', 'tt17274522'], longPlot:false})
   let moviesList2 : IMovie[] = []
   if(fd != null && !Array.isArray(fd)) moviesList2.push({...fd})
   if(fd != null && Array.isArray(fd)) moviesList2 = [...fd]
@@ -28,11 +28,11 @@ function App() {
       <main>
         {!isLoading && !isError && <VerticalMovieCardsSlideshow categoryTitle="Currently Trending" moviesList={moviesList}/>}
         <div style={{height:'4rem'}}></div>
-        {!isLoading && !isError && <VerticalMovieCardsSlideshow categoryTitle="Most Nominated Movies" moviesList={moviesList}/>}
+        {!isLoading && !isError && <VerticalMovieCardsSlideshow categoryTitle="Most Nominated Movies" moviesList={[...moviesList].reverse()}/>}
         <div style={{height:'4rem'}}></div>
         {!isL && !isE && <HorizontalMovieCardsSlideshow moviesList={moviesList2}/>}
         <div style={{height:'4rem'}}></div>
-        {!isL && !isE && <HorizontalMovieCardsSlideshow moviesList={moviesList2}/>}
+        {!isL && !isE && <HorizontalMovieCardsSlideshow moviesList={[...moviesList2].reverse()}/>}
       </main>
       <Footer/>
     </>
