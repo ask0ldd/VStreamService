@@ -108,10 +108,10 @@ function Movie(){
 
                 <nav className="secondaryNav" role="navigation" aria-label="secondary menu">
                     <ul>
-                        <li onClick={() => setActiveMenuItem('episodes')}>Episodes</li>
-                        <li onClick={() => setActiveMenuItem('crew')}>Cast & Crew</li>
-                        <li onClick={() => setActiveMenuItem('trailers')}>Trailers</li>
-                        <li onClick={() => setActiveMenuItem('photos')}>Photos</li>
+                        <li className={activeMenuItem === "episodes" ? "active" : ""} onClick={() => setActiveMenuItem('episodes')}>Episodes</li>
+                        <li className={activeMenuItem === "crew" ? "active" : ""} onClick={() => setActiveMenuItem('crew')}>Cast & Crew</li>
+                        <li className={activeMenuItem === "trailers" ? "active" : ""} onClick={() => setActiveMenuItem('trailers')}>Trailers</li>
+                        <li className={activeMenuItem === "photos" ? "active" : ""} onClick={() => setActiveMenuItem('photos')}>Photos</li>
                     </ul>
                 </nav>
 
