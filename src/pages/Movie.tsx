@@ -42,11 +42,8 @@ function Movie(){
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    console.log('ohohohho')
                     observer.disconnect()
                     setEpisodesShown(episodesShown + 2)
-                    /*episodeCard = document.getElementById("episodeCard"+episodesShown)
-                    if(episodeCard != null) observer.observe(episodeCard)*/
                 }
             })
         }, options)
@@ -116,14 +113,9 @@ function Movie(){
                         <li className="seasonTag inactive" style={{marginLeft:'auto'}}>24 Episodes</li>
                     </ul>
 
-                    {episodesShown > 0 && <EpisodeRow episode={episodes[0]}/>}
-                    {episodesShown > 1 && <EpisodeRow episode={episodes[1]}/>}
-                    {episodesShown > 2 && <EpisodeRow episode={episodes[2]}/>}
-                    {episodesShown > 3 && <EpisodeRow episode={episodes[3]}/>}
-                    {episodesShown > 4 && <EpisodeRow episode={episodes[4]}/>}
-                    {episodesShown > 5 && <EpisodeRow episode={episodes[5]}/>}
-                    {episodesShown > 6 && <EpisodeRow episode={episodes[6]}/>}
-                    {episodesShown > 7 && <EpisodeRow episode={episodes[7]}/>}
+                    {season1.map((episode, index) => {
+                        if(episodesShown > index) return <EpisodeRow episode={episode}/>
+                    })}
 
                 </section>
             </main>
@@ -136,7 +128,7 @@ export default Movie
 
 // <img className="mainMoviePic" src="/theboys.jpg"/>
 
-const episodes : IEpisode[] = [
+const season1 : IEpisode[] = [
     {
         season : 1,
         episode : 1,
@@ -158,7 +150,7 @@ const episodes : IEpisode[] = [
         episode : 2,
         title : 'Cherry',
         picture : 'theboys-1x2.png',
-        imdbRating : 8.7,
+        imdbRating : 8.5,
         releaseYear : 2019,
         plot : `The Boys is set in a universe where super-powered individuals are recognized 
         as heroes by the general public and work for a powerful corporation known as 
@@ -174,7 +166,7 @@ const episodes : IEpisode[] = [
         episode : 3,
         title : 'Get Some',
         picture : 'theboys-1x3.png',
-        imdbRating : 8.7,
+        imdbRating : 8.3,
         releaseYear : 2019,
         plot : `The Boys is set in a universe where super-powered individuals are recognized 
         as heroes by the general public and work for a powerful corporation known as 
@@ -204,9 +196,9 @@ const episodes : IEpisode[] = [
      {
         season : 1,
         episode : 5,
-        title : 'The Name of the Game',
+        title : 'Good for the Soul',
         picture : 'theboys-1x5.jpg',
-        imdbRating : 8.7,
+        imdbRating : 8.4,
         releaseYear : 2019,
         plot : `The Boys is set in a universe where super-powered individuals are recognized 
         as heroes by the general public and work for a powerful corporation known as 
@@ -220,9 +212,9 @@ const episodes : IEpisode[] = [
      {
         season : 1,
         episode : 6,
-        title : 'Cherry',
+        title : 'The Innocents',
         picture : 'theboys-1x6.jpg',
-        imdbRating : 8.7,
+        imdbRating : 8.1,
         releaseYear : 2019,
         plot : `The Boys is set in a universe where super-powered individuals are recognized 
         as heroes by the general public and work for a powerful corporation known as 
@@ -236,8 +228,8 @@ const episodes : IEpisode[] = [
      {
         season : 1,
         episode : 7,
-        title : 'Get Some',
-        picture : 'theboys-1x3.png',
+        title : 'The Self-Preservation Society',
+        picture : 'theboys-1x7.jpg',
         imdbRating : 8.7,
         releaseYear : 2019,
         plot : `The Boys is set in a universe where super-powered individuals are recognized 
@@ -252,9 +244,9 @@ const episodes : IEpisode[] = [
      {
         season : 1,
         episode : 8,
-        title : 'Female of the Species',
-        picture : 'theboys-1x1.png',
-        imdbRating : 8.7,
+        title : 'You Found Me',
+        picture : 'theboys-1x8.jpg',
+        imdbRating : 9.0,
         releaseYear : 2019,
         plot : `The Boys is set in a universe where super-powered individuals are recognized 
         as heroes by the general public and work for a powerful corporation known as 
