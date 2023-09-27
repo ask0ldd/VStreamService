@@ -26,9 +26,9 @@ function App() {
     <>
       <Header/>
       <main>
-        {!isLoading && !isError && <VerticalMovieCardsSlideshow categoryTitle="Currently Trending" moviesList={moviesList}/>}
+        {!isLoading && !isError && <VerticalMovieCardsSlideshow title={{icon : 'icons/fire.png', title : 'Currently Trending'}} moviesList={moviesList}/>}
         <div style={{height:'4rem'}}></div>
-        {!isLoading && !isError && <VerticalMovieCardsSlideshow categoryTitle="Most Nominated Movies" moviesList={[...moviesList].reverse()}/>}
+        {!isLoading && !isError && <VerticalMovieCardsSlideshow title={{icon : 'icons/award.png', title : 'Most Nominated Movies'}} moviesList={[...moviesList].reverse()}/>}
         <div style={{height:'4rem'}}></div>
         {!isL && !isE && <HorizontalMovieCardsSlideshow moviesList={moviesList2}/>}
         <div style={{height:'4rem'}}></div>

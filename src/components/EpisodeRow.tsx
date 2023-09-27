@@ -25,11 +25,11 @@ function EpisodeRow({episode} : {episode : IEpisode}){
                     {episode.plot}
                 </p>
                 <div className="episodesButtonsContainer">
-                    <img src="/buttons/likebutton.png"/>
-                    <img src="/buttons/dislikebutton.png"/>
-                    <img src="/buttons/addbutton.png"/>
-                    <img src="/buttons/morebutton.png"/>
-                    <img src="/buttons/play.png"/>
+                    <img src="../buttons/likebutton.png"/>
+                    <img src="../buttons/dislikebutton.png"/>
+                    <img src="../buttons/addbutton.png"/>
+                    <img src="../buttons/morebutton.png"/>
+                    <img src="../buttons/play.png"/>
                 </div>
             </div>
         </article>

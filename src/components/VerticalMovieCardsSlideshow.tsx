@@ -3,7 +3,7 @@ import '../style/VerticalMovieCardsSlideshow.css'
 import VerticalMovieCard from "./VerticalMovieCard"
 import { useRef, useState } from "react"
 
-function VerticalMovieCardsSlideshow({categoryTitle, moviesList}: {categoryTitle :string, moviesList : IMovie[]}) {
+function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : string, title : string}, moviesList : IMovie[]}) {
 
     // use an observable to track the scroll position and update the pagination ?
 
@@ -62,8 +62,8 @@ function VerticalMovieCardsSlideshow({categoryTitle, moviesList}: {categoryTitle
     return (
         <section className="verticalCardsSlideshow">
             <div className="titleContainer">
-                <img src="icons/fire.png"/>
-                <h2>{categoryTitle}</h2>
+                <img src={title.icon}/>
+                <h2>{title.title}</h2>
                 <span>See more</span>
                 <div className="paginationContainer">
                     <div className={currentSlideshowPage === 1 ? "dot active" : "dot"}></div>
