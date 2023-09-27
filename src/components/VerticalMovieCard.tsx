@@ -99,8 +99,8 @@ function VerticalMovieCard({movie, movieMedias, /*moviesBg, */ xPosition} : {mov
                     <source data-src={"videos/" + movieMedias.video} type="video/mp4"/>
                 </video>
                 {/*<img className="movieBgImg" src={moviesBg}/>*/}
-                <div className="playContainerBorder">
-                    <a href="#" style={{height:'64px', borderRadius:'300px'}}><img style={{boxShadow:'0px 4px 8px #00000066', borderRadius:'300px'}} src="buttons/playbutton.png"/></a>
+                <div className="playContainerBorder"> {/* replace <a> by onclick navigate */}
+                    <img style={{boxShadow:'0px 4px 8px #00000066', borderRadius:'300px'}} src="buttons/playbutton.png"/>
                 </div>
             </article>
         </Link>

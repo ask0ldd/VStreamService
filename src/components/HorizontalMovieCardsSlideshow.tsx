@@ -6,7 +6,6 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
 
     const cardWidthPlusGap = 320+32
 
-    // interstellar / shinmaskedrider / revenant / tunetueraspoint / thenightofthehunter / sheershivraaj
     const moviesMedias : IMoviesMedias = {
         'tt0816692' : {poster : 'interstellar.jpg', horizontalPic : 'interstellar.jpg', video : 'goodomens2.mp4'}, 
         'tt14379088' : {poster : 'shinmaskedrider.jpg', horizontalPic : 'shinmaskedrider.jpg', video : 'goodomens2.mp4'}, 
@@ -19,6 +18,8 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
         'tt3973768' : {poster : 'handofgod.jpg', horizontalPic : 'handofgod.jpg', video : 'goodomens2.mp4'}, 
         'tt7631058' : {poster : 'ringsofpower.jpg', horizontalPic : 'ringsofpower.jpg', video : 'goodomens2.mp4'}, 
     }
+
+    // add time positon to each items in the movielist
 
     function scrollRight(e : React.MouseEvent<HTMLElement>){
         e.preventDefault()

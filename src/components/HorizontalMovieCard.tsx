@@ -27,11 +27,11 @@ function HorizontalMovieCard ({movie, movieMedias/*, moviesBg*/} : {movie : IMov
                 </div>
                 <div className="playAddMoreContainer">
                     <div className="playContainer">
-                        <a href="#" style={{height:'48px', borderRadius:'300px'}}><img style={{height:'48px', boxShadow:'0px 4px 8px #00000066', borderRadius:'300px'}} src="buttons/playbutton.png"/></a>
+                        <img style={{height:'48px', boxShadow:'0px 4px 8px #00000066', borderRadius:'300px'}} src="buttons/playbutton.png"/>
                     </div>
                     <div className="addMoreContainer">
                         <img className="addButton" role="button" src={watchList.includes(movie.imdbID) ? "buttons/okbutton.png" : "buttons/addbutton.png"} onClick={(e) => addtoWatchList(e, movie.imdbID)}/>
-                        <a style={{height:'36px', width:'36px'}} href="#"><img src="buttons/morebutton.png"/></a>
+                        <img src="buttons/morebutton.png"/>
                     </div>
                 </div>
                 <div className="movieInfosContainer">

@@ -114,7 +114,7 @@ function Movie(){
                     </ul>
 
                     {season1.map((episode, index) => {
-                        if(episodesShown > index) return <EpisodeRow episode={episode}/>
+                        if(episodesShown > index) return <EpisodeRow key={'episoderow'+index} episode={episode}/>
                     })}
 
                 </section>
