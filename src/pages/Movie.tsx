@@ -10,6 +10,7 @@ function Movie(){
 
     const [activeSeason, setActiveSeason] = useState<number>(1)
     const [episodesShown, setEpisodesShown] = useState<number>(2)
+    const [activeMenuItem, setActiveMenuItem] = useState<"episodes" | "crew" | "trailers" | "photos">("episodes")
 
     function videoStart(){
         const video = document.querySelector('video') as HTMLVideoElement
@@ -104,20 +105,33 @@ function Movie(){
                         <source data-src="../videos/theboyss3.mp4" type="video/mp4"/>
                     </video>
                 </section>
-                <section className="episodesList">
 
-                    <ul className="seasonsContainer">
-                        <li onClick={() => setActiveSeason(1)} className={activeSeason === 1 ? "seasonTag active" : "seasonTag inactive"}>Season 1</li>
-                        <li onClick={() => setActiveSeason(2)} className={activeSeason === 2 ? "seasonTag active" : "seasonTag inactive"}>Season 2</li>
-                        <li onClick={() => setActiveSeason(3)} className={activeSeason === 3 ? "seasonTag active" : "seasonTag inactive"}>Season 3</li>
-                        <li className="seasonTag inactive" style={{marginLeft:'auto'}}>24 Episodes</li>
+                <nav className="secondaryNav" role="navigation" aria-label="secondary menu">
+                    <ul>
+                        <li>Episodes</li>
+                        <li>Cast & Crew</li>
+                        <li>Trailers</li>
+                        <li>Photos</li>
                     </ul>
+                </nav>
 
-                    {season1.map((episode, index) => {
-                        if(episodesShown > index) return <EpisodeRow key={'episoderow'+index} episode={episode}/>
-                    })}
+                { activeMenuItem === "episodes" && 
+                
+                    <section className="episodesList">
 
-                </section>
+                        <ul className="seasonsContainer">
+                            <li onClick={() => setActiveSeason(1)} className={activeSeason === 1 ? "seasonTag active" : "seasonTag inactive"}>Season 1</li>
+                            <li onClick={() => setActiveSeason(2)} className={activeSeason === 2 ? "seasonTag active" : "seasonTag inactive"}>Season 2</li>
+                            <li onClick={() => setActiveSeason(3)} className={activeSeason === 3 ? "seasonTag active" : "seasonTag inactive"}>Season 3</li>
+                            <li className="seasonTag inactive" style={{marginLeft:'auto'}}>24 Episodes</li>
+                        </ul>
+
+                        {season1.map((episode, index) => {
+                            if(episodesShown > index) return <EpisodeRow key={'episoderow'+index} episode={episode}/>
+                        })}
+
+                    </section>
+                }
             </main>
             <Footer/>
         </>

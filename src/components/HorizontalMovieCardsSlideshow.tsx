@@ -76,5 +76,5 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
 
 export default HorizontalMovieCardsSlideshow
 
-// TODO passive event fix
+// !!! TODO passive event fix : wheel
 // https://stackoverflow.com/questions/63663025/react-onwheel-handler-cant-preventdefault-because-its-a-passive-event-listenev

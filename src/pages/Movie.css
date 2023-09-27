@@ -125,6 +125,24 @@ main.moviePage {
   /*border: 1px solid #ffffff;*/
 }
 
+.moviePage .secondaryNav {
+  display: flex;
+  align-self: center;
+  margin-top: 3rem;
+}
+
+.moviePage .secondaryNav ul {
+  display: flex;
+  column-gap: 2rem;
+  flex-direction: row;
+}
+
+.moviePage .secondaryNav ul li {
+  display: flex;
+  border: 1px solid #fff;
+  padding: 0.5rem 1rem;
+}
+
 .moviePage .episodesList {
   display: flex;
   width: 100%;

@@ -12,7 +12,7 @@ function Header (){
             <figure>
                 <Link role="button" to={"/"}><img src={mainLogo}/></Link>
             </figure>
-            <nav>
+            <nav role="navigation" aria-label="primary menu">
                 <ul>
                     <li><Link role="button" to={"/"}>Home</Link></li>
                     <li>Watchlist</li>
