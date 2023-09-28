@@ -160,6 +160,7 @@ main.moviePage {
   background: linear-gradient(180deg, #f3f9ff 0%, #c8e2fd 92.71%, #96c9ff 100%),
     #fff;
   font-weight: 600;
+  text-shadow: 0 4px 8px #89b2df;
 }
 
 .moviePage .episodesList {
