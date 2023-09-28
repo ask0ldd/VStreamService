@@ -3,14 +3,19 @@ import { useEffect, useState } from "react"
 import Footer from "../components/Footer"
 import Header from "../components/Header"
 import './Movie.css'
-import { IEpisode } from "../types/types"
+import { IEpisode, IMovie } from "../types/types"
 import EpisodeRow from "../components/EpisodeRow"
+import CastList from "../components/CastList"
+import useAPI from "../hooks/useAPI"
 
 function Movie(){
 
     const [activeSeason, setActiveSeason] = useState<number>(1)
     const [episodesShown, setEpisodesShown] = useState<number>(2)
-    const [activeMenuItem, setActiveMenuItem] = useState<"episodes" | "crew" | "trailers" | "photos">("episodes")
+    const [activeMenuItem, setActiveMenuItem] = useState<"episodes" | "cast" | "trailers" | "photos">("episodes")
+
+    const {fetchedDatas} = useAPI({id:'tt1190634', longPlot:false})
+    const movie = fetchedDatas as IMovie
 
     function videoStart(){
         const video = document.querySelector('video') as HTMLVideoElement
@@ -72,11 +77,11 @@ function Movie(){
                     <div className="movieInfosGroup">
                         <h2>THE BOYS</h2>
                         <ul className="genresContainer">
-                            <li>Action</li>
+                            <li>{movie.Genre.split(', ')[0]}</li>
                             <li>∙</li>
-                            <li>Comedy</li>
+                            <li>{movie.Genre.split(', ')[1]}</li>
                             <li>∙</li>
-                            <li>Crime</li>
+                            <li>{movie.Genre.split(', ')[2]}</li>
                             <li>∙</li>
                             <li>Sci-Fi</li>
                         </ul>
@@ -109,7 +114,7 @@ function Movie(){
                 <nav className="secondaryNav" role="navigation" aria-label="secondary menu">
                     <ul>
                         <li className={activeMenuItem === "episodes" ? "active" : ""} onClick={() => setActiveMenuItem('episodes')}>Episodes</li>
-                        <li className={activeMenuItem === "crew" ? "active" : ""} onClick={() => setActiveMenuItem('crew')}>Cast & Crew</li>
+                        <li className={activeMenuItem === "cast" ? "active" : ""} onClick={() => setActiveMenuItem('cast')}>Cast & Crew</li>
                         <li className={activeMenuItem === "trailers" ? "active" : ""} onClick={() => setActiveMenuItem('trailers')}>Trailers</li>
                         <li className={activeMenuItem === "photos" ? "active" : ""} onClick={() => setActiveMenuItem('photos')}>Photos</li>
                     </ul>
@@ -131,6 +136,10 @@ function Movie(){
                         })}
 
                     </section>
+                }
+
+                { activeMenuItem === "cast" && 
+                    <CastList/>
                 }
             </main>
             <Footer/>

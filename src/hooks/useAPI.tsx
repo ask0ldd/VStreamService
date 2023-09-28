@@ -4,6 +4,13 @@ import { useEffect, useState } from "react"
 import { APIRequestsManager } from "../services/APIRequestsManager"
 import { IMovie, IRequestDefinition } from "../types/types"
 
+/*** 
+ *  !!! needs to be fixed : shouldn't accept more than one expected property
+ *  if requestDefinition contains the properties : 
+ *  id => then get movie by id
+ *  title => then get movie by title
+ *  idList => then get movies by id
+***/
 function useAPI(requestDefinition : IRequestDefinition){
 
     const [fetchedDatas, setFetchedDatas] = useState<IMovie | IMovie[]>()
