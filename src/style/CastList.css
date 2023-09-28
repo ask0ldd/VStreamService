@@ -41,31 +41,43 @@
   object-fit: cover;
   overflow: hidden;
   border-radius: 92px;
+  outline: 1px solid #ffffff25;
 }
 
 .castArticle picture img {
   width: 92px;
   overflow-clip-margin: unset;
+  filter: saturate(0.85);
 }
 
 .castMemberInfos {
   display: flex;
   flex-direction: column;
-  row-gap: 0.25rem;
+  row-gap: 0.35rem;
   align-self: center;
 }
 
 .castArticle h4 {
   font-size: 20px;
   line-height: 100%;
+  color: #ffffffcc;
+  font-weight: 600;
 }
 
 .castArticle .characterName {
-  font-weight: 300;
+  font-weight: 500;
   font-size: 16px;
+  color: #ffffffcc;
+}
+
+.castArticle .characterName span {
+  color: #84afdacc;
+  font-weight: 300;
 }
 
 .castArticle .appearances {
   font-weight: 300;
   font-size: 14px;
+  margin-top: 0.1rem;
+  color: #84afdacc;
 }
