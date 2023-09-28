@@ -14,7 +14,7 @@ function Movie(){
     const [episodesShown, setEpisodesShown] = useState<number>(2)
     const [activeMenuItem, setActiveMenuItem] = useState<"episodes" | "cast" | "trailers" | "photos">("episodes")
 
-    const {isLoading, isError, fetchedDatas} = useAPI({id:'tt1190634', longPlot:false})
+    const {fetchedDatas} = useAPI({id:'tt1190634', longPlot:false})
     const movie = fetchedDatas as IMovie
 
     function videoStart(){

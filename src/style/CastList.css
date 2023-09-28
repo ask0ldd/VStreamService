@@ -1,0 +1,71 @@
+.castSection {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2.5rem;
+  row-gap: 2rem;
+}
+
+.castContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  column-gap: 2rem;
+  row-gap: 2rem;
+}
+
+.castArticle {
+  display: flex;
+  flex: 1 1 30%;
+  background: radial-gradient(
+      143.25% 127.27% at 81.62% 0%,
+      rgba(255, 255, 255, 0.06) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.06) 0%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
+  backdrop-filter: blur(8px);
+  outline: 1px solid #ffffff25;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  column-gap: 2rem;
+  min-width: 366px;
+  font-family: "Lexend", sans-serif;
+}
+
+.castArticle picture {
+  width: 92px;
+  height: 92px;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 92px;
+}
+
+.castArticle picture img {
+  width: 92px;
+  overflow-clip-margin: unset;
+}
+
+.castMemberInfos {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25rem;
+  align-self: center;
+}
+
+.castArticle h4 {
+  font-size: 20px;
+  line-height: 100%;
+}
+
+.castArticle .characterName {
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.castArticle .appearances {
+  font-weight: 300;
+  font-size: 14px;
+}
