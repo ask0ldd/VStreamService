@@ -30,8 +30,8 @@ function useAPI(requestDefinition : IRequestDefinition){
                 if(requestDefinition.title != null) datas =  await APIRequestsManager.getMovieByTitle(requestDefinition.title, requestDefinition.longPlot) 
                 if(requestDefinition.id != null) datas = await APIRequestsManager.getMovieById(requestDefinition.id, requestDefinition.longPlot)
                 if(requestDefinition.idList != null) datas = await APIRequestsManager.getMoviesById(requestDefinition.idList, requestDefinition.longPlot)
-                setFetchedDatas(datas)
-            }catch(error){
+                if(datas != null) setFetchedDatas(datas)
+            }catch(error){ 
                 console.log(error)
                 setError(true)
             }finally{
