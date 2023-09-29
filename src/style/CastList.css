@@ -24,6 +24,17 @@
   flex-direction: column;
 }
 
+.creatorArticle h4 {
+  font-size: 20px;
+  font-family: "Lexend", sans-serif;
+  margin-bottom: 0.75rem;
+}
+
+.creatorBioSummaryContainer {
+  display: flex;
+  column-gap: 2rem;
+}
+
 .creatorBio {
   display: flex;
   background: radial-gradient(
@@ -39,13 +50,36 @@
   backdrop-filter: blur(8px);
   outline: 1px solid #ffffff25;
   border-radius: 12px;
-  padding: 1.5rem 2rem;
+  padding: 1rem 2rem 1.5rem 2rem;
   column-gap: 6rem;
+  flex: 1 1 70%;
+}
+
+.creatorSummary {
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(
+      143.25% 127.27% at 81.62% 0%,
+      rgba(255, 255, 255, 0.06) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.06) 0%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
+  backdrop-filter: blur(8px);
+  outline: 1px solid #ffffff25;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  flex: 1 1 30%;
 }
 
 .creatorBio img {
   aspect-ratio: 1;
   border-radius: 100%;
+  /*max-height: 128px;*/
+  /*height: 100%;*/
 }
 
 .castArticle {
