@@ -73,13 +73,28 @@
   border-radius: 12px;
   padding: 1.5rem 2rem;
   flex: 1 1 30%;
+  row-gap: 0.3rem;
+}
+
+.creatorSummary span {
+  color: #84afdacc;
+  font-weight: 300;
+  margin-left: 1rem;
+}
+
+.creatorSummary h4 {
+  line-height: 100%;
 }
 
 .creatorBio img {
   aspect-ratio: 1;
   border-radius: 100%;
-  /*max-height: 128px;*/
+  max-height: 164px;
   /*height: 100%;*/
+  align-self: center;
+  outline: 1px solid #ffffff25;
+  overflow-clip-margin: unset;
+  filter: saturate(0.85);
 }
 
 .castArticle {

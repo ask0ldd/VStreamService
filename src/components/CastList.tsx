@@ -15,13 +15,14 @@ function CastList(){
                     </div>
                     <div className='creatorSummary'>
                         <h4>About</h4>
-                        <p>Born	1974 (age 48–49)</p>
-                        <p>Alma mater Uiversity of Southern California</p>
-                        <p>Occupations Writer Television producer</p>
+                        <p>Born <span>1974 (age 48–49)</span></p>
+                        <p>Alma mater <span>University of Southern California</span></p>
+                        <p>Occupations <span>Writer - Television producer</span></p>
+                        <p>Affiliated <span>Anthony Starr, Karl Urban...</span></p>
                     </div>
                 </div>
                 <p>Notable works : The Boys, Supernatural, Timeless...</p>
-                <p> Contact info - Agent info - Resume</p>
+                <p> Contact info • Agent info • Resume</p>
             </article>
             <h2>Cast & Crew</h2>
             <div className='castContainer'>
