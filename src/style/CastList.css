@@ -71,7 +71,7 @@
   backdrop-filter: blur(8px);
   outline: 1px solid #ffffff25;
   border-radius: 12px;
-  padding: 1.5rem 2rem;
+  padding: 1.3rem 2rem 1.5rem 2rem;
   flex: 1 1 30%;
   row-gap: 0.3rem;
 }
@@ -86,7 +86,7 @@
   line-height: 100%;
 }
 
-.creatorBio img {
+.creatorBio .creatorPortrait {
   aspect-ratio: 1;
   border-radius: 100%;
   max-height: 164px;
@@ -95,6 +95,57 @@
   outline: 1px solid #ffffff25;
   overflow-clip-margin: unset;
   filter: saturate(0.85);
+}
+
+.creatorArticle .notableWorksContainer {
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(
+      143.25% 127.27% at 81.62% 0%,
+      rgba(255, 255, 255, 0.06) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.06) 0%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
+  backdrop-filter: blur(8px);
+  outline: 1px solid #ffffff25;
+  border-radius: 12px;
+  padding: 1.3rem 2rem 1.5rem 2rem;
+  flex: 1 1 30%;
+  row-gap: 0.3rem;
+  margin-top: 1.5rem;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+.creatorArticle .notableWorksContainer h4 {
+  line-height: 100%;
+  margin-bottom: 1.25rem;
+}
+
+.creatorArticle .notableWorks {
+  display: flex;
+  column-gap: 1rem;
+}
+
+.creatorArticle .notableWorkPic {
+  width: 240px;
+  height: 160px;
+  flex-shrink: 0;
+  object-fit: cover;
+  transition: all 0.2s linear;
+  overflow-clip-margin: unset;
+  border-radius: 12px;
+  padding: 0;
+  border: 1px solid #ffffff15;
+  overflow: hidden;
+  background: linear-gradient(0deg, #000, #242c35);
+  font-family: "Lexend", sans-serif;
+  background-repeat: no-repeat;
+  background-clip: padding-box;
 }
 
 .castArticle {

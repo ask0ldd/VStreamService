@@ -11,7 +11,7 @@ function CastList(){
                             <h4>Eric Kripke</h4>
                             Eric Kripke is an American writer and television producer. He came to prominence as the creator of The CW fantasy drama series Supernatural (2005-2020), where he served as show-runner during the first five seasons. Kripke also created the post-apocalyptic drama series Revolution (2012-2014) and co-created the science fiction series Timeless (2016-2018). Since 2019, he has served as show-runner of the superhero series The Boys, which he developed for Amazon Prime Video.
                         </div>
-                        <img src="../cast/quaid.jpg"/>
+                        <img className='creatorPortrait' src="../cast/quaid.jpg"/>
                     </div>
                     <div className='creatorSummary'>
                         <h4>About</h4>
@@ -21,8 +21,17 @@ function CastList(){
                         <p>Affiliated <span>Anthony Starr, Karl Urban...</span></p>
                     </div>
                 </div>
-                <p>Notable works : The Boys, Supernatural, Timeless...</p>
-                <p> Contact info • Agent info • Resume</p>
+                <div className='notableWorksContainer'>
+                    <h4>Notable Works</h4>
+                    <div className='notableWorks'>
+                        <img className="notableWorkPic" src="../horizontalCardPic/thetomorrowwar.jpg"/>
+                        <img className="notableWorkPic" src="../horizontalCardPic/thetomorrowwar.jpg"/>
+                        <img className="notableWorkPic" src="../horizontalCardPic/thetomorrowwar.jpg"/>
+                        <img className="notableWorkPic" src="../horizontalCardPic/thetomorrowwar.jpg"/>
+                        <img className="notableWorkPic" src="../horizontalCardPic/thetomorrowwar.jpg"/>
+                        <img className="notableWorkPic" src="../horizontalCardPic/thetomorrowwar.jpg"/>
+                    </div>
+                </div>
             </article>
             <h2>Cast & Crew</h2>
             <div className='castContainer'>
