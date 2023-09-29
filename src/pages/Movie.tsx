@@ -28,6 +28,11 @@ function Movie(){
         if(video.currentTime === 0) video.play()
     }
 
+    function switchSound(){
+        const video = document.querySelector('video') as HTMLVideoElement
+        video.muted = !video.muted;
+    }
+
     // delayed video start
     useEffect(() => {
         setTimeout(() => {
@@ -71,6 +76,7 @@ function Movie(){
             <Header/>
             <main className="moviePage">
                 <section className="moviePContainer">
+                    <div role="button" className="switchAudioButton" onClick={() => switchSound()}></div>
                     <div className="bigPlayContainer">
                         <img role="button" src="../buttons/bigPlayButton.png" className="bigPlayButton"/>
                     </div>

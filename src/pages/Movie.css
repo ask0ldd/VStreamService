@@ -113,6 +113,17 @@ main.moviePage {
   cursor: pointer;
 }
 
+.moviePage .switchAudioButton {
+  width: 64px;
+  height: 64px;
+  border-radius: 100%;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background-color: white;
+  z-index: 4;
+}
+
 .moviePage video {
   position: absolute;
   width: 100%;
