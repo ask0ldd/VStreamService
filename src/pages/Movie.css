@@ -114,14 +114,23 @@ main.moviePage {
 }
 
 .moviePage .switchAudioButton {
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
   border-radius: 100%;
   position: absolute;
   top: 2rem;
   right: 2rem;
-  background-color: white;
+  background-color: #00000099;
   z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #ffffff;
+  opacity: 0.9;
+}
+
+.moviePage .switchAudioButton img {
+  width: 30px;
 }
 
 .moviePage video {

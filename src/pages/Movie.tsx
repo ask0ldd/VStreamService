@@ -13,6 +13,7 @@ function Movie(){
     const [activeSeason, setActiveSeason] = useState<number>(1)
     const [episodesShown, setEpisodesShown] = useState<number>(2)
     const [activeMenuItem, setActiveMenuItem] = useState<"episodes" | "cast" | "trailers" | "photos">("episodes")
+    const [muted, setMuted] = useState<boolean>(true)
 
     const {fetchedDatas} = useAPI({id:'tt1190634', longPlot:false})
     const movie = fetchedDatas as IMovie
@@ -28,9 +29,10 @@ function Movie(){
         if(video.currentTime === 0) video.play()
     }
 
-    function switchSound(){
+    function switchMutedState(){
         const video = document.querySelector('video') as HTMLVideoElement
         video.muted = !video.muted;
+        setMuted(video.muted)
     }
 
     // delayed video start
@@ -76,7 +78,9 @@ function Movie(){
             <Header/>
             <main className="moviePage">
                 <section className="moviePContainer">
-                    <div role="button" className="switchAudioButton" onClick={() => switchSound()}></div>
+                    <div role="button" className="switchAudioButton" onClick={() => switchMutedState()}>
+                        { muted === false ? <img src="../icons/volumeon.svg"/> : <img src="../icons/volumeoff.svg"/>} 
+                    </div>
                     <div className="bigPlayContainer">
                         <img role="button" src="../buttons/bigPlayButton.png" className="bigPlayButton"/>
                     </div>
