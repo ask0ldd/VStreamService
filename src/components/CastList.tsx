@@ -3,7 +3,19 @@ import '../style/CastList.css'
 function CastList(){
     return (
         <section className="castSection">
-            <h3>Cast & Crew</h3>
+            <h2>Creator</h2>
+            <article className='creatorArticle'>
+                <div className='creatorBio'>
+                <div>
+                    <h4>Eric Kripke</h4>
+                    Eric Kripke is an American writer and television producer. He came to prominence as the creator of The CW fantasy drama series Supernatural (2005-2020), where he served as show-runner during the first five seasons. Kripke also created the post-apocalyptic drama series Revolution (2012-2014) and co-created the science fiction series Timeless (2016-2018). Since 2019, he has served as show-runner of the superhero series The Boys, which he developed for Amazon Prime Video.
+                </div>
+                <img style={{maxWidth:'128px'}} src="../cast/quaid.jpg"/>
+                </div>
+                <p>Notable works : The Boys, Supernatural, Timeless...</p>
+                <p> Contact info - Agent info - Resume</p>
+            </article>
+            <h2>Cast & Crew</h2>
             <div className='castContainer'>
                 
                 <article className='castArticle'>
@@ -94,7 +106,7 @@ function CastList(){
                     <div className='castMemberInfos'>
                         <h4>Colby Minifie</h4>
                         <p className='characterName'><span>as</span> Ashley Barrett</p>
-                        <p className='appearances'>32 episodes • 2019–2022</p>
+                        <p className='appearances'>29 episodes • 2019–2022</p>
                     </div>
                 </article>
                 <article className='castArticle'>
@@ -102,7 +114,7 @@ function CastList(){
                     <div className='castMemberInfos'>
                         <h4>Dominique McElligott</h4>
                         <p className='characterName'><span>as</span> Maggie Shaw</p>
-                        <p className='appearances'>32 episodes • 2019–2022</p>
+                        <p className='appearances'>24 episodes • 2019–2022</p>
                     </div>
                 </article>
 
