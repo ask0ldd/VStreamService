@@ -178,7 +178,7 @@ const season1 : IEpisode[] = [
         season : 1,
         episode : 1,
         title : 'The Name of the Game',
-        picture : 'theboys-1x1.png',
+        picture : 'theboys-1x1sm.jpg',
         imdbRating : 8.7,
         releaseYear : 2019,
         plot : `The Boys is set in a universe where super-powered individuals are recognized 
@@ -194,7 +194,7 @@ const season1 : IEpisode[] = [
         season : 1,
         episode : 2,
         title : 'Cherry',
-        picture : 'theboys-1x2.png',
+        picture : 'theboys-1x2sm.jpg',
         imdbRating : 8.5,
         releaseYear : 2019,
         plot : `The Boys is set in a universe where super-powered individuals are recognized 
@@ -210,7 +210,7 @@ const season1 : IEpisode[] = [
         season : 1,
         episode : 3,
         title : 'Get Some',
-        picture : 'theboys-1x3.png',
+        picture : 'theboys-1x3sm.jpg',
         imdbRating : 8.3,
         releaseYear : 2019,
         plot : `The Boys is set in a universe where super-powered individuals are recognized 
@@ -226,7 +226,7 @@ const season1 : IEpisode[] = [
         season : 1,
         episode : 4,
         title : 'Female of the Species',
-        picture : 'theboys-1x4.jpg',
+        picture : 'theboys-1x4sm.jpg',
         imdbRating : 8.7,
         releaseYear : 2019,
         plot : `The Boys is set in a universe where super-powered individuals are recognized 
@@ -242,7 +242,7 @@ const season1 : IEpisode[] = [
         season : 1,
         episode : 5,
         title : 'Good for the Soul',
-        picture : 'theboys-1x5.jpg',
+        picture : 'theboys-1x5sm.jpg',
         imdbRating : 8.4,
         releaseYear : 2019,
         plot : `The Boys is set in a universe where super-powered individuals are recognized 
@@ -258,7 +258,7 @@ const season1 : IEpisode[] = [
         season : 1,
         episode : 6,
         title : 'The Innocents',
-        picture : 'theboys-1x6.jpg',
+        picture : 'theboys-1x6sm.jpg',
         imdbRating : 8.1,
         releaseYear : 2019,
         plot : `The Boys is set in a universe where super-powered individuals are recognized 
@@ -274,7 +274,7 @@ const season1 : IEpisode[] = [
         season : 1,
         episode : 7,
         title : 'The Self-Preservation Society',
-        picture : 'theboys-1x7.jpg',
+        picture : 'theboys-1x7sm.jpg',
         imdbRating : 8.7,
         releaseYear : 2019,
         plot : `The Boys is set in a universe where super-powered individuals are recognized 
@@ -290,7 +290,7 @@ const season1 : IEpisode[] = [
         season : 1,
         episode : 8,
         title : 'You Found Me',
-        picture : 'theboys-1x8.jpg',
+        picture : 'theboys-1x8sm.jpg',
         imdbRating : 9.0,
         releaseYear : 2019,
         plot : `The Boys is set in a universe where super-powered individuals are recognized 
