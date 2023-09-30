@@ -7,8 +7,14 @@ import { IEpisode, IMovie } from "../types/types"
 import EpisodeRow from "../components/EpisodeRow"
 import CastList from "../components/CastList"
 import useAPI from "../hooks/useAPI"
+import { setEpisodesList } from "../redux/episodesSlice"
+import { useTypedDispatch, useTypedSelector } from "../hooks/redux"
 
 function Movie(){
+
+    /*const dispatch = useTypedDispatch()
+    dispatch(setEpisodesList({episodes : season1}))
+    const season1fromRedux  = useTypedSelector((state) => state.episodes)*/
 
     const [activeSeason, setActiveSeason] = useState<number>(1)
     const [episodesShown, setEpisodesShown] = useState<number>(2)
@@ -140,7 +146,6 @@ function Movie(){
                             <li onClick={() => setActiveSeason(3)} className={activeSeason === 3 ? "seasonTag active" : "seasonTag inactive"}>Season 3</li>
                             <li className="seasonTag inactive" style={{marginLeft:'auto'}}>24 Episodes</li>
                         </ul>
-
                         {season1.map((episode, index) => {
                             if(episodesShown > index) return <EpisodeRow key={'episoderow'+index} episode={episode}/>
                         })}
