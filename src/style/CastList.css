@@ -132,7 +132,7 @@
 }
 
 .creatorArticle .notableWorkPic {
-  width: 240px;
+  width: 280px;
   height: 160px;
   flex-shrink: 0;
   object-fit: cover;
