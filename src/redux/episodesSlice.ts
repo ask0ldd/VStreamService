@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { IEpisode } from "../types/types"
 
-export const initialState : IEpisode[] = []
+export const initialState : {
+    list : IEpisode[] 
+} = { list : []}
 
 export const episodesSlice = createSlice({
     name : 'episodes',
@@ -9,7 +11,7 @@ export const episodesSlice = createSlice({
     reducers : {
         setEpisodesList(state, action){
             if(action.payload?.episodes == null || action.payload?.episodes.length === false) return state
-            return [...action.payload.episodes]
+            return {state, list : [...action.payload.episodes]}
         }
     }
 

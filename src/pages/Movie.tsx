@@ -12,9 +12,11 @@ import { useTypedDispatch, useTypedSelector } from "../hooks/redux"
 
 function Movie(){
 
-    /*const dispatch = useTypedDispatch()
-    dispatch(setEpisodesList({episodes : season1}))
-    const season1fromRedux  = useTypedSelector((state) => state.episodes)*/
+    const dispatch = useTypedDispatch()
+    const season1fromRedux  = useTypedSelector((state) => state.episodes.list)
+    useEffect(() => {
+        dispatch(setEpisodesList({episodes : season1}))
+    }, [])
 
     const [activeSeason, setActiveSeason] = useState<number>(1)
     const [episodesShown, setEpisodesShown] = useState<number>(2)
@@ -77,7 +79,7 @@ function Movie(){
         /*return () => {
 
         }*/
-    }, [episodesShown])
+    }, [episodesShown, season1fromRedux])
 
     return(
         <>
@@ -146,7 +148,7 @@ function Movie(){
                             <li onClick={() => setActiveSeason(3)} className={activeSeason === 3 ? "seasonTag active" : "seasonTag inactive"}>Season 3</li>
                             <li className="seasonTag inactive" style={{marginLeft:'auto'}}>24 Episodes</li>
                         </ul>
-                        {season1.map((episode, index) => {
+                        {season1fromRedux.map((episode, index) => {
                             if(episodesShown > index) return <EpisodeRow key={'episoderow'+index} episode={episode}/>
                         })}
 
