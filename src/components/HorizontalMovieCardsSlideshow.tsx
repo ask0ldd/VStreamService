@@ -7,16 +7,16 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
     const cardWidthPlusGap = 320+32
 
     const moviesMedias : IMoviesMedias = {
-        'tt0816692' : {poster : 'interstellar.jpg', horizontalPic : 'interstellar.jpg', video : 'goodomens2.mp4'}, 
-        'tt14379088' : {poster : 'shinmaskedrider.jpg', horizontalPic : 'shinmaskedrider.jpg', video : 'goodomens2.mp4'}, 
-        'tt1663202' : {poster : 'revenant.jpg', horizontalPic : 'revenant.jpg', video : 'goodomens2.mp4'}, 
-        'tt2119532' : {poster : 'tunetueraspoint.jpg', horizontalPic : 'tunetueraspoint.jpg', video : 'goodomens2.mp4'}, 
-        'tt0048424' : {poster : 'thenightofthehunter.jpg', horizontalPic : 'thenightofthehunter.jpg', video : 'goodomens2.mp4'}, 
-        'tt17274522' : {poster : 'sheershivraaj.jpg', horizontalPic : 'sheershivraaj.jpg', video : 'goodomens2.mp4'}, 
-        'tt14689620' : {poster : 'vampireacademy.jpg', horizontalPic : 'vampireacademy.jpg', video : 'goodomens2.mp4'}, 
-        'tt9777666' : {poster : 'thetomorrowwar.jpg', horizontalPic : 'thetomorrowwar.jpg', video : 'goodomens2.mp4'}, 
-        'tt3973768' : {poster : 'handofgod.jpg', horizontalPic : 'handofgod.jpg', video : 'goodomens2.mp4'}, 
-        'tt7631058' : {poster : 'ringsofpower.jpg', horizontalPic : 'ringsofpower.jpg', video : 'goodomens2.mp4'}, 
+        'tt0816692' : {poster : 'interstellarsm.jpg', horizontalPic : 'interstellarsm.jpg', video : 'goodomens2.mp4'}, 
+        'tt14379088' : {poster : 'shinmaskedridersm.jpg', horizontalPic : 'shinmaskedridersm.jpg', video : 'goodomens2.mp4'}, 
+        'tt1663202' : {poster : 'revenantsm.jpg', horizontalPic : 'revenant.jpg', video : 'goodomens2sm.mp4'}, 
+        'tt2119532' : {poster : 'tunetueraspointsm.jpg', horizontalPic : 'tunetueraspointsm.jpg', video : 'goodomens2.mp4'}, 
+        'tt0048424' : {poster : 'thenightofthehuntersm.jpg', horizontalPic : 'thenightofthehuntersm.jpg', video : 'goodomens2.mp4'}, 
+        'tt17274522' : {poster : 'sheershivraajsm.jpg', horizontalPic : 'sheershivraajsm.jpg', video : 'goodomens2.mp4'}, 
+        'tt14689620' : {poster : 'vampireacademysm.jpg', horizontalPic : 'vampireacademysm.jpg', video : 'goodomens2.mp4'}, 
+        'tt9777666' : {poster : 'thetomorrowwarsm.jpg', horizontalPic : 'thetomorrowwarsm.jpg', video : 'goodomens2.mp4'}, 
+        'tt3973768' : {poster : 'handofgodsm.jpg', horizontalPic : 'handofgodsm.jpg', video : 'goodomens2.mp4'}, 
+        'tt7631058' : {poster : 'ringsofpowersm.jpg', horizontalPic : 'ringsofpowersm.jpg', video : 'goodomens2.mp4'}, 
     }
 
     // add time positon to each items in the movielist
