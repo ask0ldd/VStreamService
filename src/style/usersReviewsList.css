@@ -1,0 +1,36 @@
+article.usersReview {
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(
+      143.25% 127.27% at 81.62% 0%,
+      rgba(255, 255, 255, 0.06) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.06) 0%,
+      rgba(255, 255, 255, 0.04) 100%
+    );
+  backdrop-filter: blur(8px);
+  outline: 1px solid #ffffff25;
+  border-radius: 12px;
+  padding: 1.3rem 2rem 1.5rem 2rem;
+  flex: 1 1 30%;
+  row-gap: 0.3rem;
+  margin-top: 1.5rem;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  font-family: "Lexend", sans-serif;
+}
+
+article.usersReview p {
+  font-weight: 300;
+  max-width: 70%;
+}
+
+article.usersReview h3 {
+  color: #ffffffdd;
+  font-family: "Lexend", sans-serif;
+  font-size: 24px;
+  margin-bottom: 0.75rem;
+}

@@ -9,6 +9,7 @@ import CastList from "../components/CastList"
 import useAPI from "../hooks/useAPI"
 import { setEpisodesList } from "../redux/episodesSlice"
 import { useTypedDispatch, useTypedSelector } from "../hooks/redux"
+import UsersReviewsList from "../components/usersReviewsList"
 
 function Movie(){
 
@@ -20,7 +21,7 @@ function Movie(){
 
     const [activeSeason, setActiveSeason] = useState<number>(1)
     const [episodesShown, setEpisodesShown] = useState<number>(2)
-    const [activeMenuItem, setActiveMenuItem] = useState<"episodes" | "cast" | "trailers" | "photos">("episodes")
+    const [activeMenuItem, setActiveMenuItem] = useState<"episodes" | "cast" | "userReviews" | "photos">("episodes")
     const [muted, setMuted] = useState<boolean>(true)
 
     const {fetchedDatas} = useAPI({id:'tt1190634', longPlot:false})
@@ -133,8 +134,8 @@ function Movie(){
                     <ul>
                         <li className={activeMenuItem === "episodes" ? "active" : ""} onClick={() => setActiveMenuItem('episodes')}>Episodes</li>
                         <li className={activeMenuItem === "cast" ? "active" : ""} onClick={() => setActiveMenuItem('cast')}>Cast & Crew</li>
-                        <li className={activeMenuItem === "trailers" ? "active" : ""} onClick={() => setActiveMenuItem('trailers')}>Trailers</li>
                         <li className={activeMenuItem === "photos" ? "active" : ""} onClick={() => setActiveMenuItem('photos')}>Photos</li>
+                        <li className={activeMenuItem === "userReviews" ? "active" : ""} onClick={() => setActiveMenuItem('userReviews')}>User Reviews</li>
                     </ul>
                 </nav>
 
@@ -157,6 +158,10 @@ function Movie(){
 
                 { activeMenuItem === "cast" && 
                     <CastList/>
+                }
+
+                { activeMenuItem === "userReviews" && 
+                    <UsersReviewsList/>
                 }
             </main>
             <Footer/>
