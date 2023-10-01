@@ -1,0 +1,8 @@
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffffdd;
+  font-family: "Lexend", sans-serif;
+  font-size: 20px;
+}

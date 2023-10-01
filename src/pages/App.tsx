@@ -7,6 +7,7 @@ import { IMovie } from '../types/types'
 import './App.css'
 import HorizontalMovieCardsSlideshow from '../components/HorizontalMovieCardsSlideshow'
 import Footer from '../components/Footer'
+import LoadingAnimation from '../components/LoadingAnimation'
 
 function App() {
 
@@ -26,10 +27,12 @@ function App() {
     <>
       <Header/>
       <main>
+        {isLoading && <LoadingAnimation/>}
         {!isLoading && !isError && <VerticalMovieCardsSlideshow title={{icon : 'icons/fire.png', title : 'Currently Trending'}} moviesList={moviesList}/>}
         <div style={{height:'4rem'}}></div>
         {!isLoading && !isError && <VerticalMovieCardsSlideshow title={{icon : 'icons/award.png', title : 'Most Nominated Movies'}} moviesList={[...moviesList].reverse()}/>}
         <div style={{height:'4rem'}}></div>
+        {isL && <LoadingAnimation/>}
         {!isL && !isE && <HorizontalMovieCardsSlideshow moviesList={moviesList2}/>}
         <div style={{height:'4rem'}}></div>
         {!isL && !isE && <HorizontalMovieCardsSlideshow moviesList={[...moviesList2].reverse()}/>}

@@ -21,12 +21,14 @@ article.usersReview {
   flex-wrap: nowrap;
   overflow: hidden;
   font-family: "Lexend", sans-serif;
+  margin-top: 3rem;
 }
 
 article.usersReview p {
   font-weight: 300;
   max-width: 70%;
   line-height: 160%;
+  font-size: 16px;
 }
 
 article.usersReview h3 {

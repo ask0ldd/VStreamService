@@ -24,12 +24,12 @@ function CastList(){
                 <div className='notableWorksContainer'>
                     <h4>Notable Works</h4>
                     <div className='notableWorks'>
-                        <img className="notableWorkPic" src="../horizontalCardPic/thetomorrowwar.jpg"/>
-                        <img className="notableWorkPic" src="../horizontalCardPic/vampireacademy.jpg"/>
-                        <img className="notableWorkPic" src="../horizontalCardPic/ringsofpower.jpg"/>
-                        <img className="notableWorkPic" src="../horizontalCardPic/handofgod.jpg"/>
-                        <img className="notableWorkPic" src="../horizontalCardPic/thetomorrowwar.jpg"/>
-                        <img className="notableWorkPic" src="../horizontalCardPic/vampireacademy.jpg"/>
+                        <img className="notableWorkPic" src="../horizontalCardPic/thetomorrowwarsm.jpg"/>
+                        <img className="notableWorkPic" src="../horizontalCardPic/vampireacademysm.jpg"/>
+                        <img className="notableWorkPic" src="../horizontalCardPic/ringsofpowersm.jpg"/>
+                        <img className="notableWorkPic" src="../horizontalCardPic/handofgodsm.jpg"/>
+                        <img className="notableWorkPic" src="../horizontalCardPic/theterminallistsm.jpg"/>
+                        <img className="notableWorkPic" src="../horizontalCardPic/tunetueraspointsm.jpg"/>
                     </div>
                 </div>
             </article>
