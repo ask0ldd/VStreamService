@@ -1,7 +1,9 @@
+import '../style/MovieGallery.css'
+
 function MovieGallery(){
     return (
-        <section>
-            <article></article>
+        <section className='galleryContainer'>
+            <article>aaa</article><article>aaa</article><article>aaa</article><article>aaa</article><article>aaa</article>
         </section>
     )
 }

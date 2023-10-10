@@ -1,0 +1,13 @@
+.galleryContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.galleryContainer article {
+  display: flex;
+  flex: 1 1 20%;
+  max-width: calc((100% - 6rem) / 4);
+  background-color: red;
+  height: 16rem;
+}
