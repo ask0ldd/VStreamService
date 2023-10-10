@@ -2,12 +2,27 @@
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
+  padding: 3rem 0;
 }
 
 .galleryContainer article {
   display: flex;
   flex: 1 1 20%;
   max-width: calc((100% - 6rem) / 4);
-  background-color: red;
   height: 16rem;
+  /*border-radius: 12px;*/
+  overflow: hidden;
+  border: 1px solid #ffffff20;
+  cursor: pointer;
+}
+
+.galleryContainer article img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.galleryContainer article:hover {
+  border: 1px solid #1a98ff;
 }
