@@ -10,6 +10,7 @@ import useAPI from "../hooks/useAPI"
 import { setEpisodesList } from "../redux/episodesSlice"
 import { useTypedDispatch, useTypedSelector } from "../hooks/redux"
 import UsersReviewsList from "../components/usersReviewsList"
+import MovieGallery from "../components/MovieGallery"
 
 function Movie(){
 
@@ -163,6 +164,11 @@ function Movie(){
                 { activeMenuItem === "userReviews" && 
                     <UsersReviewsList/>
                 }
+
+                { activeMenuItem === "photos" && 
+                    <MovieGallery/>
+                }
+
             </main>
             <Footer/>
         </>

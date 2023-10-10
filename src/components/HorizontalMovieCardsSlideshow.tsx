@@ -28,7 +28,7 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
         moviesContainer?.scrollBy({
             left: cardWidthPlusGap*3,
             top: 0,
-            behavior: 'smooth'
+            behavior: 'smooth',
         })
     }
 
