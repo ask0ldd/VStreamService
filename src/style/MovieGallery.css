@@ -14,6 +14,7 @@
   overflow: hidden;
   border: 1px solid #ffffff20;
   cursor: pointer;
+  border-radius: 0px;
 }
 
 .galleryContainer article img {
@@ -21,8 +22,14 @@
   height: 100%;
   object-fit: cover;
   object-position: top;
+  overflow-clip-margin: unset;
+  transition: transform 0.5s linear 0s;
 }
 
 .galleryContainer article:hover {
   border: 1px solid #1a98ff;
+}
+
+.galleryContainer article:hover img {
+  transform: scale(1.1);
 }
