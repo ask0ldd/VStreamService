@@ -34,6 +34,15 @@
   transform: scale(1.1);
 }
 
+.galleryContainer .galleryNavButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  flex: 0 0;
+}
+
 dialog {
   z-index: 5;
   border: none;

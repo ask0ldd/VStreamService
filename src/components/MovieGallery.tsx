@@ -14,6 +14,14 @@ function MovieGallery(){
         modalVisibilityRef.current = true
     }
 
+    function prevPic(){
+        if(openedPictureIndex != null && openedPictureIndex>0) setOpenPictureIndex(openedPictureIndex-1)
+    }
+
+    function nextPic(){
+        if(openedPictureIndex != null) setOpenPictureIndex(openedPictureIndex+1)
+    }
+
     useEffect(()=> {
         if(modalVisibilityRef && !dialogRef.current?.open) return dialogRef.current?.showModal()
         if(!modalVisibilityRef && dialogRef.current?.open) return dialogRef.current?.close()
@@ -28,7 +36,9 @@ function MovieGallery(){
             </section>
             {modalVisibility && 
             <dialog ref={dialogRef} className='galleryModal' onClick={(e) => { if (e.target === dialogRef.current) setModalVisibility(false)}}>
+                <div role="button" className='galleryNavButton' onClick={() => prevPic()}>prev</div>
                 <img className='fullsizePicture' src={openedPictureIndex != null ? theBoysScrap.movie.photos[openedPictureIndex].fullPics[3].url : ''}/>
+                <div role="button" className='galleryNavButton' onClick={() => nextPic()}>next</div>
             </dialog>}
         </>
     )
