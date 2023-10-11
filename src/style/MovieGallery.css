@@ -43,10 +43,12 @@ dialog {
   left: auto;
   right: auto;
   z-index: 5;
+  border: 0;
 }
 
 dialog .fullsizePicture {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
 }

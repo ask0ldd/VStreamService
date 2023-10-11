@@ -4,17 +4,18 @@ import '../style/MovieGallery.css'
 function MovieGallery(){
 
     const [isModalVisible, setModalVisible] = useState<boolean>(false)
+    const [openedPictureIndex, setOpenPictureIndex] = useState<number|undefined>(undefined)
 
     return (
         <>
             <section className='galleryContainer'>
                 {
-                    theBoysScrap.movie.photos.map(photo => <article onClick={() => setModalVisible(true)}><img src={photo.fullPics[3].url}/></article>)
+                    theBoysScrap.movie.photos.map((photo, index) => <article onClick={() => { setModalVisible(true); setOpenPictureIndex(index) }}><img src={photo.fullPics[3].url}/></article>)
                 }
             </section>
             {isModalVisible && 
             <dialog className='galleryModal' open>
-                <img className='fullsizePicture'/>
+                <img className='fullsizePicture' src={openedPictureIndex != null ? theBoysScrap.movie.photos[openedPictureIndex].fullPics[3].url : ''}/>
             </dialog>}
         </>
     )
