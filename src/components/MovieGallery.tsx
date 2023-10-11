@@ -1,12 +1,22 @@
+import { useState } from 'react'
 import '../style/MovieGallery.css'
 
 function MovieGallery(){
+
+    const [isModalVisible, setModalVisible] = useState<boolean>(false)
+
     return (
-        <section className='galleryContainer'>
-            {
-                theBoysScrap.movie.photos.map(photo => <article><img src={photo.fullPics[3].url}/></article>)
-            }
-        </section>
+        <>
+            <section className='galleryContainer'>
+                {
+                    theBoysScrap.movie.photos.map(photo => <article onClick={() => setModalVisible(true)}><img src={photo.fullPics[3].url}/></article>)
+                }
+            </section>
+            {isModalVisible && 
+            <dialog className='galleryModal' open>
+                <img className='fullsizePicture'/>
+            </dialog>}
+        </>
     )
 }
 
