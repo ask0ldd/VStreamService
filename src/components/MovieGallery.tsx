@@ -19,7 +19,7 @@ function MovieGallery(){
     }
 
     function nextPic(){
-        if(openedPictureIndex != null) setOpenPictureIndex(openedPictureIndex+1)
+        if(openedPictureIndex != null && openedPictureIndex < theBoysScrap.movie.photos.length-1) setOpenPictureIndex(openedPictureIndex+1)
     }
 
     useEffect(()=> {

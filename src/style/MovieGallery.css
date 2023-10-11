@@ -34,13 +34,16 @@
   transform: scale(1.1);
 }
 
-.galleryContainer .galleryNavButton {
+.galleryNavButton {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 3rem;
+  width: 6rem;
   height: 3rem;
-  flex: 0 0;
+  background-color: #ffffffcc;
+  flex-shrink: 0;
+  align-self: center;
+  cursor: pointer;
 }
 
 dialog {
@@ -49,6 +52,7 @@ dialog {
   margin: auto;
   display: flex;
   outline: none;
+  background: none;
 }
 
 dialog::backdrop {
