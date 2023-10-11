@@ -46,6 +46,13 @@ dialog {
   border: 0;
 }
 
+dialog::backdrop {
+  background-color: #00000066;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+}
+
 dialog .fullsizePicture {
   width: 100%;
   height: 100%;

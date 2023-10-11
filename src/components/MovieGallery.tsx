@@ -1,20 +1,32 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import '../style/MovieGallery.css'
 
 function MovieGallery(){
 
     const [isModalVisible, setModalVisible] = useState<boolean>(false)
     const [openedPictureIndex, setOpenPictureIndex] = useState<number|undefined>(undefined)
+    const dialogRef = useRef<HTMLDialogElement>(null)
+    const modalVisibilityRef = useRef(isModalVisible)
+
+    function openGalleryModalWithPic(picIndex : number):void{
+        setModalVisible(true)
+        setOpenPictureIndex(picIndex)
+    }
+
+    useEffect(()=> {
+        if(modalVisibilityRef && !dialogRef.current?.open) return dialogRef.current?.showModal()
+        if(!modalVisibilityRef && dialogRef.current?.open) return dialogRef.current?.close()
+    })
 
     return (
         <>
             <section className='galleryContainer'>
                 {
-                    theBoysScrap.movie.photos.map((photo, index) => <article onClick={() => { setModalVisible(true); setOpenPictureIndex(index) }}><img src={photo.fullPics[3].url}/></article>)
+                    theBoysScrap.movie.photos.map((photo, index) => <article onClick={() => openGalleryModalWithPic(index)}><img src={photo.fullPics[3].url}/></article>)
                 }
             </section>
             {isModalVisible && 
-            <dialog className='galleryModal' open>
+            <dialog ref={dialogRef} className='galleryModal'>
                 <img className='fullsizePicture' src={openedPictureIndex != null ? theBoysScrap.movie.photos[openedPictureIndex].fullPics[3].url : ''}/>
             </dialog>}
         </>
