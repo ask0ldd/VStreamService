@@ -3,14 +3,15 @@ import '../style/MovieGallery.css'
 
 function MovieGallery(){
 
-    const [isModalVisible, setModalVisible] = useState<boolean>(false)
+    const [modalVisibility, setModalVisibility] = useState<boolean>(false)
     const [openedPictureIndex, setOpenPictureIndex] = useState<number|undefined>(undefined)
     const dialogRef = useRef<HTMLDialogElement>(null)
-    const modalVisibilityRef = useRef(isModalVisible)
+    const modalVisibilityRef = useRef(modalVisibility)
 
-    function openGalleryModalWithPic(picIndex : number):void{
-        setModalVisible(true)
+    function openGalleryModalWithPic(picIndex : number){
+        setModalVisibility(true)
         setOpenPictureIndex(picIndex)
+        modalVisibilityRef.current = true
     }
 
     useEffect(()=> {
@@ -25,8 +26,8 @@ function MovieGallery(){
                     theBoysScrap.movie.photos.map((photo, index) => <article onClick={() => openGalleryModalWithPic(index)}><img src={photo.fullPics[3].url}/></article>)
                 }
             </section>
-            {isModalVisible && 
-            <dialog ref={dialogRef} className='galleryModal'>
+            {modalVisibility && 
+            <dialog ref={dialogRef} className='galleryModal' onClick={(e) => { if (e.target === dialogRef.current) setModalVisibility(false)}}>
                 <img className='fullsizePicture' src={openedPictureIndex != null ? theBoysScrap.movie.photos[openedPictureIndex].fullPics[3].url : ''}/>
             </dialog>}
         </>
