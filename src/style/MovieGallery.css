@@ -48,21 +48,27 @@
 
 dialog {
   z-index: 5;
-  border: none;
-  margin: auto;
   display: flex;
   outline: none;
   background: none;
   width: 100%;
   height: 100%;
   justify-content: space-between;
+  padding: 0;
+  border: none !important;
+  margin: auto;
+  background-color: red;
 }
 
 dialog::backdrop {
   background-color: #000000aa;
   z-index: 4;
+  padding: 0;
+  margin: 0;
   width: 100%;
   height: 100%;
+  border: none;
+  outline: none;
 }
 
 dialog .fullsizePicture {
@@ -72,4 +78,26 @@ dialog .fullsizePicture {
   max-height: 70%;
   align-self: center;
   border: 1px solid #ffffff33;
+}
+
+dialog .galleryHeader {
+  height: 4rem;
+  width: 100%;
+  max-width: 1440px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: #333435;
+}
+
+dialog .galleryHeader {
+  height: 4rem;
+  width: 100%;
+  max-width: 1440px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: #333435;
 }

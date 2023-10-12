@@ -36,6 +36,9 @@ function MovieGallery(){
             </section>
             {modalVisibility && 
             <dialog ref={dialogRef} className='galleryModal' onClick={(e) => { if (e.target === dialogRef.current) setModalVisibility(false)}}>
+                <div className='galleryHeader'>
+                    aaa
+                </div>
                 <div role="button" className='galleryNavButton' onClick={() => prevPic()}>prev</div>
                 <img className='fullsizePicture' src={openedPictureIndex != null ? theBoysScrap.movie.photos[openedPictureIndex].fullPics[4].url : ''}/>
                 <div role="button" className='galleryNavButton' onClick={() => nextPic()}>next</div>
