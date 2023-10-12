@@ -23,11 +23,11 @@
   object-fit: cover;
   object-position: top;
   overflow-clip-margin: unset;
-  transition: transform 0.5s linear 0s;
+  transition: transform 0.5s ease-out 0s;
 }
 
 .galleryContainer article:hover {
-  border: 2px solid #1a98ff;
+  border: 2px solid #1a98ffcc;
 }
 
 .galleryContainer article:hover img {
@@ -53,18 +53,23 @@ dialog {
   display: flex;
   outline: none;
   background: none;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
 }
 
 dialog::backdrop {
-  background-color: #00000088;
+  background-color: #000000aa;
   z-index: 4;
   width: 100%;
   height: 100%;
 }
 
 dialog .fullsizePicture {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
   object-position: top;
+  max-width: 70%;
+  max-height: 70%;
+  align-self: center;
+  border: 1px solid #ffffff33;
 }
