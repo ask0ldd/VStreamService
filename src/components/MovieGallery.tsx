@@ -39,9 +39,11 @@ function MovieGallery(){
                 <div className='galleryHeader'>
                     {openedPictureIndex} / {theBoysScrap.movie.photos.length-1}
                 </div>
-                <div role="button" className='galleryNavButton' onClick={() => prevPic()}>prev</div>
-                <img className='fullsizePicture' src={openedPictureIndex != null ? theBoysScrap.movie.photos[openedPictureIndex].fullPics[4].url : ''}/>
-                <div role="button" className='galleryNavButton' onClick={() => nextPic()}>next</div>
+                <div className='galleryBody'>
+                    <div role="button" className='galleryNavButton' onClick={() => prevPic()}>prev</div>
+                    <img className='fullsizePicture' src={openedPictureIndex != null ? theBoysScrap.movie.photos[openedPictureIndex].fullPics[4].url : ''}/>
+                    <div role="button" className='galleryNavButton' onClick={() => nextPic()}>next</div>
+                </div>
                 <div className='galleryFooter'>
                     {openedPictureIndex} / {theBoysScrap.movie.photos.length-1}
                 </div>

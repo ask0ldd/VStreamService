@@ -53,8 +53,8 @@ dialog {
   background: none;
   width: 100%;
   height: 100%;
-  justify-content: space-between;
-  padding: 0;
+  flex-direction: column;
+  padding: 0 2rem;
   border: none !important;
   margin: auto;
   max-width: 1440px;
@@ -80,37 +80,28 @@ dialog .fullsizePicture {
   border: 1px solid #ffffff33;
 }
 
-dialog .galleryHeader {
-  height: 4rem;
-  width: 100%;
-  max-width: 1440px;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
-  background-color: #333435;
+dialog .galleryBody {
+  display: flex;
+  justify-content: space-between;
+  flex-shrink: 1;
 }
 
 dialog .galleryHeader {
   height: 4rem;
   width: 100%;
   max-width: 1440px;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
+  margin: 0 auto;
   background-color: #333435;
+  flex-shrink: 0;
 }
 
 dialog .galleryFooter {
   height: 8rem;
   width: 100%;
   max-width: 1440px;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
+  margin: 0 auto;
   background-color: #333435;
+  flex-shrink: 0;
 }
 
 dialog:modal {
