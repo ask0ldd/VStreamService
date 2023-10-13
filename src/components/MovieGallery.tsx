@@ -32,7 +32,7 @@ function MovieGallery(){
         <>
             <section className='galleryContainer'>
                 {
-                    theBoysScrap.movie.photos.map((photo, index) => <article onClick={() => openGalleryModalWithPic(index)}><img src={photo.fullPics[3].url}/><div>{photo.alt.slice(0, 46)}</div></article>)
+                    theBoysScrap.movie.photos.map((photo, index) => <article onClick={() => openGalleryModalWithPic(index)}><img src={photo.fullPics[3].url}/><div>{photo.alt.slice(0, 40)}</div></article>)
                 }
             </section>
             {modalVisibility && 
@@ -41,14 +41,13 @@ function MovieGallery(){
                     {openedPictureIndex} / {theBoysScrap.movie.photos.length-1}
                 </div>
                 <div className='galleryBody'>
-                    <div role="button" className='galleryNavButton' onClick={() => prevPic()}>prev</div>
+                    <div role="button" className='galleryNavButton' onClick={() => prevPic()}>PREV</div>
                     <img className='fullsizePicture' src={openedPictureIndex != null ? theBoysScrap.movie.photos[openedPictureIndex].fullPics[4].url : ''}/>
-                    <div role="button" className='galleryNavButton' onClick={() => nextPic()}>next</div>
+                    <div role="button" className='galleryNavButton' onClick={() => nextPic()}>NEXT</div>
                 </div>
                 <div className='galleryFooter'>
-                    <p>{openedPictureIndex != null && theBoysScrap.movie.photos[openedPictureIndex as number].alt}</p>
-                    <p>{openedPictureIndex} / {theBoysScrap.movie.photos.length-1}</p>
-                    <ul style={{display:'flex', flexDirection : 'row', columnGap:'1rem', marginLeft:'1rem'}}>{theBoysScrap.movie.photos[openedPictureIndex as number].actors.map(actors => <li>{actors}</li>)}</ul>
+                    <p>Title : {theBoysScrap.movie.title}</p>
+                    <ul style={{display:'flex', flexDirection : 'row', columnGap:'1rem'}}><li>Featuring :</li>{theBoysScrap.movie.photos[openedPictureIndex as number].actors.map(actors => <li>{actors}, </li>)}</ul>
                 </div>
             </dialog>}
         </>

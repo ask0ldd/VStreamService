@@ -40,11 +40,17 @@
   justify-content: center;
   align-items: center;
   width: 6rem;
-  height: 3rem;
-  background-color: #ffffffcc;
+  height: 4rem;
+  border: 2px solid #ffffffff;
   flex-shrink: 0;
   align-self: center;
   cursor: pointer;
+  background-color: #1a98ff;
+  font-size: 14px;
+  color: #ffffffff;
+  font-weight: 500;
+  font-family: "Lexend", sans-serif;
+  border-radius: 6px;
 }
 
 .galleryContainer article div {
@@ -53,18 +59,21 @@
   left: 0;
   width: 100%;
   height: 2.5rem;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  transform: translateY(2.5rem);
+  transition: transform 0.2s ease-in 0s;
   background: linear-gradient(
     0deg,
     rgba(27, 46, 63, 0.6),
     rgba(27, 46, 63, 0.6)
   );
   border-top: 1px solid #ffffff22;
-  display: flex;
-  align-items: center;
-  padding: 0 1rem;
-  transform: translateY(2.5rem);
-  transition: transform 0.2s ease-in 0s;
   font-size: 14px;
+  color: #ffffffcc;
+  font-weight: 500;
+  font-family: "Lexend", sans-serif;
 }
 
 .galleryContainer article:hover div {
@@ -81,6 +90,8 @@ dialog {
   padding: 0 2rem;
   margin: 0 auto;
   overflow: hidden;
+  border: none;
+  outline: none;
   /*max-width: 1440px;*/
 }
 
@@ -101,7 +112,9 @@ dialog .fullsizePicture {
   max-width: 70%;
   max-height: 100%;
   align-self: center;
-  border: 1px solid #ffffff33;
+  /*border: 1px solid #ffffff33;*/
+  border-left: 1px solid #ffffff22;
+  border-right: 1px solid #ffffff22;
   display: flex;
   flex-shrink: 1;
 }
@@ -111,6 +124,9 @@ dialog .galleryBody {
   justify-content: space-between;
   flex-shrink: 1;
   max-height: calc(100vh - 12rem);
+  /*max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;*/
 }
 
 dialog .galleryHeader {
@@ -119,8 +135,18 @@ dialog .galleryHeader {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  background-color: #333435;
+  background: linear-gradient(
+    180deg,
+    rgba(27, 46, 63, 0.4),
+    rgba(27, 46, 63, 0.6)
+  );
+  border-bottom: 1px solid #ffffff22;
   flex-shrink: 0;
+  color: #ffffffcc;
+  font-size: 16px;
+  font-family: "Lexend", sans-serif;
+  font-weight: 300;
+  padding: 1rem 2rem;
 }
 
 dialog .galleryFooter {
@@ -129,8 +155,17 @@ dialog .galleryFooter {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  background-color: #333435;
+  /*background-color: #333435;*/
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(27, 46, 63, 0.6));
+  border-top: 1px solid #ffffff22;
   flex-shrink: 0;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  color: #ffffffcc;
+  font-size: 16px;
+  font-family: "Lexend", sans-serif;
+  font-weight: 300;
+  row-gap: 0.5rem;
 }
 
 dialog:modal {
