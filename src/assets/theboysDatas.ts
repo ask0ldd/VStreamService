@@ -53,6 +53,9 @@ export const theBoysScrap = {
                         "url": "https://m.media-amazon.com/images/M/MV5BYTFkMGI2NTEtNDhlMS00NTFiLThmYTQtNmI3YTVlZDE4ZGUwXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX2160_.jpg",
                         "width": "2160"
                     }
+                ],
+                "actors": [
+                    "Karl Urban"
                 ]
             },
             {
@@ -80,6 +83,9 @@ export const theBoysScrap = {
                         "url": "https://m.media-amazon.com/images/M/MV5BYjI1NTQ3OTUtNmFjZS00MGMwLWFlNzItYjM0NjMzYTAwODcxXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UY800_.jpg",
                         "width": "700"
                     }
+                ],
+                "actors": [
+                    "Susan Heyward"
                 ]
             },
             {
@@ -107,6 +113,9 @@ export const theBoysScrap = {
                         "url": "https://m.media-amazon.com/images/M/MV5BMzdiOTk2M2ItZTJhYi00YTUyLThmODUtYzUyMzM4NGZhYzMyXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UY800_.jpg",
                         "width": "700"
                     }
+                ],
+                "actors": [
+                    "Valorie Curry"
                 ]
             },
             {
@@ -138,6 +147,9 @@ export const theBoysScrap = {
                         "url": "https://m.media-amazon.com/images/M/MV5BYTA3OTkxOTUtYzRlMi00NDZiLWFkOGEtM2I4MzZmOTIxZTRhXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX2160_.jpg",
                         "width": "2160"
                     }
+                ],
+                "actors": [
+                    "Jensen Ackles"
                 ]
             },
             {
@@ -169,6 +181,9 @@ export const theBoysScrap = {
                         "url": "https://m.media-amazon.com/images/M/MV5BYWZhMGM2NWQtN2EyNi00NjY4LTkzMjUtZDBjZjk3OTRhNGEyXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX2160_.jpg",
                         "width": "2160"
                     }
+                ],
+                "actors": [
+                    "Dominique McElligott"
                 ]
             },
             {
@@ -200,6 +215,9 @@ export const theBoysScrap = {
                         "url": "https://m.media-amazon.com/images/M/MV5BM2MxN2NhZDAtNzNkNy00NTc2LTg4YzAtYTMwMzEyZGEyMTRkXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX2160_.jpg",
                         "width": "2160"
                     }
+                ],
+                "actors": [
+                    "Erin Moriarty"
                 ]
             },
             {
@@ -231,6 +249,10 @@ export const theBoysScrap = {
                         "url": "https://m.media-amazon.com/images/M/MV5BZGFiNDhjODYtODk2NC00NzcxLWE4OTktM2NhNzFhMWFkYTdiXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX2160_.jpg",
                         "width": "2160"
                     }
+                ],
+                "actors": [
+                    "Karl Urban",
+                    "Cameron Crovetti"
                 ]
             },
             {
@@ -262,6 +284,10 @@ export const theBoysScrap = {
                         "url": "https://m.media-amazon.com/images/M/MV5BOWJiNjVlNjItMGViYy00NmEwLWI5Y2MtMmFlYWVjOTBhYjc3XkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX2160_.jpg",
                         "width": "2160"
                     }
+                ],
+                "actors": [
+                    "Christian Keyes",
+                    "Jessie T. Usher"
                 ]
             },
             {
@@ -293,6 +319,10 @@ export const theBoysScrap = {
                         "url": "https://m.media-amazon.com/images/M/MV5BYWMyYTNlNzgtZWY3OS00N2ExLWFiZDktMTk2MDMxYzk1MzQ0XkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX2160_.jpg",
                         "width": "2160"
                     }
+                ],
+                "actors": [
+                    "Karl Urban",
+                    "Antony Starr"
                 ]
             },
             {
@@ -324,6 +354,9 @@ export const theBoysScrap = {
                         "url": "https://m.media-amazon.com/images/M/MV5BZjIyNjVmNjktZTFmNC00ZDkxLTlhZjktNGY1MzY3NmIyZjcyXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX2160_.jpg",
                         "width": "2160"
                     }
+                ],
+                "actors": [
+                    "Claudia Doumit"
                 ]
             },
             {
@@ -355,6 +388,10 @@ export const theBoysScrap = {
                         "url": "https://m.media-amazon.com/images/M/MV5BODQ0NTBkNDQtNDA3OS00NDcyLTlhMzktOGUzN2EwODliOTNmXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX2160_.jpg",
                         "width": "2160"
                     }
+                ],
+                "actors": [
+                    "Jensen Ackles",
+                    "Jack Quaid"
                 ]
             },
             {
@@ -386,6 +423,10 @@ export const theBoysScrap = {
                         "url": "https://m.media-amazon.com/images/M/MV5BNmJjYzEzNjQtMzVkOS00ODM3LTk2NzgtZmRmODgxNWRjNTRhXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX2160_.jpg",
                         "width": "2160"
                     }
+                ],
+                "actors": [
+                    "Chace Crawford",
+                    "Colby Minifie"
                 ]
             }
         ],
@@ -415,52 +456,52 @@ export const theBoysScrap = {
                 "contentPage": "https://www.imdb.com/title/tt6741278/?ref_=tt_sims_tt_i_4"
             },
             {
-                "title": "Rick et Morty",
-                "poster": "https://m.media-amazon.com/images/M/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_QL75_UX140_CR0,1,140,207_.jpg",
-                "rating": "9.1",
-                "contentPage": "https://www.imdb.com/title/tt2861424/?ref_=tt_sims_tt_i_5"
-            },
-            {
                 "title": "Gen V",
                 "poster": "https://m.media-amazon.com/images/M/MV5BMGYxOWMxNjMtNjE3Mi00YTRjLTlkZWUtNDk4NzBkMWEyYWE0XkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_QL75_UY207_CR3,0,140,207_.jpg",
                 "rating": "8.0",
-                "contentPage": "https://www.imdb.com/title/tt13159924/?ref_=tt_sims_tt_i_6"
+                "contentPage": "https://www.imdb.com/title/tt13159924/?ref_=tt_sims_tt_i_5"
             },
             {
-                "title": "The Office",
-                "poster": "https://m.media-amazon.com/images/M/MV5BMDNkOTE4NDQtMTNmYi00MWE0LWE4ZTktYTc0NzhhNWIzNzJiXkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_QL75_UX140_CR0,1,140,207_.jpg",
-                "rating": "9.0",
-                "contentPage": "https://www.imdb.com/title/tt0386676/?ref_=tt_sims_tt_i_7"
+                "title": "Rick et Morty",
+                "poster": "https://m.media-amazon.com/images/M/MV5BZjRjOTFkOTktZWUzMi00YzMyLThkMmYtMjEwNmQyNzliYTNmXkEyXkFqcGdeQXVyNzQ1ODk3MTQ@._V1_QL75_UX140_CR0,1,140,207_.jpg",
+                "rating": "9.1",
+                "contentPage": "https://www.imdb.com/title/tt2861424/?ref_=tt_sims_tt_i_6"
             },
             {
                 "title": "Peaky Blinders",
                 "poster": "https://m.media-amazon.com/images/M/MV5BNTA1MGFmMDQtYWQxMS00NDY3LWExOGItYWE5MWI4NWM0YjllXkEyXkFqcGdeQXVyMTA0MDM3NDg4._V1_QL75_UY207_CR13,0,140,207_.jpg",
                 "rating": "8.8",
-                "contentPage": "https://www.imdb.com/title/tt2442560/?ref_=tt_sims_tt_i_8"
+                "contentPage": "https://www.imdb.com/title/tt2442560/?ref_=tt_sims_tt_i_7"
             },
             {
-                "title": "Better Call Saul",
-                "poster": "https://m.media-amazon.com/images/M/MV5BZDA4YmE0OTYtMmRmNS00Mzk2LTlhM2MtNjk4NzBjZGE1MmIyXkEyXkFqcGdeQXVyMTMzNDExODE5._V1_QL75_UX140_CR0,1,140,207_.jpg",
+                "title": "The Office",
+                "poster": "https://m.media-amazon.com/images/M/MV5BMDNkOTE4NDQtMTNmYi00MWE0LWE4ZTktYTc0NzhhNWIzNzJiXkEyXkFqcGdeQXVyMzQ2MDI5NjU@._V1_QL75_UX140_CR0,1,140,207_.jpg",
                 "rating": "9.0",
-                "contentPage": "https://www.imdb.com/title/tt3032476/?ref_=tt_sims_tt_i_9"
+                "contentPage": "https://www.imdb.com/title/tt0386676/?ref_=tt_sims_tt_i_8"
             },
             {
                 "title": "The Walking Dead",
                 "poster": "https://m.media-amazon.com/images/M/MV5BY2U5MzE0NDYtMjgxZi00ZjMyLWFlN2UtZGI3YzQ5OGZiMjcyXkEyXkFqcGdeQXVyMTYzMDM0NTU@._V1_QL75_UX140_CR0,0,140,207_.jpg",
                 "rating": "8.1",
-                "contentPage": "https://www.imdb.com/title/tt1520211/?ref_=tt_sims_tt_i_10"
+                "contentPage": "https://www.imdb.com/title/tt1520211/?ref_=tt_sims_tt_i_9"
             },
             {
                 "title": "Black Mirror",
                 "poster": "https://m.media-amazon.com/images/M/MV5BZTgyNTBkNzctN2I3NC00NTA1LWJiMDMtYzA2MmYyZjc1NWQzXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_QL75_UY207_CR13,0,140,207_.jpg",
                 "rating": "8.7",
-                "contentPage": "https://www.imdb.com/title/tt2085059/?ref_=tt_sims_tt_i_11"
+                "contentPage": "https://www.imdb.com/title/tt2085059/?ref_=tt_sims_tt_i_10"
             },
             {
-                "title": "The Mandalorian",
-                "poster": "https://m.media-amazon.com/images/M/MV5BN2M5YWFjN2YtYzU2YS00NzBlLTgwZWUtYWQzNWFhNDkyYjg3XkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_QL75_UX140_CR0,0,140,207_.jpg",
-                "rating": "8.7",
-                "contentPage": "https://www.imdb.com/title/tt8111088/?ref_=tt_sims_tt_i_12"
+                "title": "Better Call Saul",
+                "poster": "https://m.media-amazon.com/images/M/MV5BZDA4YmE0OTYtMmRmNS00Mzk2LTlhM2MtNjk4NzBjZGE1MmIyXkEyXkFqcGdeQXVyMTMzNDExODE5._V1_QL75_UX140_CR0,1,140,207_.jpg",
+                "rating": "9.0",
+                "contentPage": "https://www.imdb.com/title/tt3032476/?ref_=tt_sims_tt_i_11"
+            },
+            {
+                "title": "Supernatural",
+                "poster": "https://m.media-amazon.com/images/M/MV5BNzRmZWJhNjUtY2ZkYy00N2MyLWJmNTktOTAwY2VkODVmOGY3XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_QL75_UX140_CR0,1,140,207_.jpg",
+                "rating": "8.4",
+                "contentPage": "https://www.imdb.com/title/tt0460681/?ref_=tt_sims_tt_i_12"
             }
         ],
         "userReviewsPage": "https://www.imdb.com/title/tt1190634/reviews?ref_=tt_urv",

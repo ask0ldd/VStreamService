@@ -48,6 +48,7 @@ function MovieGallery(){
                 <div className='galleryFooter'>
                     <p>{openedPictureIndex != null && theBoysScrap.movie.photos[openedPictureIndex as number].alt}</p>
                     <p>{openedPictureIndex} / {theBoysScrap.movie.photos.length-1}</p>
+                    <ul style={{display:'flex', flexDirection : 'row', columnGap:'1rem', marginLeft:'1rem'}}>{theBoysScrap.movie.photos[openedPictureIndex as number].actors.map(actors => <li>{actors}</li>)}</ul>
                 </div>
             </dialog>}
         </>
