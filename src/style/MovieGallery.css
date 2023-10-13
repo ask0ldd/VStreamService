@@ -49,14 +49,13 @@
 dialog {
   z-index: 5;
   display: flex;
-  outline: none;
   background: none;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   flex-direction: column;
   padding: 0 2rem;
-  border: none !important;
-  margin: auto;
+  margin: 0 auto;
+  overflow: hidden;
   /*max-width: 1440px;*/
 }
 
@@ -75,18 +74,22 @@ dialog .fullsizePicture {
   object-fit: cover;
   object-position: top;
   max-width: 70%;
-  max-height: 70%;
+  max-height: 100%;
   align-self: center;
   border: 1px solid #ffffff33;
+  display: flex;
+  flex-shrink: 1;
 }
 
 dialog .galleryBody {
   display: flex;
   justify-content: space-between;
   flex-shrink: 1;
+  max-height: calc(100vh - 12rem);
 }
 
 dialog .galleryHeader {
+  display: flex;
   height: 4rem;
   width: 100%;
   max-width: 1440px;
@@ -96,6 +99,7 @@ dialog .galleryHeader {
 }
 
 dialog .galleryFooter {
+  display: flex;
   height: 8rem;
   width: 100%;
   max-width: 1440px;

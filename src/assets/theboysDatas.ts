@@ -30,24 +30,28 @@ export const theBoysScrap = {
                 "mediaViewerPage": "https://www.imdb.com/title/tt1190634/mediaviewer/rm996491009/?ref_=tt_md_1",
                 "fullPics": [
                     {
-                        "url": "https://m.media-amazon.com/images/M/MV5BYjI1NTQ3OTUtNmFjZS00MGMwLWFlNzItYjM0NjMzYTAwODcxXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UY365_.jpg",
-                        "width": "319"
+                        "url": "https://m.media-amazon.com/images/M/MV5BYTFkMGI2NTEtNDhlMS00NTFiLThmYTQtNmI3YTVlZDE4ZGUwXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX320_.jpg",
+                        "width": "320"
                     },
                     {
-                        "url": "https://m.media-amazon.com/images/M/MV5BYjI1NTQ3OTUtNmFjZS00MGMwLWFlNzItYjM0NjMzYTAwODcxXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UY548_.jpg",
-                        "width": "479"
+                        "url": "https://m.media-amazon.com/images/M/MV5BYTFkMGI2NTEtNDhlMS00NTFiLThmYTQtNmI3YTVlZDE4ZGUwXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX480_.jpg",
+                        "width": "480"
                     },
                     {
-                        "url": "https://m.media-amazon.com/images/M/MV5BYjI1NTQ3OTUtNmFjZS00MGMwLWFlNzItYjM0NjMzYTAwODcxXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UY337_.jpg",
-                        "width": "294"
+                        "url": "https://m.media-amazon.com/images/M/MV5BYTFkMGI2NTEtNDhlMS00NTFiLThmYTQtNmI3YTVlZDE4ZGUwXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX600_.jpg",
+                        "width": "600"
                     },
                     {
-                        "url": "https://m.media-amazon.com/images/M/MV5BYjI1NTQ3OTUtNmFjZS00MGMwLWFlNzItYjM0NjMzYTAwODcxXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX700_.jpg",
-                        "width": "700"
+                        "url": "https://m.media-amazon.com/images/M/MV5BYTFkMGI2NTEtNDhlMS00NTFiLThmYTQtNmI3YTVlZDE4ZGUwXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX1024_.jpg",
+                        "width": "1024"
                     },
                     {
-                        "url": "https://m.media-amazon.com/images/M/MV5BYjI1NTQ3OTUtNmFjZS00MGMwLWFlNzItYjM0NjMzYTAwODcxXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UY800_.jpg",
-                        "width": "700"
+                        "url": "https://m.media-amazon.com/images/M/MV5BYTFkMGI2NTEtNDhlMS00NTFiLThmYTQtNmI3YTVlZDE4ZGUwXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX1280_.jpg",
+                        "width": "1280"
+                    },
+                    {
+                        "url": "https://m.media-amazon.com/images/M/MV5BYTFkMGI2NTEtNDhlMS00NTFiLThmYTQtNmI3YTVlZDE4ZGUwXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX2160_.jpg",
+                        "width": "2160"
                     }
                 ]
             },
@@ -173,27 +177,27 @@ export const theBoysScrap = {
                 "mediaViewerPage": "https://www.imdb.com/title/tt1190634/mediaviewer/rm2775517953/?ref_=tt_md_6",
                 "fullPics": [
                     {
-                        "url": "https://m.media-amazon.com/images/M/MV5BZGFiNDhjODYtODk2NC00NzcxLWE4OTktM2NhNzFhMWFkYTdiXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX320_.jpg",
+                        "url": "https://m.media-amazon.com/images/M/MV5BM2MxN2NhZDAtNzNkNy00NTc2LTg4YzAtYTMwMzEyZGEyMTRkXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX320_.jpg",
                         "width": "320"
                     },
                     {
-                        "url": "https://m.media-amazon.com/images/M/MV5BZGFiNDhjODYtODk2NC00NzcxLWE4OTktM2NhNzFhMWFkYTdiXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX480_.jpg",
+                        "url": "https://m.media-amazon.com/images/M/MV5BM2MxN2NhZDAtNzNkNy00NTc2LTg4YzAtYTMwMzEyZGEyMTRkXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX480_.jpg",
                         "width": "480"
                     },
                     {
-                        "url": "https://m.media-amazon.com/images/M/MV5BZGFiNDhjODYtODk2NC00NzcxLWE4OTktM2NhNzFhMWFkYTdiXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX600_.jpg",
+                        "url": "https://m.media-amazon.com/images/M/MV5BM2MxN2NhZDAtNzNkNy00NTc2LTg4YzAtYTMwMzEyZGEyMTRkXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX600_.jpg",
                         "width": "600"
                     },
                     {
-                        "url": "https://m.media-amazon.com/images/M/MV5BZGFiNDhjODYtODk2NC00NzcxLWE4OTktM2NhNzFhMWFkYTdiXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX1024_.jpg",
+                        "url": "https://m.media-amazon.com/images/M/MV5BM2MxN2NhZDAtNzNkNy00NTc2LTg4YzAtYTMwMzEyZGEyMTRkXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX1024_.jpg",
                         "width": "1024"
                     },
                     {
-                        "url": "https://m.media-amazon.com/images/M/MV5BZGFiNDhjODYtODk2NC00NzcxLWE4OTktM2NhNzFhMWFkYTdiXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX1280_.jpg",
+                        "url": "https://m.media-amazon.com/images/M/MV5BM2MxN2NhZDAtNzNkNy00NTc2LTg4YzAtYTMwMzEyZGEyMTRkXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX1280_.jpg",
                         "width": "1280"
                     },
                     {
-                        "url": "https://m.media-amazon.com/images/M/MV5BZGFiNDhjODYtODk2NC00NzcxLWE4OTktM2NhNzFhMWFkYTdiXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX2160_.jpg",
+                        "url": "https://m.media-amazon.com/images/M/MV5BM2MxN2NhZDAtNzNkNy00NTc2LTg4YzAtYTMwMzEyZGEyMTRkXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX2160_.jpg",
                         "width": "2160"
                     }
                 ]
@@ -297,27 +301,27 @@ export const theBoysScrap = {
                 "mediaViewerPage": "https://www.imdb.com/title/tt1190634/mediaviewer/rm1761413889/?ref_=tt_md_10",
                 "fullPics": [
                     {
-                        "url": "https://m.media-amazon.com/images/M/MV5BODQ0NTBkNDQtNDA3OS00NDcyLTlhMzktOGUzN2EwODliOTNmXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX320_.jpg",
+                        "url": "https://m.media-amazon.com/images/M/MV5BZjIyNjVmNjktZTFmNC00ZDkxLTlhZjktNGY1MzY3NmIyZjcyXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX320_.jpg",
                         "width": "320"
                     },
                     {
-                        "url": "https://m.media-amazon.com/images/M/MV5BODQ0NTBkNDQtNDA3OS00NDcyLTlhMzktOGUzN2EwODliOTNmXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX480_.jpg",
+                        "url": "https://m.media-amazon.com/images/M/MV5BZjIyNjVmNjktZTFmNC00ZDkxLTlhZjktNGY1MzY3NmIyZjcyXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX480_.jpg",
                         "width": "480"
                     },
                     {
-                        "url": "https://m.media-amazon.com/images/M/MV5BODQ0NTBkNDQtNDA3OS00NDcyLTlhMzktOGUzN2EwODliOTNmXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX600_.jpg",
+                        "url": "https://m.media-amazon.com/images/M/MV5BZjIyNjVmNjktZTFmNC00ZDkxLTlhZjktNGY1MzY3NmIyZjcyXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX600_.jpg",
                         "width": "600"
                     },
                     {
-                        "url": "https://m.media-amazon.com/images/M/MV5BODQ0NTBkNDQtNDA3OS00NDcyLTlhMzktOGUzN2EwODliOTNmXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX1024_.jpg",
+                        "url": "https://m.media-amazon.com/images/M/MV5BZjIyNjVmNjktZTFmNC00ZDkxLTlhZjktNGY1MzY3NmIyZjcyXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX1024_.jpg",
                         "width": "1024"
                     },
                     {
-                        "url": "https://m.media-amazon.com/images/M/MV5BODQ0NTBkNDQtNDA3OS00NDcyLTlhMzktOGUzN2EwODliOTNmXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX1280_.jpg",
+                        "url": "https://m.media-amazon.com/images/M/MV5BZjIyNjVmNjktZTFmNC00ZDkxLTlhZjktNGY1MzY3NmIyZjcyXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX1280_.jpg",
                         "width": "1280"
                     },
                     {
-                        "url": "https://m.media-amazon.com/images/M/MV5BODQ0NTBkNDQtNDA3OS00NDcyLTlhMzktOGUzN2EwODliOTNmXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX2160_.jpg",
+                        "url": "https://m.media-amazon.com/images/M/MV5BZjIyNjVmNjktZTFmNC00ZDkxLTlhZjktNGY1MzY3NmIyZjcyXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX2160_.jpg",
                         "width": "2160"
                     }
                 ]
