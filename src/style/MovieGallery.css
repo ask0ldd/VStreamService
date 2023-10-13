@@ -15,6 +15,7 @@
   border: 1px solid #ffffff20;
   cursor: pointer;
   border-radius: 0px;
+  position: relative;
 }
 
 .galleryContainer article img {
@@ -44,6 +45,26 @@
   flex-shrink: 0;
   align-self: center;
   cursor: pointer;
+}
+
+.galleryContainer article div {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2.5rem;
+  background: rgba(27, 46, 63, 0.6);
+  border-top: 1px solid #ffffff33;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  transform: translateY(2.5rem);
+  transition: transform 0.2s ease-in 0s;
+  font-size: 14px;
+}
+
+.galleryContainer article:hover div {
+  transform: translateY(0);
 }
 
 dialog {

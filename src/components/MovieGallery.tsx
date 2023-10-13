@@ -32,7 +32,7 @@ function MovieGallery(){
         <>
             <section className='galleryContainer'>
                 {
-                    theBoysScrap.movie.photos.map((photo, index) => <article onClick={() => openGalleryModalWithPic(index)}><img src={photo.fullPics[3].url}/></article>)
+                    theBoysScrap.movie.photos.map((photo, index) => <article onClick={() => openGalleryModalWithPic(index)}><img src={photo.fullPics[3].url}/><div>{photo.alt.slice(0, 46)}</div></article>)
                 }
             </section>
             {modalVisibility && 
