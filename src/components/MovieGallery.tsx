@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useRef, useState } from 'react'
 import '../style/MovieGallery.css'
 import { theBoysScrap } from '../assets/theboysDatas'
@@ -41,9 +42,7 @@ function MovieGallery(){
                     {openedPictureIndex} / {theBoysScrap.movie.photos.length-1}
                 </div>
                 <div className='galleryBody'>
-                    <div role="button" className='galleryNavButton' onClick={() => prevPic()}>PREV</div>
                     <img className='fullsizePicture' src={openedPictureIndex != null ? theBoysScrap.movie.photos[openedPictureIndex].fullPics[4].url : ''}/>
-                    <div role="button" className='galleryNavButton' onClick={() => nextPic()}>NEXT</div>
                 </div>
                 <div className='galleryFooter'>
                     <p>Title : {theBoysScrap.movie.title}</p>
@@ -55,3 +54,11 @@ function MovieGallery(){
 }
 
 export default MovieGallery
+
+/*
+
+    <div role="button" className='galleryNavButton' onClick={() => prevPic()}>PREV</div>
+    <img className='fullsizePicture' src={openedPictureIndex != null ? theBoysScrap.movie.photos[openedPictureIndex].fullPics[4].url : ''}/>
+    <div role="button" className='galleryNavButton' onClick={() => nextPic()}>NEXT</div>
+
+*/

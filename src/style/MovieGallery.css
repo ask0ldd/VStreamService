@@ -96,7 +96,7 @@ dialog {
 }
 
 dialog::backdrop {
-  background-color: #000000dd;
+  background-color: #00050dcc;
   z-index: 4;
   padding: 0;
   margin: 0;
@@ -109,38 +109,36 @@ dialog::backdrop {
 dialog .fullsizePicture {
   object-fit: cover;
   object-position: top;
-  max-width: 70%;
+  max-width: 100%;
   max-height: 100%;
   align-self: center;
   /*border: 1px solid #ffffff33;*/
-  border-left: 1px solid #ffffff22;
-  border-right: 1px solid #ffffff22;
+  border-left: 1px solid #00000066;
+  border-right: 1px solid #00000066;
   display: flex;
   flex-shrink: 1;
 }
 
 dialog .galleryBody {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-shrink: 1;
-  max-height: calc(100vh - 12rem);
-  /*max-width: 1440px;
+  max-height: calc(100vh - 14rem);
+  height: 100%;
+  max-width: 1440px;
   margin: 0 auto;
-  width: 100%;*/
+  width: 100%;
+  background-color: rgb(12, 16, 20);
 }
 
 dialog .galleryHeader {
   display: flex;
-  height: 4rem;
+  height: 6rem;
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  background: linear-gradient(
-    180deg,
-    rgba(27, 46, 63, 0.4),
-    rgba(27, 46, 63, 0.6)
-  );
-  border-bottom: 1px solid #ffffff22;
+  background: linear-gradient(180deg, #1f2f41 0%, #0d1824 100%);
+  border-bottom: 1px solid #1b2836;
   flex-shrink: 0;
   color: #ffffffcc;
   font-size: 16px;
@@ -156,8 +154,9 @@ dialog .galleryFooter {
   max-width: 1440px;
   margin: 0 auto;
   /*background-color: #333435;*/
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(27, 46, 63, 0.6));
-  border-top: 1px solid #ffffff22;
+  /*background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(27, 46, 63, 0.6));*/
+  background: linear-gradient(180deg, #273443 0%, #0d1824 100%);
+  border-top: 1px solid #3f5268;
   flex-shrink: 0;
   flex-direction: column;
   padding: 1rem 2rem;
