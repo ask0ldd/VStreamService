@@ -45,12 +45,12 @@ function MovieGallery(){
                     <img className='fullsizePicture' src={openedPictureIndex != null ? theBoysScrap.movie.photos[openedPictureIndex].fullPics[4].url : ''}/>
                     <div role="button" className='galleryNavButton right' onClick={()=> nextPic()}>
                         <div className='greyRoundButton'>
-                            <img src="../icons/arrowgallery2.png"/>
+                            <img src="../icons/arrowgallery2.png" className='rightArrow'/>
                         </div>
                     </div>
                     <div role="button" className='galleryNavButton left' onClick={()=> prevPic()}>
                         <div className='greyRoundButton'>
-                            <img src="../icons/arrowgallery2.png"/>
+                            <img src="../icons/arrowgallery2.png" className='leftArrow'/>
                         </div>
                     </div>
                 </div>

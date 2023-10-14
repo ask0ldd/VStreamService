@@ -138,12 +138,25 @@ dialog .galleryBody {
   height: 132px;
   top: 50%;
   transform: translateY(-50%);
-  border-top: 3px solid rgba(255, 255, 255, 0.21);
-  border-bottom: 3px solid rgba(255, 255, 255, 0.21);
+  border-top: 2px solid rgba(255, 255, 255, 0.21);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.21);
   backdrop-filter: blur(4px);
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  animation: 0.35s ease-in 0s navButtonsAppears forwards;
+}
+
+@keyframes navButtonsAppears {
+  from {
+    transform: translateY(6rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-6rem);
+    opacity: 1;
+  }
 }
 
 .galleryNavButton.right {
@@ -164,7 +177,7 @@ dialog .galleryBody {
       rgba(255, 255, 255, 0.08) 100%
     );
   right: 0;
-  border-left: 3px solid rgba(255, 255, 255, 0.21);
+  border-left: 2px solid rgba(255, 255, 255, 0.21);
 }
 
 .galleryNavButton.left {
@@ -185,7 +198,7 @@ dialog .galleryBody {
       rgba(255, 255, 255, 0.08) 100%
     );
   left: 0;
-  border-right: 3px solid rgba(255, 255, 255, 0.21);
+  border-right: 2px solid rgba(255, 255, 255, 0.21);
 }
 
 .greyRoundButton {
@@ -197,6 +210,15 @@ dialog .galleryBody {
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 16px 32px #00000099;
+}
+
+.greyRoundButton .leftArrow {
+  transform: rotateZ(180deg) translateX(5px);
+}
+
+.greyRoundButton .rightArrow {
+  transform: translateX(3px);
 }
 
 dialog .galleryHeader {
@@ -206,7 +228,7 @@ dialog .galleryHeader {
   max-width: 1440px;
   margin: 0 auto;
   background: linear-gradient(180deg, #1f2f41 0%, #0d1824 100%);
-  border-bottom: 1px solid #1b2836;
+  border-bottom: 2px solid #1b2836;
   flex-shrink: 0;
   color: #ffffffcc;
   font-size: 16px;
@@ -224,7 +246,7 @@ dialog .galleryFooter {
   /*background-color: #333435;*/
   /*background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(27, 46, 63, 0.6));*/
   background: linear-gradient(180deg, #273443 0%, #0d1824 100%);
-  border-top: 1px solid #3f5268;
+  border-top: 2px solid #3f5268;
   flex-shrink: 0;
   flex-direction: column;
   padding: 1rem 2rem;
