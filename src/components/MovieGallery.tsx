@@ -24,6 +24,10 @@ function MovieGallery(){
         if(openedPictureIndex != null && openedPictureIndex < theBoysScrap.movie.photos.length-1) setOpenPictureIndex(openedPictureIndex+1)
     }
 
+    /*function generateMiniaturesArrayIndex(index : number){
+        [-2, -1, 0, 1, 2]
+    }*/
+
     useEffect(()=> {
         if(modalVisibilityRef && !dialogRef.current?.open) return dialogRef.current?.showModal()
         if(!modalVisibilityRef && dialogRef.current?.open) return dialogRef.current?.close()
@@ -42,7 +46,7 @@ function MovieGallery(){
                     <div>{openedPictureIndex!=null && (openedPictureIndex+1)} / {theBoysScrap.movie.photos.length}</div>
                     <div className='miniaturesSlide'>
                         {openedPictureIndex!=null && 
-                            Array.of(openedPictureIndex-2, openedPictureIndex-1, openedPictureIndex, openedPictureIndex+1, openedPictureIndex+2,).map(index => (<img src={theBoysScrap.movie.photos[index as number].miniatureUrl} className='miniatures'/>))
+                            Array.of(openedPictureIndex-2, openedPictureIndex-1, openedPictureIndex, openedPictureIndex+1, openedPictureIndex+2,).map(index => ((index>-1 && index < theBoysScrap.movie.photos.length) && <img src={theBoysScrap.movie.photos[index as number].miniatureUrl} onClick={() => setOpenPictureIndex(index)}/>))
                         }
                     </div>
                     <div>Close</div>
