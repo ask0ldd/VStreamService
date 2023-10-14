@@ -127,6 +127,7 @@ main.moviePage {
   align-items: center;
   border: 3px solid #ffffff;
   opacity: 0.8;
+  cursor: pointer;
 }
 
 .moviePage .switchAudioButton img {

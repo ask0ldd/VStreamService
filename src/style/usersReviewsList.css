@@ -1,3 +1,8 @@
+section.userReviewsList {
+  display: flex;
+  flex-direction: column;
+}
+
 article.usersReview {
   display: flex;
   flex-direction: column;

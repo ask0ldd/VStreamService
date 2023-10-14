@@ -1,8 +1,14 @@
+import { useEffect } from 'react'
 import '../style/usersReviewsList.css'
 
 function UsersReviewsList(){
+
+    useEffect(() => {
+        document.querySelector('.userReviewsList')?.scrollIntoView({ behavior: "smooth"})
+    }, [])
+
     return(
-        <>
+        <section className='userReviewsList'>
             <article className="usersReview">
                 <h3>It's exactly the opposite of your usual superhero show!</h3>
                 <p>date / profile pic / user name / show more</p>
@@ -21,7 +27,7 @@ function UsersReviewsList(){
                 </p>
 
             </article>
-        </>
+        </section>
     )
 }
 

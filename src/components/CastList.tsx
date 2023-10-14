@@ -1,6 +1,12 @@
+import { useEffect } from 'react'
 import '../style/CastList.css'
 
 function CastList(){
+
+    useEffect(() => {
+        document.querySelector('.castSection')?.scrollIntoView({ behavior: "smooth"})
+    }, [])
+
     return (
         <section className="castSection">
             <h2>Creator</h2>

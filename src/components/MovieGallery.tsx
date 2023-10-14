@@ -33,6 +33,10 @@ function MovieGallery(){
         if(!modalVisibilityRef && dialogRef.current?.open) return dialogRef.current?.close()
     })
 
+    useEffect(() => {
+        document.querySelector('.galleryContainer')?.scrollIntoView({ behavior: "smooth"})
+    }, [])
+
     return (
         <>
             <section className='galleryContainer'>
@@ -46,6 +50,7 @@ function MovieGallery(){
                     <div>{openedPictureIndex!=null && (openedPictureIndex+1)} / {theBoysScrap.movie.photos.length}</div>
                     <div className='miniaturesSlide'>
                         {openedPictureIndex!=null && 
+                            // generate an array of miniatures / if the index of any miniature is out of range => ignore
                             Array.of(openedPictureIndex-2, openedPictureIndex-1, openedPictureIndex, openedPictureIndex+1, openedPictureIndex+2,).map(index => ((index>-1 && index < theBoysScrap.movie.photos.length) && <img src={theBoysScrap.movie.photos[index as number].miniatureUrl} onClick={() => setOpenPictureIndex(index)}/>))
                         }
                     </div>

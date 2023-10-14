@@ -150,7 +150,7 @@ dialog .galleryBody {
 
 @keyframes navButtonsAppears {
   from {
-    transform: translateY(6rem);
+    transform: translateY(15rem);
     opacity: 0;
   }
   to {
@@ -264,7 +264,7 @@ dialog .galleryHeader {
 .galleryHeader .miniaturesSlide img {
   width: 148px;
   height: 92px;
-  border: 1px solid #ffffffff;
+  border: 2px solid #ffffffff;
   object-fit: cover;
   object-position: top;
   overflow-clip-margin: unset;
