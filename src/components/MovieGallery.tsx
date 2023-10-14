@@ -43,10 +43,16 @@ function MovieGallery(){
                 </div>
                 <div className='galleryBody'>
                     <img className='fullsizePicture' src={openedPictureIndex != null ? theBoysScrap.movie.photos[openedPictureIndex].fullPics[4].url : ''}/>
+                    <div role="button" className='galleryNavButton right' onClick={()=> nextPic()}>
+
+                    </div>
+                    <div role="button" className='galleryNavButton left' onClick={()=> prevPic()}>
+
+                    </div>
                 </div>
                 <div className='galleryFooter'>
-                    <p>Title : {theBoysScrap.movie.title}</p>
-                    <ul style={{display:'flex', flexDirection : 'row', columnGap:'1rem'}}><li>Featuring :</li>{theBoysScrap.movie.photos[openedPictureIndex as number].actors.map(actors => <li>{actors}, </li>)}</ul>
+                    <p><span>Title :</span> {theBoysScrap.movie.title}</p>
+                    <ul style={{display:'flex', flexDirection : 'row', columnGap:'1rem'}}><li><span>Featuring :</span></li>{theBoysScrap.movie.photos[openedPictureIndex as number].actors.map(actors => <li>{actors}, </li>)}</ul>
                 </div>
             </dialog>}
         </>

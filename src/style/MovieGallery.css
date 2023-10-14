@@ -35,7 +35,7 @@
   transform: scale(1.1);
 }
 
-.galleryNavButton {
+/*.galleryNavButton {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,7 +51,7 @@
   font-weight: 500;
   font-family: "Lexend", sans-serif;
   border-radius: 6px;
-}
+}*/
 
 .galleryContainer article div {
   position: absolute;
@@ -120,6 +120,7 @@ dialog .fullsizePicture {
 }
 
 dialog .galleryBody {
+  position: relative;
   display: flex;
   justify-content: center;
   flex-shrink: 1;
@@ -129,6 +130,59 @@ dialog .galleryBody {
   margin: 0 auto;
   width: 100%;
   background-color: rgb(12, 16, 20);
+}
+
+.galleryNavButton {
+  position: absolute;
+  width: 132px;
+  height: 132px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 3px solid rgba(255, 255, 255, 0.21);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.21);
+  backdrop-filter: blur(4px);
+}
+
+.galleryNavButton.right {
+  border-radius: 100% 0 0 100%;
+  background: radial-gradient(
+      62.52% 56.6% at 100% 22%,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
+  right: 0;
+  border-left: 3px solid rgba(255, 255, 255, 0.21);
+}
+
+.galleryNavButton.left {
+  border-radius: 0 100% 100% 0;
+  background: radial-gradient(
+      62.52% 56.6% at 100% 22%,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
+  left: 0;
+  border-right: 3px solid rgba(255, 255, 255, 0.21);
 }
 
 dialog .galleryHeader {
@@ -170,4 +224,9 @@ dialog .galleryFooter {
 dialog:modal {
   max-width: 100vw;
   max-height: 100vh;
+}
+
+.galleryFooter span {
+  color: #84afdacc;
+  font-weight: 500;
 }
