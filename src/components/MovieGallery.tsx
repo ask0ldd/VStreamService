@@ -39,7 +39,13 @@ function MovieGallery(){
             {modalVisibility && 
             <dialog ref={dialogRef} className='galleryModal' onClick={(e) => { if (e.target === dialogRef.current) setModalVisibility(false)}}>
                 <div className='galleryHeader'>
-                    {openedPictureIndex} / {theBoysScrap.movie.photos.length-1}
+                    <div>{openedPictureIndex!=null && (openedPictureIndex+1)} / {theBoysScrap.movie.photos.length}</div>
+                    <div className='miniaturesSlide'>
+                        {openedPictureIndex!=null && 
+                            Array.of(openedPictureIndex-2, openedPictureIndex-1, openedPictureIndex, openedPictureIndex+1, openedPictureIndex+2,).map(index => (<img src={theBoysScrap.movie.photos[index as number].miniatureUrl} className='miniatures'/>))
+                        }
+                    </div>
+                    <div>Close</div>
                 </div>
                 <div className='galleryBody'>
                     <img className='fullsizePicture' src={openedPictureIndex != null ? theBoysScrap.movie.photos[openedPictureIndex].fullPics[4].url : ''}/>
