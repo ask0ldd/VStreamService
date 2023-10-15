@@ -37,6 +37,21 @@ function MovieGallery(){
         document.querySelector('.galleryContainer')?.scrollIntoView({ behavior: "smooth"})
     }, [])
 
+    useEffect(()=> {
+        function keyboardListener(e : KeyboardEvent){
+            if(e.code == "Escape" && modalVisibility) {e.preventDefault(); setModalVisibility(false)}
+            if(e.code == "ArrowRight" && modalVisibility) {e.preventDefault(); nextPic()}
+            if(e.code == "ArrowLeft" && modalVisibility) {e.preventDefault(); prevPic()}
+        }
+
+        window.addEventListener('keydown', keyboardListener)
+
+        // soutenance : clean up to avoid having two listeners active => since useEffect is triggered twice in strict mode
+        return () => {
+            window.removeEventListener('keydown', keyboardListener)
+        }
+    })
+
     return (
         <>
             <section className='galleryContainer'>
