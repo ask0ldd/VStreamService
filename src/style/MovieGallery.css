@@ -145,12 +145,12 @@ dialog .galleryBody {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  animation: 0.3s ease-in 0s navButtonsAppears forwards;
+  animation: 0.25s ease-in 0s navButtonsAppears forwards;
 }
 
 @keyframes navButtonsAppears {
   from {
-    transform: translateY(15rem);
+    transform: translateY(20rem);
     opacity: 0;
   }
   to {
@@ -346,4 +346,8 @@ dialog:modal {
   background-color: #00000099;
   border: 1px solid #4f4f4f;
   font-size: 14px;
+}
+
+.galleryHeader .miniaturesSlide img.activeMiniature {
+  border: 2px solid #1a98ff;
 }

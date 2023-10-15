@@ -51,7 +51,7 @@ function MovieGallery(){
                     <div className='miniaturesSlide'>
                         {openedPictureIndex!=null && 
                             // generate an array of miniatures / if the index of any miniature is out of range => ignore
-                            Array.of(openedPictureIndex-2, openedPictureIndex-1, openedPictureIndex, openedPictureIndex+1, openedPictureIndex+2,).map(index => ((index>-1 && index < theBoysScrap.movie.photos.length) && <img src={theBoysScrap.movie.photos[index as number].miniatureUrl} onClick={() => setOpenPictureIndex(index)}/>))
+                            Array.of(openedPictureIndex-2, openedPictureIndex-1, openedPictureIndex, openedPictureIndex+1, openedPictureIndex+2,).map(index => ((index>-1 && index < theBoysScrap.movie.photos.length) && <img className={index == openedPictureIndex ? 'activeMiniature' : ''} src={theBoysScrap.movie.photos[index as number].miniatureUrl} onClick={() => setOpenPictureIndex(index)}/>))
                         }
                     </div>
                     <div>
