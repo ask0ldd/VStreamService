@@ -106,7 +106,7 @@ dialog .galleryBody {
   display: flex;
   justify-content: center;
   flex-shrink: 1;
-  max-height: calc(100vh - 18rem);
+  max-height: calc(100vh - 19rem);
   height: 100%;
   max-width: 1440px;
   margin: 0 auto;
@@ -119,7 +119,7 @@ dialog .galleryBody {
   left: 50%;
   transform: translateX(-50%);
   bottom: 1rem;
-  padding: 3px 14px 3px 14px;
+  padding: 2px 14px 3px 14px;
   border-radius: 64px;
   font-weight: 600;
   background-color: #000000aa;
@@ -210,8 +210,8 @@ dialog .galleryBody {
 }
 
 .closeButton {
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
   background: linear-gradient(180deg, #5c6d82 0%, #3a485a 100%);
   border-radius: 100%;
   border: 3px solid #ffffff;
@@ -219,7 +219,7 @@ dialog .galleryBody {
   justify-content: center;
   align-items: center;
   box-shadow: 0 16px 32px #00000099;
-  margin: 1rem 1rem 0 0;
+  margin: 1.5rem 1.25rem 0 0;
   cursor: pointer;
 }
 
@@ -299,7 +299,7 @@ dialog .galleryHeader {
 
 dialog .galleryFooter {
   display: flex;
-  height: 9rem;
+  height: 10rem;
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
@@ -314,8 +314,9 @@ dialog .galleryFooter {
   font-size: 16px;
   font-family: "Lexend", sans-serif;
   font-weight: 300;
-  row-gap: 0.75rem;
-  justify-content: center;
+  row-gap: 0.85rem;
+  /*justify-content: center;*/
+  position: relative;
 }
 
 dialog:modal {
@@ -347,4 +348,36 @@ dialog:modal {
 
 .galleryHeader .miniaturesSlide img.activeMiniature {
   border: 2px solid #1a98ff;
+}
+
+.galleryFooter .likesnShareContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  row-gap: 0.5rem;
+  column-gap: 0.5rem;
+  top: 1.5rem;
+  right: 1.25rem;
+  padding: 0.5rem;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+  outline: 2px solid rgba(255, 255, 255, 0.15);
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px);
+  border-radius: 50px;
+}
+
+.galleryFooter .likesnShareContainer .button {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(180deg, #5c6d82 0%, #3a485a 100%);
+  border-radius: 100%;
+  border: 2px solid #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

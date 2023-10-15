@@ -54,7 +54,7 @@ function MovieGallery(){
                         }
                     </div>
                     <div style={{position:'absolute', right:'0', top:'0'}}>
-                        <div className='closeButton' onClick={() => {setModalVisibility(false);}}><img style={{width:'24px', height:'24px', opacity:'0.9'}} src="../icons/close.png"/></div>
+                        <div className='closeButton' onClick={() => {setModalVisibility(false);}}><img style={{width:'16px', height:'16px', opacity:'0.9'}} src="../icons/close.png"/></div>
                     </div>
                 </section>
                 <section className='galleryBody'>
@@ -75,6 +75,17 @@ function MovieGallery(){
                     <p><span>Title :&nbsp;&nbsp;</span> {theBoysScrap.movie.title}</p>
                     <ul className='genresContainer'><li>Action</li><li>Comedy</li><li>Crime</li><li>Sci-Fi</li></ul>
                     <ul style={{display:'flex', flexDirection : 'row', columnGap:'0'}}><li><span>Featuring :&nbsp;&nbsp;&nbsp;</span></li>{theBoysScrap.movie.photos[openedPictureIndex as number].actors.map(actors => <li>{actors},&nbsp;</li>)}</ul>
+                    <div className='likesnShareContainer'>
+                        <div role="button" className='shareButton button'>
+                            x
+                        </div>
+                        <div role="button" className='shareButton button'>
+                            x
+                        </div>
+                        <div role="button" className='shareButton button'>
+                            x
+                        </div>
+                    </div>
                 </section>
             </dialog>}
         </>
