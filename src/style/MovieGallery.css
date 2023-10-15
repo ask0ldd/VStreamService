@@ -124,7 +124,7 @@ dialog .galleryBody {
   display: flex;
   justify-content: center;
   flex-shrink: 1;
-  max-height: calc(100vh - 18rem);
+  max-height: calc(100vh - 19rem);
   height: 100%;
   max-width: 1440px;
   margin: 0 auto;
@@ -213,6 +213,33 @@ dialog .galleryBody {
   box-shadow: 0 16px 32px #00000099;
 }
 
+.closeButton {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(180deg, #5c6d82 0%, #3a485a 100%);
+  border-radius: 100%;
+  border: 3px solid #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 16px 32px #00000099;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  background: linear-gradient(
+      180deg,
+      rgba(50, 7, 142, 0) 0%,
+      rgba(50, 7, 142, 0.4) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(15, 116, 206, 0.9) 29.86%,
+      rgba(18, 133, 236, 0.9) 68.12%
+    );
+}
+
 .greyRoundButton:hover {
   background: linear-gradient(
       180deg,
@@ -228,10 +255,12 @@ dialog .galleryBody {
 
 .greyRoundButton .leftArrow {
   transform: rotateZ(180deg) translateX(5px);
+  opacity: 0.8;
 }
 
 .greyRoundButton .rightArrow {
   transform: translateX(3px);
+  opacity: 0.8;
 }
 
 dialog .galleryHeader {
@@ -247,7 +276,7 @@ dialog .galleryHeader {
   font-size: 16px;
   font-family: "Lexend", sans-serif;
   font-weight: 300;
-  padding: 0rem 2rem;
+  padding: 0rem 1rem;
   justify-content: space-between;
 }
 
@@ -264,7 +293,7 @@ dialog .galleryHeader {
 .galleryHeader .miniaturesSlide img {
   width: 148px;
   height: 92px;
-  border: 2px solid #ffffffff;
+  border: 2px solid #ffffffcc;
   object-fit: cover;
   object-position: top;
   overflow-clip-margin: unset;
@@ -273,7 +302,7 @@ dialog .galleryHeader {
 
 dialog .galleryFooter {
   display: flex;
-  height: 8rem;
+  height: 9rem;
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
@@ -288,7 +317,8 @@ dialog .galleryFooter {
   font-size: 16px;
   font-family: "Lexend", sans-serif;
   font-weight: 300;
-  row-gap: 0.5rem;
+  row-gap: 0.75rem;
+  justify-content: center;
 }
 
 dialog:modal {
@@ -299,4 +329,21 @@ dialog:modal {
 .galleryFooter span {
   color: #84afdacc;
   font-weight: 500;
+}
+
+.galleryFooter .genresContainer {
+  display: flex;
+  flex-direction: row;
+  column-gap: 0.5rem;
+  margin: 2px 0 0 0;
+  transform: translateX(-2px);
+}
+
+.galleryFooter .genresContainer li {
+  padding: 3px 14px 2px 14px;
+  border-radius: 32px;
+  font-weight: 600;
+  background-color: #00000099;
+  border: 1px solid #4f4f4f;
+  font-size: 14px;
 }

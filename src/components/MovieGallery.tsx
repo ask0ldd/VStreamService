@@ -54,7 +54,9 @@ function MovieGallery(){
                             Array.of(openedPictureIndex-2, openedPictureIndex-1, openedPictureIndex, openedPictureIndex+1, openedPictureIndex+2,).map(index => ((index>-1 && index < theBoysScrap.movie.photos.length) && <img src={theBoysScrap.movie.photos[index as number].miniatureUrl} onClick={() => setOpenPictureIndex(index)}/>))
                         }
                     </div>
-                    <div>Close</div>
+                    <div>
+                        <div className='closeButton' onClick={() => {setModalVisibility(false);}}><img style={{width:'24px', height:'24px', opacity:'0.9'}} src="../icons/close.png"/></div>
+                    </div>
                 </div>
                 <div className='galleryBody'>
                     <img className='fullsizePicture' src={openedPictureIndex != null ? theBoysScrap.movie.photos[openedPictureIndex].fullPics[4].url : ''}/>
@@ -71,7 +73,8 @@ function MovieGallery(){
                 </div>
                 <div className='galleryFooter'>
                     <p><span>Title :</span> {theBoysScrap.movie.title}</p>
-                    <ul style={{display:'flex', flexDirection : 'row', columnGap:'1rem'}}><li><span>Featuring :</span></li>{theBoysScrap.movie.photos[openedPictureIndex as number].actors.map(actors => <li>{actors}, </li>)}</ul>
+                    <ul className='genresContainer'><li>Action</li><li>Comedy</li><li>Crime</li><li>Sci-Fi</li></ul>
+                    <ul style={{display:'flex', flexDirection : 'row', columnGap:'0'}}><li><span>Featuring :&nbsp;</span></li>{theBoysScrap.movie.photos[openedPictureIndex as number].actors.map(actors => <li>{actors},&nbsp;</li>)}</ul>
                 </div>
             </dialog>}
         </>
