@@ -35,24 +35,6 @@
   transform: scale(1.1);
 }
 
-/*.galleryNavButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 6rem;
-  height: 4rem;
-  border: 2px solid #ffffffff;
-  flex-shrink: 0;
-  align-self: center;
-  cursor: pointer;
-  background-color: #1a98ff;
-  font-size: 14px;
-  color: #ffffffff;
-  font-weight: 500;
-  font-family: "Lexend", sans-serif;
-  border-radius: 6px;
-}*/
-
 .galleryContainer article div {
   position: absolute;
   bottom: 0;
@@ -124,12 +106,26 @@ dialog .galleryBody {
   display: flex;
   justify-content: center;
   flex-shrink: 1;
-  max-height: calc(100vh - 19rem);
+  max-height: calc(100vh - 18rem);
   height: 100%;
   max-width: 1440px;
   margin: 0 auto;
   width: 100%;
   background-color: rgb(12, 16, 20);
+}
+
+.galleryBody .pagination {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 1rem;
+  padding: 3px 14px 3px 14px;
+  border-radius: 64px;
+  font-weight: 600;
+  background-color: #000000aa;
+  border: 2px solid #4f4f4f;
+  font-size: 16px;
+  color: #ffffffcc;
 }
 
 .galleryNavButton {
@@ -223,7 +219,7 @@ dialog .galleryBody {
   justify-content: center;
   align-items: center;
   box-shadow: 0 16px 32px #00000099;
-  margin-top: 1rem;
+  margin: 1rem 1rem 0 0;
   cursor: pointer;
 }
 
@@ -240,7 +236,7 @@ dialog .galleryBody {
     );
 }
 
-.greyRoundButton:hover {
+.galleryNavButton:hover .greyRoundButton {
   background: linear-gradient(
       180deg,
       rgba(50, 7, 142, 0) 0%,
@@ -265,7 +261,7 @@ dialog .galleryBody {
 
 dialog .galleryHeader {
   display: flex;
-  height: 10rem;
+  height: 9rem;
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
@@ -277,14 +273,15 @@ dialog .galleryHeader {
   font-family: "Lexend", sans-serif;
   font-weight: 300;
   padding: 0rem 1rem;
-  justify-content: space-between;
+  justify-content: center;
+  position: relative;
 }
 
 .miniaturesSlide {
   display: flex;
   column-gap: 1rem;
   background-color: #00000044;
-  height: 10rem;
+  height: 9rem;
   padding: 0 1.5rem;
   justify-content: center;
   align-items: center;

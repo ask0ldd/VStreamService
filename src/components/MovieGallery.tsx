@@ -46,19 +46,18 @@ function MovieGallery(){
             </section>
             {modalVisibility && 
             <dialog ref={dialogRef} className='galleryModal' onClick={(e) => { if (e.target === dialogRef.current) setModalVisibility(false)}}>
-                <div className='galleryHeader'>
-                    <div>{openedPictureIndex!=null && (openedPictureIndex+1)} / {theBoysScrap.movie.photos.length}</div>
+                <section className='galleryHeader'>
                     <div className='miniaturesSlide'>
                         {openedPictureIndex!=null && 
                             // generate an array of miniatures / if the index of any miniature is out of range => ignore
                             Array.of(openedPictureIndex-2, openedPictureIndex-1, openedPictureIndex, openedPictureIndex+1, openedPictureIndex+2,).map(index => ((index>-1 && index < theBoysScrap.movie.photos.length) && <img className={index == openedPictureIndex ? 'activeMiniature' : ''} src={theBoysScrap.movie.photos[index as number].miniatureUrl} onClick={() => setOpenPictureIndex(index)}/>))
                         }
                     </div>
-                    <div>
+                    <div style={{position:'absolute', right:'0', top:'0'}}>
                         <div className='closeButton' onClick={() => {setModalVisibility(false);}}><img style={{width:'24px', height:'24px', opacity:'0.9'}} src="../icons/close.png"/></div>
                     </div>
-                </div>
-                <div className='galleryBody'>
+                </section>
+                <section className='galleryBody'>
                     <img className='fullsizePicture' src={openedPictureIndex != null ? theBoysScrap.movie.photos[openedPictureIndex].fullPics[4].url : ''}/>
                     <div role="button" className='galleryNavButton right' onClick={()=> nextPic()}>
                         <div className='greyRoundButton'>
@@ -70,12 +69,13 @@ function MovieGallery(){
                             <img src="../icons/arrowgallery2.png" className='leftArrow'/>
                         </div>
                     </div>
-                </div>
-                <div className='galleryFooter'>
-                    <p><span>Title :</span> {theBoysScrap.movie.title}</p>
+                    <div className='pagination'>{openedPictureIndex!=null && (openedPictureIndex+1)} / {theBoysScrap.movie.photos.length}</div>
+                </section>
+                <section className='galleryFooter'>
+                    <p><span>Title :&nbsp;&nbsp;</span> {theBoysScrap.movie.title}</p>
                     <ul className='genresContainer'><li>Action</li><li>Comedy</li><li>Crime</li><li>Sci-Fi</li></ul>
-                    <ul style={{display:'flex', flexDirection : 'row', columnGap:'0'}}><li><span>Featuring :&nbsp;</span></li>{theBoysScrap.movie.photos[openedPictureIndex as number].actors.map(actors => <li>{actors},&nbsp;</li>)}</ul>
-                </div>
+                    <ul style={{display:'flex', flexDirection : 'row', columnGap:'0'}}><li><span>Featuring :&nbsp;&nbsp;&nbsp;</span></li>{theBoysScrap.movie.photos[openedPictureIndex as number].actors.map(actors => <li>{actors},&nbsp;</li>)}</ul>
+                </section>
             </dialog>}
         </>
     )
