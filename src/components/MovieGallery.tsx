@@ -33,10 +33,6 @@ function MovieGallery(){
         if(!modalVisibilityRef && dialogRef.current?.open) return dialogRef.current?.close()
     })
 
-    /*useEffect(() => {
-        document.querySelector('.galleryContainer')?.scrollIntoView({ behavior: "smooth"})
-    }, [])*/
-
     useEffect(()=> {
         function keyboardListener(e : KeyboardEvent){
             if(e.code == "Escape" && modalVisibility) {e.preventDefault(); setModalVisibility(false)}
@@ -52,6 +48,30 @@ function MovieGallery(){
         }
     })
 
+    // lock background scrolling when the modal is open
+    function scrollLock(state : boolean) : void {
+        if(!state){
+            window.onscroll = () => {}
+            return
+        }
+
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+        const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
+        window.onscroll = () => {
+            window.scrollTo(scrollLeft, scrollTop)
+        }
+    }
+
+    useEffect(() => {
+        if(modalVisibility === false) return
+        scrollLock(true)
+    }, [modalVisibility])
+
+    function closeModal(){
+        scrollLock(false)
+        setModalVisibility(false)
+    }
+
     return (
         <>
             <section className='galleryContainer'>
@@ -60,7 +80,7 @@ function MovieGallery(){
                 }
             </section>
             {modalVisibility && 
-            <dialog ref={dialogRef} className='galleryModal' onClick={(e) => { if (e.target === dialogRef.current) setModalVisibility(false)}}>
+            <dialog ref={dialogRef} className='galleryModal' onClick={(e) => { if (e.target === dialogRef.current) closeModal()}}>
                 <section className='galleryHeader'>
                     <div className='miniaturesSlide'>
                         {openedPictureIndex!=null && 
@@ -69,7 +89,7 @@ function MovieGallery(){
                         }
                     </div>
                     <div style={{position:'absolute', right:'0', top:'0'}}>
-                        <div className='closeButton' onClick={() => {setModalVisibility(false);}}><img style={{width:'16px', height:'16px', opacity:'0.9'}} src="../icons/close.png"/></div>
+                        <div className='closeButton' onClick={() => closeModal()}><img style={{width:'16px', height:'16px', opacity:'0.9'}} src="../icons/close.png"/></div>
                     </div>
                 </section>
                 <section className='galleryBody'>
