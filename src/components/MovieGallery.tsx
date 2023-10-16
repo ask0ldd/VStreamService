@@ -33,9 +33,9 @@ function MovieGallery(){
         if(!modalVisibilityRef && dialogRef.current?.open) return dialogRef.current?.close()
     })
 
-    useEffect(() => {
+    /*useEffect(() => {
         document.querySelector('.galleryContainer')?.scrollIntoView({ behavior: "smooth"})
-    }, [])
+    }, [])*/
 
     useEffect(()=> {
         function keyboardListener(e : KeyboardEvent){
@@ -92,13 +92,13 @@ function MovieGallery(){
                     <ul style={{display:'flex', flexDirection : 'row', columnGap:'0'}}><li><span>Featuring :&nbsp;&nbsp;&nbsp;</span></li>{theBoysScrap.movie.photos[openedPictureIndex as number].actors.map(actors => <li>{actors},&nbsp;</li>)}</ul>
                     <div className='likesnShareContainer'>
                         <div role="button" className='shareButton button'>
-                            x
+                            <img style={{width:'12px', height:'12px', opacity:'0.9'}} src="../icons/close.png"/>
                         </div>
                         <div role="button" className='shareButton button'>
-                            x
+                            <img style={{width:'12px', height:'12px', opacity:'0.9'}} src="../icons/close.png"/>
                         </div>
                         <div role="button" className='shareButton button'>
-                            x
+                            <img style={{width:'12px', height:'12px', opacity:'0.9'}} src="../icons/close.png"/>
                         </div>
                     </div>
                 </section>

@@ -1,11 +1,11 @@
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 import '../style/usersReviewsList.css'
 
 function UsersReviewsList(){
 
-    useEffect(() => {
+    /*useEffect(() => {
         document.querySelector('.userReviewsList')?.scrollIntoView({ behavior: "smooth"})
-    }, [])
+    }, [])*/
 
     return(
         <section className='userReviewsList'>

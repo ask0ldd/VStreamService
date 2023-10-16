@@ -84,6 +84,12 @@ function Movie(){
         }*/
     }, [episodesShown, season1fromRedux])
 
+    
+    function secondaryMenuClick(menuItem : "episodes" | "cast" | "photos" | "userReviews"){
+        setActiveMenuItem(menuItem)
+        document.querySelector('.secondaryNav')?.scrollIntoView({ behavior: "smooth"})
+    }
+
     return(
         <>
             <Header/>
@@ -134,10 +140,10 @@ function Movie(){
 
                 <nav className="secondaryNav" role="navigation" aria-label="secondary menu">
                     <ul>
-                        <li className={activeMenuItem === "episodes" ? "active" : ""} onClick={() => setActiveMenuItem('episodes')}>Episodes</li>
-                        <li className={activeMenuItem === "cast" ? "active" : ""} onClick={() => setActiveMenuItem('cast')}>Cast & Crew</li>
-                        <li className={activeMenuItem === "photos" ? "active" : ""} onClick={() => setActiveMenuItem('photos')}>Photos</li>
-                        <li className={activeMenuItem === "userReviews" ? "active" : ""} onClick={() => setActiveMenuItem('userReviews')}>User Reviews</li>
+                        <li className={activeMenuItem === "episodes" ? "active" : ""} onClick={() => secondaryMenuClick('episodes')}>Episodes</li>
+                        <li className={activeMenuItem === "cast" ? "active" : ""} onClick={() => secondaryMenuClick('cast')}>Cast & Crew</li>
+                        <li className={activeMenuItem === "photos" ? "active" : ""} onClick={() => secondaryMenuClick('photos')}>Photos</li>
+                        <li className={activeMenuItem === "userReviews" ? "active" : ""} onClick={() => secondaryMenuClick('userReviews')}>User Reviews</li>
                     </ul>
                 </nav>
 
