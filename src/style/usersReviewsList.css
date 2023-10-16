@@ -5,7 +5,7 @@ section.userReviewsList {
 
 article.usersReview {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   background: radial-gradient(
       143.25% 127.27% at 81.62% 0%,
       rgba(255, 255, 255, 0.06) 0%,
@@ -22,16 +22,34 @@ article.usersReview {
   padding: 1.3rem 2rem 1.5rem 2rem;
   flex: 1 1 30%;
   row-gap: 0.3rem;
+  column-gap: 4rem;
   margin-top: 1.5rem;
   flex-wrap: nowrap;
   overflow: hidden;
   font-family: "Lexend", sans-serif;
   margin-top: 3rem;
+  width: 70%;
+}
+
+.usersReview .creatorPortrait {
+  aspect-ratio: 1;
+  border-radius: 200px;
+  max-height: 164px;
+  /*height: 100%;*/
+  object-fit: cover;
+  align-self: center;
+  outline: 1px solid #ffffff25;
+  overflow-clip-margin: unset;
+  filter: saturate(0.85);
+}
+
+article .reviewBody {
+  display: flex;
+  flex-direction: column;
 }
 
 article.usersReview p {
   font-weight: 300;
-  max-width: 70%;
   line-height: 160%;
   font-size: 16px;
 }
@@ -39,6 +57,13 @@ article.usersReview p {
 article.usersReview h3 {
   color: #ffffffdd;
   font-family: "Lexend", sans-serif;
-  font-size: 20px;
-  margin-bottom: 0.75rem;
+  font-size: 22px;
+  margin-bottom: 0.6rem;
+}
+
+article.usersReview .reviewSubtitle {
+  font-weight: 300;
+  font-size: 14px;
+  color: #84afdacc;
+  margin-bottom: 0.85rem;
 }
