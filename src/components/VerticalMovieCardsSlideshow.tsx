@@ -9,8 +9,8 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
     // use an observable to track the scroll position and update the pagination ?
 
     const cardWidthPlusGap = 225+32
-    const paginationStops = [4*cardWidthPlusGap, 8*cardWidthPlusGap, 12*cardWidthPlusGap, 16*cardWidthPlusGap, 20*cardWidthPlusGap]
-    // 1028 / 2056 / 3084 / 4112 / 5140
+    const paginationStops = [0, 4*cardWidthPlusGap, 8*cardWidthPlusGap, 12*cardWidthPlusGap, 16*cardWidthPlusGap, 20*cardWidthPlusGap]
+    // scrollx stops : 0 / 1028 / 2056 / 3084 / 4112 / 5140 => 6 groups of 4 cards
 
     const [currentSlideshowPage, setCurrentSlideshowPage] = useState<number>(1)
     const moviesContainerRef = useRef<HTMLDivElement>(null)
@@ -28,53 +28,38 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
 
     function scrollRight(e : React.MouseEvent<HTMLElement>){
         e.preventDefault()
-        // const arrow = e.currentTarget as HTMLImageElement
         const moviesContainer = e.currentTarget.parentElement?.parentElement?.parentElement?.querySelector('.moviesContainer')
         moviesContainer?.scrollBy({
             left: cardWidthPlusGap*4,
             top: 0,
             behavior: 'smooth'
         })
-        /*if(moviesContainer?.scrollLeft !== undefined) {
-            slideshowLeftScrolled.current = moviesContainer.scrollLeft
-        }*/
     }
 
     function scrollLeft(e : React.MouseEvent<HTMLElement>){
         e.preventDefault()
-        // const arrow = e.currentTarget as HTMLImageElement
         const moviesContainer = e.currentTarget.parentElement?.parentElement?.parentElement?.querySelector('.moviesContainer')
         moviesContainer?.scrollBy({
             left: -(cardWidthPlusGap*4),
             top: 0,
             behavior: 'smooth'
         })
-        /*if(moviesContainer?.scrollLeft !== undefined) {
-            slideshowLeftScrolled.current = moviesContainer.scrollLeft
-        }*/
     }
 
     // pagination should reply to onscroll to take into account the center method of the card component ?
     function updatePagination(e : React.UIEvent<HTMLDivElement, UIEvent>){
         slideshowLeftScrolled.current = e.currentTarget.scrollLeft
         let i = 1
-        if(slideshowLeftScrolled.current <= 0) return setCurrentSlideshowPage(i)
-        i++
-        if(slideshowLeftScrolled.current <= paginationStops[0]) return setCurrentSlideshowPage(i)
-        i++
-        if(slideshowLeftScrolled.current <= paginationStops[1]) return setCurrentSlideshowPage(i)
-        i++
-        if(slideshowLeftScrolled.current <= paginationStops[2]) return setCurrentSlideshowPage(i)
-        i++
-        if(slideshowLeftScrolled.current <= paginationStops[3]) return setCurrentSlideshowPage(i)
-        i++
-        if(slideshowLeftScrolled.current <= paginationStops[4]) return setCurrentSlideshowPage(i)
+        paginationStops.forEach(stop => {
+            if(slideshowLeftScrolled.current <= stop) return setCurrentSlideshowPage(i)
+            i++
+        })
     }
 
     return (
         <section className="verticalCardsSlideshow">
             <div className="titleContainer">
-                <img className="slideshowIcon" src={title.icon} onClick={(e) => console.log(e.currentTarget.parentElement?.parentElement?.parentElement?.querySelector('.moviesContainer')?.scrollLeft)}/>
+                <img className="slideshowIcon" src={title.icon}/>
                 <h2>{title.title}</h2>
                 <span>See more</span>
                 <div className="paginationContainer">
