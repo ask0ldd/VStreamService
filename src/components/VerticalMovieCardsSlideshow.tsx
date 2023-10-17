@@ -8,7 +8,7 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
 
     // use an observable to track the scroll position and update the pagination ?
 
-    const cardWidthPlusGap = 225+32
+    const cardWidthPlusGap = 225 + 32
     const paginationStops = [0, 4*cardWidthPlusGap, 8*cardWidthPlusGap, 12*cardWidthPlusGap, 16*cardWidthPlusGap, 20*cardWidthPlusGap]
     // scrollx stops : 0 / 1028 / 2056 / 3084 / 4112 / 5140 => 6 groups of 4 cards
 
@@ -26,8 +26,19 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
         'tt8111088' : {poster : '', horizontalPic : 'thelastofus.jpg', video : 'goodomens2.mp4'}, 
     }
 
+    function scrollToStop(e : React.MouseEvent<HTMLElement>, stopIndex : number){
+        e.preventDefault()
+        const moviesContainer = e.currentTarget.parentElement?.parentElement?.parentElement?.querySelector('.moviesContainer')
+        moviesContainer?.scrollTo({
+            left: paginationStops[stopIndex - 1],
+            top: 0,
+            behavior: 'smooth'
+        })
+    }
+
     function scrollRight(e : React.MouseEvent<HTMLElement>){
         e.preventDefault()
+        // not using document.querySelector cause multiple similar elements with the same class
         const moviesContainer = e.currentTarget.parentElement?.parentElement?.parentElement?.querySelector('.moviesContainer')
         moviesContainer?.scrollBy({
             left: cardWidthPlusGap*4,
@@ -48,6 +59,7 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
 
     // pagination should reply to onscroll to take into account the center method of the card component ?
     function updatePagination(e : React.UIEvent<HTMLDivElement, UIEvent>){
+        // !!! set timer to reduce computation
         slideshowLeftScrolled.current = e.currentTarget.scrollLeft
         let i = 1
         paginationStops.forEach(stop => {
@@ -63,12 +75,10 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
                 <h2>{title.title}</h2>
                 <span>See more</span>
                 <div className="paginationContainer">
-                    <div className={currentSlideshowPage === 1 ? "dot active" : "dot"}></div>
-                    <div className={currentSlideshowPage === 2 ? "dot active" : "dot"}></div>
-                    <div className={currentSlideshowPage === 3 ? "dot active" : "dot"}></div>
-                    <div className={currentSlideshowPage === 4 ? "dot active" : "dot"}></div>
-                    <div className={currentSlideshowPage === 5 ? "dot active" : "dot"}></div>
-                    <div className={currentSlideshowPage === 6 ? "dot active" : "dot"}></div>
+                    {   // pagination dots
+                        paginationStops.map((stop, index) => 
+                            <div className={currentSlideshowPage === index + 1 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, index + 1)}></div>)
+                    }
                 </div>
             </div>
             <div className="moviesArrowsContainer">
@@ -84,7 +94,7 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
                         </div>
                     </div>
                 </div>
-                <div ref={moviesContainerRef} className="moviesContainer" onScroll={(e) => updatePagination(e)}>
+                <div ref={moviesContainerRef} className="moviesContainer" onScroll={updatePagination}>
                     {moviesList.map((movie, index) => (
                         <VerticalMovieCard key={'mc'+ new Date(Date.now()).toLocaleString + index} movieMedias={moviesMedias[movie.imdbID]} movie={movie} xPosition={index*cardWidthPlusGap}/>
                     ))}

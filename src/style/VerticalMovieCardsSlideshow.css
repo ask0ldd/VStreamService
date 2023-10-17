@@ -38,6 +38,7 @@
   height: 8px;
   background-color: #ffffff88;
   border-radius: 6px;
+  cursor: pointer;
 }
 
 .verticalCardsSlideshow .dot.active {
