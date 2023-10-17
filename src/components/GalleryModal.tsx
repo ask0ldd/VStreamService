@@ -3,6 +3,7 @@ import '../style/GalleryModal.css'
 import { theBoysScrap } from '../assets/theboysDatas'
 
 function GalleryModal({setModalVisibility, modalVisibilityRef, openPictureIndex, setOpenPictureIndex} : IProps){
+
     const dialogRef = useRef<HTMLDialogElement>(null)
 
     useEffect(()=> {
@@ -52,6 +53,7 @@ function GalleryModal({setModalVisibility, modalVisibilityRef, openPictureIndex,
     }, [])
 
     function closeModal(){
+        modalVisibilityRef.current = false
         scrollLock(false)
         setModalVisibility(false)
     }

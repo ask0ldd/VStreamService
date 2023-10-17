@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { IMovie, IMoviesMedias } from "../types/types"
 import '../style/VerticalMovieCardsSlideshow.css'
 import VerticalMovieCard from "./VerticalMovieCard"
@@ -8,6 +9,7 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
     // use an observable to track the scroll position and update the pagination ?
 
     const cardWidthPlusGap = 225+32
+    const paginationStops = [4*cardWidthPlusGap, 8*cardWidthPlusGap, 12*cardWidthPlusGap, 16*cardWidthPlusGap, 20*cardWidthPlusGap]
 
     const [currentSlideshowPage, setCurrentSlideshowPage] = useState<number>(1)
     const moviesContainerRef = useRef<HTMLDivElement>(null)
@@ -34,9 +36,9 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
         })
         if(moviesContainer?.scrollLeft !== undefined) {
             slideshowLeftScrolled.current = moviesContainer.scrollLeft
-            const activeSlideshowPage = Math.floor((moviesContainer.scrollLeft +  cardWidthPlusGap*4) / (cardWidthPlusGap * 4 ))+1
+            /*const activeSlideshowPage = Math.floor((moviesContainer.scrollLeft +  cardWidthPlusGap*4) / (cardWidthPlusGap * 4 ))+1
             console.log(moviesContainer.scrollLeft, activeSlideshowPage)
-            if(activeSlideshowPage !== currentSlideshowPage) setCurrentSlideshowPage(activeSlideshowPage)
+            if(activeSlideshowPage !== currentSlideshowPage) setCurrentSlideshowPage(activeSlideshowPage)*/
         }
     }
 
@@ -51,18 +53,33 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
         })
         if(moviesContainer?.scrollLeft !== undefined) {
             slideshowLeftScrolled.current = moviesContainer.scrollLeft
-            const activeSlideshowPage = Math.floor((moviesContainer.scrollLeft -  cardWidthPlusGap*4) / (cardWidthPlusGap * 4 ))+1
+            /*const activeSlideshowPage = Math.floor((moviesContainer.scrollLeft -  cardWidthPlusGap*4) / (cardWidthPlusGap * 4 ))+1
             console.log(moviesContainer.scrollLeft, activeSlideshowPage)
-            if(activeSlideshowPage !== currentSlideshowPage) setCurrentSlideshowPage(activeSlideshowPage)
+            if(activeSlideshowPage !== currentSlideshowPage) setCurrentSlideshowPage(activeSlideshowPage)*/
         }
     }
 
     // pagination should reply to onscroll to take into account the center method of the card component ?
+    function updatePagination(){
+        console.log("scroll")
+        let i = 1
+        if(slideshowLeftScrolled.current < 0) return setCurrentSlideshowPage(i)
+        i++
+        if(slideshowLeftScrolled.current < paginationStops[0]) return setCurrentSlideshowPage(i)
+        i++
+        if(slideshowLeftScrolled.current < paginationStops[1]) return setCurrentSlideshowPage(i)
+        i++
+        if(slideshowLeftScrolled.current < paginationStops[2]) return setCurrentSlideshowPage(i)
+        i++
+        if(slideshowLeftScrolled.current < paginationStops[3]) return setCurrentSlideshowPage(i)
+        i++
+        if(slideshowLeftScrolled.current < paginationStops[4]) return setCurrentSlideshowPage(i)
+    }
 
     return (
         <section className="verticalCardsSlideshow">
             <div className="titleContainer">
-                <img className="slideshowIcon" src={title.icon}/>
+                <img className="slideshowIcon" src={title.icon} onClick={(e) => console.log(e.currentTarget.parentElement?.parentElement?.parentElement?.querySelector('.moviesContainer')?.scrollLeft)}/>
                 <h2>{title.title}</h2>
                 <span>See more</span>
                 <div className="paginationContainer">
@@ -71,6 +88,7 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
                     <div className={currentSlideshowPage === 3 ? "dot active" : "dot"}></div>
                     <div className={currentSlideshowPage === 4 ? "dot active" : "dot"}></div>
                     <div className={currentSlideshowPage === 5 ? "dot active" : "dot"}></div>
+                    <div className={currentSlideshowPage === 6 ? "dot active" : "dot"}></div>
                 </div>
             </div>
             <div className="moviesArrowsContainer">
@@ -86,7 +104,7 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
                         </div>
                     </div>
                 </div>
-                <div ref={moviesContainerRef} className="moviesContainer">
+                <div ref={moviesContainerRef} className="moviesContainer" onScroll={() => updatePagination()}>
                     {moviesList.map((movie, index) => (
                         <VerticalMovieCard key={'mc'+ new Date(Date.now()).toLocaleString + index} movieMedias={moviesMedias[movie.imdbID]} movie={movie} xPosition={index*cardWidthPlusGap}/>
                     ))}

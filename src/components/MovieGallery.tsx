@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import '../style/MovieGallery.css'
 import { theBoysScrap } from '../assets/theboysDatas'
 import GalleryModal from './GalleryModal'
