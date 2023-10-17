@@ -57,10 +57,12 @@
   color: #ffffffcc;
   font-weight: 400;
   font-family: "Lexend", sans-serif;
+  opacity: 0;
 }
 
 .galleryContainer article:hover div {
   transform: translateY(0);
+  opacity: 1;
 }
 
 dialog {

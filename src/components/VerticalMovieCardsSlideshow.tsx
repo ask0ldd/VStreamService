@@ -62,7 +62,7 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
     return (
         <section className="verticalCardsSlideshow">
             <div className="titleContainer">
-                <img src={title.icon}/>
+                <img className="slideshowIcon" src={title.icon}/>
                 <h2>{title.title}</h2>
                 <span>See more</span>
                 <div className="paginationContainer">
