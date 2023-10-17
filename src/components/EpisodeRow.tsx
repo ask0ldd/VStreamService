@@ -1,10 +1,17 @@
 import { IEpisode } from "../types/types"
 import '../style/EpisodeRow.css'
+import { MouseEvent } from 'react';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 function EpisodeRow({episode} : {episode : IEpisode}){
+
+    function showButtons(e : MouseEvent<HTMLElement>, visible : boolean){
+        if(visible) return e.currentTarget.querySelector('.episodesButtonsContainer')?.classList.add("translateButtonsContainerToPlace")
+        e.currentTarget.querySelector('.episodesButtonsContainer')?.classList.remove("translateButtonsContainerToPlace")
+    }
+
     return(
-        <article id={"episodeCard"+episode.episode}>
+        <article id={"episodeCard"+episode.episode} onMouseOver={(e : MouseEvent<HTMLElement>) => showButtons(e, true)} onMouseLeave={(e : MouseEvent<HTMLElement>) => showButtons(e, false)}>
             <figure>
                 <img src={"../"+episode.picture}/>
             </figure>
