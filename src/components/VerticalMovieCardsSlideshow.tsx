@@ -10,6 +10,7 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
 
     const cardWidthPlusGap = 225+32
     const paginationStops = [4*cardWidthPlusGap, 8*cardWidthPlusGap, 12*cardWidthPlusGap, 16*cardWidthPlusGap, 20*cardWidthPlusGap]
+    // 1028 / 2056 / 3084 / 4112 / 5140
 
     const [currentSlideshowPage, setCurrentSlideshowPage] = useState<number>(1)
     const moviesContainerRef = useRef<HTMLDivElement>(null)
@@ -34,12 +35,9 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
             top: 0,
             behavior: 'smooth'
         })
-        if(moviesContainer?.scrollLeft !== undefined) {
+        /*if(moviesContainer?.scrollLeft !== undefined) {
             slideshowLeftScrolled.current = moviesContainer.scrollLeft
-            /*const activeSlideshowPage = Math.floor((moviesContainer.scrollLeft +  cardWidthPlusGap*4) / (cardWidthPlusGap * 4 ))+1
-            console.log(moviesContainer.scrollLeft, activeSlideshowPage)
-            if(activeSlideshowPage !== currentSlideshowPage) setCurrentSlideshowPage(activeSlideshowPage)*/
-        }
+        }*/
     }
 
     function scrollLeft(e : React.MouseEvent<HTMLElement>){
@@ -51,29 +49,26 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
             top: 0,
             behavior: 'smooth'
         })
-        if(moviesContainer?.scrollLeft !== undefined) {
+        /*if(moviesContainer?.scrollLeft !== undefined) {
             slideshowLeftScrolled.current = moviesContainer.scrollLeft
-            /*const activeSlideshowPage = Math.floor((moviesContainer.scrollLeft -  cardWidthPlusGap*4) / (cardWidthPlusGap * 4 ))+1
-            console.log(moviesContainer.scrollLeft, activeSlideshowPage)
-            if(activeSlideshowPage !== currentSlideshowPage) setCurrentSlideshowPage(activeSlideshowPage)*/
-        }
+        }*/
     }
 
     // pagination should reply to onscroll to take into account the center method of the card component ?
-    function updatePagination(){
-        console.log("scroll")
+    function updatePagination(e : React.UIEvent<HTMLDivElement, UIEvent>){
+        slideshowLeftScrolled.current = e.currentTarget.scrollLeft
         let i = 1
-        if(slideshowLeftScrolled.current < 0) return setCurrentSlideshowPage(i)
+        if(slideshowLeftScrolled.current <= 0) return setCurrentSlideshowPage(i)
         i++
-        if(slideshowLeftScrolled.current < paginationStops[0]) return setCurrentSlideshowPage(i)
+        if(slideshowLeftScrolled.current <= paginationStops[0]) return setCurrentSlideshowPage(i)
         i++
-        if(slideshowLeftScrolled.current < paginationStops[1]) return setCurrentSlideshowPage(i)
+        if(slideshowLeftScrolled.current <= paginationStops[1]) return setCurrentSlideshowPage(i)
         i++
-        if(slideshowLeftScrolled.current < paginationStops[2]) return setCurrentSlideshowPage(i)
+        if(slideshowLeftScrolled.current <= paginationStops[2]) return setCurrentSlideshowPage(i)
         i++
-        if(slideshowLeftScrolled.current < paginationStops[3]) return setCurrentSlideshowPage(i)
+        if(slideshowLeftScrolled.current <= paginationStops[3]) return setCurrentSlideshowPage(i)
         i++
-        if(slideshowLeftScrolled.current < paginationStops[4]) return setCurrentSlideshowPage(i)
+        if(slideshowLeftScrolled.current <= paginationStops[4]) return setCurrentSlideshowPage(i)
     }
 
     return (
@@ -104,7 +99,7 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
                         </div>
                     </div>
                 </div>
-                <div ref={moviesContainerRef} className="moviesContainer" onScroll={() => updatePagination()}>
+                <div ref={moviesContainerRef} className="moviesContainer" onScroll={(e) => updatePagination(e)}>
                     {moviesList.map((movie, index) => (
                         <VerticalMovieCard key={'mc'+ new Date(Date.now()).toLocaleString + index} movieMedias={moviesMedias[movie.imdbID]} movie={movie} xPosition={index*cardWidthPlusGap}/>
                     ))}
