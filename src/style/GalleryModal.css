@@ -1,0 +1,329 @@
+dialog {
+  z-index: 5;
+  display: flex;
+  background: none;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  padding: 0 2rem;
+  margin: 0 auto;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  /*max-width: 1440px;*/
+}
+
+dialog::backdrop {
+  background-color: #00050dcc;
+  z-index: 4;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  outline: none;
+}
+
+dialog .fullsizePicture {
+  object-fit: cover;
+  object-position: top;
+  max-width: 100%;
+  max-height: 100%;
+  align-self: center;
+  /*border: 1px solid #ffffff33;*/
+  border-left: 1px solid #00000066;
+  border-right: 1px solid #00000066;
+  display: flex;
+  flex-shrink: 1;
+}
+
+dialog .galleryBody {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 1;
+  max-height: calc(100vh - 19rem);
+  height: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  background-color: rgb(12, 16, 20);
+}
+
+.galleryBody .pagination {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 1rem;
+  padding: 2px 14px 3px 14px;
+  border-radius: 64px;
+  font-weight: 600;
+  background-color: #000000aa;
+  border: 2px solid #4f4f4f;
+  font-size: 16px;
+  color: #ffffffcc;
+}
+
+.galleryNavButton {
+  position: absolute;
+  width: 132px;
+  height: 132px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 2px solid rgba(255, 255, 255, 0.21);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.21);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  animation: 0.25s ease-in 0s navButtonsAppears forwards;
+}
+
+@keyframes navButtonsAppears {
+  from {
+    transform: translateY(20rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-50%);
+    opacity: 1;
+  }
+}
+
+.galleryNavButton.right {
+  border-radius: 100% 0 0 100%;
+  background: radial-gradient(
+      62.52% 56.6% at 100% 22%,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
+  right: 0;
+  border-left: 2px solid rgba(255, 255, 255, 0.21);
+}
+
+.galleryNavButton.left {
+  border-radius: 0 100% 100% 0;
+  background: radial-gradient(
+      62.52% 56.6% at 100% 22%,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.08) 100%
+    );
+  left: 0;
+  border-right: 2px solid rgba(255, 255, 255, 0.21);
+}
+
+.greyRoundButton {
+  width: 92px;
+  height: 92px;
+  background: linear-gradient(180deg, #5c6d82 0%, #3a485a 100%);
+  border-radius: 100%;
+  border: 4px solid #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 16px 32px #00000099;
+}
+
+.closeButton {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(180deg, #5c6d82 0%, #3a485a 100%);
+  border-radius: 100%;
+  border: 3px solid #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 16px 32px #00000099;
+  margin: 1.5rem 1.25rem 0 0;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  background: linear-gradient(
+      180deg,
+      rgba(50, 7, 142, 0) 0%,
+      rgba(50, 7, 142, 0.4) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(15, 116, 206, 0.9) 29.86%,
+      rgba(18, 133, 236, 0.9) 68.12%
+    );
+}
+
+.galleryNavButton:hover .greyRoundButton {
+  background: linear-gradient(
+      180deg,
+      rgba(50, 7, 142, 0) 0%,
+      rgba(50, 7, 142, 0.4) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(15, 116, 206, 0.9) 29.86%,
+      rgba(18, 133, 236, 0.9) 68.12%
+    );
+}
+
+.greyRoundButton .leftArrow {
+  transform: rotateZ(180deg) translateX(5px);
+  opacity: 0.8;
+}
+
+.greyRoundButton .rightArrow {
+  transform: translateX(3px);
+  opacity: 0.8;
+}
+
+dialog .galleryHeader {
+  display: flex;
+  height: 9rem;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #1f2f41 0%, #0d1824 100%);
+  border-bottom: 2px solid #1b2836;
+  flex-shrink: 0;
+  color: #ffffffcc;
+  font-size: 16px;
+  font-family: "Lexend", sans-serif;
+  font-weight: 300;
+  padding: 0rem 1rem;
+  justify-content: center;
+  position: relative;
+}
+
+.miniaturesSlide {
+  display: flex;
+  column-gap: 1rem;
+  background-color: #00000050;
+  /*height: 9rem;*/
+  padding: 0 1.5rem;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid #233344;
+  border-right: 1px solid #233344;
+  /*border: 1px solid #233344;*/
+  height: 9rem;
+  margin: auto 0;
+  /*overflow: hidden;*/
+}
+
+.galleryHeader .miniaturesSlide img {
+  width: 148px;
+  height: 92px;
+  border: 2px solid #ffffffcc;
+  object-fit: cover;
+  object-position: top;
+  overflow-clip-margin: unset;
+  cursor: pointer;
+}
+
+.galleryHeader .miniaturesSlide img:hover {
+  box-shadow: 0 0 32px #1a98ffbb;
+}
+
+dialog .galleryFooter {
+  display: flex;
+  height: 10rem;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  /*background-color: #333435;*/
+  /*background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(27, 46, 63, 0.6));*/
+  background: linear-gradient(180deg, #273443 0%, #0d1824 100%);
+  border-top: 2px solid #3f5268;
+  flex-shrink: 0;
+  flex-direction: column;
+  padding: 1rem 2rem;
+  color: #ffffffcc;
+  font-size: 16px;
+  font-family: "Lexend", sans-serif;
+  font-weight: 300;
+  row-gap: 0.85rem;
+  /*justify-content: center;*/
+  position: relative;
+}
+
+dialog:modal {
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+.galleryFooter span {
+  color: #84afdacc;
+  font-weight: 500;
+}
+
+.galleryFooter .genresContainer {
+  display: flex;
+  flex-direction: row;
+  column-gap: 0.5rem;
+  margin: 2px 0 0 0;
+  transform: translateX(-2px);
+}
+
+.galleryFooter .genresContainer li {
+  padding: 3px 14px 2px 13px;
+  border-radius: 32px;
+  font-weight: 600;
+  background-color: #00000099;
+  border: 1px solid #4f4f4f;
+  font-size: 14px;
+}
+
+.galleryHeader .miniaturesSlide img.activeMiniature {
+  border: 2px solid #1a98ff;
+}
+
+.galleryFooter .likesnShareContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  row-gap: 0.5rem;
+  column-gap: 0.5rem;
+  top: 1.5rem;
+  right: 1.25rem;
+  padding: 0.5rem;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+  outline: 2px solid rgba(255, 255, 255, 0.15);
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px);
+  border-radius: 50px;
+}
+
+.galleryFooter .likesnShareContainer .button {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(180deg, #5c6d82 0%, #3a485a 100%);
+  border-radius: 100%;
+  border: 2px solid #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
