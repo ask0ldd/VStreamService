@@ -6,7 +6,7 @@ import { useRef, useState } from "react"
 
 function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
 
-    const cardWidthPlusGap = 320+32
+    const cardWidthPlusGap = 320 + 32
     const paginationStops = [0, 4*cardWidthPlusGap, 8*cardWidthPlusGap, 12*cardWidthPlusGap, 16*cardWidthPlusGap, 20*cardWidthPlusGap]
 
     const [currentSlideshowPage, setCurrentSlideshowPage] = useState<number>(1)
@@ -51,6 +51,16 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
         })
     }
 
+    function updatePagination(e : React.UIEvent<HTMLDivElement, UIEvent>){
+        // !!! set timer to reduce computation
+        slideshowLeftScrolled.current = e.currentTarget.scrollLeft
+        let i = 1
+        paginationStops.forEach(stop => {
+            if(slideshowLeftScrolled.current <= stop) return setCurrentSlideshowPage(i)
+            i++
+        })
+    }
+
     return(
         <section className="horizontalCardsSlideshow">
             <div className="titlenDotsContainer">
@@ -73,7 +83,7 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
                         <img className="rightArrow" role="button" alt="next movies" src="arrow-right.svg"/>
                     </div>
                 </div>
-                <div ref={moviesContainerRef} className="moviesContainer" onScroll={(e) => {e.preventDefault()}} onWheel={(e) => {e.preventDefault()}}>
+                <div ref={moviesContainerRef} className="moviesContainer" onWheel={(e) => {e.preventDefault()}} onScroll={updatePagination}>
                     {moviesList.map(movie => (
                         <HorizontalMovieCard key={movie.imdbID+'1'} movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
                     ))}
