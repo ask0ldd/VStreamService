@@ -3,7 +3,7 @@ import '../style/LoadingAnimation.css'
 function LoadingAnimation(){
     return (
         <section className='loading'>
-            <img src='../anims/loading.gif'/>
+            <img src='./anims/loading.gif'/>
         </section>
     )
 }

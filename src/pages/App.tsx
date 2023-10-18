@@ -8,8 +8,11 @@ import './App.css'
 import HorizontalMovieCardsSlideshow from '../components/HorizontalMovieCardsSlideshow'
 import Footer from '../components/Footer'
 import LoadingAnimation from '../components/LoadingAnimation'
+import { useRef } from 'react'
 
 function App() {
+
+  const bannerSlideshowPosition = useRef<number>(0)
 
   // const {isLoading, fetchedDatas, isError} = useAPI({id:'tt3230854', longPlot:false})
   const {isLoading, fetchedDatas, isError} = useAPI({idList:['tt1869454', 'tt6718170', 'tt2906216', 'tt7631058', 'tt5433140', 'tt8111088'], longPlot:false})
@@ -23,12 +26,22 @@ function App() {
   if(fd != null && !Array.isArray(fd)) moviesList2.push({...fd})
   if(fd != null && Array.isArray(fd)) moviesList2 = [...fd]
 
+  function nextBanner(){
+    bannerSlideshowPosition.current -= 1440
+    if(bannerSlideshowPosition.current === -2880-1440) bannerSlideshowPosition.current = 0
+    const imgs : HTMLElement[] = Array.from(document.querySelectorAll('.banner'))
+    if(imgs.length < 1) return
+    imgs.forEach(img => img.style.transform = "translateX("+ bannerSlideshowPosition.current +"px)")
+  }
+
   return (
     <>
       <Header/>
       <main>
-        <section className='bannersSection'>
-          <img src="../banners/darkknight2.jpg" className='banner'/>
+        <section className='bannersSection' onClick={nextBanner}>
+          <img src="./banners/darkknight2.jpg" className='banner'/>
+          <img src="./banners/darkknight3.jpg" className='banner'/>
+          <img src="./banners/darkknight.jpg" className='banner'/>
         </section>
         {isLoading && <LoadingAnimation/>}
         {!isLoading && !isError && <VerticalMovieCardsSlideshow title={{icon : 'icons/fire.png', title : 'Currently Trending'}} moviesList={moviesList}/>}

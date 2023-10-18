@@ -17,6 +17,8 @@ main {
   display: flex;
   margin-bottom: 4rem;
   max-height: 660px;
+  overflow: hidden;
+  display: flex;
 }
 
 .bannersSection img.banner {
@@ -25,4 +27,5 @@ main {
   object-fit: cover;
   box-shadow: 0 8px 16px #00000088, 0 32px 64px #00000066;
   border: 1px solid rgba(48, 48, 48, 0.6);
+  transition: all 0.75s ease-in-out 0s;
 }
