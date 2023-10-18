@@ -9,4 +9,5 @@
 
 .loading img {
   filter: blur(1px);
+  opacity: 0.9;
 }

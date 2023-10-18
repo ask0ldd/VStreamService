@@ -4,7 +4,7 @@ header {
   flex-direction: row;
   height: 8rem;
   align-items: center;
-  margin-bottom: 2rem;
+  /*margin-bottom: 2rem;*/
 }
 
 header figure {

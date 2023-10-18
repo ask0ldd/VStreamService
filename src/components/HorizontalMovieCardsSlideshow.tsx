@@ -22,7 +22,7 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
     const moviesContainerRef = useRef<HTMLDivElement>(null)
     // useref used cause no refresh wanted
     const slideshowLeftScrolled = useRef<number>(0)
-    // avoid the scroll event to be triggered a dozen times when going from X1 to X2
+    // avoid the scroll event to be taken into account a dozen times when going from X1 to X2
     const ignoreScrolling = useRef<boolean>(false)
 
     // add time positon to each items in the movielist

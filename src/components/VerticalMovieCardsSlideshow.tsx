@@ -16,6 +16,8 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
     const moviesContainerRef = useRef<HTMLDivElement>(null)
     // useref used cause no refresh wanted
     const slideshowLeftScrolled = useRef<number>(0)
+    // avoid the scroll event to be taken into account a dozen times when going from X1 to X2
+    const ignoreScrolling = useRef<boolean>(false)
 
     const moviesMedias : IMoviesMedias = {
         'tt1869454' : {poster : 'goodomens2sm.jpg', horizontalPic : 'thelastofus.jpg', video : 'goodomens2.mp4'}, 
@@ -59,13 +61,18 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
 
     // pagination should reply to onscroll to take into account the center method of the card component ?
     function updatePagination(e : React.UIEvent<HTMLDivElement, UIEvent>){
-        // !!! set timer to reduce computation
-        slideshowLeftScrolled.current = e.currentTarget.scrollLeft
-        let i = 1
-        paginationStops.forEach(stop => {
-            if(slideshowLeftScrolled.current <= stop) return setCurrentSlideshowPage(i)
-            i++
-        })
+        if(ignoreScrolling.current === true) return
+        ignoreScrolling.current = true
+        const currentTarget = e.currentTarget
+        setTimeout(()=>{
+            slideshowLeftScrolled.current = currentTarget.scrollLeft
+            let i = 1
+            paginationStops.forEach(stop => {
+                if(slideshowLeftScrolled.current <= stop) return setCurrentSlideshowPage(i)
+                i++
+            })
+            ignoreScrolling.current = false
+        }, 300)
     }
 
     return (

@@ -12,3 +12,17 @@ main {
   display: flex;
   flex-direction: column;
 }
+
+.bannersSection {
+  display: flex;
+  margin-bottom: 4rem;
+  max-height: 660px;
+}
+
+.bannersSection img.banner {
+  width: 100%;
+  max-width: 1440px;
+  object-fit: cover;
+  box-shadow: 0 8px 16px #00000088, 0 32px 64px #00000066;
+  border: 1px solid rgba(48, 48, 48, 0.6);
+}

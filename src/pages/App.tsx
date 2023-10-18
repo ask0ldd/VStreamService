@@ -27,6 +27,9 @@ function App() {
     <>
       <Header/>
       <main>
+        <section className='bannersSection'>
+          <img src="../banners/darkknight2.jpg" className='banner'/>
+        </section>
         {isLoading && <LoadingAnimation/>}
         {!isLoading && !isError && <VerticalMovieCardsSlideshow title={{icon : 'icons/fire.png', title : 'Currently Trending'}} moviesList={moviesList}/>}
         <div style={{height:'4rem'}}></div>
