@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { IMovie, IMoviesMedias } from "../types/types"
 import HorizontalMovieCard from "./HorizontalMovieCard"
 import '../style/HorizontalMovieCardsSlideshow.css'
@@ -5,6 +6,7 @@ import '../style/HorizontalMovieCardsSlideshow.css'
 function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
 
     const cardWidthPlusGap = 320+32
+    const paginationStops = [0, 4*cardWidthPlusGap, 8*cardWidthPlusGap, 12*cardWidthPlusGap, 16*cardWidthPlusGap, 20*cardWidthPlusGap]
 
     const moviesMedias : IMoviesMedias = {
         'tt0816692' : {poster : 'interstellarsm.jpg', horizontalPic : 'interstellarsm.jpg', video : 'goodomens2.mp4'}, 
@@ -45,7 +47,12 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
 
     return(
         <section className="horizontalCardsSlideshow">
-            <h2>Currently Trending</h2>
+            <div className="titlenDotsContainer">
+                <h2>Currently Trending</h2>
+                <div className="paginationContainer">
+                    ***
+                </div>
+            </div>
             <div className="moviesArrowsContainer">
                 <div className="arrowsContainer">
                     <div onClick={scrollLeft} className="leftArrowContainer">

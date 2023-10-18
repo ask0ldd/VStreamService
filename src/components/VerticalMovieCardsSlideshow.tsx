@@ -76,7 +76,7 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
                 <span>See more</span>
                 <div className="paginationContainer">
                     {   // pagination dots
-                        paginationStops.map((stop, index) => 
+                        paginationStops.map((_, index) => 
                             <div className={currentSlideshowPage === index + 1 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, index + 1)}></div>)
                     }
                 </div>

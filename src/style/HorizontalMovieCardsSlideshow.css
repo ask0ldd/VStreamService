@@ -6,6 +6,12 @@
   flex-shrink: 0;
 }
 
+.horizontalCardsSlideshow .titlenDotsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .horizontalCardsSlideshow h2 {
   color: #ffffffdd;
   font-family: "Lexend", sans-serif;
