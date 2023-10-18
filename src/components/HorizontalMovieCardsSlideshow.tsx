@@ -2,11 +2,17 @@
 import { IMovie, IMoviesMedias } from "../types/types"
 import HorizontalMovieCard from "./HorizontalMovieCard"
 import '../style/HorizontalMovieCardsSlideshow.css'
+import { useRef, useState } from "react"
 
 function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
 
     const cardWidthPlusGap = 320+32
     const paginationStops = [0, 4*cardWidthPlusGap, 8*cardWidthPlusGap, 12*cardWidthPlusGap, 16*cardWidthPlusGap, 20*cardWidthPlusGap]
+
+    const [currentSlideshowPage, setCurrentSlideshowPage] = useState<number>(1)
+    const moviesContainerRef = useRef<HTMLDivElement>(null)
+    // useref used cause no refresh wanted
+    const slideshowLeftScrolled = useRef<number>(0)
 
     const moviesMedias : IMoviesMedias = {
         'tt0816692' : {poster : 'interstellarsm.jpg', horizontalPic : 'interstellarsm.jpg', video : 'goodomens2.mp4'}, 
@@ -50,7 +56,12 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
             <div className="titlenDotsContainer">
                 <h2>Currently Trending</h2>
                 <div className="paginationContainer">
-                    ***
+                    <div className={currentSlideshowPage === 1 ? "dot active" : "dot"}/>
+                    <div className={currentSlideshowPage === 2 ? "dot active" : "dot"}/>
+                    <div className={currentSlideshowPage === 3 ? "dot active" : "dot"}/>
+                    <div className={currentSlideshowPage === 4 ? "dot active" : "dot"}/>
+                    <div className={currentSlideshowPage === 5 ? "dot active" : "dot"}/>
+                    <div className={currentSlideshowPage === 6 ? "dot active" : "dot"}/>
                 </div>
             </div>
             <div className="moviesArrowsContainer">
@@ -62,7 +73,7 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
                         <img className="rightArrow" role="button" alt="next movies" src="arrow-right.svg"/>
                     </div>
                 </div>
-                <div className="moviesContainer" onScroll={(e) => {e.preventDefault()}} onWheel={(e) => {e.preventDefault()}}>
+                <div ref={moviesContainerRef} className="moviesContainer" onScroll={(e) => {e.preventDefault()}} onWheel={(e) => {e.preventDefault()}}>
                     {moviesList.map(movie => (
                         <HorizontalMovieCard key={movie.imdbID+'1'} movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
                     ))}

@@ -10,11 +10,36 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
 }
 
 .horizontalCardsSlideshow h2 {
   color: #ffffffdd;
   font-family: "Lexend", sans-serif;
+}
+
+.horizontalCardsSlideshow .paginationContainer {
+  margin-left: auto;
+  display: flex;
+  align-items: baseline;
+  column-gap: 6px;
+  height: 100%;
+}
+
+.horizontalCardsSlideshow .dot {
+  width: 8px;
+  height: 8px;
+  background-color: #ffffff88;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.horizontalCardsSlideshow .dot.active {
+  width: 8px;
+  height: 8px;
+  background-color: #ffffffff;
+  border-radius: 6px;
 }
 
 .horizontalCardsSlideshow .moviesArrowsContainer {
