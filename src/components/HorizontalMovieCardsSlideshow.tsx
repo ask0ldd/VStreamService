@@ -22,6 +22,8 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
     const moviesContainerRef = useRef<HTMLDivElement>(null)
     // useref used cause no refresh wanted
     const slideshowLeftScrolled = useRef<number>(0)
+    // avoid the scroll event to be triggered a dozen times when going from X1 to X2
+    const ignoreScrolling = useRef<boolean>(false)
 
     // add time positon to each items in the movielist
 
@@ -47,14 +49,21 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
         })
     }
 
+    // pagination can only be updated every 0.3s : ignore dozens of scroll events during the scrolling process
     function updatePagination(e : React.UIEvent<HTMLDivElement, UIEvent>){
-        // !!! set timer to reduce computation
-        slideshowLeftScrolled.current = e.currentTarget.scrollLeft
-        let i = 1
-        paginationStops.forEach(stop => {
-            if(slideshowLeftScrolled.current <= stop) return setCurrentSlideshowPage(i)
-            i++
-        })
+        if(ignoreScrolling.current === true) return
+        ignoreScrolling.current = true
+        const currentTarget = e.currentTarget
+        setTimeout(()=>{
+            console.log("pagination update")
+            slideshowLeftScrolled.current = currentTarget.scrollLeft
+            let i = 1
+            paginationStops.forEach(stop => {
+                if(slideshowLeftScrolled.current <= stop) return setCurrentSlideshowPage(i)
+                i++
+            })
+            ignoreScrolling.current = false
+        }, 300)
     }
 
     return(
@@ -81,8 +90,8 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
                     </div>
                 </div>
                 <div ref={moviesContainerRef} className="moviesContainer" onWheel={(e) => {e.preventDefault()}} onScroll={updatePagination}>
-                    {movies.map(movie => (
-                        <HorizontalMovieCard key={movie.imdbID+'1'} movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
+                    {movies.map((movie, index) => (
+                        <HorizontalMovieCard key={movie.imdbID+'1'+index} movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
                     ))}
                     {/*moviesList.map(movie => (
                         <HorizontalMovieCard key={movie.imdbID+'2'} movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
