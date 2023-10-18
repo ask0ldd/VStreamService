@@ -6,26 +6,22 @@ import { useRef, useState } from "react"
 
 function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
 
+    const movies : IMovie[] = [...moviesList, ...moviesList]
+
     const cardWidthPlusGap = 320 + 32
-    const paginationStops = [0, 3*cardWidthPlusGap, 6*cardWidthPlusGap, 9*cardWidthPlusGap, 12*cardWidthPlusGap, 15*cardWidthPlusGap, 18*cardWidthPlusGap]
+    const nMoviesJumpedWhenScrolling = 3
+    
+    let scrollXPosition = 0
+    const paginationStops : number[] = []
+    while(scrollXPosition < cardWidthPlusGap * movies.length){
+        paginationStops.push(scrollXPosition)
+        scrollXPosition += cardWidthPlusGap * nMoviesJumpedWhenScrolling
+    }
 
     const [currentSlideshowPage, setCurrentSlideshowPage] = useState<number>(1)
     const moviesContainerRef = useRef<HTMLDivElement>(null)
     // useref used cause no refresh wanted
     const slideshowLeftScrolled = useRef<number>(0)
-
-    const moviesMedias : IMoviesMedias = {
-        'tt0816692' : {poster : 'interstellarsm.jpg', horizontalPic : 'interstellarsm.jpg', video : 'goodomens2.mp4'}, 
-        'tt14379088' : {poster : 'shinmaskedridersm.jpg', horizontalPic : 'shinmaskedridersm.jpg', video : 'goodomens2.mp4'}, 
-        'tt1663202' : {poster : 'revenantsm.jpg', horizontalPic : 'revenant.jpg', video : 'goodomens2sm.mp4'}, 
-        'tt2119532' : {poster : 'tunetueraspointsm.jpg', horizontalPic : 'tunetueraspointsm.jpg', video : 'goodomens2.mp4'}, 
-        'tt0048424' : {poster : 'thenightofthehuntersm.jpg', horizontalPic : 'thenightofthehuntersm.jpg', video : 'goodomens2.mp4'}, 
-        'tt17274522' : {poster : 'sheershivraajsm.jpg', horizontalPic : 'sheershivraajsm.jpg', video : 'goodomens2.mp4'}, 
-        'tt14689620' : {poster : 'vampireacademysm.jpg', horizontalPic : 'vampireacademysm.jpg', video : 'goodomens2.mp4'}, 
-        'tt9777666' : {poster : 'thetomorrowwarsm.jpg', horizontalPic : 'thetomorrowwarsm.jpg', video : 'goodomens2.mp4'}, 
-        'tt3973768' : {poster : 'handofgodsm.jpg', horizontalPic : 'handofgodsm.jpg', video : 'goodomens2.mp4'}, 
-        'tt7631058' : {poster : 'ringsofpowersm.jpg', horizontalPic : 'ringsofpowersm.jpg', video : 'goodomens2.mp4'}, 
-    }
 
     // add time positon to each items in the movielist
 
@@ -34,7 +30,7 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
         const arrow = e.currentTarget as HTMLImageElement
         const moviesContainer = arrow.parentElement?.parentElement?.querySelector('.moviesContainer')
         moviesContainer?.scrollBy({
-            left: cardWidthPlusGap*3,
+            left: cardWidthPlusGap * nMoviesJumpedWhenScrolling,
             top: 0,
             behavior: 'smooth',
         })
@@ -45,7 +41,7 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
         const arrow = e.currentTarget as HTMLImageElement
         const moviesContainer = arrow.parentElement?.parentElement?.querySelector('.moviesContainer')
         moviesContainer?.scrollBy({
-            left: -(cardWidthPlusGap*3),
+            left: -(cardWidthPlusGap * nMoviesJumpedWhenScrolling),
             top: 0,
             behavior: 'smooth'
         })
@@ -85,12 +81,12 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
                     </div>
                 </div>
                 <div ref={moviesContainerRef} className="moviesContainer" onWheel={(e) => {e.preventDefault()}} onScroll={updatePagination}>
-                    {moviesList.map(movie => (
+                    {movies.map(movie => (
                         <HorizontalMovieCard key={movie.imdbID+'1'} movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
                     ))}
-                    {moviesList.map(movie => (
+                    {/*moviesList.map(movie => (
                         <HorizontalMovieCard key={movie.imdbID+'2'} movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
-                    ))}
+                    ))*/}
                 </div>
             </div>
         </section>
@@ -101,3 +97,16 @@ export default HorizontalMovieCardsSlideshow
 
 // !!! TODO passive event fix : wheel
 // https://stackoverflow.com/questions/63663025/react-onwheel-handler-cant-preventdefault-because-its-a-passive-event-listenev
+
+const moviesMedias : IMoviesMedias = {
+    'tt0816692' : {poster : 'interstellarsm.jpg', horizontalPic : 'interstellarsm.jpg', video : 'goodomens2.mp4'}, 
+    'tt14379088' : {poster : 'shinmaskedridersm.jpg', horizontalPic : 'shinmaskedridersm.jpg', video : 'goodomens2.mp4'}, 
+    'tt1663202' : {poster : 'revenantsm.jpg', horizontalPic : 'revenant.jpg', video : 'goodomens2sm.mp4'}, 
+    'tt2119532' : {poster : 'tunetueraspointsm.jpg', horizontalPic : 'tunetueraspointsm.jpg', video : 'goodomens2.mp4'}, 
+    'tt0048424' : {poster : 'thenightofthehuntersm.jpg', horizontalPic : 'thenightofthehuntersm.jpg', video : 'goodomens2.mp4'}, 
+    'tt17274522' : {poster : 'sheershivraajsm.jpg', horizontalPic : 'sheershivraajsm.jpg', video : 'goodomens2.mp4'}, 
+    'tt14689620' : {poster : 'vampireacademysm.jpg', horizontalPic : 'vampireacademysm.jpg', video : 'goodomens2.mp4'}, 
+    'tt9777666' : {poster : 'thetomorrowwarsm.jpg', horizontalPic : 'thetomorrowwarsm.jpg', video : 'goodomens2.mp4'}, 
+    'tt3973768' : {poster : 'handofgodsm.jpg', horizontalPic : 'handofgodsm.jpg', video : 'goodomens2.mp4'}, 
+    'tt7631058' : {poster : 'ringsofpowersm.jpg', horizontalPic : 'ringsofpowersm.jpg', video : 'goodomens2.mp4'}, 
+}
