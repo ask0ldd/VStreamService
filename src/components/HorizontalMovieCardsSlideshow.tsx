@@ -7,7 +7,7 @@ import { useRef, useState } from "react"
 function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
 
     const cardWidthPlusGap = 320 + 32
-    const paginationStops = [0, 4*cardWidthPlusGap, 8*cardWidthPlusGap, 12*cardWidthPlusGap, 16*cardWidthPlusGap, 20*cardWidthPlusGap]
+    const paginationStops = [0, 3*cardWidthPlusGap, 6*cardWidthPlusGap, 9*cardWidthPlusGap, 12*cardWidthPlusGap, 15*cardWidthPlusGap, 18*cardWidthPlusGap]
 
     const [currentSlideshowPage, setCurrentSlideshowPage] = useState<number>(1)
     const moviesContainerRef = useRef<HTMLDivElement>(null)
@@ -72,6 +72,7 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
                     <div className={currentSlideshowPage === 4 ? "dot active" : "dot"}/>
                     <div className={currentSlideshowPage === 5 ? "dot active" : "dot"}/>
                     <div className={currentSlideshowPage === 6 ? "dot active" : "dot"}/>
+                    <div className={currentSlideshowPage === 7 ? "dot active" : "dot"}/>
                 </div>
             </div>
             <div className="moviesArrowsContainer">
@@ -89,12 +90,6 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
                     ))}
                     {moviesList.map(movie => (
                         <HorizontalMovieCard key={movie.imdbID+'2'} movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
-                    ))}
-                    {moviesList.map(movie => (
-                        <HorizontalMovieCard key={movie.imdbID+'3'} movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
-                    ))}
-                    {moviesList.map(movie => (
-                        <HorizontalMovieCard key={movie.imdbID+'4'} movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
                     ))}
                 </div>
             </div>
