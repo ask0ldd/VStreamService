@@ -29,4 +29,5 @@ main {
   object-fit: cover;
   transition: all 0.75s ease-in-out 0s;
   border: 1px solid rgba(48, 48, 48, 0.6);
+  filter: saturate(1) contrast(0.85) brightness(0.9);
 }

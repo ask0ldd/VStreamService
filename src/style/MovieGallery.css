@@ -25,6 +25,7 @@
   object-position: top;
   overflow-clip-margin: unset;
   transition: transform 0.5s ease-out 0s;
+  filter: saturate(0.9) contrast(0.9);
 }
 
 .galleryContainer article:hover {

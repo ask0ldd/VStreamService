@@ -27,6 +27,16 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
 
     // add time positon to each items in the movielist
 
+    function scrollToStop(e : React.MouseEvent<HTMLElement>, stopIndex : number){
+        e.preventDefault()
+        const moviesContainer = e.currentTarget.parentElement?.parentElement?.parentElement?.querySelector('.moviesContainer')
+        moviesContainer?.scrollTo({
+            left: paginationStops[stopIndex - 1],
+            top: 0,
+            behavior: 'smooth'
+        })
+    }
+
     function scrollRight(e : React.MouseEvent<HTMLElement>){
         e.preventDefault()
         const arrow = e.currentTarget as HTMLImageElement
@@ -55,7 +65,7 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
         ignoreScrolling.current = true
         const currentTarget = e.currentTarget
         setTimeout(()=>{
-            console.log("pagination update")
+            // console.log("pagination update")
             slideshowLeftScrolled.current = currentTarget.scrollLeft
             let i = 1
             paginationStops.forEach(stop => {
@@ -71,13 +81,13 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
             <div className="titlenDotsContainer">
                 <h2>Currently Trending</h2>
                 <div className="paginationContainer">
-                    <div className={currentSlideshowPage === 1 ? "dot active" : "dot"}/>
-                    <div className={currentSlideshowPage === 2 ? "dot active" : "dot"}/>
-                    <div className={currentSlideshowPage === 3 ? "dot active" : "dot"}/>
-                    <div className={currentSlideshowPage === 4 ? "dot active" : "dot"}/>
-                    <div className={currentSlideshowPage === 5 ? "dot active" : "dot"}/>
-                    <div className={currentSlideshowPage === 6 ? "dot active" : "dot"}/>
-                    <div className={currentSlideshowPage === 7 ? "dot active" : "dot"}/>
+                    <div className={currentSlideshowPage === 1 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, 1)}/>
+                    <div className={currentSlideshowPage === 2 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, 2)}/>
+                    <div className={currentSlideshowPage === 3 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, 3)}/>
+                    <div className={currentSlideshowPage === 4 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, 4)}/>
+                    <div className={currentSlideshowPage === 5 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, 5)}/>
+                    <div className={currentSlideshowPage === 6 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, 6)}/>
+                    <div className={currentSlideshowPage === 7 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, 7)}/>
                 </div>
             </div>
             <div className="moviesArrowsContainer">
