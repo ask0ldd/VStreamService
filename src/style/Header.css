@@ -29,3 +29,7 @@ header li:hover {
   color: #ffffffcc;
   cursor: pointer;
 }
+
+header ul li:last-child {
+  padding-right: 0;
+}

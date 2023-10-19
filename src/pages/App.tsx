@@ -8,7 +8,7 @@ import './App.css'
 import HorizontalMovieCardsSlideshow from '../components/HorizontalMovieCardsSlideshow'
 import Footer from '../components/Footer'
 import LoadingAnimation from '../components/LoadingAnimation'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 function App() {
 
@@ -33,6 +33,14 @@ function App() {
     if(imgs.length < 1) return
     imgs.forEach(img => img.style.transform = "translateX("+ bannerSlideshowPosition.current +"px)")
   }
+
+  useEffect(() => {
+    const loop = window.setInterval(nextBanner, 6000)
+
+    return () => {
+      clearInterval(loop)
+    }
+  }, [])
 
   return (
     <>
