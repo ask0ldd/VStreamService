@@ -34,7 +34,7 @@ export interface IMovie {
 }
 
 export interface IMoviesMedias {
-    [key: string]: {poster : string, horizontalPic : string, video : string};
+    [key: string]: {poster : string, horizontalPic : string, video : string, watchedPercentage : number};
   }
 
   export interface IEpisode {

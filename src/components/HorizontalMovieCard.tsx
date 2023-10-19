@@ -5,7 +5,7 @@ import { useTypedDispatch, useTypedSelector } from "../hooks/redux"
 import { updateWatchList } from "../redux/moviesSlice"
 import { Link } from "react-router-dom"
 
-function HorizontalMovieCard ({movie, movieMedias/*, moviesBg*/} : {movie : IMovie, movieMedias : {poster: string, horizontalPic : string, video : string}}){
+function HorizontalMovieCard ({movie, movieMedias/*, moviesBg*/} : {movie : IMovie, movieMedias : {poster: string, horizontalPic : string, video : string, watchedPercentage : number}}){ // !!! create a type
     
     const dispatch = useTypedDispatch()
     const watchList  = useTypedSelector((state) => state.movies.watchList)
@@ -20,9 +20,9 @@ function HorizontalMovieCard ({movie, movieMedias/*, moviesBg*/} : {movie : IMov
         <Link className="horizontalCardLink" role="button" to={"/movie/"+movie.imdbID}>
             <article className="horizontalMovieCard">
                 <div className="mainPicContainer">
-                    <img className="mainPic" src={'horizontalCardPic/' + movieMedias.horizontalPic}/>
+                    <img className="mainPic" src={'horizontalCardPic/' + movieMedias.horizontalPic}/> 
                     <div className="moviePositionContainer">
-                        <div className="moviePositionBar"></div>
+                        <div className="moviePositionBar" style={{width:movieMedias.watchedPercentage+'%'}}></div>
                     </div>
                 </div>
                 <div className="playAddMoreContainer">

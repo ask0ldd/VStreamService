@@ -115,14 +115,14 @@ export default HorizontalMovieCardsSlideshow
 // https://stackoverflow.com/questions/63663025/react-onwheel-handler-cant-preventdefault-because-its-a-passive-event-listenev
 
 const moviesMedias : IMoviesMedias = {
-    'tt0816692' : {poster : 'interstellarsm.jpg', horizontalPic : 'interstellarsm.jpg', video : 'goodomens2.mp4'}, 
-    'tt14379088' : {poster : 'shinmaskedridersm.jpg', horizontalPic : 'shinmaskedridersm.jpg', video : 'goodomens2.mp4'}, 
-    'tt1663202' : {poster : 'revenantsm.jpg', horizontalPic : 'revenant.jpg', video : 'goodomens2sm.mp4'}, 
-    'tt2119532' : {poster : 'tunetueraspointsm.jpg', horizontalPic : 'tunetueraspointsm.jpg', video : 'goodomens2.mp4'}, 
-    'tt0048424' : {poster : 'thenightofthehuntersm.jpg', horizontalPic : 'thenightofthehuntersm.jpg', video : 'goodomens2.mp4'}, 
-    'tt17274522' : {poster : 'sheershivraajsm.jpg', horizontalPic : 'sheershivraajsm.jpg', video : 'goodomens2.mp4'}, 
-    'tt14689620' : {poster : 'vampireacademysm.jpg', horizontalPic : 'vampireacademysm.jpg', video : 'goodomens2.mp4'}, 
-    'tt9777666' : {poster : 'thetomorrowwarsm.jpg', horizontalPic : 'thetomorrowwarsm.jpg', video : 'goodomens2.mp4'}, 
-    'tt3973768' : {poster : 'handofgodsm.jpg', horizontalPic : 'handofgodsm.jpg', video : 'goodomens2.mp4'}, 
-    'tt7631058' : {poster : 'ringsofpowersm.jpg', horizontalPic : 'ringsofpowersm.jpg', video : 'goodomens2.mp4'}, 
+    'tt0816692' : {poster : 'interstellarsm.jpg', horizontalPic : 'interstellarsm.jpg', video : 'goodomens2.mp4', watchedPercentage : 85}, 
+    'tt14379088' : {poster : 'shinmaskedridersm.jpg', horizontalPic : 'shinmaskedridersm.jpg', video : 'goodomens2.mp4', watchedPercentage : 0}, 
+    'tt1663202' : {poster : 'revenantsm.jpg', horizontalPic : 'revenant.jpg', video : 'goodomens2sm.mp4', watchedPercentage : 60}, 
+    'tt2119532' : {poster : 'tunetueraspointsm.jpg', horizontalPic : 'tunetueraspointsm.jpg', video : 'goodomens2.mp4', watchedPercentage : 95}, 
+    'tt0048424' : {poster : 'thenightofthehuntersm.jpg', horizontalPic : 'thenightofthehuntersm.jpg', video : 'goodomens2.mp4', watchedPercentage : 0}, 
+    'tt17274522' : {poster : 'sheershivraajsm.jpg', horizontalPic : 'sheershivraajsm.jpg', video : 'goodomens2.mp4', watchedPercentage : 0}, 
+    'tt14689620' : {poster : 'vampireacademysm.jpg', horizontalPic : 'vampireacademysm.jpg', video : 'goodomens2.mp4', watchedPercentage : 25}, 
+    'tt9777666' : {poster : 'thetomorrowwarsm.jpg', horizontalPic : 'thetomorrowwarsm.jpg', video : 'goodomens2.mp4', watchedPercentage : 80}, 
+    'tt3973768' : {poster : 'handofgodsm.jpg', horizontalPic : 'handofgodsm.jpg', video : 'goodomens2.mp4', watchedPercentage : 0}, 
+    'tt7631058' : {poster : 'ringsofpowersm.jpg', horizontalPic : 'ringsofpowersm.jpg', video : 'goodomens2.mp4', watchedPercentage : 12}, 
 }
