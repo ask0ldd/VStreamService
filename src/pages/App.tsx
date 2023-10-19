@@ -13,6 +13,7 @@ import { useEffect, useRef } from 'react'
 function App() {
 
   const bannerSlideshowPosition = useRef<number>(0)
+  const bannerLoop = useRef<number>(0)
 
   // const {isLoading, fetchedDatas, isError} = useAPI({id:'tt3230854', longPlot:false})
   const {isLoading, fetchedDatas, isError} = useAPI({idList:['tt1869454', 'tt6718170', 'tt2906216', 'tt7631058', 'tt5433140', 'tt8111088'], longPlot:false})
@@ -32,13 +33,16 @@ function App() {
     const imgs : HTMLElement[] = Array.from(document.querySelectorAll('.banner'))
     if(imgs.length < 1) return
     imgs.forEach(img => img.style.transform = "translateX("+ bannerSlideshowPosition.current +"px)")
+    // reset the timer when a banner is clicked
+    clearInterval(bannerLoop.current)
+    bannerLoop.current = window.setInterval(nextBanner, 6000)
   }
 
   useEffect(() => {
-    const loop = window.setInterval(nextBanner, 6000)
+    bannerLoop.current = window.setInterval(nextBanner, 6000)
 
     return () => {
-      clearInterval(loop)
+      clearInterval(bannerLoop.current)
     }
   }, [])
 
