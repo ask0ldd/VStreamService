@@ -81,13 +81,10 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
             <div className="titlenDotsContainer">
                 <h2>Currently Trending</h2>
                 <div className="paginationContainer">
-                    <div className={currentSlideshowPage === 1 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, 1)}/>
-                    <div className={currentSlideshowPage === 2 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, 2)}/>
-                    <div className={currentSlideshowPage === 3 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, 3)}/>
-                    <div className={currentSlideshowPage === 4 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, 4)}/>
-                    <div className={currentSlideshowPage === 5 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, 5)}/>
-                    <div className={currentSlideshowPage === 6 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, 6)}/>
-                    <div className={currentSlideshowPage === 7 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, 7)}/>
+                    {   // pagination dots
+                        paginationStops.map((_, index) => 
+                            <div className={currentSlideshowPage === index + 1 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, index + 1)}></div>)
+                    }
                 </div>
             </div>
             <div className="moviesArrowsContainer">
