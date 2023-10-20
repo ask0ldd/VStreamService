@@ -82,4 +82,13 @@ describe('Movie Gallery Component', async () => {
         await waitFor(() => expect(screen.getByAltText('Karl Urban in The Boys (2019)')).toBeInTheDocument())
     })
 
+    test('Escape is closing the modal', async () => {
+        await waitFor(() => expect(screen.getByTestId('gallery')).toBeInTheDocument())
+        const galleryPicture = screen.getByTestId('gallery').querySelectorAll('article')[0]
+        act(() => galleryPicture.click())
+        await waitFor(() => expect(screen.getByTestId('galleryModal')).toBeInTheDocument())
+        userEvent.keyboard('{Escape}')
+        await waitFor(() => expect(screen.queryByTestId('galleryModal')).not.toBeInTheDocument())
+    })
+
 })
