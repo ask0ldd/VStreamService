@@ -1,3 +1,47 @@
+export interface IScraps{
+    movie : {
+        title : string
+        mediaType : string
+        releaseDate : string
+        contentRating : string
+        duration : string
+        poster : string
+        genres : string []
+        rating : string
+        plot : string
+        episodes : string
+        storyline : string
+        creator : string
+        castListPage : string
+        photos : IPhotos[]
+        relatedContent : IRelatedContent[]
+    },
+    cast : ICast
+}
+
+interface IPhotos {
+    miniatureUrl : string
+    alt : string
+    mediaViewerPage : string
+    fullPics : {url : string, width : string} []
+    actors : string []
+}
+
+interface IRelatedContent {
+    title : string
+    poster : string
+    rating : string
+    contentPage : string
+}
+
+interface ICast {
+    name: string
+    personalPage : string
+    portrait : string
+    character : string
+    episodes : string
+}
+
 export const theBoysScrap = {
     "movie": {
         "title": "The Boys",
