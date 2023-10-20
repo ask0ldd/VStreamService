@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { BrowserRouter } from "react-router-dom"
-import { render, screen, waitFor, fireEvent, act } from '@testing-library/react'
+import { render, screen, waitFor, act } from '@testing-library/react'
 import MovieGallery from "../../components/MovieGallery"
 import { expect, vi, describe, test, beforeAll, beforeEach } from 'vitest'
 
@@ -41,6 +41,16 @@ describe('Movie Gallery Component', async () => {
         // expecting 3 miniatures by default
         const miniatures = screen.getByTestId('galleryModal').querySelector('.miniaturesSlide')?.children
         expect(miniatures?.length).toBe(3)
+        // expecting the main picture
+        expect(screen.getByAltText('Karl Urban in The Boys (2019)')).toBeInTheDocument()
+        // expecting close button
+        const closeButton = screen.getByAltText('closeButton').parentElement
+        expect(closeButton).toBeInTheDocument()
+        // expecting tags
+        expect(screen.getByText('Action')).toBeInTheDocument()
+        expect(screen.getByText('Comedy')).toBeInTheDocument()
+        expect(screen.getByText('Crime')).toBeInTheDocument()
+        expect(screen.getByText('Sci-Fi')).toBeInTheDocument()
     })
 
 })

@@ -68,11 +68,11 @@ function GalleryModal({setModalVisibility, modalVisibilityRef, openPictureIndex,
                         }
                     </div>
                     <div style={{position:'absolute', right:'0', top:'0'}}>
-                        <div className='closeButton' onClick={() => closeModal()}><img style={{width:'16px', height:'16px', opacity:'0.9'}} src="../icons/close.png"/></div>
+                        <div role="button" className='closeButton' onClick={() => closeModal()}><img alt="closeButton" style={{width:'16px', height:'16px', opacity:'0.9'}} src="../icons/close.png"/></div>
                     </div>
                 </section>
                 <section className='galleryBody'>
-                    <img className='fullsizePicture' src={openPictureIndex != null ? theBoysScrap.movie.photos[openPictureIndex].fullPics[4].url : ''}/>
+                    <img className='fullsizePicture' alt={openPictureIndex != null ? theBoysScrap.movie.photos[openPictureIndex].alt : ''} src={openPictureIndex != null ? theBoysScrap.movie.photos[openPictureIndex].fullPics[4].url : ''}/>
                     <div role="button" className='galleryNavButton right' onClick={()=> nextPic()}>
                         <div className='greyRoundButton'>
                             <img src="../icons/arrowgallery2.png" className='rightArrow'/>
