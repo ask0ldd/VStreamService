@@ -91,4 +91,13 @@ describe('Movie Gallery Component', async () => {
         await waitFor(() => expect(screen.queryByTestId('galleryModal')).not.toBeInTheDocument())
     })
 
+    test('Clicking on the modal backdrop is closing the modal', async () => {
+        await waitFor(() => expect(screen.getByTestId('gallery')).toBeInTheDocument())
+        const galleryPicture = screen.getByTestId('gallery').querySelectorAll('article')[0]
+        act(() => galleryPicture.click())
+        await waitFor(() => expect(screen.getByTestId('galleryModal')).toBeInTheDocument())
+        act(() => screen.getByTestId('galleryModal').click())
+        await waitFor(() => expect(screen.queryByTestId('galleryModal')).not.toBeInTheDocument())
+    })
+
 })
