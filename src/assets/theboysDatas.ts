@@ -6,25 +6,29 @@ export interface IScraps{
         contentRating : string
         duration : string
         poster : string
-        genres : string []
+        genres : string[]
         rating : string
         plot : string
         episodes : string
         storyline : string
         creator : string
         castListPage : string
-        photos : IPhotos[]
+        photos : IPhoto[]
         relatedContent : IRelatedContent[]
+        userReviewsPage : string
+        episodesPage : string
     },
-    cast : ICast
+    cast : ICastMember[]
+    seasons : IEpisode[][]
+    reviews : IReview[]
 }
 
-interface IPhotos {
+interface IPhoto {
     miniatureUrl : string
     alt : string
     mediaViewerPage : string
     fullPics : {url : string, width : string} []
-    actors : string []
+    actors : string[]
 }
 
 interface IRelatedContent {
@@ -34,7 +38,7 @@ interface IRelatedContent {
     contentPage : string
 }
 
-interface ICast {
+interface ICastMember {
     name: string
     personalPage : string
     portrait : string
@@ -42,7 +46,24 @@ interface ICast {
     episodes : string
 }
 
-export const theBoysScrap = {
+interface IEpisode{
+    pic : string
+    episode : string
+    title : string
+    date : string
+    plot : string
+    rating : string
+}
+
+interface IReview{
+    title : string
+    rating : string
+    review : string
+    user : string
+    date : string
+}
+
+export const theBoysScrap : IScraps = {
     "movie": {
         "title": "The Boys",
         "mediaType": "TV Series",

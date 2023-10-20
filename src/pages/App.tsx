@@ -53,8 +53,8 @@ function App() {
       <main>
         <section className='bannersSection' onClick={nextBanner}>
           <img src="./banners/darkknight2.jpg" className='banner'/>
-          <img src="./banners/darkknight3.jpg" className='banner'/>
-          <img src="./banners/darkknight.jpg" className='banner'/>
+          <img src="./banners/darkknight3.jpg" loading="lazy" className='banner'/>
+          <img src="./banners/darkknight.jpg" loading="lazy" className='banner'/>
         </section>
         {isLoading && <LoadingAnimation/>}
         {!isLoading && !isError && <VerticalMovieCardsSlideshow title={{icon : 'icons/fire.png', title : 'Currently Trending'}} moviesList={moviesList}/>}
