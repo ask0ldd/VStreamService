@@ -41,16 +41,39 @@ describe('Movie Gallery Component', async () => {
         // expecting 3 miniatures by default
         const miniatures = screen.getByTestId('galleryModal').querySelector('.miniaturesSlide')?.children
         expect(miniatures?.length).toBe(3)
-        // expecting the main picture
+        // expecting 1 main picture
         expect(screen.getByAltText('Karl Urban in The Boys (2019)')).toBeInTheDocument()
-        // expecting close button
+        // expecting 1 close button
         const closeButton = screen.getByAltText('closeButton').parentElement
         expect(closeButton).toBeInTheDocument()
-        // expecting tags
+        // expecting 4 tags
         expect(screen.getByText('Action')).toBeInTheDocument()
         expect(screen.getByText('Comedy')).toBeInTheDocument()
         expect(screen.getByText('Crime')).toBeInTheDocument()
         expect(screen.getByText('Sci-Fi')).toBeInTheDocument()
+    })
+
+    test('Clicking on the close button of the modal results in a closed modal', async () => {
+        await waitFor(() => expect(screen.getByTestId('gallery')).toBeInTheDocument())
+        const galleryPicture = screen.getByTestId('gallery').querySelectorAll('article')[0]
+        act(() => galleryPicture.click())
+        await waitFor(() => expect(screen.getByTestId('galleryModal')).toBeInTheDocument())
+        const closeButton = screen.getByAltText('closeButton').parentElement
+        act(() => closeButton?.click())
+        await waitFor(() => expect(screen.queryByTestId('galleryModal')).not.toBeInTheDocument())
+    })
+
+    test('Pictures can be browsed', async () => {
+        await waitFor(() => expect(screen.getByTestId('gallery')).toBeInTheDocument())
+        const galleryPicture = screen.getByTestId('gallery').querySelectorAll('article')[0]
+        act(() => galleryPicture.click())
+        await waitFor(() => expect(screen.getByTestId('galleryModal')).toBeInTheDocument())
+        expect(screen.getByAltText('Karl Urban in The Boys (2019)')).toBeInTheDocument()
+        const navButtons = screen.getByTestId('galleryModal').querySelectorAll('.galleryNavButton')
+        act(() => (navButtons[0] as HTMLElement)?.click())
+        await waitFor(() => expect(screen.getByAltText('Susan Heyward in The Boys (2019)')).toBeInTheDocument())
+        act(() => (navButtons[1] as HTMLElement)?.click())
+        await waitFor(() => expect(screen.getByAltText('Karl Urban in The Boys (2019)')).toBeInTheDocument())
     })
 
 })
