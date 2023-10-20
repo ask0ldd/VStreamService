@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { BrowserRouter } from "react-router-dom"
-import { render, screen, renderHook, act, waitFor } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import MovieGallery from "../../components/MovieGallery"
 
 const MockedRouter = () => { 
@@ -17,6 +17,9 @@ describe('Given : The movie gallery is rendered', async () => {
         render(<MockedRouter/>) 
     })
 
-    
+    test('All the table headers should be in the doc', async () => {
+        await waitFor(() => expect(screen.getByTestId('gallery')).toBeInTheDocument())
+        expect(screen.getByTestId('gallery').querySelectorAll('article').length).toBe(12)
+    })
 
 })

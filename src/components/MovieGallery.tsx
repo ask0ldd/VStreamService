@@ -18,7 +18,7 @@ function MovieGallery(){
 
     return (
         <>
-            <section className='galleryContainer'>
+            <section data-testid="gallery" className='galleryContainer'>
                 {
                     theBoysScrap.movie.photos.map((photo, index) => <article onClick={() => openGalleryModalWithPic(index)}><img src={photo.fullPics[3].url}/><div>{photo.alt.slice(0, 40)}</div></article>)
                 }
