@@ -59,7 +59,7 @@ function GalleryModal({setModalVisibility, modalVisibilityRef, openPictureIndex,
     }
 
     return(
-        <dialog ref={dialogRef} className='galleryModal' onClick={(e) => { if (e.target === dialogRef.current) closeModal()}}>
+        <dialog data-testid="galleryModal" ref={dialogRef} className='galleryModal' onClick={(e) => { if (e.target === dialogRef.current) closeModal()}}>
                 <section className='galleryHeader'>
                     <div className='miniaturesSlide'>
                         {openPictureIndex!=null && 
