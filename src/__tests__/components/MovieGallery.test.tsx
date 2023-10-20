@@ -2,6 +2,7 @@
 import { BrowserRouter } from "react-router-dom"
 import { render, screen, waitFor, fireEvent, act } from '@testing-library/react'
 import MovieGallery from "../../components/MovieGallery"
+import { expect, vi, describe, test, beforeAll, beforeEach } from 'vitest'
 
 const MockedRouter = () => { 
     return(
@@ -16,6 +17,12 @@ describe('Movie Gallery Component', async () => {
     beforeEach(() => {
         render(<MockedRouter/>) 
     })
+
+    beforeAll(() => {
+        HTMLDialogElement.prototype.show = vi.fn();
+        HTMLDialogElement.prototype.showModal = vi.fn();
+        HTMLDialogElement.prototype.close = vi.fn();
+      });
 
     test('The gallery should be displayed and contain 12 pictures', async () => {
         await waitFor(() => expect(screen.getByTestId('gallery')).toBeInTheDocument())
