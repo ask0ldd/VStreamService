@@ -21,6 +21,7 @@ main {
   overflow: hidden;
   display: flex;
   box-shadow: 0 8px 16px #00000055, 0 32px 64px #00000066;
+  cursor: pointer;
 }
 
 .bannersSection img.banner {

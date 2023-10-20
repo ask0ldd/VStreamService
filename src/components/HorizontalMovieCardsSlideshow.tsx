@@ -83,7 +83,7 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
                 <div className="paginationContainer">
                     {   // pagination dots
                         paginationStops.map((_, index) => 
-                            <div className={currentSlideshowPage === index + 1 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, index + 1)}></div>)
+                            <div key={'dot'+index} className={currentSlideshowPage === index + 1 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, index + 1)}></div>)
                     }
                 </div>
             </div>
@@ -96,7 +96,7 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
                         <img className="rightArrow" role="button" alt="next movies" src="arrow-right.svg"/>
                     </div>
                 </div>
-                <div ref={moviesContainerRef} className="moviesContainer" onWheel={(e) => {e.preventDefault()}} onScroll={updatePagination}>
+                <div ref={moviesContainerRef} className="moviesContainer" onScroll={updatePagination}>
                     {movies.map((movie, index) => (
                         <HorizontalMovieCard key={movie.imdbID+'1'+index} movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
                     ))}

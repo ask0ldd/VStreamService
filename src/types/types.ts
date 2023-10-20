@@ -20,7 +20,7 @@ export interface IMovie {
     Country: string,
     Awards: string,
     Poster: string,
-    Ratings:{Source:string,Value:string},
+    Ratings:{Source:string, Value:string},
     Metascore: string,
     imdbRating: string,
     imdbVotes: string,
@@ -33,7 +33,7 @@ export interface IMovie {
     Response: string,
 }
 
-export interface IMoviesMedias {
+export interface IMoviesMedias { // !!! complex typing, add to notion
     [key: string]: {poster : string, horizontalPic : string, video : string, watchedPercentage : number};
   }
 

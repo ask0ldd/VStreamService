@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { IMovie } from "../types/types"
+import { IMovie, IMoviesMedias } from "../types/types"
 import '../style/HorizontalMovieCard.css'
 import { useTypedDispatch, useTypedSelector } from "../hooks/redux"
 import { updateWatchList } from "../redux/moviesSlice"
 import { Link } from "react-router-dom"
 
-function HorizontalMovieCard ({movie, movieMedias/*, moviesBg*/} : {movie : IMovie, movieMedias : {poster: string, horizontalPic : string, video : string, watchedPercentage : number}}){ // !!! create a type
+function HorizontalMovieCard ({movie, movieMedias} : {movie : IMovie, movieMedias : IMoviesMedias[string]}){ // !!! complex typing, add to notion
     
     const dispatch = useTypedDispatch()
     const watchList  = useTypedSelector((state) => state.movies.watchList)
