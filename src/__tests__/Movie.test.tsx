@@ -43,6 +43,11 @@ describe('Movie Gallery Component', async () => {
 
     test('Two Episodes should be displayed by default', async () => {
         await waitFor(() => expect(screen.getByText('Episodes')).toBeInTheDocument())
+        expect(screen.getAllByTestId('episode-row').length).toBe(2)
+    })
+
+    test('When an Episode Row is hovered, a set of Buttons should appears', async () => {
+        await waitFor(() => expect(screen.getByText('Episodes')).toBeInTheDocument())
         const episodeRows = screen.getAllByTestId('episode-row')
         expect(episodeRows.length).toBe(2)
         const buttonsContainer = screen.getAllByTestId('episode-buttons-container')
@@ -50,41 +55,8 @@ describe('Movie Gallery Component', async () => {
         expect(buttonsContainer[0]).toHaveStyle('transform: translateY(6rem)')
         fireEvent.mouseEnter(episodeRows[0])
         await waitFor(() => expect(buttonsContainer[0]).toHaveStyle('transform: translateY(0)'))
+        fireEvent.mouseLeave(episodeRows[0])
+        await waitFor(() => expect(buttonsContainer[0]).toHaveStyle('transform: translateY(6rem)'))
     })
 
 })
-
-/*
-
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
-
-function MyComponent() {
-  const handleHover = (event) => {
-    event.target.style.transform = 'scale(1.2)';
-  };
-
-  return (
-    <div>
-      <button onMouseEnter={handleHover}>Hover me</button>
-    </div>
-  );
-}
-
-test('Should apply transform on hover', () => {
-  render(<MyComponent />);
-  const button = screen.getByText('Hover me');
-
-  // Check initial state
-  expect(button).toHaveStyle('transform: scale(1)');
-
-  // Simulate hover
-  button.dispatchEvent(new MouseEvent('mouseenter'));
-
-  // Check hovered state
-  const style = window.getComputedStyle(button);
-  expect(style.transform).toBe('matrix(1.2, 0, 0, 1.2, 0, 0)');
-});
-
-*/
