@@ -5,11 +5,8 @@ import store from "../redux/store"
 import { Provider } from "react-redux"
 import { vi } from "vitest"
 
-/*vi.mock('../pages/Movie', () => ({
-    __esModule: true,
-    default: vi.fn(),
-    videoStart: vi.fn(),
-  }))*/
+// scrollintoview not implemented into js-dom so mocked
+window.HTMLElement.prototype.scrollIntoView = vi.fn(() => null)
 
 const MockedRouter = () => { 
     return(
@@ -51,6 +48,7 @@ describe('Movie Gallery Component', async () => {
         const castnCrewMenuItem = screen.getByText('Cast & Crew')
         const photosMenuItem = screen.getByText('Photos')
         const userReviewsMenuItem = screen.getByText('User Reviews')
+        // default section
         expect(episodesMenuItem.classList.contains('active')).toBeTruthy()
         expect(castnCrewMenuItem).toBeInTheDocument()
         expect(castnCrewMenuItem.classList.contains('active')).toBeFalsy()
@@ -58,7 +56,19 @@ describe('Movie Gallery Component', async () => {
         expect(photosMenuItem.classList.contains('active')).toBeFalsy()
         expect(userReviewsMenuItem).toBeInTheDocument()
         expect(userReviewsMenuItem.classList.contains('active')).toBeFalsy()
-        // to add
+        expect(screen.getByText('Season 1')).toBeInTheDocument()
+        // cast section
+        act(() => castnCrewMenuItem.click())
+        expect(episodesMenuItem.classList.contains('active')).toBeFalsy()
+        expect(castnCrewMenuItem).toBeInTheDocument()
+        expect(castnCrewMenuItem.classList.contains('active')).toBeTruthy()
+        expect(photosMenuItem).toBeInTheDocument()
+        expect(photosMenuItem.classList.contains('active')).toBeFalsy()
+        expect(userReviewsMenuItem).toBeInTheDocument()
+        expect(userReviewsMenuItem.classList.contains('active')).toBeFalsy()
+        expect(screen.getByText('Creator')).toBeInTheDocument()
+        // photos section
+        // reviews section
     })
 
     test('Two Episodes should be displayed by default', async () => {

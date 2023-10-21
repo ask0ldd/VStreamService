@@ -316,3 +316,17 @@ const season1 : IEpisode[] = [
         runningTime : 45,
      },
 ]
+
+/*
+
+function reactComponent(){
+    function test(){
+
+    }
+
+    return(<div>component text</div>)
+}
+
+export default reactComponent
+
+*/
