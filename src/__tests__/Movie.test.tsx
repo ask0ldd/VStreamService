@@ -47,9 +47,17 @@ describe('Movie Gallery Component', async () => {
 
     test('The secondary menu is displaying the expected sections', async () => {
         await waitFor(() => expect(screen.getByText('Episodes')).toBeInTheDocument())
-        expect(screen.getByText('Cast & Crew')).toBeInTheDocument()
-        expect(screen.getByText('Photos')).toBeInTheDocument()
-        expect(screen.getByText('User Reviews')).toBeInTheDocument()
+        const episodesMenuItem = screen.getByText('Episodes')
+        const castnCrewMenuItem = screen.getByText('Cast & Crew')
+        const photosMenuItem = screen.getByText('Photos')
+        const userReviewsMenuItem = screen.getByText('User Reviews')
+        expect(episodesMenuItem.classList.contains('active')).toBeTruthy()
+        expect(castnCrewMenuItem).toBeInTheDocument()
+        expect(castnCrewMenuItem.classList.contains('active')).toBeFalsy()
+        expect(photosMenuItem).toBeInTheDocument()
+        expect(photosMenuItem.classList.contains('active')).toBeFalsy()
+        expect(userReviewsMenuItem).toBeInTheDocument()
+        expect(userReviewsMenuItem.classList.contains('active')).toBeFalsy()
         // to add
     })
 
