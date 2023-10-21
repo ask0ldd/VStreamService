@@ -1,6 +1,6 @@
 import { BrowserRouter } from "react-router-dom"
 import Movie from "../pages/Movie"
-import { fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import store from "../redux/store"
 import { Provider } from "react-redux"
 import { vi } from "vitest"
@@ -45,6 +45,14 @@ describe('Movie Gallery Component', async () => {
         expect(screen.getByText('User Reviews')).toBeInTheDocument()
     })
 
+    test('The secondary menu is displaying the expected sections', async () => {
+        await waitFor(() => expect(screen.getByText('Episodes')).toBeInTheDocument())
+        expect(screen.getByText('Cast & Crew')).toBeInTheDocument()
+        expect(screen.getByText('Photos')).toBeInTheDocument()
+        expect(screen.getByText('User Reviews')).toBeInTheDocument()
+        // to add
+    })
+
     test('Two Episodes should be displayed by default', async () => {
         await waitFor(() => expect(screen.getByText('Episodes')).toBeInTheDocument())
         expect(screen.getAllByTestId('episode-row').length).toBe(2)
@@ -69,5 +77,19 @@ describe('Movie Gallery Component', async () => {
         video.play = vi.fn(video.play)
         await waitFor(() => {expect(video.play).toHaveBeenCalled()}, { timeout: 4000 })
     })
+
+    test('The unmute video button should work', async() => {
+        await waitFor(() => expect(screen.getByText('Episodes')).toBeInTheDocument())
+        const video = screen.getByTestId('video') as HTMLVideoElement
+        video.play = vi.fn(video.play)
+        await waitFor(() => {expect(video.play).toHaveBeenCalled()}, { timeout: 4000 })
+        expect(video.muted).toBeTruthy()
+        const buttons = screen.getAllByRole('button')
+        const muteButton = buttons.find(button => button.classList.contains('switchAudioButton'))
+        act(() => muteButton?.click())
+        await waitFor(() => expect(video.muted).toBeFalsy())
+    })
+
+    // displaying two more episodes when scrolling
 
 })
