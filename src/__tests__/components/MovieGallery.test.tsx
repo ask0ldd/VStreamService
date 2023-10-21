@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { BrowserRouter } from "react-router-dom"
-import { render, screen, waitFor, act, fireEvent } from '@testing-library/react'
+import { render, screen, waitFor, act } from '@testing-library/react'
 import MovieGallery from "../../components/MovieGallery"
 import { expect, vi, describe, test, beforeAll, beforeEach } from 'vitest'
 import userEvent from '@testing-library/user-event'
@@ -99,5 +99,13 @@ describe('Movie Gallery Component', async () => {
         act(() => screen.getByTestId('galleryModal').click())
         await waitFor(() => expect(screen.queryByTestId('galleryModal')).not.toBeInTheDocument())
     })
+
+    /*test('', async() => {
+        await waitFor(() => expect(screen.getByTestId('gallery')).toBeInTheDocument())
+        await fireEvent.scroll(window, { target: { scrollY: 300 } })
+        const galleryPicture = screen.getByTestId('gallery').querySelectorAll('article')[0]
+        act(() => galleryPicture.click())
+        await fireEvent.scroll(window, { target: { scrollY: 300 } })
+    })*/
 
 })

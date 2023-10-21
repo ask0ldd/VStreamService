@@ -11,7 +11,7 @@ function EpisodeRow({episode} : {episode : IEpisode}){
     }
 
     return(
-        <article id={"episodeCard"+episode.episode} onMouseOver={(e : MouseEvent<HTMLElement>) => showButtons(e, true)} onMouseLeave={(e : MouseEvent<HTMLElement>) => showButtons(e, false)}>
+        <article data-testid="episode-row" id={"episodeCard"+episode.episode} onMouseOver={(e : MouseEvent<HTMLElement>) => showButtons(e, true)} onMouseLeave={(e : MouseEvent<HTMLElement>) => showButtons(e, false)}>
             <figure>
                 <img src={"../"+episode.picture}/>
             </figure>
@@ -31,7 +31,7 @@ function EpisodeRow({episode} : {episode : IEpisode}){
                 <p>
                     {episode.plot}
                 </p>
-                <div className="episodesButtonsContainer">
+                <div data-testid="episode-buttons-container" className="episodesButtonsContainer">
                     <img src="../buttons/likebutton.png"/>
                     <img src="../buttons/dislikebutton.png"/>
                     <img src="../buttons/addbutton.png"/>
