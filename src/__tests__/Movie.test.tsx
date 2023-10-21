@@ -5,6 +5,12 @@ import store from "../redux/store"
 import { Provider } from "react-redux"
 import { vi } from "vitest"
 
+/*vi.mock('../pages/Movie', () => ({
+    __esModule: true,
+    default: vi.fn(),
+    videoStart: vi.fn(),
+  }))*/
+
 const MockedRouter = () => { 
     return(
         <Provider store={store}>
@@ -55,6 +61,13 @@ describe('Movie Gallery Component', async () => {
         await waitFor(() => expect(buttonsContainer[0]).toHaveStyle('transform: translateY(0)'))
         fireEvent.mouseLeave(episodeRows[0])
         await waitFor(() => expect(buttonsContainer[0]).toHaveStyle('transform: translateY(6rem)'))
+    })
+
+    test('The video should be loaded and playing after 4 secs', async() => {
+        await waitFor(() => expect(screen.getByText('Episodes')).toBeInTheDocument())
+        const video = screen.getByTestId('video') as HTMLVideoElement
+        video.play = vi.fn(video.play)
+        await waitFor(() => {expect(video.play).toHaveBeenCalled()}, { timeout: 4000 })
     })
 
 })
