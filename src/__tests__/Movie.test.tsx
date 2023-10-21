@@ -4,7 +4,6 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import store from "../redux/store"
 import { Provider } from "react-redux"
 import { vi } from "vitest"
-import '@testing-library/jest-dom/extend-expect'
 
 const MockedRouter = () => { 
     return(
@@ -15,7 +14,6 @@ const MockedRouter = () => {
         </Provider>
     )
 }
-
 
 describe('Movie Gallery Component', async () => { 
 

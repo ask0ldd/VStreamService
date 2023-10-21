@@ -48,6 +48,9 @@ function VerticalMovieCard({movie, movieMedias, /*moviesBg, */ xPosition} : {mov
         }, 500)
     }
 
+    // ---
+    // Load and display a Video with a Card is hovered
+    // ---
     function startVideo(event : React.MouseEvent<HTMLElement>){
         const video = event.currentTarget.querySelector('video') as HTMLVideoElement
         // sets video source src only when hovering the card => video lazy loading
@@ -67,6 +70,9 @@ function VerticalMovieCard({movie, movieMedias, /*moviesBg, */ xPosition} : {mov
         }
     }
 
+    // ---
+    // Add a Video to the Users Favorites
+    // ---
     function addtoWatchList(e : React.MouseEvent<HTMLElement>, id : string){
         e.preventDefault()
         e.stopPropagation()
