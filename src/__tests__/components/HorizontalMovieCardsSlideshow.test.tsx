@@ -14,7 +14,7 @@ const MockedRouter = () => {
     return(
         <Provider store={store}>
             <BrowserRouter>
-                <HorizontalMovieCardsSlideshow slideshowTitle="Generic Title" moviesList={[...moviesList2, ...moviesList2]}/>
+                <HorizontalMovieCardsSlideshow slideshowTitle="Generic Title" moviesList={[...mockMovieList, ...mockMovieList]}/>
             </BrowserRouter>
         </Provider>
     )
@@ -52,16 +52,16 @@ describe('Horizontal Slideshow Component', async () => {
 
     test('All the cards are displayed', async () => {
         await waitFor(() => expect(screen.getByText('Generic Title')).toBeInTheDocument())
-        expect(screen.getAllByAltText(moviesList2[0].Title+' miniature').length).toBe(2)
-        expect(screen.getAllByAltText(moviesList2[1].Title+' miniature').length).toBe(2)
-        expect(screen.getAllByAltText(moviesList2[2].Title+' miniature').length).toBe(2)
-        expect(screen.getAllByAltText(moviesList2[3].Title+' miniature').length).toBe(2)
-        expect(screen.getAllByAltText(moviesList2[4].Title+' miniature').length).toBe(2)
-        expect(screen.getAllByAltText(moviesList2[5].Title+' miniature').length).toBe(2)
-        expect(screen.getAllByAltText(moviesList2[6].Title+' miniature').length).toBe(2)
-        expect(screen.getAllByAltText(moviesList2[7].Title+' miniature').length).toBe(2)
-        expect(screen.getAllByAltText(moviesList2[8].Title+' miniature').length).toBe(2)
-        expect(screen.getAllByAltText(moviesList2[9].Title+' miniature').length).toBe(2)
+        expect(screen.getAllByAltText(mockMovieList[0].Title+' miniature').length).toBe(2)
+        expect(screen.getAllByAltText(mockMovieList[1].Title+' miniature').length).toBe(2)
+        expect(screen.getAllByAltText(mockMovieList[2].Title+' miniature').length).toBe(2)
+        expect(screen.getAllByAltText(mockMovieList[3].Title+' miniature').length).toBe(2)
+        expect(screen.getAllByAltText(mockMovieList[4].Title+' miniature').length).toBe(2)
+        expect(screen.getAllByAltText(mockMovieList[5].Title+' miniature').length).toBe(2)
+        expect(screen.getAllByAltText(mockMovieList[6].Title+' miniature').length).toBe(2)
+        expect(screen.getAllByAltText(mockMovieList[7].Title+' miniature').length).toBe(2)
+        expect(screen.getAllByAltText(mockMovieList[8].Title+' miniature').length).toBe(2)
+        expect(screen.getAllByAltText(mockMovieList[9].Title+' miniature').length).toBe(2)
     })
 
     test('The slideshow scrolling buttons are working', async () => {
@@ -72,11 +72,11 @@ describe('Horizontal Slideshow Component', async () => {
         const movieContainer = screen.getByTestId('movieContainer')
         expect(movieContainer.scrollLeft).toBe(0)
         act(() => scrollRightButton.click())
+        // test if the pagination & the scrollLeft value gets updated back & forth
         await waitFor(() => expect(movieContainer.scrollLeft).toBe(cardWidthPlusGap * nMoviesJumpedWhenScrolling))
         const paginationButtons = screen.getAllByRole('button').filter(button => button.classList.contains('dot'))
         expect(paginationButtons.length).toBe(7)
         act(() => movieContainer.dispatchEvent(new Event('scroll')))
-        // act(() => vi.advanceTimersByTime(500))
         await waitFor(() => expect(paginationButtons[1].classList.contains('active')).toBeTruthy())
         expect(paginationButtons[0].classList.contains('active')).toBeFalsy()
         expect(paginationButtons[2].classList.contains('active')).toBeFalsy()
@@ -87,13 +87,18 @@ describe('Horizontal Slideshow Component', async () => {
         act(() => scrollLeftButton.click())
         await waitFor(() => expect(movieContainer.scrollLeft).toBe(0))
         act(() => movieContainer.dispatchEvent(new Event('scroll')))
-
-        // still needs to test update pagination but onscroll event not triggered
-    }, 10000)
+        await waitFor(() => expect(paginationButtons[0].classList.contains('active')).toBeTruthy())
+        expect(paginationButtons[1].classList.contains('active')).toBeFalsy()
+        expect(paginationButtons[2].classList.contains('active')).toBeFalsy()
+        expect(paginationButtons[3].classList.contains('active')).toBeFalsy()
+        expect(paginationButtons[4].classList.contains('active')).toBeFalsy()
+        expect(paginationButtons[5].classList.contains('active')).toBeFalsy()
+        expect(paginationButtons[6].classList.contains('active')).toBeFalsy()
+    })
 
 })
 
-const moviesList2: IMovie[] = [
+const mockMovieList: IMovie[] = [
   {
     Title: "The Lord of the Rings: The Rings of Power",
     Year: "2022–",
