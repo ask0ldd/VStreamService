@@ -1,11 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { BrowserRouter } from "react-router-dom"
-import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { act, render, screen, waitFor } from '@testing-library/react'
 import { Provider } from "react-redux"
 import HorizontalMovieCardsSlideshow from "../../components/HorizontalMovieCardsSlideshow"
 import store from "../../redux/store"
 import { IMovie } from "../../types/types"
 import { vi } from "vitest"
+
+const cardWidthPlusGap = 320 + 32
+const nMoviesJumpedWhenScrolling = 3
 
 const MockedRouter = () => { 
     return(
@@ -17,7 +20,7 @@ const MockedRouter = () => {
     )
 }
 
-// recoding the useful part
+// recoding the useful part of scrollby
 interface ScrollOptions {
     left?: number
     top?: number
@@ -29,12 +32,17 @@ interface ScrollContainer extends HTMLElement{
     scrollBy(x: number, y: number): void;
 }
 
-function mockedScrollBy ( this: ScrollContainer, x: number | ScrollOptions = 0, y: number = 0){ 
-    if(typeof x === "object") this.scrollLeft = this.scrollLeft + (x.left || 0)
-    if(typeof x === "object") this.scrollTop = this.scrollTop + (x.top || 0)
+function mockedScrollBy (this: ScrollContainer, x: number | ScrollOptions = 0, y: number = 0){ 
+    this.scrollLeft = typeof x === "object" ? this.scrollLeft + (x.left || 0) : this.scrollLeft + x || 0
+    this.scrollTop = typeof x === "object" ? this.scrollTop + (x.top || 0) : this.scrollTop + x || 0
 }
-  
 window.HTMLElement.prototype.scrollBy = vi.fn(mockedScrollBy)
+
+function mockedScrollTo (this: ScrollContainer, x: number | ScrollOptions = 0, y: number = 0){ 
+    this.scrollLeft = typeof x === "object" ? x.left || 0 : x || 0
+    this.scrollTop = typeof x === "object" ? x.top || 0 : y || 0
+}
+window.HTMLElement.prototype.scrollTo = vi.fn(mockedScrollTo)
 
 describe('Horizontal Slideshow Component', async () => { 
 
@@ -57,9 +65,6 @@ describe('Horizontal Slideshow Component', async () => {
     })
 
     test('The slideshow scrolling buttons are working', async () => {
-        const cardWidthPlusGap = 320 + 32
-        const nMoviesJumpedWhenScrolling = 3
-
         await waitFor(() => expect(screen.getByText('Generic Title')).toBeInTheDocument())
         const scrollRightButton = screen.getByAltText('next movies')
         const scrollLeftButton = screen.getByAltText('previous movies')

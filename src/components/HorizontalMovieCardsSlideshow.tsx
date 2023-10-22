@@ -83,7 +83,7 @@ function HorizontalMovieCardsSlideshow({moviesList, slideshowTitle}: {moviesList
                 <div className="paginationContainer">
                     {   // pagination dots
                         paginationStops.map((_, index) => 
-                            <div key={'dot'+index} className={currentSlideshowPage === index + 1 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, index + 1)}></div>)
+                            <div key={'dot'+index} role="button" className={currentSlideshowPage === index + 1 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, index + 1)}></div>)
                     }
                 </div>
             </div>
