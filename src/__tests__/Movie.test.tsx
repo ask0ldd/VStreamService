@@ -59,6 +59,7 @@ describe('Movie Gallery Component', async () => {
         expect(screen.getByText('Season 1')).toBeInTheDocument()
         // cast section
         act(() => castnCrewMenuItem.click())
+        await waitFor(() => expect(screen.getByText('Creator')).toBeInTheDocument())
         expect(episodesMenuItem.classList.contains('active')).toBeFalsy()
         expect(castnCrewMenuItem).toBeInTheDocument()
         expect(castnCrewMenuItem.classList.contains('active')).toBeTruthy()
@@ -66,9 +67,9 @@ describe('Movie Gallery Component', async () => {
         expect(photosMenuItem.classList.contains('active')).toBeFalsy()
         expect(userReviewsMenuItem).toBeInTheDocument()
         expect(userReviewsMenuItem.classList.contains('active')).toBeFalsy()
-        expect(screen.getByText('Creator')).toBeInTheDocument()
         // photos section
         act(() => photosMenuItem.click())
+        await waitFor(() => expect(screen.getByText('Karl Urban in The Boys (2019)')).toBeInTheDocument())
         expect(episodesMenuItem.classList.contains('active')).toBeFalsy()
         expect(castnCrewMenuItem).toBeInTheDocument()
         expect(castnCrewMenuItem.classList.contains('active')).toBeFalsy()
@@ -76,9 +77,9 @@ describe('Movie Gallery Component', async () => {
         expect(photosMenuItem.classList.contains('active')).toBeTruthy()
         expect(userReviewsMenuItem).toBeInTheDocument()
         expect(userReviewsMenuItem.classList.contains('active')).toBeFalsy()
-        expect(screen.getByText('Creator')).toBeInTheDocument()
         // reviews section
         act(() => userReviewsMenuItem.click())
+        await waitFor(() => expect(screen.getAllByText("It's exactly the opposite of your usual superhero show!").length).toBe(2))
         expect(episodesMenuItem.classList.contains('active')).toBeFalsy()
         expect(castnCrewMenuItem).toBeInTheDocument()
         expect(castnCrewMenuItem.classList.contains('active')).toBeFalsy()
@@ -86,7 +87,6 @@ describe('Movie Gallery Component', async () => {
         expect(photosMenuItem.classList.contains('active')).toBeFalsy()
         expect(userReviewsMenuItem).toBeInTheDocument()
         expect(userReviewsMenuItem.classList.contains('active')).toBeTruthy()
-        expect(screen.getByText('Creator')).toBeInTheDocument()
         // back to default
         act(() => episodesMenuItem.click())
         expect(episodesMenuItem.classList.contains('active')).toBeTruthy()
@@ -128,7 +128,5 @@ describe('Movie Gallery Component', async () => {
         act(() => muteButton?.click())
         await waitFor(() => expect(video.muted).toBeFalsy())
     })
-
-    // displaying two more episodes when scrolling
 
 })
