@@ -5,6 +5,7 @@ import { Provider } from "react-redux"
 import HorizontalMovieCardsSlideshow from "../../components/HorizontalMovieCardsSlideshow"
 import store from "../../redux/store"
 import { IMovie } from "../../types/types"
+import { vi } from "vitest"
 
 const MockedRouter = () => { 
     return(
@@ -15,6 +16,25 @@ const MockedRouter = () => {
         </Provider>
     )
 }
+
+// recoding the useful part
+interface ScrollOptions {
+    left?: number
+    top?: number
+    behavior?: "auto" | "instant" | "smooth";
+  }
+  
+interface ScrollContainer extends HTMLElement{
+    scrollBy(options?: ScrollOptions): void;
+    scrollBy(x: number, y: number): void;
+}
+
+function mockedScrollBy ( this: ScrollContainer, x: number | ScrollOptions = 0, y: number = 0){ 
+    if(typeof x === "object") this.scrollLeft = this.scrollLeft + (x.left || 0)
+    if(typeof x === "object") this.scrollTop = this.scrollTop + (x.top || 0)
+}
+  
+window.HTMLElement.prototype.scrollBy = vi.fn(mockedScrollBy)
 
 describe('Horizontal Slideshow Component', async () => { 
 
@@ -34,6 +54,21 @@ describe('Horizontal Slideshow Component', async () => {
         expect(screen.getAllByAltText(moviesList2[7].Title+' miniature').length).toBe(2)
         expect(screen.getAllByAltText(moviesList2[8].Title+' miniature').length).toBe(2)
         expect(screen.getAllByAltText(moviesList2[9].Title+' miniature').length).toBe(2)
+    })
+
+    test('The slideshow scrolling buttons are working', async () => {
+        const cardWidthPlusGap = 320 + 32
+        const nMoviesJumpedWhenScrolling = 3
+
+        await waitFor(() => expect(screen.getByText('Generic Title')).toBeInTheDocument())
+        const scrollRightButton = screen.getByAltText('next movies')
+        const scrollLeftButton = screen.getByAltText('previous movies')
+        const movieContainer = screen.getByTestId('movieContainer')
+        expect(movieContainer.scrollLeft).toBe(0)
+        act(() => scrollRightButton.click())
+        await waitFor(() => expect(movieContainer.scrollLeft).toBe(cardWidthPlusGap * nMoviesJumpedWhenScrolling))
+        act(() => scrollLeftButton.click())
+        await waitFor(() => expect(movieContainer.scrollLeft).toBe(0))
     })
 
 })

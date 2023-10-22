@@ -96,7 +96,7 @@ function HorizontalMovieCardsSlideshow({moviesList, slideshowTitle}: {moviesList
                         <img className="rightArrow" role="button" alt="next movies" src="arrow-right.svg"/>
                     </div>
                 </div>
-                <div ref={moviesContainerRef} className="moviesContainer" onScroll={updatePagination}>
+                <div ref={moviesContainerRef} className="moviesContainer" data-testid="movieContainer" onScroll={updatePagination}>
                     {movies.map((movie, index) => (
                         <HorizontalMovieCard key={movie.imdbID+'1'+index} movie={movie} movieMedias={moviesMedias[movie.imdbID]} />
                     ))}
