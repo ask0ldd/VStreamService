@@ -68,7 +68,28 @@ describe('Movie Gallery Component', async () => {
         expect(userReviewsMenuItem.classList.contains('active')).toBeFalsy()
         expect(screen.getByText('Creator')).toBeInTheDocument()
         // photos section
+        act(() => photosMenuItem.click())
+        expect(episodesMenuItem.classList.contains('active')).toBeFalsy()
+        expect(castnCrewMenuItem).toBeInTheDocument()
+        expect(castnCrewMenuItem.classList.contains('active')).toBeFalsy()
+        expect(photosMenuItem).toBeInTheDocument()
+        expect(photosMenuItem.classList.contains('active')).toBeTruthy()
+        expect(userReviewsMenuItem).toBeInTheDocument()
+        expect(userReviewsMenuItem.classList.contains('active')).toBeFalsy()
+        expect(screen.getByText('Creator')).toBeInTheDocument()
         // reviews section
+        act(() => userReviewsMenuItem.click())
+        expect(episodesMenuItem.classList.contains('active')).toBeFalsy()
+        expect(castnCrewMenuItem).toBeInTheDocument()
+        expect(castnCrewMenuItem.classList.contains('active')).toBeFalsy()
+        expect(photosMenuItem).toBeInTheDocument()
+        expect(photosMenuItem.classList.contains('active')).toBeFalsy()
+        expect(userReviewsMenuItem).toBeInTheDocument()
+        expect(userReviewsMenuItem.classList.contains('active')).toBeTruthy()
+        expect(screen.getByText('Creator')).toBeInTheDocument()
+        // back to default
+        act(() => episodesMenuItem.click())
+        expect(episodesMenuItem.classList.contains('active')).toBeTruthy()
     })
 
     test('Two Episodes should be displayed by default', async () => {
