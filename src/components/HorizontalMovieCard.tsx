@@ -20,7 +20,7 @@ function HorizontalMovieCard ({movie, movieMedias} : {movie : IMovie, movieMedia
         <Link className="horizontalCardLink" role="button" to={"/movie/"+movie.imdbID}>
             <article className="horizontalMovieCard">
                 <div className="mainPicContainer">
-                    <img className="mainPic" src={'horizontalCardPic/' + movieMedias.horizontalPic}/> 
+                    <img className="mainPic" alt={movie.Title + ' miniature'} src={'horizontalCardPic/' + movieMedias.horizontalPic}/> 
                     <div className="moviePositionContainer">
                         <div className="moviePositionBar" style={{width:movieMedias.watchedPercentage+'%'}}></div>
                     </div>

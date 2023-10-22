@@ -62,9 +62,9 @@ function App() {
         {!isLoading && !isError && <VerticalMovieCardsSlideshow title={{icon : 'icons/award.png', title : 'Most Nominated Movies'}} moviesList={[...moviesList].reverse()}/>}
         <div style={{height:'4rem'}}></div>
         {isL && <LoadingAnimation/>}
-        {!isL && !isE && <HorizontalMovieCardsSlideshow slideshowTitle="Previously Watched" moviesList={moviesList2}/>}
+        {!isL && !isE && <HorizontalMovieCardsSlideshow slideshowTitle="Previously Watched" moviesList={[...moviesList2, ...moviesList2, ]}/>}
         <div style={{height:'4rem'}}></div>
-        {!isL && !isE && <HorizontalMovieCardsSlideshow slideshowTitle="Suggested For You" moviesList={[...moviesList2].reverse()}/>}
+        {!isL && !isE && <HorizontalMovieCardsSlideshow slideshowTitle="Suggested For You" moviesList={[...[...moviesList2].reverse(), ...[...moviesList2].reverse()]}/>}
       </main>
       <Footer/>
     </>

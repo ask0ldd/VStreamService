@@ -6,7 +6,7 @@ import { useRef, useState } from "react"
 
 function HorizontalMovieCardsSlideshow({moviesList, slideshowTitle}: {moviesList : IMovie[], slideshowTitle: string}){
 
-    const movies : IMovie[] = [...moviesList, ...moviesList]
+    const movies : IMovie[] = [...moviesList]
 
     const cardWidthPlusGap = 320 + 32
     const nMoviesJumpedWhenScrolling = 3
