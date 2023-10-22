@@ -42,7 +42,7 @@ describe('App Page', async () => {
         expect(screen.getByAltText('the dark knight catwoman')).toBeInTheDocument()
     })
 
-    test('The Banner Rotation is working', async () => {
+    test('The auto Banner Rotation is working', async () => {
         await waitFor(() => expect(screen.getByAltText('the dark knight batman')).toBeInTheDocument())
         const batmanBanner = screen.getByAltText('the dark knight batman')
         const baneBanner = screen.getByAltText('the dark knight bane')
@@ -50,6 +50,21 @@ describe('App Page', async () => {
         expect(batmanBanner).not.toHaveStyle('transform: translateX(-1440px)')
         expect(baneBanner).not.toHaveStyle('transform: translateX(-1440px)')
         expect(catwomanBanner).not.toHaveStyle('transform: translateX(-1440px)')
-    })
+        await waitFor(() => {expect(batmanBanner).toHaveStyle('transform: translateX(-1440px)')}, { timeout: 7000 })
+    }, 10000) // expand delay before timeout
+
+    test('Clicking on the Banner trigger a rotation', async () => {
+        await waitFor(() => expect(screen.getByAltText('the dark knight batman')).toBeInTheDocument())
+        const batmanBanner = screen.getByAltText('the dark knight batman')
+        const baneBanner = screen.getByAltText('the dark knight bane')
+        const catwomanBanner = screen.getByAltText('the dark knight catwoman')
+        expect(batmanBanner).not.toHaveStyle('transform: translateX(-1440px)')
+        expect(baneBanner).not.toHaveStyle('transform: translateX(-1440px)')
+        expect(catwomanBanner).not.toHaveStyle('transform: translateX(-1440px)')
+        act(() => batmanBanner.click())
+        await waitFor(() => {expect(batmanBanner).toHaveStyle('transform: translateX(-1440px)')}, { timeout: 3000 })
+        expect(baneBanner).toHaveStyle('transform: translateX(-1440px)')
+        expect(catwomanBanner).toHaveStyle('transform: translateX(-1440px)')
+    }, 3000)
 
 })

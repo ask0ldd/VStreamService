@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { BrowserRouter } from "react-router-dom"
 import { render, screen, waitFor, act } from '@testing-library/react'
-import { expect, vi, describe, test, beforeAll, beforeEach } from 'vitest'
-import userEvent from '@testing-library/user-event'
+import { expect, describe, test, beforeEach } from 'vitest'
+// import userEvent from '@testing-library/user-event'
 import UsersReviewsList from "../../components/usersReviewsList"
 
 const MockedRouter = () => { 
