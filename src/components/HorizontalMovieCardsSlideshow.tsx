@@ -4,7 +4,7 @@ import HorizontalMovieCard from "./HorizontalMovieCard"
 import '../style/HorizontalMovieCardsSlideshow.css'
 import { useRef, useState } from "react"
 
-function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
+function HorizontalMovieCardsSlideshow({moviesList, slideshowTitle}: {moviesList : IMovie[], slideshowTitle: string}){
 
     const movies : IMovie[] = [...moviesList, ...moviesList]
 
@@ -79,7 +79,7 @@ function HorizontalMovieCardsSlideshow({moviesList}: {moviesList : IMovie[]}){
     return(
         <section className="horizontalCardsSlideshow">
             <div className="titlenDotsContainer">
-                <h2>Currently Trending</h2>
+                <h2>{slideshowTitle}</h2>
                 <div className="paginationContainer">
                     {   // pagination dots
                         paginationStops.map((_, index) => 

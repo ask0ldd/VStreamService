@@ -15,7 +15,7 @@
 .verticalCardsSlideshow .titleContainer img {
   height: 28px;
   transform: translateY(3px);
-  margin-right: 2px;
+  /*margin-right: 2px;*/
 }
 
 .verticalCardsSlideshow .titleContainer span {

@@ -36,7 +36,7 @@ describe('App Page', async () => {
         render(<MockedRouter/>) 
     })
 
-    test('The Slideshow is displayed', async () => {
+    test('The Banner Slideshow is displayed', async () => {
         await waitFor(() => expect(screen.getByAltText('the dark knight batman')).toBeInTheDocument())
         expect(screen.getByAltText('the dark knight bane')).toBeInTheDocument()
         expect(screen.getByAltText('the dark knight catwoman')).toBeInTheDocument()
