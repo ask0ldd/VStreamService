@@ -26,7 +26,7 @@ function App() {
   const {isLoading : isL, fetchedDatas : fd, isError : isE} = useAPI({idList:['tt7631058', 'tt14689620', 'tt9777666', 'tt3973768', 'tt0816692', 'tt14379088', 'tt1663202', 'tt2119532', 'tt0048424', 'tt17274522'], longPlot:false})
   let moviesList2 : IMovie[] = []
   if(fd != null && !Array.isArray(fd)) moviesList2.push({...fd})
-  if(fd != null && Array.isArray(fd)) moviesList2 = [...fd]
+  if(fd != null && Array.isArray(fd)) { moviesList2 = [...fd]; console.log(JSON.stringify(moviesList2)) }
 
   function nextBanner(){
     bannerSlideshowPosition.current -= 1440
