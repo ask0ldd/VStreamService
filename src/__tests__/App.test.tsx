@@ -42,4 +42,14 @@ describe('App Page', async () => {
         expect(screen.getByAltText('the dark knight catwoman')).toBeInTheDocument()
     })
 
+    test('The Banner Rotation is working', async () => {
+        await waitFor(() => expect(screen.getByAltText('the dark knight batman')).toBeInTheDocument())
+        const batmanBanner = screen.getByAltText('the dark knight batman')
+        const baneBanner = screen.getByAltText('the dark knight bane')
+        const catwomanBanner = screen.getByAltText('the dark knight catwoman')
+        expect(batmanBanner).not.toHaveStyle('transform: translateX(-1440px)')
+        expect(baneBanner).not.toHaveStyle('transform: translateX(-1440px)')
+        expect(catwomanBanner).not.toHaveStyle('transform: translateX(-1440px)')
+    })
+
 })
