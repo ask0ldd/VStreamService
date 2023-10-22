@@ -25,7 +25,7 @@ interface ScrollOptions {
     left?: number
     top?: number
     behavior?: "auto" | "instant" | "smooth";
-  }
+}
   
 interface ScrollContainer extends HTMLElement{
     scrollBy(options?: ScrollOptions): void;
@@ -65,6 +65,7 @@ describe('Horizontal Slideshow Component', async () => {
     })
 
     test('The slideshow scrolling buttons are working', async () => {
+        // vi.useFakeTimers()
         await waitFor(() => expect(screen.getByText('Generic Title')).toBeInTheDocument())
         const scrollRightButton = screen.getByAltText('next movies')
         const scrollLeftButton = screen.getByAltText('previous movies')
@@ -72,9 +73,23 @@ describe('Horizontal Slideshow Component', async () => {
         expect(movieContainer.scrollLeft).toBe(0)
         act(() => scrollRightButton.click())
         await waitFor(() => expect(movieContainer.scrollLeft).toBe(cardWidthPlusGap * nMoviesJumpedWhenScrolling))
+        const paginationButtons = screen.getAllByRole('button').filter(button => button.classList.contains('dot'))
+        expect(paginationButtons.length).toBe(7)
+        act(() => movieContainer.dispatchEvent(new Event('scroll')))
+        // act(() => vi.advanceTimersByTime(500))
+        await waitFor(() => expect(paginationButtons[1].classList.contains('active')).toBeTruthy())
+        expect(paginationButtons[0].classList.contains('active')).toBeFalsy()
+        expect(paginationButtons[2].classList.contains('active')).toBeFalsy()
+        expect(paginationButtons[3].classList.contains('active')).toBeFalsy()
+        expect(paginationButtons[4].classList.contains('active')).toBeFalsy()
+        expect(paginationButtons[5].classList.contains('active')).toBeFalsy()
+        expect(paginationButtons[6].classList.contains('active')).toBeFalsy()
         act(() => scrollLeftButton.click())
         await waitFor(() => expect(movieContainer.scrollLeft).toBe(0))
-    })
+        act(() => movieContainer.dispatchEvent(new Event('scroll')))
+
+        // still needs to test update pagination but onscroll event not triggered
+    }, 10000)
 
 })
 

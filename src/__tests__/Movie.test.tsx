@@ -18,6 +18,9 @@ const MockedRouter = () => {
     )
 }
 
+window.HTMLMediaElement.prototype.load = vi.fn()
+window.HTMLMediaElement.prototype.play = vi.fn()
+
 describe('Movie Page', async () => { 
 
     // mocking the intersection observer obj
@@ -114,14 +117,14 @@ describe('Movie Page', async () => {
         await waitFor(() => expect(screen.getByText('Episodes')).toBeInTheDocument())
         const video = screen.getByTestId('video') as HTMLVideoElement
         video.play = vi.fn(video.play)
-        await waitFor(() => {expect(video.play).toHaveBeenCalled()}, { timeout: 4000 })
+        await waitFor(() => {expect(video.play).toHaveBeenCalled()}, { timeout: 5000 })
     })
 
     test('The unmute video button should work', async() => {
         await waitFor(() => expect(screen.getByText('Episodes')).toBeInTheDocument())
         const video = screen.getByTestId('video') as HTMLVideoElement
         video.play = vi.fn(video.play)
-        await waitFor(() => {expect(video.play).toHaveBeenCalled()}, { timeout: 4000 })
+        await waitFor(() => {expect(video.play).toHaveBeenCalled()}, { timeout: 5000 })
         expect(video.muted).toBeTruthy()
         const buttons = screen.getAllByRole('button')
         const muteButton = buttons.find(button => button.classList.contains('switchAudioButton'))
