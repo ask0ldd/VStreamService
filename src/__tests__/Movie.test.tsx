@@ -18,7 +18,7 @@ const MockedRouter = () => {
     )
 }
 
-describe('Movie Gallery Component', async () => { 
+describe('Movie Page', async () => { 
 
     // mocking the intersection observer obj
     beforeAll(() => {
