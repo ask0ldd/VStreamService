@@ -28,6 +28,19 @@ describe('Horizontal Slideshow Component', async () => {
         expect(screen.getByAltText("more options")).toBeInTheDocument()
         expect(screen.getByAltText("add to watchlist")).toBeInTheDocument()
     })
+
+    // add to watchlist
+
+    test('Add to watchlist', async() =>  {
+        await waitFor(() => expect(screen.getByText(mockedMovie.Title)).toBeInTheDocument())
+        const addtoWatchlistButton = screen.getByAltText("add to watchlist") as HTMLImageElement
+        //"buttons/okbutton.png" : "buttons/addbutton.png"
+        expect(addtoWatchlistButton.src.includes('buttons/addbutton.png')).toBeTruthy()
+        act(() => addtoWatchlistButton.click())
+        await waitFor(() => expect(addtoWatchlistButton.src.includes('buttons/okbutton.png')).toBeTruthy())
+        act(() => addtoWatchlistButton.click())
+        await waitFor(() => expect(addtoWatchlistButton.src.includes('buttons/addbutton.png')).toBeTruthy())
+    })
 })
 
 const mockedMovie : IMovie = {
