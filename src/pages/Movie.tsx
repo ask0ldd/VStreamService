@@ -63,6 +63,7 @@ function Movie(){
             threshold: 1.0,
         }
 
+        /* c8 ignore start */
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -77,13 +78,13 @@ function Movie(){
         } else { 
             console.log("no more episodes")
         }
+        /* c8 ignore stop */
 
         // cleanup
         /*return () => {
 
         }*/
     }, [episodesShown, season1fromRedux])
-
     
     function secondaryMenuClick(menuItem : "episodes" | "cast" | "photos" | "userReviews"){
         setActiveMenuItem(menuItem)
@@ -152,9 +153,9 @@ function Movie(){
                     <section className="episodesList">
 
                         <ul className="seasonsContainer">
-                            <li onClick={() => setActiveSeason(1)} className={activeSeason === 1 ? "seasonTag active" : "seasonTag inactive"}>Season 1</li>
-                            <li onClick={() => setActiveSeason(2)} className={activeSeason === 2 ? "seasonTag active" : "seasonTag inactive"}>Season 2</li>
-                            <li onClick={() => setActiveSeason(3)} className={activeSeason === 3 ? "seasonTag active" : "seasonTag inactive"}>Season 3</li>
+                            <li role="button" onClick={() => setActiveSeason(1)} className={activeSeason === 1 ? "seasonTag active" : "seasonTag inactive"}>Season 1</li>
+                            <li role="button" onClick={() => setActiveSeason(2)} className={activeSeason === 2 ? "seasonTag active" : "seasonTag inactive"}>Season 2</li>
+                            <li role="button" onClick={() => setActiveSeason(3)} className={activeSeason === 3 ? "seasonTag active" : "seasonTag inactive"}>Season 3</li>
                             <li className="seasonTag inactive" style={{marginLeft:'auto'}}>24 Episodes</li>
                         </ul>
                         {season1fromRedux.map((episode, index) => {

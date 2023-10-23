@@ -30,8 +30,8 @@ function HorizontalMovieCard ({movie, movieMedias} : {movie : IMovie, movieMedia
                         <img style={{height:'48px', boxShadow:'0px 4px 8px #00000066', borderRadius:'300px'}} src="buttons/playbutton.png"/>
                     </div>
                     <div className="addMoreContainer">
-                        <img className="addButton" role="button" src={watchList.includes(movie.imdbID) ? "buttons/okbutton.png" : "buttons/addbutton.png"} onClick={(e) => addtoWatchList(e, movie.imdbID)}/>
-                        <img src="buttons/morebutton.png"/>
+                        <img alt="add to watchlist" className="addButton" role="button" src={watchList.includes(movie.imdbID) ? "buttons/okbutton.png" : "buttons/addbutton.png"} onClick={(e) => addtoWatchList(e, movie.imdbID)}/>
+                        <img alt="more options" src="buttons/morebutton.png"/>
                     </div>
                 </div>
                 <div className="movieInfosContainer">

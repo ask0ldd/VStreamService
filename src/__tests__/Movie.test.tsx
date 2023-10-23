@@ -21,7 +21,7 @@ const MockedRouter = () => {
 window.HTMLMediaElement.prototype.load = vi.fn()
 window.HTMLMediaElement.prototype.play = vi.fn()
 Object.defineProperty(window.HTMLMediaElement, 'currentTime', {
-    get: vi.fn().mockReturnValue(0)
+    get: vi.fn().mockReturnValue(1)
 })
 
 describe('Movie Page', async () => { 
@@ -133,6 +133,18 @@ describe('Movie Page', async () => {
         const muteButton = buttons.find(button => button.classList.contains('switchAudioButton'))
         act(() => muteButton?.click())
         await waitFor(() => expect(video.muted).toBeFalsy())
+    })
+
+    test('The Seasons buttons', async() => {
+        await waitFor(() => expect(screen.getByText('Episodes')).toBeInTheDocument())
+        const seasonsButtons = screen.getAllByRole('button').filter(button => button.classList.contains('seasonTag'))
+        expect(seasonsButtons[0].classList.contains('active')).toBeTruthy()
+        act(() => seasonsButtons[1]?.click())
+        await waitFor(() => expect(seasonsButtons[1].classList.contains('active')).toBeTruthy())
+        act(() => seasonsButtons[2]?.click())
+        await waitFor(() => expect(seasonsButtons[2].classList.contains('active')).toBeTruthy())
+        act(() => seasonsButtons[0]?.click())
+        await waitFor(() => expect(seasonsButtons[0].classList.contains('active')).toBeTruthy())
     })
 
 })
