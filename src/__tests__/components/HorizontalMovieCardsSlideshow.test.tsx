@@ -30,6 +30,8 @@ interface ScrollOptions {
 interface ScrollContainer extends HTMLElement{
     scrollBy(options?: ScrollOptions): void;
     scrollBy(x: number, y: number): void;
+    scrollTo(options?: ScrollOptions): void;
+    scrollTo(x: number, y: number): void;
 }
 
 function mockedScrollBy (this: ScrollContainer, x: number | ScrollOptions = 0, y: number = 0){ 

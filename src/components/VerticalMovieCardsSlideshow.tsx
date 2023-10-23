@@ -6,11 +6,21 @@ import { useRef, useState } from "react"
 
 function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : string, title : string}, moviesList : IMovie[]}) {
 
+    const quadrupleMovieList = [...moviesList, ...moviesList, ...moviesList, ...moviesList, ]
+
     // use an observable to track the scroll position and update the pagination ?
 
     const cardWidthPlusGap = 225 + 32
-    const paginationStops = [0, 4*cardWidthPlusGap, 8*cardWidthPlusGap, 12*cardWidthPlusGap, 16*cardWidthPlusGap, 20*cardWidthPlusGap]
-    // scrollx stops : 0 / 1028 / 2056 / 3084 / 4112 / 5140 => 6 groups of 4 cards
+    const nMoviesJumpedWhenScrolling = 4
+    // const paginationStops = [0, 4*cardWidthPlusGap, 8*cardWidthPlusGap, 12*cardWidthPlusGap, 16*cardWidthPlusGap, 20*cardWidthPlusGap]
+    // scrollx stops : 0 / 1028 / 2056 / 3084 / 4112 / 5140 => 6 groups of 4 cards  
+    
+    let scrollXPosition = 0
+    const paginationStops : number[] = []
+    while(scrollXPosition < cardWidthPlusGap * quadrupleMovieList.length){
+        paginationStops.push(scrollXPosition)
+        scrollXPosition += cardWidthPlusGap * nMoviesJumpedWhenScrolling
+    }
 
     const [currentSlideshowPage, setCurrentSlideshowPage] = useState<number>(1)
     const moviesContainerRef = useRef<HTMLDivElement>(null)
@@ -102,17 +112,8 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
                     </div>
                 </div>
                 <div ref={moviesContainerRef} className="moviesContainer" onScroll={updatePagination}>
-                    {moviesList.map((movie, index) => (
+                    {quadrupleMovieList.map((movie, index) => (
                         <VerticalMovieCard key={'mc'+ new Date(Date.now()).toLocaleString + index} movieMedias={moviesMedias[movie.imdbID]} movie={movie} xPosition={index*cardWidthPlusGap}/>
-                    ))}
-                    {moviesList.map((movie, index) => (
-                        <VerticalMovieCard key={'mc'+ new Date(Date.now()).toLocaleString + index + 6} movieMedias={moviesMedias[movie.imdbID]} movie={movie} xPosition={(index+6)*cardWidthPlusGap}/>
-                    ))}
-                    {moviesList.map((movie, index) => (
-                        <VerticalMovieCard key={'mc'+ new Date(Date.now()).toLocaleString + index + 12} movieMedias={moviesMedias[movie.imdbID]} movie={movie} xPosition={(index+12)*cardWidthPlusGap}/>
-                    ))}
-                    {moviesList.map((movie, index) => (
-                        <VerticalMovieCard key={'mc'+ new Date(Date.now()).toLocaleString + index + 18} movieMedias={moviesMedias[movie.imdbID]} movie={movie} xPosition={(index+18)*cardWidthPlusGap}/>
                     ))}
                 </div>
             </div>
