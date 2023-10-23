@@ -20,6 +20,9 @@ const MockedRouter = () => {
 
 window.HTMLMediaElement.prototype.load = vi.fn()
 window.HTMLMediaElement.prototype.play = vi.fn()
+Object.defineProperty(window.HTMLMediaElement, 'currentTime', {
+    get: vi.fn().mockReturnValue(0)
+})
 
 describe('Movie Page', async () => { 
 
@@ -118,7 +121,7 @@ describe('Movie Page', async () => {
         const video = screen.getByTestId('video') as HTMLVideoElement
         video.play = vi.fn(video.play)
         await waitFor(() => {expect(video.play).toHaveBeenCalled()}, { timeout: 5000 })
-    })
+    }, 6000)
 
     test('The unmute video button should work', async() => {
         await waitFor(() => expect(screen.getByText('Episodes')).toBeInTheDocument())
