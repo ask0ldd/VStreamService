@@ -96,6 +96,19 @@ describe('Horizontal Slideshow Component', async () => {
         expect(paginationButtons[6].classList.contains('active')).toBeFalsy()
     })
 
+    test('Browsing through the pagination dots', async() => {
+        await waitFor(() => expect(screen.getByText('Generic Title')).toBeInTheDocument())
+        const movieContainer = screen.getByTestId('movieContainer')
+        expect(movieContainer.scrollLeft).toBe(0)
+        const paginationButtons = screen.getAllByRole('button').filter(button => button.classList.contains('dot'))
+        expect(paginationButtons.length).toBe(7)
+        expect(paginationButtons[0].classList.contains('active')).toBeTruthy()
+        act(() => paginationButtons[1].click())
+        act(() => movieContainer.dispatchEvent(new Event('scroll')))
+        await waitFor(() => expect(paginationButtons[1].classList.contains('active')).toBeTruthy())
+        expect(movieContainer.scrollLeft).toBe(cardWidthPlusGap * nMoviesJumpedWhenScrolling)
+    })
+
 })
 
 const mockMovieList: IMovie[] = [

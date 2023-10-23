@@ -42,7 +42,7 @@ describe('App Page', async () => {
         expect(screen.getByAltText('the dark knight catwoman')).toBeInTheDocument()
     })
 
-    test('The auto Banner Rotation is working', async () => {
+    test('The Banner is auto rotating', async () => {
         await waitFor(() => expect(screen.getByAltText('the dark knight batman')).toBeInTheDocument())
         const batmanBanner = screen.getByAltText('the dark knight batman')
         const baneBanner = screen.getByAltText('the dark knight bane')
