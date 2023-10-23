@@ -35,12 +35,14 @@ interface ScrollContainer extends HTMLElement{
 function mockedScrollBy (this: ScrollContainer, x: number | ScrollOptions = 0, y: number = 0){ 
     this.scrollLeft = typeof x === "object" ? this.scrollLeft + (x.left || 0) : this.scrollLeft + x || 0
     this.scrollTop = typeof x === "object" ? this.scrollTop + (x.top || 0) : this.scrollTop + x || 0
+    this.dispatchEvent(new Event('scroll'))
 }
 window.HTMLElement.prototype.scrollBy = vi.fn(mockedScrollBy)
 
 function mockedScrollTo (this: ScrollContainer, x: number | ScrollOptions = 0, y: number = 0){ 
     this.scrollLeft = typeof x === "object" ? x.left || 0 : x || 0
     this.scrollTop = typeof x === "object" ? x.top || 0 : y || 0
+    this.dispatchEvent(new Event('scroll'))
 }
 window.HTMLElement.prototype.scrollTo = vi.fn(mockedScrollTo)
 
@@ -65,7 +67,6 @@ describe('Horizontal Slideshow Component', async () => {
     })
 
     test('The slideshow scrolling buttons are working', async () => {
-        // vi.useFakeTimers()
         await waitFor(() => expect(screen.getByText('Generic Title')).toBeInTheDocument())
         const scrollRightButton = screen.getByAltText('next movies')
         const scrollLeftButton = screen.getByAltText('previous movies')
@@ -76,7 +77,6 @@ describe('Horizontal Slideshow Component', async () => {
         await waitFor(() => expect(movieContainer.scrollLeft).toBe(cardWidthPlusGap * nMoviesJumpedWhenScrolling))
         const paginationButtons = screen.getAllByRole('button').filter(button => button.classList.contains('dot'))
         expect(paginationButtons.length).toBe(7)
-        act(() => movieContainer.dispatchEvent(new Event('scroll')))
         await waitFor(() => expect(paginationButtons[1].classList.contains('active')).toBeTruthy())
         expect(paginationButtons[0].classList.contains('active')).toBeFalsy()
         expect(paginationButtons[2].classList.contains('active')).toBeFalsy()
@@ -86,7 +86,6 @@ describe('Horizontal Slideshow Component', async () => {
         expect(paginationButtons[6].classList.contains('active')).toBeFalsy()
         act(() => scrollLeftButton.click())
         await waitFor(() => expect(movieContainer.scrollLeft).toBe(0))
-        act(() => movieContainer.dispatchEvent(new Event('scroll')))
         await waitFor(() => expect(paginationButtons[0].classList.contains('active')).toBeTruthy())
         expect(paginationButtons[1].classList.contains('active')).toBeFalsy()
         expect(paginationButtons[2].classList.contains('active')).toBeFalsy()
@@ -104,7 +103,6 @@ describe('Horizontal Slideshow Component', async () => {
         expect(paginationButtons.length).toBe(7)
         expect(paginationButtons[0].classList.contains('active')).toBeTruthy()
         act(() => paginationButtons[1].click())
-        act(() => movieContainer.dispatchEvent(new Event('scroll')))
         await waitFor(() => expect(paginationButtons[1].classList.contains('active')).toBeTruthy())
         expect(movieContainer.scrollLeft).toBe(cardWidthPlusGap * nMoviesJumpedWhenScrolling)
     })
