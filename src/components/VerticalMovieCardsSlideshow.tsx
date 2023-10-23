@@ -93,7 +93,7 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
                 <div className="paginationContainer">
                     {   // pagination dots
                         paginationStops.map((_, index) => 
-                            <div key={'dot'+index} className={currentSlideshowPage === index + 1 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, index + 1)}></div>)
+                            <div role="button" key={'dot'+index} className={currentSlideshowPage === index + 1 ? "dot active" : "dot"} onClick={(e) => scrollToStop(e, index + 1)}></div>)
                     }
                 </div>
             </div>
@@ -110,7 +110,7 @@ function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : strin
                         </div>
                     </div>
                 </div>
-                <div ref={moviesContainerRef} className="moviesContainer" onScroll={updatePagination}>
+                <div ref={moviesContainerRef} className="moviesContainer" data-testid="movieContainer" onScroll={updatePagination}>
                     {quadrupleMovieList.map((movie, index) => (
                         <VerticalMovieCard key={'mc'+ new Date(Date.now()).toLocaleString + index} movieMedias={moviesMedias[movie.imdbID]} movie={movie} xPosition={index*cardWidthPlusGap}/>
                     ))}

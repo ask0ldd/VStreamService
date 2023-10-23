@@ -14,7 +14,7 @@ const MockedRouter = () => {
     return(
         <Provider store={store}>
             <BrowserRouter>
-                <VerticalMovieCardsSlideshow title={{icon : 'icons/fire.png', title : 'Generic Title'}} moviesList={[...mockMovieList, ...mockMovieList, ...mockMovieList, ...mockMovieList]}/>
+                <VerticalMovieCardsSlideshow title={{icon : 'icons/fire.png', title : 'Generic Title'}} moviesList={[...mockMovieList, ...mockMovieList]}/>
             </BrowserRouter>
         </Provider>
     )
@@ -56,18 +56,45 @@ describe('Vertical Slideshow Component', async () => {
 
     test('All the cards are displayed', async () => {
         await waitFor(() => expect(screen.getByText('Generic Title')).toBeInTheDocument())
-        expect(screen.getAllByAltText(mockMovieList[0].Title+' miniature').length).toBe(2 * 4)
-        expect(screen.getAllByAltText(mockMovieList[1].Title+' miniature').length).toBe(2 * 4)
-        expect(screen.getAllByAltText(mockMovieList[2].Title+' miniature').length).toBe(2 * 4)
-        expect(screen.getAllByAltText(mockMovieList[3].Title+' miniature').length).toBe(2 * 4)
-        expect(screen.getAllByAltText(mockMovieList[4].Title+' miniature').length).toBe(2 * 4)
-        expect(screen.getAllByAltText(mockMovieList[5].Title+' miniature').length).toBe(2 * 4)
-        expect(screen.getAllByText(mockMovieList[0].Title.split(':')[0]).length).toBe(2 * 4)
-        expect(screen.getAllByText(mockMovieList[1].Title.split(':')[0]).length).toBe(2 * 4)
-        expect(screen.getAllByText(mockMovieList[2].Title.split(':')[0]).length).toBe(2 * 4)
-        expect(screen.getAllByText(mockMovieList[3].Title.split(':')[0]).length).toBe(2 * 4)
-        expect(screen.getAllByText(mockMovieList[4].Title.split(':')[0]).length).toBe(2 * 4)
-        expect(screen.getAllByText(mockMovieList[5].Title.split(':')[0]).length).toBe(2 * 4)
+        expect(screen.getAllByAltText(mockMovieList[0].Title+' miniature').length).toBe(4)
+        expect(screen.getAllByAltText(mockMovieList[1].Title+' miniature').length).toBe(4)
+        expect(screen.getAllByAltText(mockMovieList[2].Title+' miniature').length).toBe(4)
+        expect(screen.getAllByAltText(mockMovieList[3].Title+' miniature').length).toBe(4)
+        expect(screen.getAllByAltText(mockMovieList[4].Title+' miniature').length).toBe(4)
+        expect(screen.getAllByAltText(mockMovieList[5].Title+' miniature').length).toBe(4)
+        expect(screen.getAllByText(mockMovieList[0].Title.split(':')[0]).length).toBe(4)
+        expect(screen.getAllByText(mockMovieList[1].Title.split(':')[0]).length).toBe(4)
+        expect(screen.getAllByText(mockMovieList[2].Title.split(':')[0]).length).toBe(4)
+        expect(screen.getAllByText(mockMovieList[3].Title.split(':')[0]).length).toBe(4)
+        expect(screen.getAllByText(mockMovieList[4].Title.split(':')[0]).length).toBe(4)
+        expect(screen.getAllByText(mockMovieList[5].Title.split(':')[0]).length).toBe(4)
+    })
+
+    test('The slideshow scrolling buttons are working', async () => {
+        await waitFor(() => expect(screen.getByText('Generic Title')).toBeInTheDocument())
+        const scrollRightButton = screen.getByAltText('next movies')
+        const scrollLeftButton = screen.getByAltText('previous movies')
+        const movieContainer = screen.getByTestId('movieContainer')
+        expect(movieContainer.scrollLeft).toBe(0)
+        act(() => scrollRightButton.click())
+        // test if the pagination & the scrollLeft value gets updated back & forth
+        await waitFor(() => expect(movieContainer.scrollLeft).toBe(cardWidthPlusGap * nMoviesJumpedWhenScrolling))
+        const paginationButtons = screen.getAllByRole('button').filter(button => button.classList.contains('dot'))
+        expect(paginationButtons.length).toBe(6)
+        await waitFor(() => expect(paginationButtons[1].classList.contains('active')).toBeTruthy())
+        expect(paginationButtons[0].classList.contains('active')).toBeFalsy()
+        expect(paginationButtons[2].classList.contains('active')).toBeFalsy()
+        expect(paginationButtons[3].classList.contains('active')).toBeFalsy()
+        expect(paginationButtons[4].classList.contains('active')).toBeFalsy()
+        expect(paginationButtons[5].classList.contains('active')).toBeFalsy()
+        act(() => scrollLeftButton.click())
+        await waitFor(() => expect(movieContainer.scrollLeft).toBe(0))
+        await waitFor(() => expect(paginationButtons[0].classList.contains('active')).toBeTruthy())
+        expect(paginationButtons[1].classList.contains('active')).toBeFalsy()
+        expect(paginationButtons[2].classList.contains('active')).toBeFalsy()
+        expect(paginationButtons[3].classList.contains('active')).toBeFalsy()
+        expect(paginationButtons[4].classList.contains('active')).toBeFalsy()
+        expect(paginationButtons[5].classList.contains('active')).toBeFalsy()
     })
 
 })
