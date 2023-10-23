@@ -20,13 +20,13 @@ function App() {
   const {isLoading, fetchedDatas, isError} = useAPI({idList:['tt1869454', 'tt6718170', 'tt2906216', 'tt7631058', 'tt5433140', 'tt8111088'], longPlot:false})
   let moviesList : IMovie[] = []
   if(fetchedDatas != null && !Array.isArray(fetchedDatas)) moviesList.push({...fetchedDatas})
-  if(fetchedDatas != null && Array.isArray(fetchedDatas)) moviesList = [...fetchedDatas]
+  if(fetchedDatas != null && Array.isArray(fetchedDatas)) { moviesList = [...fetchedDatas]; console.log(JSON.stringify(moviesList))}
 
   // interstellar / shinmaskedrider / revenant / tunetueraspoint / thenightofthehunter / sheershivraaj
   const {isLoading : isL, fetchedDatas : fd, isError : isE} = useAPI({idList:['tt7631058', 'tt14689620', 'tt9777666', 'tt3973768', 'tt0816692', 'tt14379088', 'tt1663202', 'tt2119532', 'tt0048424', 'tt17274522'], longPlot:false})
   let moviesList2 : IMovie[] = []
   if(fd != null && !Array.isArray(fd)) moviesList2.push({...fd})
-  if(fd != null && Array.isArray(fd)) { moviesList2 = [...fd]; console.log(JSON.stringify(moviesList2)) }
+  if(fd != null && Array.isArray(fd)) { moviesList2 = [...fd] }
 
   function nextBanner(){
     bannerSlideshowPosition.current -= 1440
@@ -57,9 +57,9 @@ function App() {
           <img src="./banners/darkknight.jpg" alt="the dark knight catwoman" loading="lazy" className='banner'/>
         </section>
         {isLoading && <LoadingAnimation/>}
-        {!isLoading && !isError && <VerticalMovieCardsSlideshow title={{icon : 'icons/fire.png', title : 'Currently Trending'}} moviesList={moviesList}/>}
+        {!isLoading && !isError && <VerticalMovieCardsSlideshow title={{icon : 'icons/fire.png', title : 'Currently Trending'}} moviesList={[...moviesList, ...moviesList, ]}/>}
         <div style={{height:'4rem'}}></div>
-        {!isLoading && !isError && <VerticalMovieCardsSlideshow title={{icon : 'icons/award.png', title : 'Most Nominated Movies'}} moviesList={[...moviesList].reverse()}/>}
+        {!isLoading && !isError && <VerticalMovieCardsSlideshow title={{icon : 'icons/award.png', title : 'Most Nominated Movies'}} moviesList={[...[...moviesList].reverse(), ...[...moviesList].reverse()]}/>}
         <div style={{height:'4rem'}}></div>
         {isL && <LoadingAnimation/>}
         {!isL && !isE && <HorizontalMovieCardsSlideshow slideshowTitle="Previously Watched" moviesList={[...moviesList2, ...moviesList2, ]}/>}

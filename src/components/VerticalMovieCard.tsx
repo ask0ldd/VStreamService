@@ -100,7 +100,7 @@ function VerticalMovieCard({movie, movieMedias, /*moviesBg, */ xPosition} : {mov
                     </div>
                     <p className="plotContainer">{movie.Plot.length < 200 ? movie.Plot : movie.Plot.slice(0, 200) + '...'}</p>
                 </div>
-                <img className="posterImg" src={movieMedias.poster === '' ? movie.Poster : 'verticalCardPic/' + movieMedias.poster}/>
+                <img alt={movie.Title+' miniature'} className="posterImg" src={movieMedias.poster === '' ? movie.Poster : 'verticalCardPic/' + movieMedias.poster}/>
                 <video muted loop>
                     <source data-src={"videos/" + movieMedias.video} type="video/mp4"/>
                 </video>

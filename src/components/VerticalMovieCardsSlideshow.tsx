@@ -6,10 +6,9 @@ import { useRef, useState } from "react"
 
 function VerticalMovieCardsSlideshow({title, moviesList}: {title : {icon : string, title : string}, moviesList : IMovie[]}) {
 
-    const quadrupleMovieList = [...moviesList, ...moviesList, ...moviesList, ...moviesList, ]
+    const quadrupleMovieList = [...moviesList, ...moviesList]
 
     // use an observable to track the scroll position and update the pagination ?
-
     const cardWidthPlusGap = 225 + 32
     const nMoviesJumpedWhenScrolling = 4
     // const paginationStops = [0, 4*cardWidthPlusGap, 8*cardWidthPlusGap, 12*cardWidthPlusGap, 16*cardWidthPlusGap, 20*cardWidthPlusGap]
