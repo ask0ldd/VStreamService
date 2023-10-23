@@ -35,9 +35,9 @@ describe('Horizontal Slideshow Component', async () => {
         await waitFor(() => expect(screen.getByText(mockedMovie.Title)).toBeInTheDocument())
         const addtoWatchlistButton = screen.getByText("+ Add To Watchlist") as HTMLElement
         act(() => addtoWatchlistButton.click())
-        await waitFor(() => expect(addtoWatchlistButton.innerText).toBe('Remove from WatchList'))
+        await waitFor(() => expect(screen.getByText('Remove from WatchList')).toBeInTheDocument())
         act(() => addtoWatchlistButton.click())
-        await waitFor(() => expect(addtoWatchlistButton.innerText).toBe('+ Add To Watchlist'))
+        await waitFor(() => expect(screen.getByText("+ Add To Watchlist")).toBeInTheDocument())
     })
 })
 
