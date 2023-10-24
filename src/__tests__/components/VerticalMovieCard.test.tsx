@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { BrowserRouter } from "react-router-dom"
-import { act, render, screen, waitFor } from '@testing-library/react'
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { Provider } from "react-redux"
 import store from "../../redux/store"
 import { IMovie, IMoviesMedias } from "../../types/types"
 import VerticalMovieCard from "../../components/VerticalMovieCard"
+import { vi } from "vitest"
 
 const MockedRouter = () => { 
     return(
@@ -15,6 +16,14 @@ const MockedRouter = () => {
         </Provider>
     )
 }
+
+window.HTMLMediaElement.prototype.load = vi.fn()
+window.HTMLMediaElement.prototype.play = vi.fn()
+window.HTMLMediaElement.prototype.pause = vi.fn()
+Object.defineProperty(window.HTMLMediaElement, 'currentTime', {
+    get: vi.fn().mockReturnValue(1)
+})
+
 
 describe('Horizontal Slideshow Component', async () => { 
 
@@ -29,8 +38,6 @@ describe('Horizontal Slideshow Component', async () => {
         expect(screen.getByText("+ Add To Watchlist")).toBeInTheDocument()
     })
 
-    // add to watchlist
-
     test('Add to watchlist', async() =>  {
         await waitFor(() => expect(screen.getByText(mockedMovie.Title)).toBeInTheDocument())
         const addtoWatchlistButton = screen.getByText("+ Add To Watchlist") as HTMLElement
@@ -39,6 +46,19 @@ describe('Horizontal Slideshow Component', async () => {
         act(() => addtoWatchlistButton.click())
         await waitFor(() => expect(screen.getByText("+ Add To Watchlist")).toBeInTheDocument())
     })
+
+    test('Hover is loading an expected video', async() =>  {
+        await waitFor(() => expect(screen.getByText(mockedMovie.Title)).toBeInTheDocument())
+        const video = screen.getByTestId("video") as HTMLVideoElement
+        const source = video.children[0] as HTMLSourceElement
+        expect(source.src).toBe('')
+        act(() => fireEvent.mouseOver(screen.getAllByRole('button')[0]))
+        await waitFor(() => expect(source.src.includes(source.getAttribute('data-src') || 'randomezeaeazezezaezezaezaezazezea')).toBeTruthy())
+        expect(video.play).toHaveBeenCalled()
+        // video.play = vi.fn(video.play)
+        // await waitFor(() => {expect(video.stop).toHaveBeenCalled()}, { timeout: 5000 })
+    })
+
 })
 
 const mockedMovie : IMovie = {
