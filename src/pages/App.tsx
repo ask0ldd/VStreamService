@@ -20,7 +20,7 @@ function App() {
   const {isLoading, fetchedDatas, isError} = useAPI({idList:['tt1869454', 'tt6718170', 'tt2906216', 'tt7631058', 'tt5433140', 'tt8111088'], longPlot:false})
   let moviesList : IMovie[] = []
   if(fetchedDatas != null && !Array.isArray(fetchedDatas)) moviesList.push({...fetchedDatas})
-  if(fetchedDatas != null && Array.isArray(fetchedDatas)) { moviesList = [...fetchedDatas]; console.log(JSON.stringify(moviesList))}
+  if(fetchedDatas != null && Array.isArray(fetchedDatas)) { moviesList = [...fetchedDatas]}
 
   // interstellar / shinmaskedrider / revenant / tunetueraspoint / thenightofthehunter / sheershivraaj
   const {isLoading : isL, fetchedDatas : fd, isError : isE} = useAPI({idList:['tt7631058', 'tt14689620', 'tt9777666', 'tt3973768', 'tt0816692', 'tt14379088', 'tt1663202', 'tt2119532', 'tt0048424', 'tt17274522'], longPlot:false})

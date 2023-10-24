@@ -30,14 +30,29 @@ function Movie(){
     const movie = fetchedDatas as IMovie
 
     function videoStart(){
-        const video = document.querySelector('video') as HTMLMediaElement
+        const video = document.querySelector('video') as HTMLVideoElement
+        // sets video source src only when hovering the card => video lazy loading
+        const source = video.querySelector('source')
+        if(source?.getAttribute('src') != null) return video.play()
+        if(source?.getAttribute('src') == null) {
+            source?.setAttribute('src', source.getAttribute('data-src') as string)
+            video.addEventListener('loadeddata', () => playVideoWhenLoaded(video))
+            video.load()
+        }
+       /* const video = document.querySelector('video') as HTMLMediaElement
         // sets video source src only when hovering the card => video lazy loading
         const source = document.querySelector('source')
         if(source && source.getAttribute('src') == null) {
             source.setAttribute('src', source.getAttribute('data-src') as string)
             video.load()
         }
-        if(video.currentTime === 0) video.play()
+        if(video.currentTime === 0) video.play()*/
+    }
+
+    function playVideoWhenLoaded(video : HTMLVideoElement){
+        if (video.readyState === 4) {
+            video.play()
+        }
     }
 
     function switchMutedState(){

@@ -59,8 +59,8 @@ function VerticalMovieCard({movie, movieMedias, /*moviesBg, */ xPosition} : {mov
         if(source?.getAttribute('src') != null) return video.play()
         if(source?.getAttribute('src') == null) {
             source?.setAttribute('src', source.getAttribute('data-src') as string)
-            video.load()
             video.addEventListener('loadeddata', () => playVideoWhenLoaded(video))
+            video.load()
         }
     }
 

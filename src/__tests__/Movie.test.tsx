@@ -18,10 +18,15 @@ const MockedRouter = () => {
     )
 }
 
-window.HTMLMediaElement.prototype.load = vi.fn()
+window.HTMLMediaElement.prototype.load = () => {
+    (this! as HTMLMediaElement).dispatchEvent(new Event('loadeddata'))
+}
 window.HTMLMediaElement.prototype.play = vi.fn()
 Object.defineProperty(window.HTMLMediaElement, 'currentTime', {
     get: vi.fn().mockReturnValue(1)
+})
+Object.defineProperty(window.HTMLMediaElement, 'readyState', {
+    get: vi.fn().mockReturnValue(4)
 })
 
 describe('Movie Page', async () => { 
