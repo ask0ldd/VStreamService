@@ -109,7 +109,7 @@ describe('Vertical Slideshow Component', async () => {
         expect(movieContainer.scrollLeft).toBe(cardWidthPlusGap * nMoviesJumpedWhenScrolling)
     })
 
-    test('Right Card recentering', async() =>  {
+    test('Right Card recentering on Hover', async() =>  {
         await waitFor(() => expect(screen.getByText('Generic Title')).toBeInTheDocument())
         const movieContainer = screen.getByTestId('movieContainer')
         const sixthMovieCard = movieContainer.children[5]
@@ -118,6 +118,19 @@ describe('Vertical Slideshow Component', async () => {
         await waitFor(() => {expect(movieContainer.scrollLeft).toBeGreaterThan(0)}, { timeout: 5000 })
         act(() => fireEvent.mouseLeave(sixthMovieCard))
     }, 6000)
+
+    test('Left Card recentering on Hover', async() =>  {
+      await waitFor(() => expect(screen.getByText('Generic Title')).toBeInTheDocument())
+      const movieContainer = screen.getByTestId('movieContainer')
+      const firstMovieCard = movieContainer.children[0]
+      const sixthMovieCard = movieContainer.children[5]
+      expect(movieContainer.scrollLeft).toBe(0)
+      act(() => fireEvent.mouseEnter(sixthMovieCard))
+      await waitFor(() => {expect(movieContainer.scrollLeft).toBeGreaterThan(0)}, { timeout: 5000 })
+      act(() => fireEvent.mouseLeave(sixthMovieCard))
+      act(() => fireEvent.mouseEnter(firstMovieCard))
+      await waitFor(() => {expect(movieContainer.scrollLeft).toBe(0)}, { timeout: 5000 })
+  }, 6000)
 })
 
 /*

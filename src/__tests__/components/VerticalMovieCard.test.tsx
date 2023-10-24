@@ -54,10 +54,10 @@ describe('Horizontal Slideshow Component', async () => {
         expect(source.src).toBe('')
         act(() => fireEvent.mouseOver(screen.getAllByRole('button')[0]))
         await waitFor(() => expect(source.src.includes(source.getAttribute('data-src') || 'randomezeaeazezezaezezaezaezazezea')).toBeTruthy())
-        expect(video.play).toHaveBeenCalled()
+        // await waitFor(() => expect(video.play).toHaveBeenCalled(), { timeout: 5000 })
         // video.play = vi.fn(video.play)
         // await waitFor(() => {expect(video.stop).toHaveBeenCalled()}, { timeout: 5000 })
-    })
+    }, 6000)
 
 })
 

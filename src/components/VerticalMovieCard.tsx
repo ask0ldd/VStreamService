@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { IMovie } from "../types/types"
 import '../style/VerticalMovieCard.css'
 import { useRef } from "react"
@@ -55,11 +56,18 @@ function VerticalMovieCard({movie, movieMedias, /*moviesBg, */ xPosition} : {mov
         const video = event.currentTarget.querySelector('video') as HTMLVideoElement
         // sets video source src only when hovering the card => video lazy loading
         const source = video.querySelector('source')
-        if(source && source.getAttribute('src') == null) {
-            source.setAttribute('src', source.getAttribute('data-src') as string)
+        if(source?.getAttribute('src') != null) return video.play()
+        if(source?.getAttribute('src') == null) {
+            source?.setAttribute('src', source.getAttribute('data-src') as string)
             video.load()
+            video.addEventListener('loadeddata', () => playVideoWhenLoaded(video))
         }
-        if(video.currentTime === 0) video.play()
+    }
+
+    function playVideoWhenLoaded(video : HTMLVideoElement){
+        if (video.readyState === 4) {
+            video.play()
+        }
     }
 
     function stopVideo(event : React.MouseEvent<HTMLElement>){
