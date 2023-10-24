@@ -109,15 +109,21 @@ describe('Vertical Slideshow Component', async () => {
         expect(movieContainer.scrollLeft).toBe(cardWidthPlusGap * nMoviesJumpedWhenScrolling)
     })
 
-    test('Card recentering', async() =>  {
+    test('Right Card recentering', async() =>  {
         await waitFor(() => expect(screen.getByText('Generic Title')).toBeInTheDocument())
         const movieContainer = screen.getByTestId('movieContainer')
         const sixthMovieCard = movieContainer.children[5]
+        expect(movieContainer.scrollLeft).toBe(0)
         act(() => fireEvent.mouseEnter(sixthMovieCard))
-        // wait for scrollleft ++ timeout
+        await waitFor(() => {expect(movieContainer.scrollLeft).toBeGreaterThan(0)}, { timeout: 5000 })
         act(() => fireEvent.mouseLeave(sixthMovieCard))
-    })
+    }, 6000)
 })
+
+/*
+await waitFor(() => {expect(video.play).toHaveBeenCalled()}, { timeout: 5000 })
+    }, 6000)
+*/
 
 const mockMovieList: IMovie[] = [
   {
