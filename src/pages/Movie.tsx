@@ -39,14 +39,6 @@ function Movie(){
             video.addEventListener('loadeddata', () => playVideoWhenLoaded(video))
             video.load()
         }
-       /* const video = document.querySelector('video') as HTMLMediaElement
-        // sets video source src only when hovering the card => video lazy loading
-        const source = document.querySelector('source')
-        if(source && source.getAttribute('src') == null) {
-            source.setAttribute('src', source.getAttribute('data-src') as string)
-            video.load()
-        }
-        if(video.currentTime === 0) video.play()*/
     }
 
     function playVideoWhenLoaded(video : HTMLVideoElement){
