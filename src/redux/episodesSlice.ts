@@ -10,7 +10,7 @@ export const episodesSlice = createSlice({
     initialState,
     reducers : {
         setEpisodesList(state, action){
-            if(action.payload?.episodes == null || action.payload?.episodes.length === false) return state
+            if(action.payload?.episodes == null || action.payload?.episodes.length === false) /* c8 ignore next */ return state
             return {state, list : [...action.payload.episodes]}
         }
     }

@@ -52,11 +52,12 @@ window.HTMLMediaElement.prototype.load = () => {
     (this! as HTMLMediaElement).dispatchEvent(new Event('loadeddata'))
 }
 window.HTMLMediaElement.prototype.play = vi.fn()
-Object.defineProperty(window.HTMLMediaElement, 'currentTime', {
-    get: vi.fn().mockReturnValue(1)
+Object.defineProperty(window.HTMLMediaElement.prototype, 'currentTime', {
+  get: () => 1
+  // vi.fn().mockReturnValue(1)
 })
-Object.defineProperty(window.HTMLMediaElement, 'readyState', {
-    get: vi.fn().mockReturnValue(4)
+Object.defineProperty(window.HTMLMediaElement.prototype, 'readyState', {
+  get: () => 4
 })
 
 describe('Vertical Slideshow Component', async () => { 

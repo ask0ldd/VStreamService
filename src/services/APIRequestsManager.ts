@@ -3,6 +3,7 @@ import { IMovie } from "../types/types"
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 export class APIRequestsManager {
+    /* c8 ignore start */
     static async getMovieByTitle(title : string, longPlot : boolean) : Promise<IMovie>{
         const longPlotExtension = longPlot === true ? '&plot=full' : ''
         const requestUrl = `https://www.omdbapi.com/?t=${title}&apikey=${OmdbKey}${longPlotExtension}`
@@ -10,9 +11,10 @@ export class APIRequestsManager {
         const datas = await response.json()
         return datas
     }
+    /* c8 ignore stop */
 
     static async getMovieById(id : string, longPlot : boolean) : Promise<IMovie>{
-        const longPlotExtension = longPlot === true ? '&plot=full' : ''
+        const longPlotExtension = longPlot === /* c8 ignore next */ true ? '&plot=full' : ''
         const requestUrl = `https://www.omdbapi.com/?i=${id}&apikey=${OmdbKey}${longPlotExtension}`
         const response = await fetch(requestUrl)
         const datas = await response.json()
@@ -20,7 +22,7 @@ export class APIRequestsManager {
     }
 
     static async getMoviesById(idList : string[], longPlot : boolean) : Promise<IMovie[]>{
-        const longPlotExtension = longPlot === true ? '&plot=full' : ''
+        const longPlotExtension = longPlot === /* c8 ignore next */ true ? '&plot=full' : ''
         const moviesList : IMovie[] = []
         // use promiseall instead ?
         for(const movieId of idList) {

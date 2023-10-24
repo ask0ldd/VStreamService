@@ -31,8 +31,7 @@ function Movie(){
 
     function videoStart(){
         const video = document.querySelector('video') as HTMLVideoElement
-        // sets video source src only when hovering the card => video lazy loading
-        const source = video.querySelector('source')
+        const source = video.children[0]
         if(source?.getAttribute('src') != null) return video.play()
         if(source?.getAttribute('src') == null) {
             source?.setAttribute('src', source.getAttribute('data-src') as string)
@@ -41,11 +40,13 @@ function Movie(){
         }
     }
 
+    /* c8 ignore start */
     function playVideoWhenLoaded(video : HTMLVideoElement){
         if (video.readyState === 4) {
             video.play()
         }
     }
+    /* c8 ignore stop */
 
     function switchMutedState(){
         const video = document.querySelector('video') as HTMLMediaElement

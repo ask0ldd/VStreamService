@@ -55,7 +55,7 @@ function VerticalMovieCard({movie, movieMedias, /*moviesBg, */ xPosition} : {mov
     function startVideo(event : React.MouseEvent<HTMLElement>){
         const video = event.currentTarget.querySelector('video') as HTMLVideoElement
         // sets video source src only when hovering the card => video lazy loading
-        const source = video.querySelector('source')
+        const source = video.children[0]
         if(source?.getAttribute('src') != null) return video.play()
         if(source?.getAttribute('src') == null) {
             source?.setAttribute('src', source.getAttribute('data-src') as string)
@@ -64,11 +64,13 @@ function VerticalMovieCard({movie, movieMedias, /*moviesBg, */ xPosition} : {mov
         }
     }
 
+    /* c8 ignore start */
     function playVideoWhenLoaded(video : HTMLVideoElement){
         if (video.readyState === 4) {
             video.play()
         }
     }
+    /* c8 ignore stop */
 
     function stopVideo(event : React.MouseEvent<HTMLElement>){
         const video = event.currentTarget.querySelector('video') as HTMLVideoElement

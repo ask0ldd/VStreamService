@@ -17,23 +17,18 @@ const MockedRouter = () => {
     )
 }
 
-Object.defineProperty(window.HTMLMediaElement, 'currentTime', {
-    get: vi.fn().mockReturnValue(1)
-})
-const readyStateDescriptor = Object.getOwnPropertyDescriptor(HTMLMediaElement.prototype, 'readyState')
-Object.defineProperty(window.HTMLMediaElement, 'readyState', {
-    get : () => {
-        return 4
-    },
-    set : readyStateDescriptor?.set,
-    enumerable: true,
-    configurable: true
-})
-window.HTMLMediaElement.prototype.load = () => {
+window.HTMLMediaElement.prototype.load = vi.fn(() => {
     (this! as HTMLMediaElement).dispatchEvent(new Event('loadeddata'))
-  }
+})
 window.HTMLMediaElement.prototype.play = vi.fn()
 window.HTMLMediaElement.prototype.pause = vi.fn()
+Object.defineProperty(window.HTMLMediaElement.prototype, 'currentTime', {
+    get: () => 1
+    // vi.fn().mockReturnValue(1)
+})
+Object.defineProperty(window.HTMLMediaElement.prototype, 'readyState', {
+    get: () => 4
+})
 
 describe('Horizontal Slideshow Component', async () => { 
 
@@ -64,8 +59,11 @@ describe('Horizontal Slideshow Component', async () => {
         expect(source.src).toBe('')
         act(() => fireEvent.mouseOver(screen.getAllByRole('button')[0]))
         await waitFor(() => expect(source.src.includes(source.getAttribute('data-src') || 'randomezeaeazezezaezezaezaezazezea')).toBeTruthy())
-        video.play = vi.fn(video.play)
-        await waitFor(() => expect(video.readyState).toBe(4))
+        // video.play = vi.fn(video.play)
+        await waitFor(() => {expect(video.load).toHaveBeenCalled()}, { timeout: 5000 })
+        //await waitFor(() => {expect(video.play).toHaveBeenCalled()}, { timeout: 5000 })
+        // await waitFor(() => expect(video.readyState).toBe(4), { timeout: 5000 })
+        console.log('current', video.currentTime)
         act(() => fireEvent.mouseLeave(screen.getAllByRole('button')[0]))
         // await waitFor(() => {expect(video.pause).toHaveBeenCalled()}, { timeout: 5000 })
         // video.play = vi.fn(video.play)

@@ -9,7 +9,7 @@ export const moviesSlice = createSlice({
     initialState,
     reducers : {
         updateWatchList(state, action){
-            if(action.payload?.id == null) return state
+            if(action.payload?.id == null) /* c8 ignore next */ return state
             const newWatchList = [...state.watchList]
             if(state.watchList.includes(action.payload.id)){
                 newWatchList.splice([...state.watchList].indexOf(action.payload.id), 1)

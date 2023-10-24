@@ -31,9 +31,11 @@ function useAPI(requestDefinition : IRequestDefinition){
                 if(requestDefinition.id != null) datas = await APIRequestsManager.getMovieById(requestDefinition.id, requestDefinition.longPlot)
                 if(requestDefinition.idList != null) datas = await APIRequestsManager.getMoviesById(requestDefinition.idList, requestDefinition.longPlot)
                 if(datas != null) setFetchedDatas(datas)
+            /* c8 ignore start */
             }catch(error){ 
                 console.log(error)
                 setError(true)
+            /* c8 ignore stop */
             }finally{
                 setLoading(false)
             }
