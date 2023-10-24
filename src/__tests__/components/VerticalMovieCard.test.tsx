@@ -17,9 +17,10 @@ const MockedRouter = () => {
     )
 }
 
-window.HTMLMediaElement.prototype.load = vi.fn()
 window.HTMLMediaElement.prototype.play = vi.fn()
+window.HTMLMediaElement.prototype.load = vi.fn(window.HTMLMediaElement.prototype.play)
 window.HTMLMediaElement.prototype.pause = vi.fn()
+vi.spyOn(window.HTMLMediaElement.prototype, 'onloadeddata', 'set').mockImplementation(window.HTMLMediaElement.prototype.play)
 Object.defineProperty(window.HTMLMediaElement, 'currentTime', {
     get: vi.fn().mockReturnValue(1)
 })
@@ -54,10 +55,10 @@ describe('Horizontal Slideshow Component', async () => {
         expect(source.src).toBe('')
         act(() => fireEvent.mouseOver(screen.getAllByRole('button')[0]))
         await waitFor(() => expect(source.src.includes(source.getAttribute('data-src') || 'randomezeaeazezezaezezaezaezazezea')).toBeTruthy())
-        // await waitFor(() => expect(video.play).toHaveBeenCalled(), { timeout: 5000 })
+        await waitFor(() => expect(video.play).toHaveBeenCalled(), { timeout: 5000 })
         // video.play = vi.fn(video.play)
         // await waitFor(() => {expect(video.stop).toHaveBeenCalled()}, { timeout: 5000 })
-    }, 6000)
+    }, 7000)
 
 })
 

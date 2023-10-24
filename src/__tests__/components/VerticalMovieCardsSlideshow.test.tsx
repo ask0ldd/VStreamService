@@ -48,6 +48,14 @@ function mockedScrollTo(this: ScrollContainer, x: number | ScrollOptions = 0, y:
 }
 window.HTMLElement.prototype.scrollTo = vi.fn(mockedScrollTo)
 
+window.HTMLMediaElement.prototype.play = vi.fn()
+window.HTMLMediaElement.prototype.load = vi.fn(window.HTMLMediaElement.prototype.play)
+window.HTMLMediaElement.prototype.pause = vi.fn()
+vi.spyOn(window.HTMLMediaElement.prototype, 'onloadeddata', 'set').mockImplementation(window.HTMLMediaElement.prototype.play)
+Object.defineProperty(window.HTMLMediaElement, 'currentTime', {
+    get: vi.fn().mockReturnValue(1)
+})
+
 describe('Vertical Slideshow Component', async () => { 
 
     beforeEach(() => {
