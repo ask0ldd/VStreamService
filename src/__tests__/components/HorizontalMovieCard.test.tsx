@@ -24,7 +24,7 @@ describe('Horizontal Slideshow Component', async () => {
 
     test('Card infos are displayed', async () => {
         await waitFor(() => expect(screen.getByText(mockedMovie.Title)).toBeInTheDocument())
-        expect(screen.getByText(mockedMovie.Plot)).toBeInTheDocument()
+        expect(screen.getByText(mockedMovie.Plot.slice(0, 200) + '...')).toBeInTheDocument()
         expect(screen.getByAltText("more options")).toBeInTheDocument()
         expect(screen.getByAltText("add to watchlist")).toBeInTheDocument()
     })
