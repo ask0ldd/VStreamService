@@ -10,14 +10,14 @@ import HorizontalMovieCardsSlideshow from '../components/HorizontalMovieCardsSli
 import Footer from '../components/Footer'
 import LoadingAnimation from '../components/LoadingAnimation'
 import { useEffect, useRef } from 'react'
+import { useTypedSelector } from '../hooks/redux'
 
 function App() {
 
   const bannerSlideshowPosition = useRef<number>(0)
   const bannerLoop = useRef<number>(0)
 
-  // const {isLoading, fetchedDatas, isError} = useAPI({id:'tt3230854', longPlot:false})
-  const {isLoading, fetchedDatas, isError} = useAPI({idList:['tt1869454', 'tt6718170', 'tt2906216', 'tt7631058', 'tt5433140', 'tt8111088'], longPlot:false})
+  /*const {isLoading, fetchedDatas, isError} = useAPI({idList:['tt1869454', 'tt6718170', 'tt2906216', 'tt7631058', 'tt5433140', 'tt8111088'], longPlot:false})
   let moviesList : IMovie[] = []
   if(fetchedDatas != null && !Array.isArray(fetchedDatas)) moviesList.push({...fetchedDatas})
   if(fetchedDatas != null && Array.isArray(fetchedDatas)) { moviesList = [...fetchedDatas]}
@@ -26,7 +26,15 @@ function App() {
   const {isLoading : isL, fetchedDatas : fd, isError : isE} = useAPI({idList:['tt7631058', 'tt14689620', 'tt9777666', 'tt3973768', 'tt0816692', 'tt14379088', 'tt1663202', 'tt2119532', 'tt0048424', 'tt17274522'], longPlot:false})
   let moviesList2 : IMovie[] = []
   if(fd != null && !Array.isArray(fd)) moviesList2.push({...fd})
-  if(fd != null && Array.isArray(fd)) { moviesList2 = [...fd] }
+  if(fd != null && Array.isArray(fd)) { moviesList2 = [...fd] }*/
+
+  const movies = useTypedSelector((state) => state.movies)
+  const moviesList = movies.movieLists[0]
+  const moviesList2 = movies.movieLists[1]
+  const isLoading = false
+  const isL = false
+  const isError = false
+  const isE = false
 
   function nextBanner(){
     bannerSlideshowPosition.current -= 1440

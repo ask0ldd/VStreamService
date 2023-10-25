@@ -4,7 +4,7 @@ import { render, screen, waitFor, act, fireEvent } from '@testing-library/react'
 import MovieGallery from "../../components/MovieGallery"
 import { expect, vi, describe, test, beforeAll, beforeEach } from 'vitest'
 import userEvent from '@testing-library/user-event'
-import { Simulate } from "react-dom/test-utils"
+// import { Simulate } from "react-dom/test-utils"
 
 const MockedRouter = () => { 
     return(
