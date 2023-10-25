@@ -36,7 +36,7 @@ interface ScrollContainer extends HTMLElement{
 
 function mockedScrollBy(this: ScrollContainer, x: number | ScrollOptions = 0, y: number = 0){ 
     this.scrollLeft = typeof x === "object" ? this.scrollLeft + (x.left || 0) : this.scrollLeft + x || 0
-    this.scrollTop = typeof x === "object" ? this.scrollTop + (x.top || 0) : this.scrollTop + x || 0
+    this.scrollTop = typeof x === "object" ? this.scrollTop + (x.top || 0) : this.scrollTop + y || 0
     this.dispatchEvent(new Event('scroll'))
 }
 window.HTMLElement.prototype.scrollBy = vi.fn(mockedScrollBy)
