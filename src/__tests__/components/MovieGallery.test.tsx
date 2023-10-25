@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { BrowserRouter } from "react-router-dom"
-import { render, screen, waitFor, act } from '@testing-library/react'
+import { render, screen, waitFor, act, fireEvent } from '@testing-library/react'
 import MovieGallery from "../../components/MovieGallery"
 import { expect, vi, describe, test, beforeAll, beforeEach } from 'vitest'
 import userEvent from '@testing-library/user-event'
+import { Simulate } from "react-dom/test-utils"
 
 const MockedRouter = () => { 
     return(
@@ -12,26 +13,6 @@ const MockedRouter = () => {
         </BrowserRouter>
     )
 }
-
-/*interface ScrollOptions {
-    left?: number
-    top?: number
-    behavior?: "auto" | "instant" | "smooth";
-}
-
-interface ScrollContainer extends HTMLElement{
-    scrollBy(options?: ScrollOptions): void;
-    scrollBy(x: number, y: number): void;
-    scrollTo(options?: ScrollOptions): void;
-    scrollTo(x: number, y: number): void;
-}
-
-function mockedScrollTo (this: ScrollContainer, x: number | ScrollOptions = 0, y: number = 0){ 
-    this.scrollLeft = typeof x === "object" ? x.left || 0 : x || 0
-    this.scrollTop = typeof x === "object" ? x.top || 0 : y || 0
-    this.dispatchEvent(new Event('scroll'))
-}
-window.scrollTo = vi.fn(mockedScrollTo)*/
 
 describe('Movie Gallery Component', async () => { 
 
@@ -122,12 +103,15 @@ describe('Movie Gallery Component', async () => {
 
     /*test('ScrollLock', async() => {
         await waitFor(() => expect(screen.getByTestId('gallery')).toBeInTheDocument())
+        await waitFor(() => expect(window.scrollY).toBe(0))
         act(() => fireEvent.scroll(window, { target: { scrollY: 300 } }))
-        await waitFor(() => expect(window.screenTop).toBe(300))
+        await waitFor(() => expect(window.scrollY).toBe(300), { timeout: 2000 })
         const galleryPicture = screen.getByTestId('gallery').querySelectorAll('article')[0]
         act(() => galleryPicture.click())
-        act(() => fireEvent.scroll(window, { target: { scrollY: 600 } }))
-        await waitFor(() => expect(window.screenTop).toBe(300))
+        act(() => fireEvent.scroll(window, { target: { scrollY: 400 } }))
+        act(() => window.dispatchEvent(new Event('scroll')))
+        await waitFor(() => expect(window.scrollY).toBe(300), { timeout: 2000 })
     })*/
+
 
 })

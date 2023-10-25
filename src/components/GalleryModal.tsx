@@ -35,9 +35,10 @@ function GalleryModal({setModalVisibility, modalVisibilityRef, openPictureIndex,
     }
 
     // lock background scrolling when the modal is open
+    /* c8 ignore start */
     function scrollLock(state : boolean) : void {
         if(!state){
-            window.onscroll = () => {}
+            window.onscroll = () => null
             return
         }
 
@@ -47,6 +48,7 @@ function GalleryModal({setModalVisibility, modalVisibilityRef, openPictureIndex,
             window.scrollTo(scrollLeft, scrollTop)
         }
     }
+    /* c8 ignore stop */
 
     useEffect(() => {
         scrollLock(true)

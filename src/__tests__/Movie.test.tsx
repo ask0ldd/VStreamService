@@ -116,9 +116,9 @@ describe('Movie Page', async () => {
         const buttonsContainer = screen.getAllByTestId('episode-buttons-container')
         expect(buttonsContainer.length).toBe(2)
         expect(buttonsContainer[0]).toHaveStyle('transform: translateY(6rem)')
-        fireEvent.mouseEnter(episodeRows[0])
+        act(() => fireEvent.mouseEnter(episodeRows[0]))
         await waitFor(() => expect(buttonsContainer[0]).toHaveStyle('transform: translateY(0)'))
-        fireEvent.mouseLeave(episodeRows[0])
+        act(() => fireEvent.mouseLeave(episodeRows[0]))
         await waitFor(() => expect(buttonsContainer[0]).toHaveStyle('transform: translateY(6rem)'))
     })
 
