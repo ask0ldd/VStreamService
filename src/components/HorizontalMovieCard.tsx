@@ -38,7 +38,7 @@ function HorizontalMovieCard ({movie, movieMedias} : {movie : IMovie, movieMedia
                     <h3>{movie.Title}</h3>
                     <div>{movie.Released.split(' ')[2]}&nbsp;&nbsp;{movie.Runtime}&nbsp;&nbsp;{movie.Rated}</div>
                     <span className="plot">
-                        {movie.Plot}
+                        {movie.Plot.length < 200 ? movie.Plot : movie.Plot.slice(0, 200) + '...'}
                     </span>
                 </div>
 

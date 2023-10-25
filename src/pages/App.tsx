@@ -7,27 +7,16 @@ import HorizontalMovieCardsSlideshow from '../components/HorizontalMovieCardsSli
 import Footer from '../components/Footer'
 import LoadingAnimation from '../components/LoadingAnimation'
 import { useEffect, useRef } from 'react'
-import { useTypedSelector } from '../hooks/redux'
+import { useTypedDispatch, useTypedSelector } from '../hooks/redux'
+import { getMoviesLists } from '../redux/moviesSlice'
 
 function App() {
 
+  const dispatch = useTypedDispatch()
+
   const bannerSlideshowPosition = useRef<number>(0)
   const bannerLoop = useRef<number>(0)
-
-  /*const {isLoading, fetchedDatas, isError} = useAPI({idList:['tt1869454', 'tt6718170', 'tt2906216', 'tt7631058', 'tt5433140', 'tt8111088'], longPlot:false})
-  let moviesList : IMovie[] = []
-  if(fetchedDatas != null && !Array.isArray(fetchedDatas)) moviesList.push({...fetchedDatas})
-  if(fetchedDatas != null && Array.isArray(fetchedDatas)) { moviesList = [...fetchedDatas]}
-
-  // interstellar / shinmaskedrider / revenant / tunetueraspoint / thenightofthehunter / sheershivraaj
-  const {isLoading : isL, fetchedDatas : fd, isError : isE} = useAPI({idList:['tt7631058', 'tt14689620', 'tt9777666', 'tt3973768', 'tt0816692', 'tt14379088', 'tt1663202', 'tt2119532', 'tt0048424', 'tt17274522'], longPlot:false})
-  let moviesList2 : IMovie[] = []
-  if(fd != null && !Array.isArray(fd)) moviesList2.push({...fd})
-  if(fd != null && Array.isArray(fd)) { moviesList2 = [...fd] }*/
-
   const movies = useTypedSelector((state) => state.movies)
-  const moviesList = movies.movieLists[0]
-  const moviesList2 = movies.movieLists[1]
 
   function nextBanner(){
     bannerSlideshowPosition.current -= 1440
@@ -43,6 +32,9 @@ function App() {
   useEffect(() => {
     bannerLoop.current = window.setInterval(nextBanner, 6000)
 
+    // retrieve the moviesLists out of the API and store them into the movie redux slice
+    dispatch(getMoviesLists())
+
     return () => {
       clearInterval(bannerLoop.current)
     }
@@ -57,15 +49,15 @@ function App() {
           <img src="./banners/darkknight3.jpg" alt="the dark knight bane" loading="lazy" className='banner'/>
           <img src="./banners/darkknight.jpg" alt="the dark knight catwoman" loading="lazy" className='banner'/>
         </section>
-        {moviesList.length === 0 && <LoadingAnimation/>}
-        {moviesList.length > 1 && <VerticalMovieCardsSlideshow title={{icon : 'icons/fire.png', title : 'Currently Trending'}} moviesList={[...moviesList, ...moviesList, ]}/>}
+        {movies.moviesLoading == 'pending' && <LoadingAnimation/>}
+        {(movies.moviesLoading == 'succeeded' && movies.moviesError === false) && <VerticalMovieCardsSlideshow title={{icon : 'icons/fire.png', title : 'Currently Trending'}} moviesList={[...movies.moviesLists[0], ...movies.moviesLists[0], ]}/>}
         <div style={{height:'4rem'}}></div>
-        {moviesList.length > 1 && <VerticalMovieCardsSlideshow title={{icon : 'icons/award.png', title : 'Most Nominated Movies'}} moviesList={[...[...moviesList].reverse(), ...[...moviesList].reverse()]}/>}
+        {(movies.moviesLoading == 'succeeded' && movies.moviesError === false) && <VerticalMovieCardsSlideshow title={{icon : 'icons/award.png', title : 'Most Nominated Movies'}} moviesList={[...[...movies.moviesLists[0]].reverse(), ...[...movies.moviesLists[0]].reverse()]}/>}
         <div style={{height:'4rem'}}></div>
-        {moviesList.length === 0 && <LoadingAnimation/>}
-        {moviesList.length > 1 && <HorizontalMovieCardsSlideshow slideshowTitle="Previously Watched" moviesList={[...moviesList2, ...moviesList2, ]}/>}
+        {movies.moviesLoading == 'pending' && <LoadingAnimation/>}
+        {(movies.moviesLoading == 'succeeded' && movies.moviesError === false) && <HorizontalMovieCardsSlideshow slideshowTitle="Previously Watched" moviesList={[...movies.moviesLists[1], ...movies.moviesLists[1], ]}/>}
         <div style={{height:'4rem'}}></div>
-        {moviesList.length > 1 && <HorizontalMovieCardsSlideshow slideshowTitle="Suggested For You" moviesList={[...[...moviesList2].reverse(), ...[...moviesList2].reverse()]}/>}
+        {(movies.moviesLoading == 'succeeded' && movies.moviesError === false) && <HorizontalMovieCardsSlideshow slideshowTitle="Suggested For You" moviesList={[...[...movies.moviesLists[1]].reverse(), ...[...movies.moviesLists[1]].reverse()]}/>}
       </main>
       <Footer/>
     </>
