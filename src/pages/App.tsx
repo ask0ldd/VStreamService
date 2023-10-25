@@ -1,10 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-// import { useState } from 'react'
 import Header from '../components/Header'
 import VerticalMovieCardsSlideshow from '../components/VerticalMovieCardsSlideshow'
-import useAPI from '../hooks/useAPI'
-import { IMovie } from '../types/types'
 import './App.css'
 import HorizontalMovieCardsSlideshow from '../components/HorizontalMovieCardsSlideshow'
 import Footer from '../components/Footer'
@@ -31,10 +28,6 @@ function App() {
   const movies = useTypedSelector((state) => state.movies)
   const moviesList = movies.movieLists[0]
   const moviesList2 = movies.movieLists[1]
-  const isLoading = false
-  const isL = false
-  const isError = false
-  const isE = false
 
   function nextBanner(){
     bannerSlideshowPosition.current -= 1440
@@ -64,15 +57,15 @@ function App() {
           <img src="./banners/darkknight3.jpg" alt="the dark knight bane" loading="lazy" className='banner'/>
           <img src="./banners/darkknight.jpg" alt="the dark knight catwoman" loading="lazy" className='banner'/>
         </section>
-        {isLoading && <LoadingAnimation/>}
-        {!isLoading && !isError && <VerticalMovieCardsSlideshow title={{icon : 'icons/fire.png', title : 'Currently Trending'}} moviesList={[...moviesList, ...moviesList, ]}/>}
+        {moviesList.length === 0 && <LoadingAnimation/>}
+        {moviesList.length > 1 && <VerticalMovieCardsSlideshow title={{icon : 'icons/fire.png', title : 'Currently Trending'}} moviesList={[...moviesList, ...moviesList, ]}/>}
         <div style={{height:'4rem'}}></div>
-        {!isLoading && !isError && <VerticalMovieCardsSlideshow title={{icon : 'icons/award.png', title : 'Most Nominated Movies'}} moviesList={[...[...moviesList].reverse(), ...[...moviesList].reverse()]}/>}
+        {moviesList.length > 1 && <VerticalMovieCardsSlideshow title={{icon : 'icons/award.png', title : 'Most Nominated Movies'}} moviesList={[...[...moviesList].reverse(), ...[...moviesList].reverse()]}/>}
         <div style={{height:'4rem'}}></div>
-        {isL && <LoadingAnimation/>}
-        {!isL && !isE && <HorizontalMovieCardsSlideshow slideshowTitle="Previously Watched" moviesList={[...moviesList2, ...moviesList2, ]}/>}
+        {moviesList.length === 0 && <LoadingAnimation/>}
+        {moviesList.length > 1 && <HorizontalMovieCardsSlideshow slideshowTitle="Previously Watched" moviesList={[...moviesList2, ...moviesList2, ]}/>}
         <div style={{height:'4rem'}}></div>
-        {!isL && !isE && <HorizontalMovieCardsSlideshow slideshowTitle="Suggested For You" moviesList={[...[...moviesList2].reverse(), ...[...moviesList2].reverse()]}/>}
+        {moviesList.length > 1 && <HorizontalMovieCardsSlideshow slideshowTitle="Suggested For You" moviesList={[...[...moviesList2].reverse(), ...[...moviesList2].reverse()]}/>}
       </main>
       <Footer/>
     </>
