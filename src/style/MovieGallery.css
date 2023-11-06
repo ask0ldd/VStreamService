@@ -30,7 +30,7 @@
 
 .galleryContainer article:hover {
   border: 2px solid #1a98ffcc;
-  box-shadow: 0 0 32px #1a98ffbb;
+  box-shadow: 0 0 32px #1a98ffaa;
 }
 
 .galleryContainer article:hover img {

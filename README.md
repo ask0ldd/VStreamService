@@ -6,15 +6,15 @@
     <img src="https://img.shields.io/static/v1?label=&message=Vitest&color=646CFF&logo=Vitest&logoColor=white&style=flat-square">
 </div><br>
 
-<b>WORK IN PROGRESS... Browser version only ATM.</b> Demo at : https://ask0ldd.github.io/VStreamService/
+<b>WORK IN PROGRESS... Desktop version only atm.</b> Demo at : https://ask0ldd.github.io/VStreamService/
 
 <img src="/public/screenshots/screen1.jpg">
 
 <u><b>Description & Technical Challenges :</b></u>
 
-This Application was built using React/Redux and combines some major features of Amazon Prime and IMDb. The datas populating most of the pages have been scraped using a custom pupeteer app, which can be found here : https://github.com/ask0ldd/ScrapIMDB and the Ombd API.
+This Application has been designed with <b>Figma</b> and built using <b>React / Redux</b>. My goal was to merge the most useful features of <b>Amazon Prime</b> and <b>IMDb</b> into one website. Most datas used to populate the pages have been scraped using <b>a tool I built with the help of the Puppeteer Library</b> : https://github.com/ask0ldd/ScrapIMDB. When some others come from the <b>Omdb API</b>.
 
-All the components / services are 100% tested using Vitest. I had to mock some few methods that have not been implemented into JSDOM yet to test some of my more complex components.
+All the Components / Services are tested using <b>Vitest</b>, and a <b>100% coverage</b> ratio has been reached. Doing so was especially tricky cause <b>I had to implement my own mock methods to implement some browsers behaviors that are not supported yet by the popular JSDOM Library.</b>
 
 The Home page is displaying three types of custom slideshows :
 
@@ -22,7 +22,7 @@ The Home page is displaying three types of custom slideshows :
 
 - The top one has some big banners in a rotation, using React and CSS. Nothing fancy.
 
-- The second one is more advanced, featuring cards that open and display a video asynchronously when hovered over. Additionally, the cards automatically center themselves to ensure the video is never cut off.
+- The second one is more advanced, featuring cards that <b>open and display a video asynchronously when hovered over</b>. Additionally, the cards <b>automatically center themselves</b> to ensure the video is never cut off.
 
 - The third one displays cards that open vertically, accompanied by a countdown of the remaining time for the user to finish watching the movie. <br>
   <hr>
