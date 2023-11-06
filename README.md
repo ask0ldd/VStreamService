@@ -20,7 +20,7 @@ The Home page is displaying three types of custom slideshows :
 
 <img src="/public/screenshots/screen2n3.jpg">
 
-- The first big one is rotating a huge banner using React and CSS. Nothing fancy.
+- The top one has some big banners in a rotation, using React and CSS. Nothing fancy.
 
 - The second one is more advanced, featuring cards that open and display a video asynchronously when hovered over. Additionally, the cards automatically center themselves to ensure the video is never cut off.
 
