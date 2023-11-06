@@ -11,3 +11,7 @@ Some Streaming Service I'm working on.<br><br>
 
 Demo at :
 https://ask0ldd.github.io/VStreamService/
+
+Description :
+
+This application was built using React/Redux and combines some major features of Amazon Prime and IMDb. The datas populating most of the pages have been scraped using a custom pupeteer app, which can be found here : https://github.com/ask0ldd/ScrapIMDB
