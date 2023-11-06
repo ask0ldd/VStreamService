@@ -13,7 +13,7 @@
 Demo at :
 https://ask0ldd.github.io/VStreamService/
 
-Description :
+Description & Technical Challenges :
 
 This Application was built using React/Redux and combines some major features of Amazon Prime and IMDb. The datas populating most of the pages have been scraped using a custom pupeteer app, which can be found here : https://github.com/ask0ldd/ScrapIMDB and the Ombd API.
 
@@ -36,3 +36,11 @@ The Home page is displaying three types of custom slideshows :
 - An asynchronous trailer is then loaded and played, with the option to activate sound using a button.
 
 - The user can access more information about their show through a submenu with the following items : Episodes, Cast & Crew, Photos, User Reviews.
+
+<img src="/public/screenshots/screen5.jpg">
+
+- At the bottom of the movie page, a list of episodes is displayed if relevant.
+
+- As the user scrolls down the page, the episodes are loaded asynchronously in a manner similar to Twitter.
+
+<img src="/public/screenshots/screen6.jpg">
