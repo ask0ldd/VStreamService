@@ -6,12 +6,9 @@
     <img src="https://img.shields.io/static/v1?label=&message=Vitest&color=646CFF&logo=Vitest&logoColor=white&style=flat-square">
 </div><br>
 
-<b>WORK IN PROGRESS...</b> https://ask0ldd.github.io/VStreamService/
+<b>WORK IN PROGRESS...</b> Demo at : https://ask0ldd.github.io/VStreamService/
 
 <img src="/public/screenshots/screen1.jpg">
-
-Demo at :
-https://ask0ldd.github.io/VStreamService/
 
 Description & Technical Challenges :
 
@@ -44,3 +41,11 @@ The Home page is displaying three types of custom slideshows :
 - As the user scrolls down the page, the episodes are loaded asynchronously in a manner similar to Twitter.
 
 <img src="/public/screenshots/screen6.jpg">
+
+- Multiple elements displaying the cast behind the production of the selected movie.
+
+<img src="/public/screenshots/screen7.jpg">
+
+- A gallery containing some miniatures opening a custom modale when clicked on.
+
+<img src="/public/screenshots/screen8.jpg">
