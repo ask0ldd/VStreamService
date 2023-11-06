@@ -6,11 +6,11 @@
     <img src="https://img.shields.io/static/v1?label=&message=Vitest&color=646CFF&logo=Vitest&logoColor=white&style=flat-square">
 </div><br>
 
-<b>WORK IN PROGRESS...</b> Demo at : https://ask0ldd.github.io/VStreamService/
+<b>WORK IN PROGRESS... Browser version only ATM.</b> Demo at : https://ask0ldd.github.io/VStreamService/
 
 <img src="/public/screenshots/screen1.jpg">
 
-Description & Technical Challenges :
+<u><b>Description & Technical Challenges :</b></u>
 
 This Application was built using React/Redux and combines some major features of Amazon Prime and IMDb. The datas populating most of the pages have been scraped using a custom pupeteer app, which can be found here : https://github.com/ask0ldd/ScrapIMDB and the Ombd API.
 
@@ -49,3 +49,7 @@ The Home page is displaying three types of custom slideshows :
 - A gallery containing some miniatures opening a custom modale when clicked on.
   <hr>
   <img src="/public/screenshots/screen9.jpg">
+
+- The modal contains a mini gallery at the top.
+
+- The Keyboard Navigation is obviously supported, for accessibility purposes.
