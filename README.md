@@ -25,7 +25,7 @@ The Home page is displaying three types of custom slideshows :
 - The second one is more advanced, featuring cards that open and display a video asynchronously when hovered over. Additionally, the cards automatically center themselves to ensure the video is never cut off.
 
 - The third one displays cards that open vertically, accompanied by a countdown of the remaining time for the user to finish watching the movie. <br>
-  <br><br>
+  <hr>
   <img src="/public/screenshots/screen4.jpg">
 
 - Clicking on a card redirects the user to a page dedicated to the selected TV show or movie.
@@ -33,19 +33,19 @@ The Home page is displaying three types of custom slideshows :
 - An asynchronous trailer is then loaded and played, with the option to activate sound using a button.
 
 - The user can access more information about their show through a submenu with the following items : Episodes, Cast & Crew, Photos, User Reviews.
-  <br><br>
+  <hr>
   <img src="/public/screenshots/screen5.jpg">
 
 - At the bottom of the movie page, a list of episodes is displayed if relevant.
 
 - As the user scrolls down the page, the episodes are loaded asynchronously in a manner similar to Twitter.
-  <br><br>
+  <hr>
   <img src="/public/screenshots/screen6.jpg">
 
 - Multiple elements displaying the cast behind the production of the selected movie.
-  <br><br>
+  <hr>
   <img src="/public/screenshots/screen7.jpg">
 
 - A gallery containing some miniatures opening a custom modale when clicked on.
-  <br><br>
+  <hr>
   <img src="/public/screenshots/screen8.jpg">
