@@ -44,8 +44,8 @@ The Home page is displaying three types of custom slideshows :
 
 - Multiple elements displaying the cast behind the production of the selected movie.
   <hr>
-  <img src="/public/screenshots/screen7.jpg">
+  <img src="/public/screenshots/screen8.jpg">
 
 - A gallery containing some miniatures opening a custom modale when clicked on.
   <hr>
-  <img src="/public/screenshots/screen8.jpg">
+  <img src="/public/screenshots/screen9.jpg">
