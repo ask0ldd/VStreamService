@@ -30,7 +30,7 @@ The Home page is displaying three types of custom slideshows :
 
 - Clicking on a card redirects the user to a page dedicated to the selected TV show or movie.
 
-- An asynchronous trailer is then loaded and played, with the option to activate sound using a button.
+- An <b>asynchronous trailer</b> is then loaded and played, with the option to activate sound using a button.
 
 - The user can access more information about their show through a submenu with the following items : Episodes, Cast & Crew, Photos, User Reviews.
   <hr>
@@ -38,7 +38,7 @@ The Home page is displaying three types of custom slideshows :
 
 - At the bottom of the movie page, a list of episodes is displayed if relevant.
 
-- As the user scrolls down the page, the episodes are loaded asynchronously in a manner similar to Twitter.
+- As the user scrolls down the page, the <b>episodes are loaded asynchronously in a manner similar to Twitter.</b>
   <hr>
   <img src="/public/screenshots/screen6.jpg">
 
@@ -46,10 +46,10 @@ The Home page is displaying three types of custom slideshows :
   <hr>
   <img src="/public/screenshots/screen8.jpg">
 
-- A gallery containing some miniatures opening a custom modale when clicked on.
+- A gallery containing some miniatures <b>opening a custom modale</b> when clicked on.
   <hr>
   <img src="/public/screenshots/screen9.jpg">
 
 - The modal contains a mini gallery at the top.
 
-- The Keyboard Navigation is obviously supported, for accessibility purposes.
+- The <b>Keyboard Navigation</b> is obviously supported, for accessibility purposes.
