@@ -25,7 +25,7 @@ The Home page is displaying three types of custom slideshows :
 - The second one is more advanced, featuring cards that <b>open and display a video asynchronously when hovered over</b>. Additionally, the cards <b>automatically center themselves</b> to ensure the video is never cut off.
 
 - The third one displays cards that open vertically, accompanied by a countdown of the remaining time for the user to finish watching the movie. <br>
-  <hr>
+  <hr style="height:2px">
   <img src="/public/screenshots/screen4.jpg">
 
 - Clicking on a card redirects the user to a page dedicated to the selected TV show or movie.
