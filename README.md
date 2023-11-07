@@ -14,7 +14,7 @@
 
 This Application has been designed with <b>Figma</b> and built using <b><img style="transform:translateY(6px)" src="https://img.shields.io/static/v1?label=&message=React&color=0088CC&logo=React&logoColor=white&style=flat-square"> | <img src="https://img.shields.io/static/v1?label=&message=Redux&color=764ABC&logo=Redux&logoColor=white&style=flat-square"></b>. My goal was to merge the most useful features of <b>Amazon Prime</b> and <b>IMDb</b> into one website. Most datas used to populate the pages have been scraped using <b>a tool I built with the help of <img src="https://img.shields.io/static/v1?label=&message=Puppeteer&color=40B5A4&logo=puppeteer&logoColor=white&style=flat-square"></b> : https://github.com/ask0ldd/ScrapIMDB. Some others come from the <b>Omdb API</b>.
 
-All the Components / Services have been tested using <b><img src="https://img.shields.io/static/v1?label=&message=Vitest&color=646CFF&logo=Vitest&logoColor=white&style=flat-square"></b>, and a <b>100% coverage</b> ratio has been reached. Doing so was especially tricky since I needed to <b>add some new functionalities to the popular JSDOM library to test some of my more complex components.</b>
+All the Components / Services have been tested using <b><img src="https://img.shields.io/static/v1?label=&message=Vitest&color=646CFF&logo=Vitest&logoColor=white&style=flat-square"></b>, with a <b>100% coverage</b> being reached. Doing so was especially tricky since <b>adding some new custom features to the popular JSDOM library was needed in order to test my more complex components.</b>
 
 <b>--- THE HOME PAGE ---</b>
 
