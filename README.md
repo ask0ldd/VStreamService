@@ -6,7 +6,7 @@
     <img src="https://img.shields.io/static/v1?label=&message=Vitest&color=646CFF&logo=Vitest&logoColor=white&style=flat-square">
 </div><br>
 
-<b>WORK IN PROGRESS... Desktop version only atm.</b> Demo at : https://ask0ldd.github.io/VStreamService/
+<b>WORK IN PROGRESS... Only compatible with a 1080p desktop atm. Responsiveness coming later.</b> Demo at : https://ask0ldd.github.io/VStreamService/
 
 <img src="/public/screenshots/screen1.jpg">
 
